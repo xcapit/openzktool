@@ -2,6 +2,11 @@
 
 This repository is a **proof of concept (PoC)** for integrating **Zero-Knowledge Proofs (ZKPs)** into the Stellar ecosystem via Soroban smart contracts.  
 The core aim is to build a bridge between privacy in Stellar and interoperability with zkEVM / external provers.
+=======
+**Zero-Knowledge Privacy Toolkit for Financial Institutions on Stellar/Soroban**
+
+[![License](https://www.gnu.org/graphics/lgplv3-88x31.png)](LICENSE)
+[![Stellar](https://img.shields.io/badge/Stellar-Soroban-brightgreen)](https://soroban.stellar.org)
 
 ---
 
