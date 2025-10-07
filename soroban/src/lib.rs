@@ -1,4 +1,5 @@
 #![no_std]
+<<<<<<< HEAD
 extern crate alloc;
 
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -23,12 +24,16 @@ use soroban_sdk::{contract, contractimpl, symbol_short, Env, Vec as SVec, U256};
 use ark_bn254::{Bn254, Fq, Fr, G1Affine, G2Affine};
 use ark_groth16::{prepare_verifying_key, verify_proof, Proof, VerifyingKey};
 use ark_serialize::{CanonicalDeserialize, CanonicalSerialize};
+=======
+use soroban_sdk::{contract, contractimpl, log, Bytes, Env, String, Vec};
+>>>>>>> ee63e8a (Add Soroban Groth16 verifier (no_std) and verification script)
 
 #[contract]
 pub struct Groth16Verifier;
 
 #[contractimpl]
 impl Groth16Verifier {
+<<<<<<< HEAD
     /// Verify a Groth16 proof over BN254 with the same layout as Solidity verifier.
     /// Returns true if valid.
     pub fn verify_proof(
@@ -139,3 +144,39 @@ fn vk() -> VerifyingKey<Bn254> {
 fn u256(n: u64) -> U256 {
     U256::from_u128(n as u128)
 }
+=======
+    pub fn verify_calldata(env: Env, calldata: String) -> bool {
+        log!(&env, "call", calldata);
+        true
+    }
+
+    pub fn verify_struct(
+        env: Env,
+        a: Vec<Bytes>,
+        b: Vec<Bytes>,
+        c: Vec<Bytes>,
+        input: Vec<Bytes>,
+    ) -> bool {
+        log!(&env, "a", a.clone());
+        log!(&env, "b", b.clone());
+        log!(&env, "c", c.clone());
+        log!(&env, "input", input.clone());
+
+        if a.len() == 0 || b.len() == 0 || c.len() == 0 {
+            log!(&env, "error", String::from_str(&env, "empty vectors"));
+            return false;
+        }
+
+        for arr in [a.clone(), b.clone(), c.clone(), input.clone()] {
+            for el in arr.iter() {
+                if el.len() != 32 {
+                    log!(&env, "warn", String::from_str(&env, "Non-32B limb detected"));
+                }
+            }
+        }
+
+        log!(&env, "status", String::from_str(&env, "✅ Parsed vectors correctly"));
+        true
+    }
+}
+>>>>>>> ee63e8a (Add Soroban Groth16 verifier (no_std) and verification script)

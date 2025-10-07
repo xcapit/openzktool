@@ -1,9 +1,14 @@
 [build]
 target = "wasm32-unknown-unknown"
+<<<<<<< HEAD
 
 [target.wasm32-unknown-unknown]
 rustflags = [
     "-C", "target-feature=-reference-types,+mutable-globals,+nontrapping-fptoint",
     "-C", "link-arg=--no-entry",
     "-C", "link-arg=--export-table",
+=======
+rustflags = [
+  "-C", "target-feature=-reference-types,+mutable-globals,+nontrapping-fptoint"
+>>>>>>> ee63e8a (Add Soroban Groth16 verifier (no_std) and verification script)
 ]
