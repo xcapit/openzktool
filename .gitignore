@@ -77,6 +77,12 @@ temp/
 *.key
 private_keys/
 
+# Web (Next.js)
+web/.next/
+web/out/
+web/node_modules/
+web/.vercel/
+
 # OS
 .DS_Store
 Thumbs.db

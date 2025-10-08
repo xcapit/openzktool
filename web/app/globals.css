@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 14, 39;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #7B61FF 0%, #00D1FF 50%, #00FF94 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-box {
+    box-shadow: 0 0 30px rgba(123, 97, 255, 0.3);
+  }
+
+  .glow-box-green {
+    box-shadow: 0 0 30px rgba(0, 255, 148, 0.3);
+  }
+}
