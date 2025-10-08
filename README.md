@@ -1,181 +1,84 @@
-# Stellar Privacy PoC
+# Stellar Privacy Proof-of-Concept
 
-This repository is a **proof of concept (PoC)** for integrating **Zero-Knowledge Proofs (ZKPs)** into the Stellar ecosystem via Soroban smart contracts.  
-The core aim is to build a bridge between privacy in Stellar and interoperability with zkEVM / external provers.
-=======
-**Zero-Knowledge Privacy Toolkit for Financial Institutions on Stellar/Soroban**
-
-[![License](https://www.gnu.org/graphics/lgplv3-88x31.png)](LICENSE)
-[![Stellar](https://img.shields.io/badge/Stellar-Soroban-brightgreen)](https://soroban.stellar.org)
+This project demonstrates cross-verification of **zero-knowledge credentials** on both **EVM** and **Soroban** smart contracts.  
+It provides circuits, proof generation scripts, and on-chain verifier templates for multi-chain privacy validation.
 
 ---
 
-## 🧭 Goals & Vision
+## 🧠 Concept
 
-- Demonstrate generation and verification of ZK proofs using **Groth16 over BN254**.  
-- Deploy a verifier on **Soroban** (Stellar’s smart contract platform).  
-- Deploy a compatible verifier on **EVM / zkEVM** networks.  
-- Define an interoperable proof format (`ProofEnvelope`) to facilitate cross-chain validation.  
-- Lay the foundation for privacy-preserving finance tools that can span Stellar and Layer‑1/Layer‑2 ecosystems.
+We implement two credential types validated across blockchains:
+
+1. **Age Credential** → proves a user is older than a certain age.
+2. **Solvency Credential** → proves an account’s balance exceeds a minimum threshold.
+
+Each credential is built as a Circom circuit, proved using Groth16, and then verified by both Solidity (EVM) and Rust (Soroban) smart contracts.
 
 ---
 
-## 📂 Repository Structure
+## ⚙️ Project Structure
 
 ```
-stellar-privacy-poc/
-│
-├── circuits/                # ZK circuit definitions, proofs, keys
-│   ├── range_circuit.circom
-│   ├── powersOfTau.ptau
-│   ├── range_setup.zkey
-│   ├── verification_key.json
-│   ├── proof.json
-│   └── public.json
-│
-├── soroban/                 # Soroban smart contracts (Rust / WASM)
-│   ├── Cargo.toml
-│   └── src/
-│       ├── lib.rs
-│       └── verifier.rs
-│
-├── evm/                     # Solidity verifier for zkEVM / EVM
-│   ├── contracts/Verifier.sol
-│   └── hardhat.config.js
-│
-├── scripts/                 # Automation scripts (proof generation & verification)
-│   ├── generate-proof.sh
-│   ├── verify-on-soroban.sh
-│   └── verify-on-evm.sh
-│
-├── docs/
-│   └── ProofEnvelope.md     # spec for interoperable proof format
-│
-└── README.md                # this file
+circuits/              # All Circom circuits and scripts
+├── range_proof.circom         # Age range proof
+├── solvency_check.circom      # Wallet solvency check
+├── compliance_verify.circom   # Country compliance
+├── kyc_transfer.circom        # Combined multi-proof
+├── scripts/
+│   ├── build_all.sh           # Compile all circuits
+│   ├── prove_all.sh           # Generate & verify proofs
+│   └── export_verifiers.sh    # Export Solidity + Soroban verifiers
+evm/
+└── soroban/
 ```
 
 ---
 
-## 🧩 Installing Circom on macOS (M1 / M2 ARM64)
-
-> Circom is the circuit compiler used in this PoC to build zk proofs. On Apple Silicon (ARM64), compiling from source ensures compatibility.
-
-### 1️⃣ Install dependencies
+## 🚀 Build the Circuits
 
 ```bash
-brew install rustup cmake pkg-config libtool autoconf automake nasm
-rustup-init
-source $HOME/.cargo/env
+cd circuits/scripts
+bash build_all.sh
 ```
 
-Ensure you have a sufficiently recent Rust:
+Artifacts are generated in `circuits/artifacts/`.
+
+---
+
+## 🧩 Generate and Verify Proofs
 
 ```bash
-rustup update stable
-rustup default stable
-rustc --version
+bash circuits/scripts/prove_all.sh
 ```
 
-> Requirement: Rust ≥ 1.70
+This will:
+- Generate an input JSON (`artifacts/input.json`)
+- Build a witness
+- Create and verify a Groth16 proof for `kyc_transfer`
 
 ---
 
-### 2️⃣ Clone & build Circom
+## 🔗 Export Verifiers
 
 ```bash
-cd /tmp
-git clone https://github.com/iden3/circom.git
-cd circom
-cargo build --release
+bash circuits/scripts/export_verifiers.sh
 ```
 
-If you run into assembly / NASM / architecture errors, install Rosetta and rebuild:
-
-```bash
-softwareupdate --install-rosetta --agree-to-license
-cargo clean
-cargo build --release
-```
+Outputs:
+- `evm/Verifier.sol` → Solidity verifier (EVM)
+- `soroban/verifier_contract.rs` → Soroban verifier (Rust, no_std)
 
 ---
 
-### 3️⃣ Install the binary
+## 🧱 Next Steps
 
-```bash
-sudo cp target/release/circom /usr/local/bin/
-circom --version
-```
-
-You should see something like:
-
-```
-circom compiler 2.x.x
-```
+- Integrate the Solidity verifier into a contract on Ethereum or Polygon.
+- Deploy the Soroban verifier to the Stellar testnet.
+- Connect both via an off-chain aggregator or cross-chain oracle (future work).
 
 ---
 
-### 4️⃣ Quick test
+## 🪪 License
 
-Validate the installation with a minimal circuit:
-
-```bash
-echo "template Test() { signal input a; signal output b; b <== a*a; } component main = Test();" > test.circom
-circom test.circom --r1cs --wasm
-```
-
-If it outputs `test.r1cs` and `test.wasm`, the installation succeeded ✅.
-
----
-
-### 💡 Alternative (no build)
-
-You may skip source build and install via NPM:
-
-```bash
-npm install -g circom
-```
-
-This version runs under Rosetta on M1/M2, which is slower but more convenient.
-
----
-
-## ⚙️ Quickstart: End‑to‑end flow
-
-1. **Install Circom** per the instructions above.  
-2. **Generate circuit & proof** inside `circuits/`:
-
-   ```bash
-   cd circuits
-   circom range_circuit.circom --r1cs --wasm --sym
-   snarkjs powersoftau new bn128 12 pot12_0000.ptau
-   snarkjs powersoftau contribute pot12_0000.ptau pot12_final.ptau
-   snarkjs groth16 setup range_circuit.r1cs pot12_final.ptau range_setup.zkey
-   snarkjs zkey export verificationkey range_setup.zkey verification_key.json
-   snarkjs groth16 prove range_setup.zkey input.json proof.json public.json
-   ```
-
-3. **Compile & deploy Soroban contract**:
-
-   ```bash
-   cd soroban
-   cargo build --target wasm32-unknown-unknown --release
-   # deploy via soroban CLI
-   ```
-
-4. **Verify the proof**:
-
-   ```bash
-   ./scripts/verify-on-soroban.sh
-   ./scripts/verify-on-evm.sh
-   ```
-
----
-
-## 🔐 License
-
-This project is licensed under **AGPL v3**. See the [LICENSE](LICENSE) file for the complete text.
-
----
-
-© 2025 Xcapit — Blockchain & Privacy Innovation
-
+AGPL-3.0-or-later © Xcapit Labs  
+Contributors: Fernando Boiero and the Xcapit R&D Team

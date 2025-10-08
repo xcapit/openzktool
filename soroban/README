@@ -1,0 +1,52 @@
+# Soroban Groth16 Verifier (BN254)
+
+This contract verifies **Groth16** proofs generated from the Circom circuits in this repository, using the **same input layout** as the EVM Solidity verifier:
+
+```txt
+verify_proof(
+  a: (ax, ay),
+  b: ((bx1, bx2), (by1, by2)),
+  c: (cx, cy),
+  input: Vec<publicSignals>
+) -> bool
+```
+
+## How to provide the real Verifying Key (VK)
+
+1. Generate artifacts (already done by `circuits/scripts/build_all.sh`):
+   ```
+   circuits/artifacts/kyc_transfer_final.zkey
+   circuits/artifacts/kyc_transfer_vkey.json
+   ```
+
+2. (Optional) Re-export the Solidity verifier:
+   ```bash
+   snarkjs zkey export solidityverifier circuits/artifacts/kyc_transfer_final.zkey evm/Verifier.sol
+   ```
+
+3. Export the verification key to JSON:
+   ```bash
+   snarkjs zkey export verificationkey circuits/artifacts/kyc_transfer_final.zkey circuits/artifacts/kyc_transfer_vkey.json
+   ```
+
+4. Convert `kyc_transfer_vkey.json` into Rust constants and paste them into `vk()` in `soroban/src/lib.rs`:
+   - `alpha1`  -> `G1Affine`
+   - `beta2`   -> `G2Affine`
+   - `gamma2`  -> `G2Affine`
+   - `delta2`  -> `G2Affine`
+   - `IC[]`    -> `Vec<G1Affine>`
+
+We recommend a small helper script (see `tools/vkey-json-to-rust.ts`) to print the field elements as U256 and build the required structures.
+
+## Build
+
+```bash
+cd soroban
+soroban contract build
+# or cargo build --release --target wasm32-unknown-unknown
+```
+
+The output Wasm will be in:
+```
+target/wasm32-unknown-unknown/release/soroban_groth16_verifier.wasm
+```

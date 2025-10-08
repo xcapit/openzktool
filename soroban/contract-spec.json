@@ -1,0 +1,73 @@
+[
+  {
+    "type": "function",
+    "doc": "",
+    "name": "verify_calldata",
+    "inputs": [
+      {
+        "doc": "",
+        "name": "calldata",
+        "value": {
+          "type": "string"
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "type": "bool"
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "doc": "",
+    "name": "verify_struct",
+    "inputs": [
+      {
+        "doc": "",
+        "name": "a",
+        "value": {
+          "type": "vec",
+          "element": {
+            "type": "bytes"
+          }
+        }
+      },
+      {
+        "doc": "",
+        "name": "b",
+        "value": {
+          "type": "vec",
+          "element": {
+            "type": "bytes"
+          }
+        }
+      },
+      {
+        "doc": "",
+        "name": "c",
+        "value": {
+          "type": "vec",
+          "element": {
+            "type": "bytes"
+          }
+        }
+      },
+      {
+        "doc": "",
+        "name": "input",
+        "value": {
+          "type": "vec",
+          "element": {
+            "type": "bytes"
+          }
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "type": "bool"
+      }
+    ]
+  }
+]

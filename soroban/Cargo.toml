@@ -1,0 +1,19 @@
+[package]
+name = "soroban_groth16_verifier"
+version = "0.1.0"
+edition = "2021"
+license = "AGPL-3.0-or-later"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+soroban-sdk = { version = "21.0.0", default-features = false } # adjust to your toolchain
+ark-std = { version = "0.4", default-features = false, features = ["alloc"] }
+ark-serialize = { version = "0.4", default-features = false, features = ["derive"] }
+ark-bn254 = { version = "0.4", default-features = false }
+ark-groth16 = { version = "0.4", default-features = false }
+hex = { version = "0.4", default-features = false }
+
+[features]
+default = ["soroban-sdk/testutils"] # remove for production if you want
