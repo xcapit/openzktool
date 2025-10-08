@@ -22,5 +22,9 @@
   "homepage": "https://github.com/xcapit/stellar-privacy-poc#readme",
   "devDependencies": {
     "snarkjs": "github:iden3/snarkjs"
+  },
+  "dependencies": {
+    "circomlib": "^2.0.5",
+    "circomlibjs": "^0.1.7"
   }
 }

@@ -1,17 +1,18 @@
 pragma circom 2.1.9;
-include "range_proof.circom";
-include "solvency_check.circom";
-include "compliance_verify.circom";
+
+include "./range_proof.circom";
+include "./solvency_check.circom";
+include "./compliance_verify.circom";
 
 /**
  * KYCTransfer
- * Combines three proofs:
- *  - RangeProof: ensures user age is within valid range
- *  - SolvencyCheck: ensures wallet balance >= minimum required
- *  - ComplianceVerify: ensures country is allowed
+ * Combina tres pruebas:
+ *  - RangeProof: verifica que la edad esté en un rango válido
+ *  - SolvencyCheck: verifica que el balance sea >= mínimo
+ *  - ComplianceVerify: verifica que el país esté permitido
  */
 template KYCTransfer() {
-    // Inputs for each subcircuit
+    // Entradas para cada subcircuito
     signal input age;
     signal input minAge;
     signal input maxAge;
@@ -19,7 +20,7 @@ template KYCTransfer() {
     signal input minBalance;
     signal input countryId;
 
-    // Components
+    // Componentes
     component ageProof = RangeProof();
     ageProof.value <== age;
     ageProof.lowerBound <== minAge;
@@ -32,15 +33,11 @@ template KYCTransfer() {
     component compliance = ComplianceVerify(32);
     compliance.countryId <== countryId;
 
-    // Output: valid if all 3 are valid
-    
-   // Output: valid if all 3 are valid
+    // Salida: válida si las tres condiciones se cumplen
     signal tmp;
     tmp <== ageProof.valid * solvency.valid;
     signal output kycValid;
     kycValid <== tmp * compliance.isAllowed;
-
-   
 }
 
 component main = KYCTransfer();

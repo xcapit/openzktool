@@ -1,4 +1,3 @@
-```gitignore
 # Node
 node_modules/
 npm-debug.log*
@@ -10,11 +9,30 @@ yarn.lock
 # Build outputs
 dist/
 build/
+
+# Circom/zkSNARK artifacts (large binary files)
 *.wasm
 *.zkey
 *.r1cs
 *.sym
 *.ptau
+*.wtns
+
+# Generated artifacts directory (keep structure, ignore binaries)
+circuits/artifacts/*.wasm
+circuits/artifacts/*.zkey
+circuits/artifacts/*.r1cs
+circuits/artifacts/*.sym
+circuits/artifacts/*.ptau
+circuits/artifacts/*.wtns
+circuits/artifacts/*_js/
+circuits/artifacts/pot*
+
+# Keep these important files (verification keys, proofs for demo)
+!circuits/artifacts/*_vkey.json
+!circuits/artifacts/proof.json
+!circuits/artifacts/public.json
+!circuits/artifacts/input.json
 
 # Circuits build artifacts
 circuits/simple_proof_js/
@@ -22,10 +40,11 @@ circuits/*.json
 circuits/pot*.ptau
 circuits/simple_proof_*.zkey
 
-# Soroban
-target/
-Cargo.lock
-*.wasm
+# EVM/Soroban compiled contracts (keep source, ignore build)
+circuits/evm/*.json
+!circuits/evm/Verifier.sol
+soroban/target/
+soroban/Cargo.lock
 
 # Environment
 .env
@@ -57,3 +76,7 @@ temp/
 *.secret
 *.key
 private_keys/
+
+# OS
+.DS_Store
+Thumbs.db
