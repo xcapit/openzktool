@@ -392,8 +392,7 @@ This program is free software: you can redistribute it and/or modify it under th
 ## 👥 Credits
 
 **Developed by:**
-- Fernando Boiero - Lead Developer, Xcapit Labs
-- Xcapit R&D Team
+- Team X1 - Xcapit Labs
 
 **Built with:**
 - [Circom](https://docs.circom.io/) - Circuit compiler
