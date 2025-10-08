@@ -1,7 +1,7 @@
 {
-  "name": "stellar-privacy-poc",
+  "name": "zkprivacy-poc",
   "version": "1.0.0",
-  "description": "<<<<<<< HEAD **Zero-Knowledge Privacy Toolkit for Financial Institutions on Stellar/Soroban**",
+  "description": "ZKPrivacy - Interoperable Zero-Knowledge Privacy Toolkit for Blockchain",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -13,9 +13,18 @@
     "type": "git",
     "url": "git+https://github.com/xcapit/stellar-privacy-poc.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "zero-knowledge",
+    "privacy",
+    "groth16",
+    "zk-snarks",
+    "circom",
+    "multi-chain",
+    "soroban",
+    "ethereum"
+  ],
+  "author": "Team X1 - Xcapit Labs",
+  "license": "AGPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/xcapit/stellar-privacy-poc/issues"
   },

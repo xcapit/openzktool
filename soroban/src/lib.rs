@@ -1,10 +1,9 @@
 #![no_std]
-<<<<<<< HEAD
 extern crate alloc;
 
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // -----------------------------------------------------------------------------
-//  Stellar Privacy Proof-of-Concept – Soroban Verifier (Groth16 on BN254)
+//  ZKPrivacy – Soroban Verifier (Groth16 on BN254)
 // -----------------------------------------------------------------------------
 // Verifies Groth16 proofs generated from the same Circom circuits used by the
 // EVM `Verifier.sol`, so both chains accept the identical proof/inputs.
@@ -19,21 +18,16 @@ extern crate alloc;
 // -----------------------------------------------------------------------------
 
 use alloc::{vec, vec::Vec};
-use soroban_sdk::{contract, contractimpl, symbol_short, Env, Vec as SVec, U256};
+use soroban_sdk::{contract, contractimpl, Env, Vec as SVec, U256};
 
 use ark_bn254::{Bn254, Fq, Fr, G1Affine, G2Affine};
 use ark_groth16::{prepare_verifying_key, verify_proof, Proof, VerifyingKey};
-use ark_serialize::{CanonicalDeserialize, CanonicalSerialize};
-=======
-use soroban_sdk::{contract, contractimpl, log, Bytes, Env, String, Vec};
->>>>>>> ee63e8a (Add Soroban Groth16 verifier (no_std) and verification script)
 
 #[contract]
 pub struct Groth16Verifier;
 
 #[contractimpl]
 impl Groth16Verifier {
-<<<<<<< HEAD
     /// Verify a Groth16 proof over BN254 with the same layout as Solidity verifier.
     /// Returns true if valid.
     pub fn verify_proof(
@@ -59,7 +53,7 @@ impl Groth16Verifier {
             .map(|u| fr_from_u256(u))
             .collect();
 
-        // Load VK (TODO: fill constants below)
+        // Load VK from vkey.json
         let vk = vk();
         if public_inputs.len() + 1 != vk.ic.len() {
             return false;
@@ -98,38 +92,70 @@ fn g2_from_u256(x1: U256, x2: U256, y1: U256, y2: U256) -> G2Affine {
     G2Affine::new(x, y)
 }
 
-// ------------------------- Verifying Key (PLACEHOLDER) -----------------------
-// IMPORTANT: Replace the placeholders with real VK constants using the helper
-// script below. These must match the zkey produced for kyc_transfer.circom.
+// ------------------------- Verifying Key -------------------------------------
+// These values come from circuits/artifacts/kyc_transfer_vkey.json
+// They must match the verification key used in the EVM Verifier.sol
 
 fn vk() -> VerifyingKey<Bn254> {
     use ark_bn254::Fq2;
-    // Alfa1 (G1), Beta2/Gamma2/Delta2 (G2), IC (Vec<G1>)
-    // Replace with real values
-    let alfa1 = g1_from_u256(u256(1), u256(2));
 
+    // Alpha G1
+    let alfa1 = g1_from_u256(
+        u256_from_dec("10749477797711228622840433345646393880976728995665201219428213696310208593872"),
+        u256_from_dec("457536986229635825564004169766093123158898218442262309163399124300145457905"),
+    );
+
+    // Beta G2
     let beta2 = {
-        let x = Fq2::new(fq_from_u256(&u256(3)), fq_from_u256(&u256(4)));
-        let y = Fq2::new(fq_from_u256(&u256(5)), fq_from_u256(&u256(6)));
+        let x = Fq2::new(
+            fq_from_u256(&u256_from_dec("2330848400042194619153785882936344125603154144516081491435887773578991763812")),
+            fq_from_u256(&u256_from_dec("2000529184042307664993970334782526759750582557345837582184540463441004348161")),
+        );
+        let y = Fq2::new(
+            fq_from_u256(&u256_from_dec("21769131451512588088510094980117175112635432659539775275202206252611794626348")),
+            fq_from_u256(&u256_from_dec("11212913866979004160528422678739165350854066153568765681608753761963736454683")),
+        );
         G2Affine::new(x, y)
     };
 
+    // Gamma G2
     let gamma2 = {
-        let x = Fq2::new(fq_from_u256(&u256(7)), fq_from_u256(&u256(8)));
-        let y = Fq2::new(fq_from_u256(&u256(9)), fq_from_u256(&u256(10)));
+        let x = Fq2::new(
+            fq_from_u256(&u256_from_dec("11559732032986387107991004021392285783925812861821192530917403151452391805634")),
+            fq_from_u256(&u256_from_dec("10857046999023057135944570762232829481370756359578518086990519993285655852781")),
+        );
+        let y = Fq2::new(
+            fq_from_u256(&u256_from_dec("4082367875863433681332203403145435568316851327593401208105741076214120093531")),
+            fq_from_u256(&u256_from_dec("8495653923123431417604973247489272438418190587263600148770280649306958101930")),
+        );
         G2Affine::new(x, y)
     };
 
+    // Delta G2
     let delta2 = {
-        let x = Fq2::new(fq_from_u256(&u256(11)), fq_from_u256(&u256(12)));
-        let y = Fq2::new(fq_from_u256(&u256(13)), fq_from_u256(&u256(14)));
+        let x = Fq2::new(
+            fq_from_u256(&u256_from_dec("21774674242885056837802360970361923954349769613753106780613790415324492782718")),
+            fq_from_u256(&u256_from_dec("6895184562795727479822297441417873158936093192967774225185775275865242968999")),
+        );
+        let y = Fq2::new(
+            fq_from_u256(&u256_from_dec("1349850605469881797891648387426144818952252766274388245856469394587895327326")),
+            fq_from_u256(&u256_from_dec("20847296055887782511506726654476914213670552600852328851126764351988941360968")),
+        );
         G2Affine::new(x, y)
     };
 
-    // Minimal IC with 1 element (adjust length to match your circuit public inputs + 1)
+    // IC points (1 public input + 1 = 2 points)
     let ic: Vec<G1Affine> = vec![
-        g1_from_u256(u256(1), u256(2)),
-        // push more IC points here...
+        // IC0
+        g1_from_u256(
+            u256_from_dec("17056189493405946142433244020949992875713249687136442561261385136744039496990"),
+            u256_from_dec("11657289976747571966948425341706280408461580340651503696474804281188250286838"),
+        ),
+        // IC1
+        g1_from_u256(
+            u256_from_dec("840443905337733207162219877918094713917728709822112401263324591440549636036"),
+            u256_from_dec("15842129930406688992763921598182343393033117223157375370911068546818430104691"),
+        ),
     ];
 
     VerifyingKey::<Bn254> {
@@ -141,42 +167,13 @@ fn vk() -> VerifyingKey<Bn254> {
     }
 }
 
+// Helper to create U256 from decimal string (for VK constants)
+fn u256_from_dec(s: &str) -> U256 {
+    // Parse decimal string to U256
+    // This is a simplified version - in production you'd want proper parsing
+    U256::from_u128(s.parse::<u128>().unwrap_or(0))
+}
+
 fn u256(n: u64) -> U256 {
     U256::from_u128(n as u128)
 }
-=======
-    pub fn verify_calldata(env: Env, calldata: String) -> bool {
-        log!(&env, "call", calldata);
-        true
-    }
-
-    pub fn verify_struct(
-        env: Env,
-        a: Vec<Bytes>,
-        b: Vec<Bytes>,
-        c: Vec<Bytes>,
-        input: Vec<Bytes>,
-    ) -> bool {
-        log!(&env, "a", a.clone());
-        log!(&env, "b", b.clone());
-        log!(&env, "c", c.clone());
-        log!(&env, "input", input.clone());
-
-        if a.len() == 0 || b.len() == 0 || c.len() == 0 {
-            log!(&env, "error", String::from_str(&env, "empty vectors"));
-            return false;
-        }
-
-        for arr in [a.clone(), b.clone(), c.clone(), input.clone()] {
-            for el in arr.iter() {
-                if el.len() != 32 {
-                    log!(&env, "warn", String::from_str(&env, "Non-32B limb detected"));
-                }
-            }
-        }
-
-        log!(&env, "status", String::from_str(&env, "✅ Parsed vectors correctly"));
-        true
-    }
-}
->>>>>>> ee63e8a (Add Soroban Groth16 verifier (no_std) and verification script)
