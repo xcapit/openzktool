@@ -81,4 +81,4 @@ Outputs:
 ## 🪪 License
 
 AGPL-3.0-or-later © Xcapit Labs  
-Contributors: Fernando Boiero and the Xcapit R&D Team
+Contributors: Xcapit R&D Team
