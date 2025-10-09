@@ -1,58 +1,58 @@
 export default function Roadmap() {
   const phases = [
     {
-      phase: "Phase 1: Foundation",
+      phase: "POC: Proof of Concept",
       status: "completed",
-      quarter: "Q4 2024",
+      quarter: "Pre-Grant",
       items: [
         { title: "Core ZK Circuit Library", done: true, desc: "KYC Transfer, Range Proofs, Solvency Checks" },
-        { title: "Multi-Chain Verifiers", done: true, desc: "EVM (Solidity) and Soroban (Rust) implementations" },
+        { title: "Multi-Chain Verifiers", done: true, desc: "EVM (Solidity) and Soroban (Rust) testnet" },
         { title: "Demo Scripts & Documentation", done: true, desc: "Complete educational materials and examples" },
-        { title: "Open Source Release", done: true, desc: "AGPL-3.0 license, GitHub repository" }
+        { title: "Open Source Release", done: true, desc: "AGPL-3.0 license, GitHub repository, Web demo" }
       ]
     },
     {
-      phase: "Phase 2: SDK Development",
-      status: "in-progress",
-      quarter: "Q1 2025",
+      phase: "Tranche 1: MVP Development",
+      status: "grant-funded",
+      quarter: "Months 1-5 ($60K)",
       items: [
-        { title: "TypeScript SDK", done: true, desc: "Easy-to-use API for proof generation and verification" },
-        { title: "Circuit Template Library", done: false, desc: "Pre-built circuits for common use cases" },
-        { title: "Web UI Components", done: false, desc: "React components for proof generation" },
-        { title: "Testing Framework", done: false, desc: "Automated testing for circuits and proofs" }
+        { title: "Production ZK Circuits", done: false, desc: "Private transactions, balance proofs, counterparty masking" },
+        { title: "Soroban Smart Contracts", done: false, desc: "Production verification contracts with gas optimization" },
+        { title: "JavaScript/TypeScript SDK", done: false, desc: "Easy-to-use SDK with WASM/browser support" },
+        { title: "Complete Documentation", done: false, desc: "API reference, integration guides, tutorials" }
       ]
     },
     {
-      phase: "Phase 3: Advanced Features",
+      phase: "Tranche 2: Testnet & Pilots",
+      status: "grant-funded",
+      quarter: "Month 6 ($15K)",
+      items: [
+        { title: "Pilot Partner Integration", done: false, desc: "Onboard 2 pilot partners on testnet" },
+        { title: "Banking Integration Layer", done: false, desc: "KYC/AML compliance interface and audit disclosures" },
+        { title: "Compliance Dashboard", done: false, desc: "Audit trails, proof verification, monitoring" },
+        { title: "Security Audit", done: false, desc: "Independent audit of circuits and contracts" }
+      ]
+    },
+    {
+      phase: "Tranche 3: Mainnet Launch",
+      status: "grant-funded",
+      quarter: "Month 6 ($5K)",
+      items: [
+        { title: "Mainnet Deployment", done: false, desc: "Deploy verification contracts on Soroban mainnet" },
+        { title: "Production Release", done: false, desc: "Final audit reports, documentation, demo videos" },
+        { title: "Ecosystem Growth", done: false, desc: "Onboard 5+ partners on mainnet (first 3 months)" },
+        { title: "Ongoing Support", done: false, desc: "Developer community, maintenance, updates" }
+      ]
+    },
+    {
+      phase: "Future: Advanced Features",
       status: "planned",
-      quarter: "Q2 2025",
+      quarter: "Post-Grant",
       items: [
-        { title: "Recursive Proofs", done: false, desc: "Compose multiple proofs efficiently" },
-        { title: "Merkle Tree Integration", done: false, desc: "Privacy-preserving set membership" },
-        { title: "Signature Verification Circuits", done: false, desc: "ECDSA/EdDSA in zero-knowledge" },
-        { title: "Mobile SDK", done: false, desc: "iOS and Android native support" }
-      ]
-    },
-    {
-      phase: "Phase 4: Ecosystem Expansion",
-      status: "grant-funded",
-      quarter: "Q3 2025",
-      items: [
-        { title: "Cross-Chain Proof Aggregation", done: false, desc: "Verify multiple chain states in one proof" },
-        { title: "Privacy-Preserving Bridges", done: false, desc: "Private asset transfers between chains" },
-        { title: "Compliance Oracle Integration", done: false, desc: "Real-time regulatory data feeds" },
-        { title: "zkML Integration", done: false, desc: "Private machine learning inference" }
-      ]
-    },
-    {
-      phase: "Phase 5: Production & Scale",
-      status: "grant-funded",
-      quarter: "Q4 2025",
-      items: [
-        { title: "Production Trusted Setup Ceremony", done: false, desc: "Multi-party computation with 100+ participants" },
-        { title: "Formal Security Audit", done: false, desc: "Third-party circuit and smart contract audit" },
-        { title: "Performance Optimizations", done: false, desc: "Hardware acceleration, WASM optimization" },
-        { title: "Enterprise Support", done: false, desc: "SLA, custom circuit development, integration help" }
+        { title: "Mobile SDK Integration", done: false, desc: "iOS and Android native support" },
+        { title: "Advanced Circuit Library", done: false, desc: "Merkle proofs, signatures, recursive proofs" },
+        { title: "Cross-Chain Aggregation", done: false, desc: "Verify multiple chain states in one proof" },
+        { title: "zkEVM Integration", done: false, desc: "Full smart contract privacy on EVM chains" }
       ]
     }
   ]
@@ -89,12 +89,13 @@ export default function Roadmap() {
           </p>
 
           {/* Grant highlight */}
-          <div className="inline-block p-6 rounded-xl border-2 border-stellar-purple bg-gradient-to-br from-stellar-dark to-black glow-box">
+          <div className="inline-block p-6 rounded-xl border-2 border-zk-green bg-gradient-to-br from-stellar-dark to-black glow-box">
             <div className="flex items-center gap-4">
-              <div className="text-5xl">🎯</div>
+              <div className="text-5xl">✅</div>
               <div className="text-left">
-                <h3 className="text-2xl font-bold text-gradient mb-1">Grant Application Submitted</h3>
-                <p className="text-gray-400">Phases 4-5 will be funded through the Stellar Community Fund grant</p>
+                <h3 className="text-2xl font-bold text-gradient mb-1">SCF Build Award Approved - $80,000</h3>
+                <p className="text-gray-400">6-month development roadmap funded by Stellar Community Fund</p>
+                <p className="text-sm text-stellar-purple mt-2">Infrastructure & Services / Developer Tools</p>
               </div>
             </div>
           </div>
@@ -149,57 +150,86 @@ export default function Roadmap() {
 
         {/* Grant impact section */}
         <div className="mt-16 p-8 rounded-xl border-2 border-stellar-purple bg-gradient-to-br from-stellar-purple to-stellar-blue bg-opacity-10">
-          <h3 className="text-3xl font-bold mb-6 text-center">Grant Impact & Vision</h3>
+          <h3 className="text-3xl font-bold mb-6 text-center">Project Impact & Success Criteria</h3>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h4 className="text-xl font-bold mb-4 text-stellar-blue">What the Grant Enables</h4>
+              <h4 className="text-xl font-bold mb-4 text-stellar-blue">Deliverables</h4>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <span className="text-zk-green text-xl">✓</span>
-                  <span className="text-gray-300"><strong>Cross-Chain Privacy:</strong> Prove state across Stellar, Ethereum, and L2s in a single proof</span>
+                  <span className="text-gray-300"><strong>Production ZK Circuits:</strong> Private transactions, balance proofs, counterparty masking</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-zk-green text-xl">✓</span>
-                  <span className="text-gray-300"><strong>Advanced Cryptography:</strong> Recursive proofs, zkML, privacy-preserving bridges</span>
+                  <span className="text-gray-300"><strong>Soroban Contracts:</strong> Mainnet-ready verification contracts with gas optimization</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-zk-green text-xl">✓</span>
-                  <span className="text-gray-300"><strong>Production Ready:</strong> Security audits, formal verification, trusted setup ceremony</span>
+                  <span className="text-gray-300"><strong>JS/TS SDK:</strong> Complete developer toolkit with documentation</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-zk-green text-xl">✓</span>
-                  <span className="text-gray-300"><strong>Enterprise Features:</strong> Custom circuits, integration support, SLA guarantees</span>
+                  <span className="text-gray-300"><strong>Banking Integration:</strong> KYC/AML compliance layer and audit interface</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-zk-green text-xl">✓</span>
+                  <span className="text-gray-300"><strong>Security Audit:</strong> Independent audit of circuits and contracts</span>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h4 className="text-xl font-bold mb-4 text-stellar-blue">Long-Term Vision</h4>
+              <h4 className="text-xl font-bold mb-4 text-stellar-blue">Success Metrics</h4>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <span className="text-stellar-purple text-xl">🎯</span>
-                  <span className="text-gray-300">Become the de-facto privacy SDK for multi-chain applications</span>
+                  <span className="text-gray-300"><strong>5+ ecosystem partners</strong> onboarded on mainnet within 3 months</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-stellar-purple text-xl">🎯</span>
-                  <span className="text-gray-300">Enable privacy-first DeFi protocols across all major chains</span>
+                  <span className="text-gray-300"><strong>2 pilot partners</strong> testing on testnet before mainnet launch</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-stellar-purple text-xl">🎯</span>
-                  <span className="text-gray-300">Support 100,000+ daily proof verifications by end of 2025</span>
+                  <span className="text-gray-300">Enable <strong>TradFi institutional adoption</strong> of Stellar</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-stellar-purple text-xl">🎯</span>
-                  <span className="text-gray-300">Build the largest open-source ZK circuit library in the ecosystem</span>
+                  <span className="text-gray-300">Support <strong>cross-border B2B payments</strong> with privacy</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-stellar-purple text-xl">🎯</span>
+                  <span className="text-gray-300">Build largest <strong>open-source ZK circuit library</strong></span>
                 </li>
               </ul>
             </div>
           </div>
 
+          <div className="mt-8 pt-8 border-t border-gray-600">
+            <h4 className="text-2xl font-bold mb-4 text-center text-gradient">Why This Matters for Stellar</h4>
+            <div className="grid md:grid-cols-3 gap-6 mt-6">
+              <div className="text-center">
+                <div className="text-4xl mb-3">🏦</div>
+                <h5 className="font-bold mb-2">Institutional Adoption</h5>
+                <p className="text-gray-400 text-sm">Enable financial institutions to use Stellar for private transactions</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl mb-3">📈</div>
+                <h5 className="font-bold mb-2">Network Growth</h5>
+                <p className="text-gray-400 text-sm">Increase transaction volume and bring liquidity to the ecosystem</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl mb-3">🔐</div>
+                <h5 className="font-bold mb-2">Compliance Feature</h5>
+                <p className="text-gray-400 text-sm">Turn regulatory compliance into a competitive advantage</p>
+              </div>
+            </div>
+          </div>
+
           <div className="mt-8 text-center">
             <p className="text-lg text-gray-300 mb-4">
-              <strong>Help us build the future of privacy-preserving blockchain applications</strong>
+              <strong>Join us in building privacy infrastructure for the future of finance</strong>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

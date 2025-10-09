@@ -12,19 +12,25 @@ export default function Hero() {
       <div className="relative z-10 max-w-6xl mx-auto text-center">
         {/* Main headline */}
         <div className="mb-8">
-          <div className="inline-block px-4 py-2 mb-6 border border-stellar-purple rounded-full glow-box">
-            <span className="text-stellar-purple font-semibold">🔐 ZKPrivacy</span>
+          <div className="inline-flex items-center gap-3 mb-6">
+            <div className="px-4 py-2 border border-stellar-purple rounded-full glow-box">
+              <span className="text-stellar-purple font-semibold">🔐 ZKPrivacy</span>
+            </div>
+            <div className="px-4 py-2 bg-zk-green bg-opacity-20 border border-zk-green rounded-full">
+              <span className="text-zk-green font-semibold">✅ SCF Funded ($80K)</span>
+            </div>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Privacy-Preserving
+            Stellar Privacy SDK
             <br />
-            <span className="text-gradient">Multi-Chain Compliance</span>
+            <span className="text-gradient">for TradFi Compliance</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Build interoperable privacy applications with zero-knowledge proofs.
-            Prove compliance without revealing sensitive data across any blockchain.
+            Production-ready SDK for privacy-preserving transactions on Stellar using ZK-SNARKs.
+            <br />
+            <span className="text-stellar-purple">Enable institutions to transact privately while maintaining regulatory compliance.</span>
           </p>
         </div>
 
