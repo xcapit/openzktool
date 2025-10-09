@@ -91,6 +91,23 @@ npm run demo:soroban  # Verify on Soroban only
 
 ---
 
+## 🎥 Video Demo
+
+**Watch the complete demo in action:**
+
+[![ZKPrivacy Demo Video](https://img.shields.io/badge/▶️_Watch_Demo-Google_Drive-red?style=for-the-badge)](https://drive.google.com/file/d/1SSQCAanCcpsVqp4rNuM3Vh6triRtknzt/view?usp=sharing)
+
+This video shows the full execution of `DEMO_AUTO=1 bash demo_video.sh`, including:
+- 🔐 Zero-knowledge proof generation with live logs
+- ⛓️  Ethereum verification with Foundry (forge test output)
+- 🌟 Stellar/Soroban verification with Docker deployment
+- ✅ Real blockchain evidence from both chains
+- 📊 Complete multi-chain interoperability demonstration
+
+**Duration:** ~7 minutes | **Perfect for:** Understanding how everything works end-to-end
+
+---
+
 ## 📚 Documentation
 
 **Complete technical documentation is available in the `/docs` folder:**
