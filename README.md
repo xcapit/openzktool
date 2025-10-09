@@ -607,6 +607,77 @@ The full Stellar Privacy SDK will include:
 
 ---
 
+## 🌍 Digital Public Good (DPG) Compliance
+
+ZKPrivacy cumple con los estándares de **Digital Public Goods Alliance (DPGA)** para ser reconocido como un Bien Público Digital que contribuye a los Objetivos de Desarrollo Sostenible (SDGs) de la ONU.
+
+### ✅ DPG Standard - 9 Indicadores
+
+| Indicador | Requisito | Evidencia | Status |
+|-----------|-----------|-----------|--------|
+| **1. SDG Relevance** | Alineación con SDGs | [SDG_MAPPING.md](./SDG_MAPPING.md) | ✅ Completo |
+| **2. Open License** | Licencia open source aprobada | [LICENSE](./LICENSE) (AGPL-3.0) | ✅ Completo |
+| **3. Clear Ownership** | Propiedad definida | Team X1 - Xcapit Labs | ✅ Completo |
+| **4. Platform Independence** | Sin vendor lock-in | [PLATFORM_INDEPENDENCE.md](./PLATFORM_INDEPENDENCE.md) | ✅ Completo |
+| **5. Documentation** | Documentación técnica | [docs/](./docs/) | ✅ Completo |
+| **6. Non-PII Data** | Extracción de datos no-PII | Proofs sin PII, formatos abiertos | ✅ Completo |
+| **7. Privacy & Legal** | Compliance con leyes | [PRIVACY.md](./PRIVACY.md) | ✅ Completo |
+| **8. Open Standards** | Estándares abiertos | Groth16, Circom, Solidity, Rust | ✅ Completo |
+| **9. Do No Harm** | Políticas de protección | [DO_NO_HARM.md](./DO_NO_HARM.md) | ✅ Completo |
+
+### 🎯 Contribución a SDGs
+
+ZKPrivacy contribuye directamente a:
+
+- **SDG 9:** Industria, Innovación e Infraestructura
+  - Infraestructura de privacidad open source para blockchains
+  - Innovación en tecnología financiera con ZK-SNARKs
+  - Interoperabilidad multi-chain
+
+- **SDG 10:** Reducción de las Desigualdades
+  - Privacidad financiera accesible para todos (no solo instituciones)
+  - Previene discriminación basada en datos personales
+  - Inclusión de 1.7 mil millones de no bancarizados
+
+- **SDG 16:** Paz, Justicia e Instituciones Sólidas
+  - Transparencia con privacidad (selective disclosure para reguladores)
+  - Protección de libertades fundamentales (privacidad financiera)
+  - Instituciones responsables y auditables
+
+- **SDG 8:** Trabajo Decente y Crecimiento Económico
+  - Nuevas oportunidades económicas en DeFi privado
+  - Acceso a servicios financieros (microcrédito, remesas)
+  - Empodera emprendedores con infraestructura gratuita
+
+**Detalles completos:** [SDG_MAPPING.md](./SDG_MAPPING.md)
+
+### 📋 Documentación de Compliance
+
+| Documento | Descripción | Link |
+|-----------|-------------|------|
+| **CODE_OF_CONDUCT.md** | Código de conducta de la comunidad | [Ver](./CODE_OF_CONDUCT.md) |
+| **SDG_MAPPING.md** | Alineación con Objetivos de Desarrollo Sostenible | [Ver](./SDG_MAPPING.md) |
+| **PRIVACY.md** | Política de privacidad y protección de datos | [Ver](./PRIVACY.md) |
+| **PLATFORM_INDEPENDENCE.md** | Independencia de plataforma y alternativas | [Ver](./PLATFORM_INDEPENDENCE.md) |
+| **DO_NO_HARM.md** | Política "Do No Harm by Design" | [Ver](./DO_NO_HARM.md) |
+| **LICENSE** | Licencia open source (AGPL-3.0) | [Ver](./LICENSE) |
+| **SECURITY.md** | Políticas de seguridad y reporte de vulnerabilidades | [Ver](./SECURITY.md) |
+
+### 🏆 Aplicación a DPGA Registry
+
+**Status:** En preparación para submission
+
+**Próximos pasos:**
+1. ✅ Completar documentación de compliance (hecho)
+2. 🔜 Auditoría profesional de seguridad (Q2 2025)
+3. 🔜 Submission formal a DPGA
+4. 🔜 Revisión técnica por DPGA (30 días)
+5. 🔜 Inclusión en DPG Registry
+
+**Más información:** https://digitalpublicgoods.net/submission-guide
+
+---
+
 ## 🔒 Security Considerations
 
 ### Trusted Setup
