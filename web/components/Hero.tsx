@@ -16,8 +16,8 @@ export default function Hero() {
             <div className="px-4 py-2 border border-stellar-purple rounded-full glow-box">
               <span className="text-stellar-purple font-semibold">🔐 ZKPrivacy</span>
             </div>
-            <div className="px-4 py-2 bg-zk-green bg-opacity-20 border border-zk-green rounded-full">
-              <span className="text-zk-green font-semibold">✅ SCF Funded ($80K)</span>
+            <div className="px-4 py-2 bg-stellar-blue bg-opacity-20 border border-stellar-blue rounded-full">
+              <span className="text-stellar-blue font-semibold">📋 SCF #40 Proposal</span>
             </div>
           </div>
 

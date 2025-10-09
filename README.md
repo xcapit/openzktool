@@ -3,7 +3,7 @@
 **Stellar Privacy SDK — Zero-Knowledge Proof Toolkit for TradFi**
 
 > *Project Name:* **Stellar Privacy SDK** | *Brand:* **ZKPrivacy**
-> *Status:* **Proof of Concept** | *Grant:* **SCF Build Award ($80,000)** | *Duration:* **6 months**
+> *Status:* **Proof of Concept** | *Grant Proposal:* **SCF #40 Build Award** | *Duration:* **6 months**
 
 A production-ready SDK enabling developers, retail partners, and financial institutions to execute **privacy-preserving transactions** on Stellar using **ZK-SNARKs** — with full regulatory compliance and auditability for real-world institutional use.
 
@@ -457,7 +457,7 @@ Before production use:
 - [x] Educational documentation
 - [x] Web landing page (zkprivacy.vercel.app)
 
-### 🔨 Tranche 1: MVP Development (Months 1-5) — $60,000
+### 🔨 Tranche 1: MVP Development (Months 1-5)
 
 **Production ZK Circuits:**
 - [ ] Private transaction circuits (amount hiding)
@@ -483,7 +483,7 @@ Before production use:
 - [ ] Developer tutorials
 - [ ] Architecture documentation
 
-### 🏦 Tranche 2: Testnet & Pilot Integration (Month 6) — $15,000
+### 🏦 Tranche 2: Testnet & Pilot Integration (Month 6)
 
 **Pilot Partner Integration:**
 - [ ] Onboard 2 pilot partners on testnet
@@ -507,7 +507,7 @@ Before production use:
 - [ ] Penetration testing
 - [ ] Fix identified issues
 
-### 🚀 Tranche 3: Mainnet Launch & Scaling (Month 6) — $5,000
+### 🚀 Tranche 3: Mainnet Launch & Scaling (Month 6)
 
 **Mainnet Deployment:**
 - [ ] Deploy verification contracts on Soroban mainnet
@@ -581,18 +581,18 @@ This program is free software: you can redistribute it and/or modify it under th
 
 ---
 
-## 💰 Funding
+## 💰 Grant Proposal
 
-**Stellar Community Fund - Build Award**
-- **Amount:** $80,000 USD
+**Stellar Community Fund #40 - Build Award**
+- **Category:** Infrastructure & Services / Developer Tools
 - **Duration:** 6 months
-- **Type:** Infrastructure & Services / Developer Tools
-- **Status:** Approved
+- **Status:** Proposed
+- **Type:** Privacy SDK for TradFi
 
-**Tranche Structure:**
-1. **Tranche 1 (Months 1-5):** $60,000 — MVP Development
-2. **Tranche 2 (Month 6):** $15,000 — Testnet & Pilot Integration
-3. **Tranche 3 (Month 6):** $5,000 — Mainnet Launch & Scaling
+**Proposed Tranche Structure:**
+1. **Tranche 1 (Months 1-5):** MVP Development
+2. **Tranche 2 (Month 6):** Testnet & Pilot Integration
+3. **Tranche 3 (Month 6):** Mainnet Launch & Scaling
 
 **Success Criteria:**
 - Production-ready ZK circuits and Soroban contracts

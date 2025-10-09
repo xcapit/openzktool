@@ -14,7 +14,7 @@ export default function Roadmap() {
     {
       phase: "Tranche 1: MVP Development",
       status: "grant-funded",
-      quarter: "Months 1-5 ($60K)",
+      quarter: "Months 1-5",
       items: [
         { title: "Production ZK Circuits", done: false, desc: "Private transactions, balance proofs, counterparty masking" },
         { title: "Soroban Smart Contracts", done: false, desc: "Production verification contracts with gas optimization" },
@@ -25,7 +25,7 @@ export default function Roadmap() {
     {
       phase: "Tranche 2: Testnet & Pilots",
       status: "grant-funded",
-      quarter: "Month 6 ($15K)",
+      quarter: "Month 6",
       items: [
         { title: "Pilot Partner Integration", done: false, desc: "Onboard 2 pilot partners on testnet" },
         { title: "Banking Integration Layer", done: false, desc: "KYC/AML compliance interface and audit disclosures" },
@@ -36,7 +36,7 @@ export default function Roadmap() {
     {
       phase: "Tranche 3: Mainnet Launch",
       status: "grant-funded",
-      quarter: "Month 6 ($5K)",
+      quarter: "Month 6",
       items: [
         { title: "Mainnet Deployment", done: false, desc: "Deploy verification contracts on Soroban mainnet" },
         { title: "Production Release", done: false, desc: "Final audit reports, documentation, demo videos" },
@@ -89,12 +89,12 @@ export default function Roadmap() {
           </p>
 
           {/* Grant highlight */}
-          <div className="inline-block p-6 rounded-xl border-2 border-zk-green bg-gradient-to-br from-stellar-dark to-black glow-box">
+          <div className="inline-block p-6 rounded-xl border-2 border-stellar-blue bg-gradient-to-br from-stellar-dark to-black glow-box">
             <div className="flex items-center gap-4">
-              <div className="text-5xl">✅</div>
+              <div className="text-5xl">📋</div>
               <div className="text-left">
-                <h3 className="text-2xl font-bold text-gradient mb-1">SCF Build Award Approved - $80,000</h3>
-                <p className="text-gray-400">6-month development roadmap funded by Stellar Community Fund</p>
+                <h3 className="text-2xl font-bold text-gradient mb-1">SCF #40 Build Award Proposal</h3>
+                <p className="text-gray-400">6-month development roadmap proposed to Stellar Community Fund</p>
                 <p className="text-sm text-stellar-purple mt-2">Infrastructure & Services / Developer Tools</p>
               </div>
             </div>
