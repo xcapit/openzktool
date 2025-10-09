@@ -1,24 +1,4 @@
 [package]
-<<<<<<< HEAD
-name = "soroban_groth16_verifier"
-version = "0.1.0"
-edition = "2021"
-license = "AGPL-3.0-or-later"
-
-[lib]
-crate-type = ["cdylib", "rlib"]
-
-[dependencies]
-soroban-sdk = { version = "21.0.0", default-features = false } # adjust to your toolchain
-ark-std = { version = "0.4", default-features = false, features = ["alloc"] }
-ark-serialize = { version = "0.4", default-features = false, features = ["derive"] }
-ark-bn254 = { version = "0.4", default-features = false }
-ark-groth16 = { version = "0.4", default-features = false }
-hex = { version = "0.4", default-features = false }
-
-[features]
-default = ["soroban-sdk/testutils"] # remove for production if you want
-=======
 name = "soroban-groth16-verifier"
 version = "0.1.0"
 edition = "2021"
@@ -29,15 +9,16 @@ publish = false
 crate-type = ["cdylib"]
 
 [dependencies]
-# SDK Soroban estable y no_std
-soroban-sdk = { git = "https://github.com/stellar/rs-soroban-sdk", tag = "v21.2.0", default-features = false }
+soroban-sdk = "21.0.0"
 
-# Dependencias no_std compatibles
-serde = { version = "1.0", features = ["derive"], default-features = false }
-hex = "0.4"
-sha2 = { version = "0.10", default-features = false }
-base64ct = "=1.6.0"
+[dev_dependencies]
+soroban-sdk = { version = "21.0.0", features = ["testutils"] }
 
 [profile.release]
 opt-level = "z"
->>>>>>> ee63e8a (Add Soroban Groth16 verifier (no_std) and verification script)
+lto = true
+codegen-units = 1
+strip = true
+
+[profile.release-with-logs]
+inherits = "release"
