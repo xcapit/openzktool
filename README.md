@@ -91,6 +91,23 @@ npm run demo:soroban  # Verify on Soroban only
 
 ---
 
+## 📚 Documentation
+
+**Complete technical documentation is available in the `/docs` folder:**
+
+- 📖 **[Documentation Home](./docs/README.md)** - Start here
+- ⚡ **[Quick Start Guide](./docs/getting-started/quickstart.md)** - 5-minute setup
+- 🧪 **[Testing Guide](./docs/testing/README.md)** - Complete testing reference
+- 🎬 **[Demo Scripts](./docs/testing/demo-scripts.md)** - All demo scripts explained
+- 🌐 **[Multi-Chain Testing](./docs/testing/multi-chain.md)** - Cross-chain verification
+
+**Quick links:**
+- Need help? → [Testing Guide](./docs/testing/README.md)
+- First time? → [Quick Start](./docs/getting-started/quickstart.md)
+- Want demos? → [Demo Scripts](./docs/testing/demo-scripts.md)
+
+---
+
 ## 🧠 What This SDK Does
 
 ### The Problem
