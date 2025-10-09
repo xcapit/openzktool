@@ -9,7 +9,17 @@
 ### Getting Started
 - [Installation Guide](./getting-started/installation.md) - Setup dependencies and environment
 - [Quick Start](./getting-started/quickstart.md) - Run your first demo in 5 minutes
-- [Architecture Overview](./getting-started/architecture.md) - Understanding the system design
+
+### Architecture 📐 **NEW!**
+- [**Architecture Overview**](./architecture/overview.md) ⭐ **Visual guide with diagrams**
+  - System overview with Mermaid diagrams
+  - Multi-chain architecture explained
+  - Circuit structure visualization
+  - Performance metrics
+- [**Proof Flow**](./architecture/proof-flow.md) - Detailed proof generation & verification
+  - Step-by-step with sequence diagrams
+  - Data flow examples
+  - Security guarantees
 
 ### Testing & Demos
 - [**Testing Guide**](./testing/README.md) ⭐ **Start here for running tests**

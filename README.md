@@ -125,6 +125,32 @@ This video shows the full execution of `DEMO_AUTO=1 bash demo_video.sh`, includi
 
 ---
 
+## 🏗️ Architecture
+
+**Understand how ZKPrivacy works with visual diagrams:**
+
+### 📐 [**Architecture Overview →**](./docs/architecture/overview.md)
+Complete visual guide with Mermaid diagrams showing:
+- 🎯 System overview (how components interact)
+- 🌐 Multi-chain architecture (same proof, multiple blockchains)
+- 🔧 Circuit structure (586 constraints breakdown)
+- 🔐 Security properties & performance metrics
+
+### 🔄 [**Proof Flow →**](./docs/architecture/proof-flow.md)
+Step-by-step technical flow with sequence diagrams:
+- ⚙️  Setup phase (one-time circuit compilation)
+- ⚡ Proof generation (<1 second)
+- ✅ Verification (off-chain & on-chain)
+- 📊 Complete data flow example with Alice's data
+
+**Key Metrics:**
+- **Proof Size:** 800 bytes
+- **Generation Time:** <1 second
+- **Verification:** <50ms off-chain, ~200k gas on-chain
+- **Circuit Constraints:** 586 (very efficient)
+
+---
+
 ## 🧠 What This SDK Does
 
 ### The Problem
