@@ -20,19 +20,38 @@ A production-ready SDK enabling developers, retail partners, and financial insti
 
 ## 🚀 Quick Start
 
-### Run the Multi-Chain Demo (Recommended) 🌐
+### Option 1: Full Flow Test (Automated) ⚡
+
+Test everything in one command:
+
+```bash
+# Install dependencies
+npm install
+
+# Run complete test suite (auto mode)
+npm test
+
+# OR run with interactive prompts
+npm run test:interactive
+```
+
+**Duration:** 3-5 minutes | **Tests:**
+- ✅ Circuit compilation & trusted setup
+- ✅ Proof generation & local verification
+- ✅ EVM verification (Ethereum/Anvil)
+- ✅ Soroban verification (Stellar)
+
+### Option 2: Multi-Chain Demo (Recommended for Presentations) 🌐
 
 ```bash
 # Install dependencies
 npm install
 
 # Run initial setup (one-time)
-cd circuits/scripts
-bash prepare_and_setup.sh
+npm run setup
 
 # Run the multi-chain verification demo
-cd ../..
-bash demo_multichain.sh
+npm run demo
 ```
 
 **Duration:** 5-7 minutes | **Output:** Complete flow showing proof generation and verification on both EVM and Soroban
@@ -42,6 +61,15 @@ bash demo_multichain.sh
 - ⛓️ Verification on Ethereum (local testnet)
 - 🌟 Verification on Stellar/Soroban
 - 🎯 TRUE multi-chain interoperability
+
+### Option 3: Individual Commands
+
+```bash
+npm run setup         # Compile circuit & generate keys (one-time)
+npm run prove         # Generate proof & verify locally
+npm run demo:evm      # Verify on Ethereum only
+npm run demo:soroban  # Verify on Soroban only
+```
 
 ---
 
@@ -117,6 +145,10 @@ stellar-privacy-poc/
 ├── soroban/                     # Stellar/Soroban verifier
 │   ├── src/lib.rs              # Rust verifier contract (no_std)
 │   └── verify_on_chain.sh      # Automated verification script
+│
+├── test_full_flow.sh            # Complete test suite (interactive)
+├── test_full_flow_auto.sh       # Complete test suite (auto mode)
+└── demo_multichain.sh           # Multi-chain demo (presentation mode)
 │
 ├── web/                         # ZKPrivacy landing page
 │   └── (Next.js 14 app)        # https://zkprivacy.vercel.app

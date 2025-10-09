@@ -7,10 +7,13 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "bash test_full_flow_auto.sh",
+    "test:interactive": "bash test_full_flow.sh",
     "demo": "bash demo_multichain.sh",
     "demo:evm": "cd evm-verification && bash verify_on_chain.sh",
-    "demo:soroban": "cd soroban && bash verify_on_chain.sh"
+    "demo:soroban": "cd soroban && bash verify_on_chain.sh",
+    "setup": "cd circuits/scripts && bash prepare_and_setup.sh",
+    "prove": "cd circuits/scripts && bash prove_and_verify.sh"
   },
   "repository": {
     "type": "git",
