@@ -10,6 +10,7 @@
     "test": "bash test_full_flow_auto.sh",
     "test:interactive": "bash test_full_flow.sh",
     "demo": "bash demo_multichain.sh",
+    "demo:privacy": "bash demo_privacy_proof.sh",
     "demo:evm": "cd evm-verification && bash verify_on_chain.sh",
     "demo:soroban": "cd soroban && bash verify_on_chain.sh",
     "setup": "cd circuits/scripts && bash prepare_and_setup.sh",

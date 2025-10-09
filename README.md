@@ -41,7 +41,9 @@ npm run test:interactive
 - ✅ EVM verification (Ethereum/Anvil)
 - ✅ Soroban verification (Stellar)
 
-### Option 2: Multi-Chain Demo (Recommended for Presentations) 🌐
+### Option 2: Privacy Proof Demo (Best for Non-Technical Audiences) 💡
+
+Tell the story of Alice proving she's eligible without revealing her data:
 
 ```bash
 # Install dependencies
@@ -50,11 +52,27 @@ npm install
 # Run initial setup (one-time)
 npm run setup
 
+# Run the privacy-focused narrative demo
+npm run demo:privacy
+```
+
+**Duration:** 5-7 minutes | **Perfect for:** Business stakeholders, investors, non-technical audiences
+
+**The Story:**
+- 👤 Alice needs to prove she's eligible for a financial service
+- 🔒 She proves: Age ≥ 18, Balance ≥ $50, Country allowed
+- ❌ WITHOUT revealing: Her exact age (25), balance ($150), or country (Argentina)
+- ⛓️ The proof is verified on BOTH Ethereum and Stellar blockchains
+- ✨ Privacy + Compliance achieved!
+
+### Option 3: Multi-Chain Demo (Technical Presentations) 🌐
+
+```bash
 # Run the multi-chain verification demo
 npm run demo
 ```
 
-**Duration:** 5-7 minutes | **Output:** Complete flow showing proof generation and verification on both EVM and Soroban
+**Duration:** 5-7 minutes | **Perfect for:** Technical audiences, grant reviewers, developers
 
 **What you'll see:**
 - 🔐 Zero-knowledge proof generation
@@ -62,7 +80,7 @@ npm run demo
 - 🌟 Verification on Stellar/Soroban
 - 🎯 TRUE multi-chain interoperability
 
-### Option 3: Individual Commands
+### Option 4: Individual Commands
 
 ```bash
 npm run setup         # Compile circuit & generate keys (one-time)
@@ -148,7 +166,8 @@ stellar-privacy-poc/
 │
 ├── test_full_flow.sh            # Complete test suite (interactive)
 ├── test_full_flow_auto.sh       # Complete test suite (auto mode)
-└── demo_multichain.sh           # Multi-chain demo (presentation mode)
+├── demo_multichain.sh           # Multi-chain demo (technical)
+└── demo_privacy_proof.sh        # Privacy narrative demo (non-technical)
 │
 ├── web/                         # ZKPrivacy landing page
 │   └── (Next.js 14 app)        # https://zkprivacy.vercel.app

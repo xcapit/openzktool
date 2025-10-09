@@ -8,8 +8,9 @@
 
 | Script | Duración | Audiencia | Propósito | Modo |
 |--------|----------|-----------|-----------|------|
-| **test_full_flow_auto.sh** 🚀 | 3-5 min | **Testing/CI** | **Test completo automatizado** | Auto |
+| **demo_privacy_proof.sh** 💡 | 5-7 min | **No técnica/Business** | **Historia narrativa de privacidad** | Interactivo |
 | **demo_multichain.sh** ⭐ | 5-7 min | **Técnica/Grant** | **Interoperabilidad EVM + Soroban** | Interactivo |
+| **test_full_flow_auto.sh** 🚀 | 3-5 min | **Testing/CI** | **Test completo automatizado** | Auto |
 | test_full_flow.sh | 3-5 min | Testing | Test completo con pausas | Interactivo |
 | full_demo.sh | 8-10 min | Educativa | Teoría + Práctica + Beneficios | Interactivo |
 | prove_and_verify.sh | 30 seg | Desarrollo | Quick proof generation | Auto |
@@ -19,9 +20,10 @@
 ### NPM Scripts (Recomendado)
 
 ```bash
-npm test                  # = test_full_flow_auto.sh
+npm run demo:privacy      # = demo_privacy_proof.sh (NON-TECHNICAL)
+npm run demo              # = demo_multichain.sh (TECHNICAL)
+npm test                  # = test_full_flow_auto.sh (TESTING)
 npm run test:interactive  # = test_full_flow.sh
-npm run demo              # = demo_multichain.sh
 npm run setup             # Compile circuit & generate keys
 npm run prove             # Generate proof & verify locally
 npm run demo:evm          # Verify on EVM only
@@ -32,7 +34,62 @@ npm run demo:soroban      # Verify on Soroban only
 
 ## 🎯 Recomendaciones por Escenario
 
-### 0. **Testing Rápido / Validación Completa** 🚀 NUEVO
+### 0. **Presentación para Stakeholders No Técnicos** 💡 NUEVO
+
+**Script:** `demo_privacy_proof.sh` (o `npm run demo:privacy`)
+
+**Por qué:**
+- Cuenta una historia fácil de entender
+- No requiere conocimientos técnicos
+- Explica el problema y la solución
+- Muestra el valor de negocio claramente
+- Perfecto para C-level, business, inversores
+
+**Cómo ejecutar:**
+```bash
+# Opción 1: NPM (recomendado)
+npm run demo:privacy
+
+# Opción 2: Directo
+bash demo_privacy_proof.sh
+
+# Opción 3: Auto mode (sin pausas)
+DEMO_AUTO=1 bash demo_privacy_proof.sh
+```
+
+**La Historia que Cuenta:**
+1. 👤 **El Problema**: Alice necesita acceder a un servicio financiero
+2. ❌ **Método Tradicional**: Compartir todos sus datos (ID, balance, etc.)
+3. ✅ **La Solución ZK**: Probar que cumple requisitos SIN revelar datos
+4. 🔐 **El Proof**: Un archivo de 800 bytes que prueba todo
+5. ⛓️ **Verificación Multi-Chain**: Mismo proof en Ethereum Y Stellar
+6. ✨ **Resultado**: Privacidad + Compliance
+
+**Qué Demuestra:**
+- ✅ Alice prueba que es mayor de 18 (sin revelar que tiene 25)
+- ✅ Alice prueba que tiene balance suficiente (sin revelar $150)
+- ✅ Alice prueba que es de país permitido (sin revelar Argentina)
+- ✅ El proof funciona en DOS blockchains diferentes
+- ✅ Todo en ~800 bytes, <1 segundo para generar
+
+**Audiencia Ideal:**
+- CEOs, CFOs, CTOs de fintechs
+- Inversores sin background técnico
+- Reguladores y compliance officers
+- Partners bancarios y retail
+- Usuarios finales que quieren entender el valor
+
+**Lenguaje Usado:**
+- Sin jerga técnica compleja
+- Analogías simples (caja cerrada con candado)
+- Enfoque en beneficios de negocio
+- Casos de uso reales
+
+**Duración:** 5-7 minutos
+
+---
+
+### 1. **Testing Rápido / Validación Completa** 🚀
 
 **Script:** `test_full_flow_auto.sh` (o `npm test`)
 
@@ -72,7 +129,7 @@ npm run test:interactive
 
 ---
 
-### 1. **Presentación para SCF / Inversores** ⭐ RECOMENDADO
+### 2. **Presentación para SCF / Inversores Técnicos** ⭐ RECOMENDADO
 **Script:** `demo_multichain.sh`
 
 **Por qué:**
@@ -106,7 +163,7 @@ bash prepare_and_setup.sh
 
 ---
 
-### 2. **Workshop / Capacitación Técnica**
+### 3. **Workshop / Capacitación Técnica**
 **Script:** `full_demo.sh`
 
 **Por qué:**
@@ -129,7 +186,7 @@ bash full_demo.sh
 
 ---
 
-### 3. **Video para Redes Sociales / YouTube**
+### 4. **Video para Redes Sociales / YouTube**
 **Script:** `demo_auto.sh`
 
 **Por qué:**
@@ -155,7 +212,7 @@ bash demo_auto.sh
 
 ---
 
-### 4. **Testing Rápido / Desarrollo**
+### 5. **Testing Rápido / Desarrollo**
 **Script:** `prove_and_verify.sh`
 
 **Por qué:**
