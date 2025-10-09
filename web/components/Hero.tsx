@@ -14,10 +14,10 @@ export default function Hero() {
         <div className="mb-8">
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="px-4 py-2 border border-stellar-purple rounded-full glow-box">
-              <span className="text-stellar-purple font-semibold">🔐 ZKPrivacy</span>
+              <span className="text-stellar-purple font-semibold">🔐 OpenZKTool</span>
             </div>
             <div className="px-4 py-2 bg-stellar-blue bg-opacity-20 border border-stellar-blue rounded-full">
-              <span className="text-stellar-blue font-semibold">📋 SCF #40 Proposal</span>
+              <span className="text-stellar-blue font-semibold">🌍 Digital Public Good</span>
             </div>
           </div>
 

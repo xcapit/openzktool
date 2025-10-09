@@ -229,7 +229,7 @@ Once deployed, monitor:
 - **Enterprise Teams** exploring ZK technology
 
 ### Secondary
-- **Grant Reviewers** (Stellar Community Fund)
+- **Grant Reviewers** 
 - **Investors** evaluating ZK privacy projects
 - **Researchers** studying zero-knowledge proofs
 - **Educators** teaching ZK concepts

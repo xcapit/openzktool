@@ -81,7 +81,7 @@ npm test
 | Script | Duration | Audience | Technical Level | Interactive | Best For |
 |--------|----------|----------|-----------------|-------------|----------|
 | **demo_privacy_proof.sh** | 5-7 min | Business/Investors | ⭐☆☆☆☆ | Yes | Non-technical demos |
-| **demo_multichain.sh** | 5-7 min | Technical/Grant | ⭐⭐⭐⭐☆ | Yes | SCF presentations |
+| **demo_multichain.sh** | 5-7 min | Technical | ⭐⭐⭐⭐☆ | Yes | Technical presentations |
 | **test_full_flow_auto.sh** | 3-5 min | Developers | ⭐⭐⭐☆☆ | No | Quick validation |
 | **test_full_flow.sh** | 3-5 min | Developers | ⭐⭐⭐☆☆ | Yes | Learning/debugging |
 | **full_demo.sh** | 8-10 min | Educational | ⭐⭐⭐⭐⭐ | Yes | Workshops/training |
@@ -167,7 +167,7 @@ npm run demo:privacy
 
 ---
 
-### Scenario 2: SCF Grant Review
+### Scenario 2: Technical Review
 
 **Goal:** Show technical merit and multi-chain capability
 

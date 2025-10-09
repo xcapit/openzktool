@@ -3,7 +3,7 @@
 **Stellar Privacy SDK — Zero-Knowledge Proof Toolkit for TradFi**
 
 > *Project Name:* **Stellar Privacy SDK** | *Brand:* **OpenZKTool**
-> *Status:* **Proof of Concept** | *Grant Proposal:* **SCF #40 Build Award** | *Duration:* **6 months**
+> *Status:* **Proof of Concept**
 
 A production-ready SDK enabling developers, retail partners, and financial institutions to execute **privacy-preserving transactions** on Stellar using **ZK-SNARKs** — with full regulatory compliance and auditability for real-world institutional use.
 
@@ -829,32 +829,8 @@ This program is free software: you can redistribute it and/or modify it under th
 - Deep Stellar/Soroban familiarity (6+ months)
 - 6+ years blockchain development experience
 - Academic partnerships (UTN - Universidad Tecnológica Nacional)
-- Previous SCF grant recipient (Offline Wallet)
 
 **Location:** Argentina (remote-friendly, global focus, LATAM expertise)
-
----
-
-## 💰 Grant Proposal
-
-**Stellar Community Fund #40 - Build Award**
-- **Category:** Infrastructure & Services / Developer Tools
-- **Duration:** 6 months
-- **Status:** Proposed
-- **Type:** Privacy SDK for TradFi
-
-**Proposed Tranche Structure:**
-1. **Tranche 1 (Months 1-5):** MVP Development
-2. **Tranche 2 (Month 6):** Testnet & Pilot Integration
-3. **Tranche 3 (Month 6):** Mainnet Launch & Scaling
-
-**Success Criteria:**
-- Production-ready ZK circuits and Soroban contracts
-- Complete JS/TS SDK with documentation
-- Banking/regulatory integration layer functional
-- Independent security audit completed
-- **5+ ecosystem partners onboarded on mainnet** within first 3 months
-- **2 pilot partners testing on testnet**
 
 ---
 

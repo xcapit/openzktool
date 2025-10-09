@@ -2,7 +2,6 @@ import Hero from '@/components/Hero'
 import Features from '@/components/Features'
 import Interoperability from '@/components/Interoperability'
 import UseCases from '@/components/UseCases'
-import Grant from '@/components/Grant'
 import Team from '@/components/Team'
 import Roadmap from '@/components/Roadmap'
 import Architecture from '@/components/Architecture'
@@ -17,7 +16,6 @@ export default function Home() {
       <Interoperability />
       <Architecture />
       <UseCases />
-      <Grant />
       <Team />
       <Roadmap />
       <Community />

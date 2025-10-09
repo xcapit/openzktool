@@ -129,7 +129,7 @@ npm run test:interactive
 
 ---
 
-### 2. **Presentación para SCF / Inversores Técnicos** ⭐ RECOMENDADO
+### 2. **Presentación para Inversores Técnicos** ⭐ RECOMENDADO
 **Script:** `demo_multichain.sh`
 
 **Por qué:**
@@ -256,7 +256,6 @@ bash demo_multichain.sh
   - Compliance dashboard
 
 **4. Roadmap & Grant (5 min)**
-- SCF #40 proposal
 - 3 tranches
 - Partners: 2 en testnet, 5+ en mainnet
 - Casos de uso TradFi
@@ -282,7 +281,6 @@ DEMO_AUTO=1 bash demo_multichain.sh
   - "Mismo proof, diferentes blockchains = interoperabilidad"
 
 **3. Call to Action (1 min)**
-- SCF #40 proposal
 - 6 meses, 3 tranches
 - 5+ partners objetivo
 - Link: zkprivacy.vercel.app
@@ -320,7 +318,7 @@ echo ""
 echo -e "${CYAN}🔗 Learn More:${NC}"
 echo "  • Website: https://zkprivacy.vercel.app"
 echo "  • GitHub: https://github.com/xcapit/stellar-privacy-poc"
-echo "  • Grant Proposal: SCF #40 Build Award"
+echo "  • Open Source Privacy Toolkit"
 ```
 
 4. **Opción para skip setup si ya está hecho**
@@ -365,7 +363,7 @@ fi
 
 "Nuestro SDK incluye circuits, contratos, SDK JavaScript, capa de banking para KYC/AML, y dashboard de compliance."
 
-"Estamos postulando al SCF #40 para construir esto en 6 meses, con objetivo de 5+ partners en mainnet."
+"Estamos desarrollando esto con objetivo de onboarding de múltiples partners."
 
 ---
 
@@ -470,7 +468,7 @@ Al final de tu demo, menciona estas métricas:
 
 **Traction:**
 - ✅ POC Complete (circuits + contracts + SDK + demo)
-- ✅ Previous SCF grant (Offline Wallet delivered)
+- ✅ 6+ years blockchain development experience
 - ✅ Academic backing (UTN partnership)
 - ✅ Multi-chain ready (EVM + Soroban)
 

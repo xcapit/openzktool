@@ -410,7 +410,7 @@ DEMO_AUTO=1 bash demo_video.sh
 
    🌐 openzktool.vercel.app
    📚 github.com/xcapit/stellar-privacy-poc
-   💼 SCF #40 Build Award Proposal
+   💼 Open Source Privacy Toolkit
 
    Team X1 - Xcapit Labs
 
@@ -684,7 +684,7 @@ The Stellar Privacy SDK makes this real.
 
 Links in the description.
 GitHub repo is open source.
-We're applying for a Stellar Community Fund grant to build this out.
+This is an open source project focused on privacy and compliance.
 
 Thanks for watching!"
 ```
@@ -725,7 +725,7 @@ Perfect for: Banks, Fintechs, DeFi, Compliance
 
 🌐 Website: https://openzktool.vercel.app
 📚 GitHub: https://github.com/xcapit/stellar-privacy-poc
-💼 Grant: SCF #40 Build Award Proposal
+💼 Grant: Open Source Privacy Toolkit
 
 Timestamps:
 0:00 - Introduction
@@ -794,7 +794,7 @@ In this 7-minute demo, we show:
 
 This opens up blockchain adoption for traditional finance.
 
-We're proposing this to Stellar Community Fund #40.
+This is being developed as an open source digital public good.
 
 Watch the demo and let me know what you think!
 [link to video]

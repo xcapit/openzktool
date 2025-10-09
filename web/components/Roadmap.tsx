@@ -3,7 +3,7 @@ export default function Roadmap() {
     {
       phase: "POC: Proof of Concept",
       status: "completed",
-      quarter: "Pre-Grant",
+      quarter: "Phase 0",
       items: [
         { title: "Core ZK Circuit Library", done: true, desc: "KYC Transfer, Range Proofs, Solvency Checks" },
         { title: "Multi-Chain Verifiers", done: true, desc: "EVM (Solidity) and Soroban (Rust) testnet" },
@@ -13,7 +13,7 @@ export default function Roadmap() {
     },
     {
       phase: "Tranche 1: MVP Development",
-      status: "grant-funded",
+      status: "in-development",
       quarter: "Months 1-5",
       items: [
         { title: "Production ZK Circuits", done: false, desc: "Private transactions, balance proofs, counterparty masking" },
@@ -24,7 +24,7 @@ export default function Roadmap() {
     },
     {
       phase: "Tranche 2: Testnet & Pilots",
-      status: "grant-funded",
+      status: "in-development",
       quarter: "Month 6",
       items: [
         { title: "Pilot Partner Integration", done: false, desc: "Onboard 2 pilot partners on testnet" },
@@ -35,7 +35,7 @@ export default function Roadmap() {
     },
     {
       phase: "Tranche 3: Mainnet Launch",
-      status: "grant-funded",
+      status: "in-development",
       quarter: "Month 6",
       items: [
         { title: "Mainnet Deployment", done: false, desc: "Deploy verification contracts on Soroban mainnet" },
@@ -47,7 +47,7 @@ export default function Roadmap() {
     {
       phase: "Future: Advanced Features",
       status: "planned",
-      quarter: "Post-Grant",
+      quarter: "Phase 4",
       items: [
         { title: "Mobile SDK Integration", done: false, desc: "iOS and Android native support" },
         { title: "Advanced Circuit Library", done: false, desc: "Merkle proofs, signatures, recursive proofs" },
@@ -62,7 +62,7 @@ export default function Roadmap() {
       case 'completed': return 'bg-zk-green text-black'
       case 'in-progress': return 'bg-stellar-blue text-black'
       case 'planned': return 'bg-gray-600 text-white'
-      case 'grant-funded': return 'bg-gradient-to-r from-stellar-purple to-stellar-blue text-white'
+      case 'in-development': return 'bg-gradient-to-r from-stellar-purple to-stellar-blue text-white'
       default: return 'bg-gray-700 text-white'
     }
   }
@@ -72,7 +72,7 @@ export default function Roadmap() {
       case 'completed': return '✅ Completed'
       case 'in-progress': return '🚧 In Progress'
       case 'planned': return '📅 Planned'
-      case 'grant-funded': return '💎 Grant Funded'
+      case 'in-development': return '🚧 In Development'
       default: return status
     }
   }
@@ -93,8 +93,8 @@ export default function Roadmap() {
             <div className="flex items-center gap-4">
               <div className="text-5xl">📋</div>
               <div className="text-left">
-                <h3 className="text-2xl font-bold text-gradient mb-1">SCF #40 Build Award Proposal</h3>
-                <p className="text-gray-400">6-month development roadmap proposed to Stellar Community Fund</p>
+                <h3 className="text-2xl font-bold text-gradient mb-1">Open Source Development Roadmap</h3>
+                <p className="text-gray-400">Phased development approach for production-ready privacy SDK</p>
                 <p className="text-sm text-stellar-purple mt-2">Infrastructure & Services / Developer Tools</p>
               </div>
             </div>
@@ -133,7 +133,7 @@ export default function Roadmap() {
                     >
                       <div className="flex items-start gap-4">
                         <div className="text-3xl flex-shrink-0">
-                          {item.done ? '✅' : phase.status === 'grant-funded' ? '💎' : '⏳'}
+                          {item.done ? '✅' : phase.status === 'in-development' ? '💎' : '⏳'}
                         </div>
                         <div className="flex-1">
                           <h4 className="text-lg font-bold mb-2">{item.title}</h4>

@@ -130,7 +130,7 @@ DEMO_AUTO=1 bash demo_multichain.sh
 
 ### Use Cases
 
-- SCF grant presentations
+- Technical presentations
 - Technical workshops
 - Developer onboarding
 - Architecture reviews
@@ -350,7 +350,7 @@ What's your goal?
 
 ## 📋 Common Scenarios
 
-### Scenario 1: Before SCF Grant Presentation
+### Scenario 1: Before Technical Presentation
 
 **Goal:** Ensure everything works + prepare for demo
 

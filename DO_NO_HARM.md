@@ -368,7 +368,7 @@ Ver [SDG_MAPPING.md](./SDG_MAPPING.md) para detalles completos.
 ✅ **Responsables del proyecto:**
 - **Team X1 - Xcapit Labs**
 - ⛓️ 6+ años experiencia blockchain
-- 🏆 Stellar Community Fund grant recipient
+- 🏆 Multiple years of blockchain development experience
 - 🌍 Basado en Argentina
 
 ✅ **Contacto:**

@@ -100,7 +100,7 @@ This is a **working prototype** with:
 **Team X1 - Xcapit Labs**
 
 - ⛓️ **6+ years blockchain experience**
-- 🏆 **Stellar Community Fund (SCF) grant recipient**
+- 🏆 **Multiple years of blockchain development experience**
 - 🌍 **Based in Argentina**
 - 💼 **Experience:** DeFi, wallets, cross-chain solutions
 
