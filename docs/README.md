@@ -9,6 +9,7 @@
 ### Getting Started
 - [Installation Guide](./getting-started/installation.md) - Setup dependencies and environment
 - [Quick Start](./getting-started/quickstart.md) - Run your first demo in 5 minutes
+- [**Interactive Tutorial**](./getting-started/interactive-tutorial.md) ⭐ **NEW!** Learn by doing in 10 minutes
 
 ### Architecture 📐 **NEW!**
 - [**Architecture Overview**](./architecture/overview.md) ⭐ **Visual guide with diagrams**
@@ -42,6 +43,22 @@
 - JavaScript/TypeScript SDK *(coming soon)*
 - Rust SDK *(coming soon)*
 
+### Integration Examples 💻 **NEW!**
+- [**Examples Overview**](../examples/README.md) ⭐ **Practical integration code**
+  - React integration with browser-based proofs
+  - Node.js backend with REST API
+  - Custom circuit examples
+  - Code snippets and patterns
+
+### FAQ ❓ **NEW!**
+- [**Frequently Asked Questions**](./FAQ.md) ⭐ **100+ questions answered**
+  - General questions about ZKPrivacy
+  - Technical implementation details
+  - Integration and development
+  - Multi-chain and blockchain
+  - Security and privacy
+  - Performance and costs
+
 ### Use Cases
 - [Privacy-Preserving KYC](./use-cases/kyc.md)
 - [Confidential DeFi](./use-cases/defi.md)
@@ -56,13 +73,15 @@
 
 ## 🚀 Quick Links
 
-**First time here?** → Start with [Quick Start Guide](./getting-started/quickstart.md)
+**First time here?** → Start with [Interactive Tutorial](./getting-started/interactive-tutorial.md) or [Quick Start Guide](./getting-started/quickstart.md)
 
 **Want to run tests?** → See [Testing Guide](./testing/README.md)
 
-**Building an integration?** → Check [Blockchain Integration](./blockchain/README.md)
+**Building an integration?** → Check [Integration Examples](../examples/README.md)
 
-**Understanding ZK proofs?** → Read [Architecture Overview](./getting-started/architecture.md)
+**Understanding ZK proofs?** → Read [Architecture Overview](./architecture/overview.md)
+
+**Have questions?** → See [FAQ](./FAQ.md)
 
 ---
 
@@ -96,7 +115,11 @@ The Stellar Privacy SDK (ZKPrivacy) enables **privacy-preserving transactions** 
 | Quick Start | ✅ Complete | High |
 | Demo Scripts | ✅ Complete | High |
 | Multi-Chain Testing | ✅ Complete | High |
-| Architecture Overview | 🚧 In Progress | High |
+| **Architecture Overview** | ✅ Complete | High |
+| **Proof Flow** | ✅ Complete | High |
+| **Interactive Tutorial** | ✅ Complete | High |
+| **FAQ** | ✅ Complete | High |
+| **Integration Examples** | ✅ Complete | High |
 | Circuit Design | 🚧 In Progress | Medium |
 | EVM Deployment | 🚧 In Progress | Medium |
 | Soroban Deployment | 🚧 In Progress | Medium |

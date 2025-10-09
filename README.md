@@ -151,6 +151,79 @@ Step-by-step technical flow with sequence diagrams:
 
 ---
 
+## 🎮 Interactive Tutorial
+
+**New to Zero-Knowledge Proofs? Start with our interactive tutorial:**
+
+👉 **[Interactive Tutorial: Your First Privacy Proof →](./docs/getting-started/interactive-tutorial.md)**
+
+**Learn by doing in 10 minutes:**
+- ✅ Generate your first ZK proof (age ≥ 18 without revealing exact age)
+- ✅ Verify proofs locally and on-chain
+- ✅ Test on both Ethereum and Stellar
+- ✅ Experiment with different inputs
+- ✅ Understand the complete flow
+
+**Perfect for:** Developers new to ZK, hands-on learners, workshop participants
+
+---
+
+## 💻 Integration Examples
+
+**Ready to integrate ZKPrivacy into your app?**
+
+👉 **[View All Integration Examples →](./examples/README.md)**
+
+### Quick Examples:
+
+**1. [React Integration](./examples/react-integration/)** 🎨
+- Browser-based proof generation
+- MetaMask + Freighter wallet support
+- Full UI with real-time status
+
+**2. [Node.js Backend](./examples/nodejs-backend/)** ⚙️
+- REST API for proof verification
+- Database integration (SQLite)
+- Rate limiting & validation
+
+**3. [Custom Circuits](./examples/custom-circuit/)** 🔧
+- Build your own ZK circuits
+- Age verification, credit scores, Merkle proofs
+- Step-by-step from scratch
+
+**Code Snippet (Browser):**
+```javascript
+import { groth16 } from "snarkjs";
+
+const { proof, publicSignals } = await groth16.fullProve(
+  { age: 25, balance: 150, country: 11, minAge: 18, minBalance: 50, allowedCountries: [11, 1, 5] },
+  "kyc_transfer.wasm",
+  "kyc_transfer_final.zkey"
+);
+
+// publicSignals[0] === "1" means KYC passed ✅
+```
+
+---
+
+## ❓ FAQ
+
+**Common questions answered:**
+
+👉 **[Frequently Asked Questions →](./docs/FAQ.md)**
+
+**Quick answers:**
+- 🤔 What is a Zero-Knowledge Proof?
+- 🌐 Which blockchains are supported?
+- 🔐 Is it secure? Has it been audited?
+- ⚡ How much does verification cost?
+- 💻 How do I integrate this into my app?
+- 🔧 Can I create custom circuits?
+
+**100+ questions answered** covering general, technical, integration, multi-chain, security, and performance topics.
+
+---
+
 ## 🧠 What This SDK Does
 
 ### The Problem
