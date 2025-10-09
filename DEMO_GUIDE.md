@@ -8,15 +8,69 @@
 
 | Script | Duración | Audiencia | Propósito | Modo |
 |--------|----------|-----------|-----------|------|
+| **test_full_flow_auto.sh** 🚀 | 3-5 min | **Testing/CI** | **Test completo automatizado** | Auto |
 | **demo_multichain.sh** ⭐ | 5-7 min | **Técnica/Grant** | **Interoperabilidad EVM + Soroban** | Interactivo |
+| test_full_flow.sh | 3-5 min | Testing | Test completo con pausas | Interactivo |
 | full_demo.sh | 8-10 min | Educativa | Teoría + Práctica + Beneficios | Interactivo |
 | prove_and_verify.sh | 30 seg | Desarrollo | Quick proof generation | Auto |
 | demo.sh | 5-6 min | Presentaciones | Demo interactivo básico | Interactivo |
 | demo_auto.sh | 3-4 min | Video | Auto-play sin pausas | Auto |
 
+### NPM Scripts (Recomendado)
+
+```bash
+npm test                  # = test_full_flow_auto.sh
+npm run test:interactive  # = test_full_flow.sh
+npm run demo              # = demo_multichain.sh
+npm run setup             # Compile circuit & generate keys
+npm run prove             # Generate proof & verify locally
+npm run demo:evm          # Verify on EVM only
+npm run demo:soroban      # Verify on Soroban only
+```
+
 ---
 
 ## 🎯 Recomendaciones por Escenario
+
+### 0. **Testing Rápido / Validación Completa** 🚀 NUEVO
+
+**Script:** `test_full_flow_auto.sh` (o `npm test`)
+
+**Por qué:**
+- Valida TODO el flujo en 3-5 minutos
+- Sin pausas, completamente automatizado
+- Perfecto para CI/CD o verificación rápida
+- Incluye setup, proof, EVM y Soroban
+- Ideal antes de presentaciones para asegurar que todo funciona
+
+**Cómo ejecutar:**
+```bash
+# Opción 1: NPM (recomendado)
+npm test
+
+# Opción 2: Directo
+bash test_full_flow_auto.sh
+
+# Opción 3: Con pausas (para seguir el proceso)
+npm run test:interactive
+```
+
+**Qué verifica:**
+1. ✅ Setup inicial (si no existe)
+2. ✅ Compilación de circuito
+3. ✅ Generación de proof
+4. ✅ Verificación local (snarkjs)
+5. ✅ Verificación en EVM (Ethereum/Anvil)
+6. ✅ Verificación en Soroban (Stellar)
+
+**Cuándo usar:**
+- Antes de cualquier demo o presentación
+- Después de cambios en el código
+- Para validar instalación en nuevo entorno
+- En CI/CD pipeline
+- Cuando necesitas verificar rápidamente que todo funciona
+
+---
 
 ### 1. **Presentación para SCF / Inversores** ⭐ RECOMENDADO
 **Script:** `demo_multichain.sh`
