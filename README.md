@@ -1,31 +1,46 @@
-# Stellar Privacy Proof-of-Concept
+# 🔐 ZKPrivacy
 
-**Zero-Knowledge Privacy Toolkit for Multi-Chain KYC Compliance**
+**Interoperable Zero-Knowledge Privacy Toolkit for Blockchain**
 
-This project demonstrates privacy-preserving KYC verification using **zero-knowledge proofs** (Groth16 SNARKs) that work on both **EVM** (Ethereum, Polygon, etc.) and **Soroban** (Stellar) blockchains.
+> *Project Name:* **Stellar Privacy Proof-of-Concept** | *Brand:* **ZKPrivacy**
+
+Build privacy-preserving applications across any blockchain with zero-knowledge proofs. This project demonstrates KYC compliance verification using **Groth16 SNARKs** that work seamlessly on both **EVM** (Ethereum, Polygon, etc.) and **Soroban** (Stellar) blockchains.
 
 > 🎯 **Use Case:** Prove KYC compliance (age, balance, country) without revealing exact personal data.
 
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%203.0-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Circom](https://img.shields.io/badge/Circom-2.1.9-brightgreen)](https://docs.circom.io/)
 [![Solidity](https://img.shields.io/badge/Solidity-0.8+-orange)](https://soliditylang.org/)
+[![Website](https://img.shields.io/badge/Website-zkprivacy.vercel.app-purple)](https://zkprivacy.vercel.app)
+
+🌐 **Website:** [https://zkprivacy.vercel.app](https://zkprivacy.vercel.app)
 
 ---
 
 ## 🚀 Quick Start
 
-### Run the Complete Demo (Recommended)
+### Run the Multi-Chain Demo (Recommended) 🌐
 
 ```bash
 # Install dependencies
 npm install
 
-# Run the full educational demo (with ZK theory + practice)
+# Run initial setup (one-time)
 cd circuits/scripts
-bash full_demo.sh
+bash prepare_and_setup.sh
+
+# Run the multi-chain verification demo
+cd ../..
+bash demo_multichain.sh
 ```
 
-**Duration:** 8-10 minutes | **Output:** Complete ZK-Proof explanation with ASCII art visualizations
+**Duration:** 5-7 minutes | **Output:** Complete flow showing proof generation and verification on both EVM and Soroban
+
+**What you'll see:**
+- 🔐 Zero-knowledge proof generation
+- ⛓️ Verification on Ethereum (local testnet)
+- 🌟 Verification on Stellar/Soroban
+- 🎯 TRUE multi-chain interoperability
 
 ---
 
@@ -74,7 +89,7 @@ stellar-privacy-poc/
 │   ├── compliance_verify.circom  # Country allowlist check
 │   │
 │   ├── scripts/                  # Demo and build scripts
-│   │   ├── full_demo.sh         # Complete educational demo ⭐
+│   │   ├── full_demo.sh         # Complete educational demo
 │   │   ├── demo.sh              # Interactive demo
 │   │   ├── demo_auto.sh         # Auto-play demo (for videos)
 │   │   ├── prepare_and_setup.sh # Trusted setup
@@ -90,10 +105,19 @@ stellar-privacy-poc/
 │   └── evm/
 │       └── Verifier.sol         # Solidity verifier contract
 │
-├── soroban/                     # Stellar/Soroban verifier
-│   └── src/
-│       └── lib.rs               # Rust verifier (no_std)
+├── evm-verification/            # Ethereum/EVM verification
+│   ├── src/Verifier.sol        # Groth16 verifier contract
+│   ├── test/VerifierTest.t.sol # Foundry test
+│   └── verify_on_chain.sh      # Automated verification script
 │
+├── soroban/                     # Stellar/Soroban verifier
+│   ├── src/lib.rs              # Rust verifier contract (no_std)
+│   └── verify_on_chain.sh      # Automated verification script
+│
+├── web/                         # ZKPrivacy landing page
+│   └── (Next.js 14 app)        # https://zkprivacy.vercel.app
+│
+├── demo_multichain.sh           # Multi-chain demo ⭐
 ├── DEMO.md                      # Step-by-step tutorial
 ├── COMPLETE_DEMO.md             # Full demo documentation
 ├── VIDEO_DEMO.md                # Video recording guide
@@ -107,12 +131,25 @@ stellar-privacy-poc/
 
 | Demo Script | Description | Duration | Best For |
 |-------------|-------------|----------|----------|
-| `full_demo.sh` ⭐ | Complete education: Theory + Practice + Benefits | 8-10 min | Learning, teaching, presentations |
+| `demo_multichain.sh` 🌐 | **Multi-chain verification**: EVM + Soroban | 5-7 min | **Showcasing interoperability** ⭐ |
+| `full_demo.sh` | Complete education: Theory + Practice + Benefits | 8-10 min | Learning, teaching, presentations |
 | `demo_auto.sh` | Auto-play technical demo | 3-4 min | Video recording, quick walkthrough |
 | `demo.sh` | Interactive demo with manual pauses | 5-6 min | Live presentations, workshops |
 | `prove_and_verify.sh` | Quick proof generation only | 30 sec | Testing, development |
 
-### Example: Full Demo
+### Example: Multi-Chain Demo (Recommended) 🌐
+
+```bash
+bash demo_multichain.sh
+```
+
+**What it shows:**
+1. 🔐 **Proof Generation**: Create a Groth16 ZK proof for KYC compliance
+2. ⛓️ **EVM Verification**: Deploy and verify on local Ethereum testnet (Foundry/Anvil)
+3. 🌟 **Soroban Verification**: Deploy and verify SAME proof on Stellar/Soroban
+4. 🎯 **Interoperability**: One proof, multiple blockchains
+
+### Example: Full Educational Demo
 
 ```bash
 cd circuits/scripts
@@ -398,7 +435,9 @@ This program is free software: you can redistribute it and/or modify it under th
 - [Circom](https://docs.circom.io/) - Circuit compiler
 - [snarkjs](https://github.com/iden3/snarkjs) - SNARK toolkit
 - [circomlib](https://github.com/iden3/circomlib) - Circuit library
+- [Foundry](https://book.getfoundry.sh/) - Ethereum development framework
 - [Soroban SDK](https://soroban.stellar.org/) - Stellar smart contracts
+- [Stellar CLI](https://developers.stellar.org/docs/tools/developer-tools) - Soroban deployment
 
 ---
 
@@ -412,6 +451,7 @@ This program is free software: you can redistribute it and/or modify it under th
 
 ## 🔗 Links
 
+- **🌐 ZKPrivacy Website:** https://zkprivacy.vercel.app
 - **Repository:** https://github.com/xcapit/stellar-privacy-poc
 - **Xcapit Labs:** https://xcapit.com
 - **Circom Docs:** https://docs.circom.io
@@ -421,4 +461,8 @@ This program is free software: you can redistribute it and/or modify it under th
 
 **⭐ If you find this project useful, please star the repository!**
 
-**Ready to prove without revealing? Start with:** `bash circuits/scripts/full_demo.sh` 🚀
+**Ready to prove without revealing?**
+
+🌐 **Visit:** [zkprivacy.vercel.app](https://zkprivacy.vercel.app)
+
+🚀 **Try the demo:** `bash demo_multichain.sh`
