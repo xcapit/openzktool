@@ -61,29 +61,85 @@ WASM_FILE="target/wasm32-unknown-unknown/release/soroban_groth16_verifier.wasm"
 echo -e "${GREEN}✅ Contract built: $(ls -lh $WASM_FILE | awk '{print $5}')${NC}"
 echo ""
 
-# Start local Stellar network
+# Start local Stellar network with Docker (Quickstart)
 echo -e "${GREEN}🚀 Starting local Stellar network...${NC}"
-stellar network start local > /dev/null 2>&1 &
-NETWORK_PID=$!
 
-# Wait for network to be ready
-sleep 3
+# Check if Docker is running
+if ! docker info > /dev/null 2>&1; then
+    echo -e "${YELLOW}⚠️  Docker not running. Using testnet instead...${NC}"
+    NETWORK="testnet"
 
-# Check if network is running
-if ! stellar network ls 2>/dev/null | grep -q "local"; then
-    echo -e "${YELLOW}⚠️  Network might not be ready, continuing anyway...${NC}"
+    # Generate/fund testnet identity if needed
+    if ! stellar keys show alice > /dev/null 2>&1; then
+        echo -e "${GREEN}Generating testnet identity...${NC}"
+        stellar keys generate alice --network testnet --fund > /dev/null 2>&1 || true
+    fi
+else
+    # Use Docker Quickstart for local testing
+    NETWORK="local"
+
+    # Stop any existing quickstart
+    docker stop stellar > /dev/null 2>&1 || true
+    docker rm stellar > /dev/null 2>&1 || true
+
+    # Start Stellar Quickstart
+    docker run -d \
+        --name stellar \
+        -p 8000:8000 \
+        stellar/quickstart:latest \
+        --local \
+        --enable-soroban-rpc > /dev/null 2>&1
+
+    # Wait for network to be ready
+    echo "Waiting for network to start..."
+    sleep 10
+
+    # Wait for RPC to be actually ready
+    echo "Waiting for Soroban RPC to be ready..."
+    for i in {1..30}; do
+        if curl -s http://localhost:8000/soroban/rpc > /dev/null 2>&1; then
+            echo "RPC is ready!"
+            break
+        fi
+        echo -n "."
+        sleep 1
+    done
+    echo ""
+    sleep 5  # Extra time to ensure everything is stable
+
+    # Configure local network
+    stellar network add local \
+        --rpc-url http://localhost:8000/soroban/rpc \
+        --network-passphrase "Standalone Network ; February 2017" > /dev/null 2>&1 || true
+
+    # Fund alice account via friendbot
+    ALICE_ADDR=$(stellar keys address alice 2>/dev/null)
+    if [ -n "$ALICE_ADDR" ]; then
+        echo "Funding alice account..."
+        for i in {1..10}; do
+            RESULT=$(curl -s "http://localhost:8000/friendbot?addr=$ALICE_ADDR" 2>&1)
+            if echo "$RESULT" | grep -q "successful"; then
+                echo "Account funded successfully!"
+                sleep 3  # Wait for account to be available
+                break
+            fi
+            echo -n "."
+            sleep 2
+        done
+    fi
+
+    # Cleanup function
+    cleanup() {
+        echo ""
+        echo -e "${YELLOW}🛑 Stopping Stellar network...${NC}"
+        docker stop stellar > /dev/null 2>&1 || true
+        docker rm stellar > /dev/null 2>&1 || true
+    }
+    trap cleanup EXIT
 fi
 
-echo -e "${GREEN}✅ Stellar local network running${NC}"
+echo -e "${GREEN}✅ Stellar network ready (${NETWORK})${NC}"
 echo ""
-
-# Cleanup function
-cleanup() {
-    echo ""
-    echo -e "${YELLOW}🛑 Stopping Stellar network...${NC}"
-    stellar network stop local > /dev/null 2>&1 || true
-}
-trap cleanup EXIT
 
 # Deploy contract
 echo -e "${GREEN}📤 Deploying Groth16 Verifier contract...${NC}"
@@ -92,7 +148,7 @@ echo -e "${GREEN}📤 Deploying Groth16 Verifier contract...${NC}"
 CONTRACT_ID=$(stellar contract deploy \
     --wasm $WASM_FILE \
     --source alice \
-    --network local 2>&1 | tail -1)
+    --network $NETWORK 2>&1 | tail -1)
 
 if [ -z "$CONTRACT_ID" ]; then
     echo -e "${YELLOW}❌ Failed to deploy contract${NC}"
@@ -117,7 +173,7 @@ echo ""
 VERSION=$(stellar contract invoke \
     --id $CONTRACT_ID \
     --source alice \
-    --network local \
+    --network $NETWORK \
     -- \
     version 2>&1 | tail -1)
 

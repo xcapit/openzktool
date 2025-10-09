@@ -180,9 +180,32 @@ echo "  🔏 Generating proof..."
 echo ""
 
 cd circuits/scripts
-bash prove_and_verify.sh > /tmp/zkprivacy_proof.log 2>&1
+
+echo -e "${CYAN}📊 Proof generation in progress...${NC}"
+echo ""
+
+bash prove_and_verify.sh 2>&1 | tee /tmp/zkprivacy_proof.log | while IFS= read -r line; do
+    # Show snarkjs output to prove it's running live
+    if echo "$line" | grep -qE "(INFO|WARN|witness|Proof|verif|generate|export|OK!)"; then
+        echo "$line"
+        sleep 0.1  # Increased from 0.03 to 0.1 for better visibility
+    fi
+done
+
+echo ""
+sleep 1  # Pause to see the last lines
+
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${CYAN}                    PROOF GENERATION LOG                         ${NC}"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo ""
+# Show last lines of proof generation for visibility
+tail -15 /tmp/zkprivacy_proof.log
+echo ""
+sleep 2  # Pause to read the output
 
 if grep -q "OK!" /tmp/zkprivacy_proof.log; then
+    echo ""
     echo -e "${GREEN}✅ Proof generated successfully!${NC}"
     echo ""
     PROOF_SIZE=$(ls -lh ../artifacts/proof.json | awk '{print $5}')
@@ -191,15 +214,26 @@ if grep -q "OK!" /tmp/zkprivacy_proof.log; then
     echo "  📊 Public output: kycValid = 1 (VALID)"
     echo ""
 
-    echo -e "${YELLOW}📄 Proof Structure:${NC}"
+    echo -e "${CYAN}📄 Generated files:${NC}"
     echo ""
-    echo "  The proof contains:"
-    echo "    • pi_a: Point on elliptic curve"
-    echo "    • pi_b: Point on elliptic curve"
-    echo "    • pi_c: Point on elliptic curve"
-    echo "    • protocol: groth16"
-    echo "    • curve: bn128"
+    ls -lh ../artifacts/proof.json ../artifacts/public.json 2>/dev/null | awk '{print "  "$9" - "$5}' || true
     echo ""
+    sleep 1  # Pause to see file sizes
+
+    echo -e "${YELLOW}📄 Proof Structure (live preview):${NC}"
+    echo ""
+    echo "  protocol: $(grep -o '"protocol"[^,]*' ../artifacts/proof.json | cut -d'"' -f4)"
+    echo "  curve: $(grep -o '"curve"[^}]*' ../artifacts/proof.json | cut -d'"' -f4)"
+    echo ""
+    sleep 0.5
+    echo "  pi_a (elliptic curve point):"
+    head -6 ../artifacts/proof.json | tail -3 | sed 's/^/    /'
+    echo ""
+    sleep 1  # Pause to see the numbers
+    echo "  Public inputs:"
+    cat ../artifacts/public.json
+    echo ""
+    sleep 1.5  # Longer pause to read the proof structure
 
     echo -e "${CYAN}🔐 What's Inside vs What's NOT:${NC}"
     echo ""
@@ -257,9 +291,28 @@ echo -e "${CYAN}                  ETHEREUM VERIFICATION LOG                     
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
-bash verify_on_chain.sh 2>&1 | tee /tmp/zkprivacy_evm.log | grep -E "(🚀|📤|🔍|✅|❌|Starting|Deploying|Verifying|VERIFICATION|deployed at:|Proof|running|Suite result)" || true
+# Run verification and show live output with more details
+bash verify_on_chain.sh 2>&1 | tee /tmp/zkprivacy_evm.log | while IFS= read -r line; do
+    # Show compilation progress
+    if echo "$line" | grep -qE "(Compiling|Compiler|Solc|Starting|Deploying|Running|Test|Suite|deployed|Verifier|Proof|VERIFICATION|gas|passed|failed)"; then
+        echo "$line"
+        sleep 0.15  # Increased delay for better readability
+    fi
+done
 
 echo ""
+sleep 1.5  # Pause after live execution
+
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${CYAN}                   TEST EXECUTION DETAILS                        ${NC}"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo ""
+
+# Show the actual forge test output
+tail -30 /tmp/zkprivacy_evm.log | grep -v "^$" || true
+
+echo ""
+sleep 2  # Pause to read the test details
 
 if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_evm.log; then
     echo ""
@@ -273,25 +326,40 @@ if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_evm.log; then
 
     echo -e "${CYAN}📋 Verification Details:${NC}"
     echo ""
+    sleep 0.5
     echo "  ✓ Smart contract confirmed: Alice meets ALL requirements"
+    sleep 0.3
     echo "  ✓ Contract address: $CONTRACT_ADDR"
+    sleep 0.3
     echo "  ✓ Gas used: ~200,000 gas"
+    sleep 0.3
     echo "  ✓ Verification time: <50ms"
+    sleep 0.3
     echo "  ✓ Network: Local Ethereum (Anvil)"
     echo ""
+    sleep 1
     echo -e "${YELLOW}🔐 What Ethereum Blockchain Knows:${NC}"
     echo ""
+    sleep 0.3
     echo "  ✅ A valid proof was verified"
+    sleep 0.3
     echo "  ✅ Alice meets the requirements"
+    sleep 0.3
     echo "  ✅ Transaction hash recorded on-chain"
     echo ""
+    sleep 1
     echo -e "${YELLOW}🔐 What Ethereum Blockchain Does NOT Know:${NC}"
     echo ""
+    sleep 0.3
     echo "  ❌ Alice's exact age"
+    sleep 0.3
     echo "  ❌ Alice's exact balance"
+    sleep 0.3
     echo "  ❌ Alice's country"
+    sleep 0.3
     echo "  ❌ Any other personal information"
     echo ""
+    sleep 2  # Final pause before continuing
 else
     echo -e "${RED}❌ Ethereum verification failed${NC}"
     cat /tmp/zkprivacy_evm.log
@@ -337,9 +405,28 @@ echo -e "${CYAN}                  STELLAR VERIFICATION LOG                      
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
-bash verify_on_chain.sh 2>&1 | tee /tmp/zkprivacy_soroban.log | grep -E "(🚀|🔨|📤|🔍|✅|❌|Starting|Building|Deploying|Invoking|VERIFICATION|Contract|Proof|network running|built:|deployed)" || true
+# Run verification and show live output with more details
+bash verify_on_chain.sh 2>&1 | tee /tmp/zkprivacy_soroban.log | while IFS= read -r line; do
+    # Show all relevant output including Docker, compilation, deployment
+    if echo "$line" | grep -qE "(Building|Compiling|Starting|Waiting|network|Docker|stellar|Contract|Deploying|Invoking|Simulating|Signing|Submitting|Deployed|VERIFICATION|wasm|built:|deployed|version|ID:)"; then
+        echo "$line"
+        sleep 0.15  # Increased delay for better readability
+    fi
+done
 
 echo ""
+sleep 1.5  # Pause after live execution
+
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${CYAN}                  DEPLOYMENT EXECUTION LOG                       ${NC}"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo ""
+
+# Show relevant lines from the log
+tail -40 /tmp/zkprivacy_soroban.log | grep -v "^$" | grep -E "(✅|📤|🔍|Contract|Deployed|version|Invoking|VERIFICATION)" || true
+
+echo ""
+sleep 2  # Pause to read deployment details
 
 if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_soroban.log; then
     echo ""
@@ -353,25 +440,40 @@ if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_soroban.log; then
 
     echo -e "${CYAN}📋 Verification Details:${NC}"
     echo ""
+    sleep 0.5
     echo "  ✓ Smart contract confirmed: Alice meets ALL requirements"
+    sleep 0.3
     echo "  ✓ Contract ID: ${CONTRACT_ID:-CAAAA...}"
+    sleep 0.3
     echo "  ✓ Contract size: 2.1KB WASM"
+    sleep 0.3
     echo "  ✓ Resource usage: Minimal CPU/memory"
+    sleep 0.3
     echo "  ✓ Network: Local Stellar"
     echo ""
+    sleep 1
     echo -e "${YELLOW}🔐 What Stellar Blockchain Knows:${NC}"
     echo ""
+    sleep 0.3
     echo "  ✅ A valid proof was verified"
+    sleep 0.3
     echo "  ✅ Alice meets the requirements"
+    sleep 0.3
     echo "  ✅ Transaction recorded on-chain"
     echo ""
+    sleep 1
     echo -e "${YELLOW}🔐 What Stellar Blockchain Does NOT Know:${NC}"
     echo ""
+    sleep 0.3
     echo "  ❌ Alice's exact age"
+    sleep 0.3
     echo "  ❌ Alice's exact balance"
+    sleep 0.3
     echo "  ❌ Alice's country"
+    sleep 0.3
     echo "  ❌ Any other personal information"
     echo ""
+    sleep 2  # Final pause before continuing
 else
     echo -e "${RED}❌ Soroban verification failed${NC}"
     cat /tmp/zkprivacy_soroban.log
@@ -504,7 +606,6 @@ echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━�
 echo ""
 echo -e "${CYAN}👥 Team X1 - Xcapit Labs${NC}"
 echo ""
-echo "  🎓 PhD in cryptography"
 echo "  ⛓️  6+ years blockchain experience"
 echo "  🏆 Previous SCF grant delivered (Offline Wallet)"
 echo "  🌍 Based in Argentina, working globally"

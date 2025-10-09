@@ -466,7 +466,7 @@ Al final de tu demo, menciona estas métricas:
 - 🎯 Target: 5+ partners mainnet (3 months)
 - 🧪 Pilots: 2 partners on testnet
 - ⏱️ Timeline: 6 months
-- 👥 Team: 6 members (PhD crypto, 6+ years blockchain)
+- 👥 Team: 6 members (6+ years blockchain)
 
 **Traction:**
 - ✅ POC Complete (circuits + contracts + SDK + demo)

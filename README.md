@@ -639,7 +639,6 @@ This program is free software: you can redistribute it and/or modify it under th
 | QA Specialists | Natalia Gatti, Carolina Medina | Testing, security, documentation quality |
 
 **Strengths:**
-- PhD-level cryptography expertise
 - Deep Stellar/Soroban familiarity (6+ months)
 - 6+ years blockchain development experience
 - Academic partnerships (UTN - Universidad Tecnológica Nacional)
