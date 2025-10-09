@@ -1,6 +1,6 @@
 # 💻 Integration Examples
 
-**Practical code examples for integrating ZKPrivacy into your applications**
+**Practical code examples for integrating OpenZKTool into your applications**
 
 ---
 

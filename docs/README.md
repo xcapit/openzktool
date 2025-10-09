@@ -1,6 +1,6 @@
 # 📚 Stellar Privacy SDK - Documentation
 
-**Complete technical documentation for the ZKPrivacy toolkit**
+**Complete technical documentation for the OpenZKTool toolkit**
 
 ---
 
@@ -52,7 +52,7 @@
 
 ### FAQ ❓ **NEW!**
 - [**Frequently Asked Questions**](./FAQ.md) ⭐ **100+ questions answered**
-  - General questions about ZKPrivacy
+  - General questions about OpenZKTool
   - Technical implementation details
   - Integration and development
   - Multi-chain and blockchain
@@ -87,7 +87,7 @@
 
 ## 🔍 What is Stellar Privacy SDK?
 
-The Stellar Privacy SDK (ZKPrivacy) enables **privacy-preserving transactions** on Stellar and other blockchains using **Zero-Knowledge Proofs (ZK-SNARKs)**.
+The Stellar Privacy SDK (OpenZKTool) enables **privacy-preserving transactions** on Stellar and other blockchains using **Zero-Knowledge Proofs (ZK-SNARKs)**.
 
 ### Core Capabilities
 
@@ -146,7 +146,7 @@ See [CONTRIBUTING.md](../CONTRIBUTING.md) for guidelines.
 
 ## 📞 Support
 
-- 🌐 Website: https://zkprivacy.vercel.app
+- 🌐 Website: https://openzktool.vercel.app
 - 💬 GitHub Issues: https://github.com/xcapit/stellar-privacy-poc/issues
 - 📧 Email: Contact via website
 - 📚 Additional Resources: See [README.md](../README.md)

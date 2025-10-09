@@ -1,8 +1,8 @@
 # Alineación con los Objetivos de Desarrollo Sostenible (SDGs)
 
-**ZKPrivacy - Stellar Privacy SDK**
+**OpenZKTool - Stellar Privacy SDK**
 
-Este documento mapea cómo el proyecto **ZKPrivacy** contribuye a los Objetivos de Desarrollo Sostenible (SDGs) de las Naciones Unidas.
+Este documento mapea cómo el proyecto **OpenZKTool** contribuye a los Objetivos de Desarrollo Sostenible (SDGs) de las Naciones Unidas.
 
 ---
 
@@ -12,7 +12,7 @@ Este documento mapea cómo el proyecto **ZKPrivacy** contribuye a los Objetivos 
 
 **Target 9.c:** Aumentar significativamente el acceso a la tecnología de la información y las comunicaciones y esforzarse por proporcionar acceso universal y asequible a Internet en los países menos adelantados.
 
-**Cómo ZKPrivacy contribuye:**
+**Cómo OpenZKTool contribuye:**
 
 ✅ **Infraestructura tecnológica abierta**
 - Proporciona infraestructura de privacidad de código abierto para blockchains públicas
@@ -41,7 +41,7 @@ Este documento mapea cómo el proyecto **ZKPrivacy** contribuye a los Objetivos 
 
 **Target 10.2:** Empoderar y promover la inclusión social, económica y política de todos, independientemente de su edad, sexo, discapacidad, raza, etnia, origen, religión o situación económica u otra condición.
 
-**Cómo ZKPrivacy contribuye:**
+**Cómo OpenZKTool contribuye:**
 
 ✅ **Inclusión financiera**
 - Permite a individuos en países con infraestructura bancaria limitada acceder a servicios financieros privados
@@ -71,7 +71,7 @@ Este documento mapea cómo el proyecto **ZKPrivacy** contribuye a los Objetivos 
 
 **Target 16.10:** Garantizar el acceso público a la información y proteger las libertades fundamentales.
 
-**Cómo ZKPrivacy contribuye:**
+**Cómo OpenZKTool contribuye:**
 
 ✅ **Transparencia con privacidad**
 - Permite auditoría selectiva: reguladores pueden verificar compliance sin exponer datos de usuarios
@@ -101,7 +101,7 @@ Este documento mapea cómo el proyecto **ZKPrivacy** contribuye a los Objetivos 
 
 **Target 8.10:** Fortalecer la capacidad de las instituciones financieras nacionales para fomentar y ampliar el acceso a los servicios bancarios, financieros y de seguros para todos.
 
-**Cómo ZKPrivacy contribuye:**
+**Cómo OpenZKTool contribuye:**
 
 ✅ **Nuevas oportunidades económicas**
 - Habilita nuevos modelos de negocio en DeFi privado
@@ -150,7 +150,7 @@ Este documento mapea cómo el proyecto **ZKPrivacy** contribuye a los Objetivos 
   - Datos personales expuestos a gobiernos autoritarios
   - Riesgo de confiscación o persecución
 
-**Solución con ZKPrivacy:**
+**Solución con OpenZKTool:**
 - Remesas en blockchain (fees < 1%)
 - Privacidad del monto y receptor
 - Proof de origen lícito para compliance sin exponer fuente
@@ -167,7 +167,7 @@ Este documento mapea cómo el proyecto **ZKPrivacy** contribuye a los Objetivos 
 - Stigma social al solicitar microcréditos
 - Discriminación basada en género, edad, ubicación
 
-**Solución con ZKPrivacy:**
+**Solución con OpenZKTool:**
 - Probar capacidad de pago sin revelar ingresos exactos
 - Credit score privacy-preserving
 - Acceso a crédito sin discriminación
@@ -183,7 +183,7 @@ Este documento mapea cómo el proyecto **ZKPrivacy** contribuye a los Objetivos 
 - Datos personales duplicados en múltiples bases de datos
 - Riesgo de filtraciones de datos
 
-**Solución con ZKPrivacy:**
+**Solución con OpenZKTool:**
 - KYC una vez, usar en múltiples plataformas
 - Zero-Knowledge Proof de compliance
 - Datos sensibles nunca salen del control del usuario
@@ -216,7 +216,7 @@ Este documento mapea cómo el proyecto **ZKPrivacy** contribuye a los Objetivos 
 
 ## 🔗 Alineación con Principios de Digital Public Goods
 
-ZKPrivacy cumple con la definición de Digital Public Good (DPG):
+OpenZKTool cumple con la definición de Digital Public Good (DPG):
 
 ✅ **Open source software** - Licencia AGPL-3.0
 ✅ **Adherence to privacy and applicable laws** - Ver [PRIVACY.md](./PRIVACY.md)
@@ -246,8 +246,8 @@ Este documento se actualizará periódicamente conforme el proyecto evolucione y
 
 ## 📞 Contacto
 
-Para discutir cómo ZKPrivacy puede contribuir a iniciativas de SDGs en tu región u organización:
+Para discutir cómo OpenZKTool puede contribuir a iniciativas de SDGs en tu región u organización:
 
-- 🌐 Website: https://zkprivacy.vercel.app
+- 🌐 Website: https://openzktool.vercel.app
 - 💬 GitHub: https://github.com/xcapit/stellar-privacy-poc
 - 📧 Email: [Disponible en website]

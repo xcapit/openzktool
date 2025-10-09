@@ -52,7 +52,7 @@ git clone https://github.com/xcapit/stellar-privacy-poc.git
 cd stellar-privacy-poc
 ```
 
-**What you just did:** Downloaded the ZKPrivacy codebase to your machine.
+**What you just did:** Downloaded the OpenZKTool codebase to your machine.
 
 ---
 
@@ -67,7 +67,7 @@ npm install
 added 157 packages in 23s
 ```
 
-**What you learned:** ✅ ZKPrivacy is a standard Node.js project - easy to set up!
+**What you learned:** ✅ OpenZKTool is a standard Node.js project - easy to set up!
 
 ---
 
@@ -89,7 +89,7 @@ npm run setup
 
 **Expected output:**
 ```
-🔧 Setting up ZKPrivacy circuits...
+🔧 Setting up OpenZKTool circuits...
 ✅ Circuit compiled successfully
 ✅ Powers of Tau downloaded
 ✅ Proving key generated

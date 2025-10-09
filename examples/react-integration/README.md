@@ -398,7 +398,7 @@ export async function verifyOnStellar(proof: any, publicSignals: string[]) {
 
 ```json
 {
-  "name": "zkprivacy-react-example",
+  "name": "openzktool-react-example",
   "version": "1.0.0",
   "type": "module",
   "scripts": {

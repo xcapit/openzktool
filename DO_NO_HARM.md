@@ -1,14 +1,14 @@
 # Política "Do No Harm by Design"
 
-**ZKPrivacy - Stellar Privacy SDK**
+**OpenZKTool - Stellar Privacy SDK**
 
-Este documento describe cómo ZKPrivacy cumple con el principio **"Do No Harm by Design"** (No Causar Daño por Diseño) requerido por Digital Public Goods Alliance (DPGA).
+Este documento describe cómo OpenZKTool cumple con el principio **"Do No Harm by Design"** (No Causar Daño por Diseño) requerido por Digital Public Goods Alliance (DPGA).
 
 ---
 
 ## 🎯 Compromiso Fundamental
 
-**ZKPrivacy se compromete a:**
+**OpenZKTool se compromete a:**
 
 ✅ **Proteger a los usuarios** de daños potenciales
 ✅ **Prevenir mal uso** del software
@@ -71,10 +71,10 @@ Ver [PRIVACY.md](./PRIVACY.md) para política completa.
 
 ### 2.1 Uso Prohibido
 
-❌ **ZKPrivacy NO debe usarse para:**
+❌ **OpenZKTool NO debe usarse para:**
 
 1. **Lavado de dinero**
-   - ZKPrivacy NO es un mixer/tumbler
+   - OpenZKTool NO es un mixer/tumbler
    - Compatible con KYC/AML (selective disclosure para reguladores)
    - Proofs pueden incluir identifiers para compliance
 
@@ -187,11 +187,11 @@ template KYCWithAudit() {
 
 ### 4.1 Restricciones de Edad
 
-⚠️ **ZKPrivacy SDK no está diseñado específicamente para menores**
+⚠️ **OpenZKTool SDK no está diseñado específicamente para menores**
 
 ✅ **Política:**
 - No recopilamos edad de usuarios (es un SDK, no un servicio)
-- Aplicaciones que integran ZKPrivacy son responsables de compliance COPPA
+- Aplicaciones que integran OpenZKTool son responsables de compliance COPPA
 - Documentación incluye advertencias sobre uso por menores
 
 ✅ **Recomendaciones para desarrolladores:**
@@ -274,7 +274,7 @@ Ver [PRIVACY.md - Sección 6](./PRIVACY.md#6-derechos-de-los-usuarios)
 
 ### 7.1 Cumplimiento de Leyes
 
-✅ **ZKPrivacy compatible con:**
+✅ **OpenZKTool compatible con:**
 - **GDPR** (EU) - Privacy by design, minimización de datos
 - **CCPA** (California) - No venta de datos, transparencia
 - **LGPD** (Brasil) - Principios similares a GDPR
@@ -297,7 +297,7 @@ Ver [PRIVACY.md - Sección 4](./PRIVACY.md#4-compliance-con-regulaciones)
 
 ⚠️ **Importante:**
 
-**ZKPrivacy (el SDK) proporciona herramientas. Los desarrolladores que integran ZKPrivacy son responsables de:**
+**OpenZKTool (el SDK) proporciona herramientas. Los desarrolladores que integran OpenZKTool son responsables de:**
 
 1. Cumplir con leyes locales
 2. Obtener consentimientos necesarios
@@ -306,7 +306,7 @@ Ver [PRIVACY.md - Sección 4](./PRIVACY.md#4-compliance-con-regulaciones)
 
 **Disclaimer:**
 ```
-ZKPrivacy SDK es una herramienta de código abierto.
+OpenZKTool SDK es una herramienta de código abierto.
 Team X1 - Xcapit Labs NO es responsable del uso que terceros hagan del software.
 Los desarrolladores deben cumplir con leyes y regulaciones aplicables.
 ```
@@ -317,7 +317,7 @@ Los desarrolladores deben cumplir con leyes y regulaciones aplicables.
 
 ### 8.1 Alineación con SDGs
 
-✅ **ZKPrivacy contribuye a:**
+✅ **OpenZKTool contribuye a:**
 - **SDG 9:** Innovación e infraestructura
 - **SDG 10:** Reducción de desigualdades
 - **SDG 16:** Paz, justicia e instituciones sólidas
@@ -356,7 +356,7 @@ Ver [SDG_MAPPING.md](./SDG_MAPPING.md) para detalles completos.
 ✅ **Canales de comunicación:**
 - GitHub Discussions: Preguntas y feedback de comunidad
 - GitHub Issues: Bugs y feature requests
-- Email: [Disponible en website](https://zkprivacy.vercel.app)
+- Email: [Disponible en website](https://openzktool.vercel.app)
 
 ✅ **Respuesta a incidentes:**
 - Security issues: < 48 horas
@@ -372,7 +372,7 @@ Ver [SDG_MAPPING.md](./SDG_MAPPING.md) para detalles completos.
 - 🌍 Basado en Argentina
 
 ✅ **Contacto:**
-- Website: https://zkprivacy.vercel.app
+- Website: https://openzktool.vercel.app
 - GitHub: https://github.com/xcapit/stellar-privacy-poc
 
 ---
@@ -489,11 +489,11 @@ Este documento cumple con **DPGA Indicator 9: Do No Harm**
 
 ## 📞 Reporte de Problemas
 
-Si descubres un uso dañino de ZKPrivacy o vulnerabilidades de seguridad:
+Si descubres un uso dañino de OpenZKTool o vulnerabilidades de seguridad:
 
 🔒 **Security issues:** Ver [SECURITY.md](./SECURITY.md)
 🐛 **General issues:** https://github.com/xcapit/stellar-privacy-poc/issues
-📧 **Email:** [Disponible en website](https://zkprivacy.vercel.app)
+📧 **Email:** [Disponible en website](https://openzktool.vercel.app)
 
 **Responderemos en < 48 horas**
 

@@ -237,7 +237,7 @@ app.use((err, req, res, next) => {
 (async () => {
   await initDatabase();
   app.listen(PORT, () => {
-    console.log(`🚀 ZKPrivacy API server running on http://localhost:${PORT}`);
+    console.log(`🚀 OpenZKTool API server running on http://localhost:${PORT}`);
   });
 })();
 
@@ -383,7 +383,7 @@ module.exports = {
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
-const DB_PATH = path.join(__dirname, '../../zkprivacy.db');
+const DB_PATH = path.join(__dirname, '../../openzktool.db');
 
 let db;
 
@@ -552,7 +552,7 @@ module.exports = limiter;
 
 ```json
 {
-  "name": "zkprivacy-nodejs-backend",
+  "name": "openzktool-nodejs-backend",
   "version": "1.0.0",
   "main": "src/server.js",
   "scripts": {
@@ -599,7 +599,7 @@ STELLAR_CONTRACT_ID=C...
 STELLAR_SECRET_KEY=S...
 
 # Database
-DATABASE_PATH=./zkprivacy.db
+DATABASE_PATH=./openzktool.db
 ```
 
 ---
@@ -687,7 +687,7 @@ npm test
 ### Deploy to Heroku
 
 ```bash
-heroku create zkprivacy-api
+heroku create openzktool-api
 git push heroku main
 heroku config:set NODE_ENV=production
 ```
@@ -720,8 +720,8 @@ CMD ["node", "src/server.js"]
 
 **Build and run:**
 ```bash
-docker build -t zkprivacy-api .
-docker run -p 3001:3001 zkprivacy-api
+docker build -t openzktool-api .
+docker run -p 3001:3001 openzktool-api
 ```
 
 ---

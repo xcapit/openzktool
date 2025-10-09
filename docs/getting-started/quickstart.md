@@ -1,6 +1,6 @@
 # ⚡ Quick Start Guide
 
-**Get up and running with ZKPrivacy in 5 minutes**
+**Get up and running with OpenZKTool in 5 minutes**
 
 ---
 

@@ -1,8 +1,8 @@
-# 🔐 ZKPrivacy
+# 🔐 OpenZKTool
 
 **Stellar Privacy SDK — Zero-Knowledge Proof Toolkit for TradFi**
 
-> *Project Name:* **Stellar Privacy SDK** | *Brand:* **ZKPrivacy**
+> *Project Name:* **Stellar Privacy SDK** | *Brand:* **OpenZKTool**
 > *Status:* **Proof of Concept** | *Grant Proposal:* **SCF #40 Build Award** | *Duration:* **6 months**
 
 A production-ready SDK enabling developers, retail partners, and financial institutions to execute **privacy-preserving transactions** on Stellar using **ZK-SNARKs** — with full regulatory compliance and auditability for real-world institutional use.
@@ -12,9 +12,9 @@ A production-ready SDK enabling developers, retail partners, and financial insti
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%203.0-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Circom](https://img.shields.io/badge/Circom-2.1.9-brightgreen)](https://docs.circom.io/)
 [![Solidity](https://img.shields.io/badge/Solidity-0.8+-orange)](https://soliditylang.org/)
-[![Website](https://img.shields.io/badge/Website-zkprivacy.vercel.app-purple)](https://zkprivacy.vercel.app)
+[![Website](https://img.shields.io/badge/Website-openzktool.vercel.app-purple)](https://openzktool.vercel.app)
 
-🌐 **Website:** [https://zkprivacy.vercel.app](https://zkprivacy.vercel.app)
+🌐 **Website:** [https://openzktool.vercel.app](https://openzktool.vercel.app)
 
 ---
 
@@ -95,7 +95,7 @@ npm run demo:soroban  # Verify on Soroban only
 
 **Watch the complete demo in action:**
 
-[![ZKPrivacy Demo Video](https://img.shields.io/badge/▶️_Watch_Demo-Google_Drive-red?style=for-the-badge)](https://drive.google.com/file/d/1SSQCAanCcpsVqp4rNuM3Vh6triRtknzt/view?usp=sharing)
+[![OpenZKTool Demo Video](https://img.shields.io/badge/▶️_Watch_Demo-Google_Drive-red?style=for-the-badge)](https://drive.google.com/file/d/1SSQCAanCcpsVqp4rNuM3Vh6triRtknzt/view?usp=sharing)
 
 This video shows the full execution of `DEMO_AUTO=1 bash demo_video.sh`, including:
 - 🔐 Zero-knowledge proof generation with live logs
@@ -127,7 +127,7 @@ This video shows the full execution of `DEMO_AUTO=1 bash demo_video.sh`, includi
 
 ## 🏗️ Architecture
 
-**Understand how ZKPrivacy works with visual diagrams:**
+**Understand how OpenZKTool works with visual diagrams:**
 
 ### 📐 [**Architecture Overview →**](./docs/architecture/overview.md)
 Complete visual guide with Mermaid diagrams showing:
@@ -170,7 +170,7 @@ Step-by-step technical flow with sequence diagrams:
 
 ## 💻 Integration Examples
 
-**Ready to integrate ZKPrivacy into your app?**
+**Ready to integrate OpenZKTool into your app?**
 
 👉 **[View All Integration Examples →](./examples/README.md)**
 
@@ -302,8 +302,8 @@ stellar-privacy-poc/
 ├── demo_multichain.sh           # Multi-chain demo (technical)
 └── demo_privacy_proof.sh        # Privacy narrative demo (non-technical)
 │
-├── web/                         # ZKPrivacy landing page
-│   └── (Next.js 14 app)        # https://zkprivacy.vercel.app
+├── web/                         # OpenZKTool landing page
+│   └── (Next.js 14 app)        # https://openzktool.vercel.app
 │
 ├── demo_multichain.sh           # Multi-chain demo ⭐
 ├── DEMO.md                      # Step-by-step tutorial
@@ -609,7 +609,7 @@ The full Stellar Privacy SDK will include:
 
 ## 🌍 Digital Public Good (DPG) Compliance
 
-ZKPrivacy cumple con los estándares de **Digital Public Goods Alliance (DPGA)** para ser reconocido como un Bien Público Digital que contribuye a los Objetivos de Desarrollo Sostenible (SDGs) de la ONU.
+OpenZKTool cumple con los estándares de **Digital Public Goods Alliance (DPGA)** para ser reconocido como un Bien Público Digital que contribuye a los Objetivos de Desarrollo Sostenible (SDGs) de la ONU.
 
 ### ✅ DPG Standard - 9 Indicadores
 
@@ -627,7 +627,7 @@ ZKPrivacy cumple con los estándares de **Digital Public Goods Alliance (DPGA)**
 
 ### 🎯 Contribución a SDGs
 
-ZKPrivacy contribuye directamente a:
+OpenZKTool contribuye directamente a:
 
 - **SDG 9:** Industria, Innovación e Infraestructura
   - Infraestructura de privacidad open source para blockchains
@@ -710,7 +710,7 @@ Before production use:
 - [x] Soroban Rust verifier (testnet)
 - [x] Multi-chain demo scripts
 - [x] Educational documentation
-- [x] Web landing page (zkprivacy.vercel.app)
+- [x] Web landing page (openzktool.vercel.app)
 
 ### 🔨 Tranche 1: MVP Development (Months 1-5)
 
@@ -902,7 +902,7 @@ This program is free software: you can redistribute it and/or modify it under th
 
 ## 🔗 Links
 
-- **🌐 ZKPrivacy Website:** https://zkprivacy.vercel.app
+- **🌐 OpenZKTool Website:** https://openzktool.vercel.app
 - **Repository:** https://github.com/xcapit/stellar-privacy-poc
 - **Xcapit Labs:** https://xcapit.com
 - **Circom Docs:** https://docs.circom.io
@@ -914,6 +914,6 @@ This program is free software: you can redistribute it and/or modify it under th
 
 **Ready to prove without revealing?**
 
-🌐 **Visit:** [zkprivacy.vercel.app](https://zkprivacy.vercel.app)
+🌐 **Visit:** [openzktool.vercel.app](https://openzktool.vercel.app)
 
 🚀 **Try the demo:** `bash demo_multichain.sh`

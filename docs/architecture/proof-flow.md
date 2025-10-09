@@ -1,6 +1,6 @@
 # 🔄 Proof Generation & Verification Flow
 
-Detailed technical flow of how ZK proofs are generated and verified in ZKPrivacy.
+Detailed technical flow of how ZK proofs are generated and verified in OpenZKTool.
 
 ---
 

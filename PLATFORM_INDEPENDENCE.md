@@ -1,14 +1,14 @@
 # Independencia de Plataforma
 
-**ZKPrivacy - Stellar Privacy SDK**
+**OpenZKTool - Stellar Privacy SDK**
 
-Este documento describe cómo ZKPrivacy logra **independencia de plataforma** y evita el vendor lock-in, cumpliendo con los requisitos de Digital Public Goods Alliance (DPGA).
+Este documento describe cómo OpenZKTool logra **independencia de plataforma** y evita el vendor lock-in, cumpliendo con los requisitos de Digital Public Goods Alliance (DPGA).
 
 ---
 
 ## 🎯 Resumen Ejecutivo
 
-ZKPrivacy está diseñado para ser **completamente independiente** de plataformas propietarias:
+OpenZKTool está diseñado para ser **completamente independiente** de plataformas propietarias:
 
 ✅ **Open source** 100% (AGPL-3.0)
 ✅ **Estándares abiertos** (Groth16, Circom, Solidity, Rust)
@@ -216,7 +216,7 @@ El mismo proof puede verificarse en:
 
 ### 4.3 Web y Desarrollo
 
-| Estándar | Uso en ZKPrivacy |
+| Estándar | Uso en OpenZKTool |
 |----------|------------------|
 | **JSON** | Configuración, proofs, inputs |
 | **Markdown** | Documentación |
@@ -229,14 +229,14 @@ El mismo proof puede verificarse en:
 
 ### 5.1 No Requiere Servicios Propietarios
 
-❌ **ZKPrivacy NO requiere:**
+❌ **OpenZKTool NO requiere:**
 - Cuentas en servicios de terceros
 - APIs propietarias
 - Suscripciones o licencias comerciales
 - Hardware específico (TPMs, HSMs)
 - Sistemas operativos propietarios
 
-✅ **ZKPrivacy funciona 100% offline:**
+✅ **OpenZKTool funciona 100% offline:**
 ```bash
 # Generar proof sin internet
 npm run prove
@@ -247,7 +247,7 @@ npm run verify
 
 ### 5.2 Despliegue Flexible
 
-✅ **Puedes desplegar ZKPrivacy en:**
+✅ **Puedes desplegar OpenZKTool en:**
 
 **Backend:**
 - Cualquier servidor Linux/Windows/macOS
@@ -364,7 +364,7 @@ stellar contract deploy --network mainnet
 
 **Team X1 - Xcapit Labs se compromete a:**
 
-✅ Mantener ZKPrivacy 100% open source (AGPL-3.0)
+✅ Mantener OpenZKTool 100% open source (AGPL-3.0)
 ✅ No introducir dependencias propietarias obligatorias
 ✅ Documentar alternativas open source para todas las dependencias
 ✅ Soportar múltiples blockchains sin discriminación
@@ -375,8 +375,8 @@ stellar contract deploy --network mainnet
 La licencia AGPL-3.0 **garantiza** que:
 
 ✅ Cualquier fork o modificación debe permanecer open source
-✅ Nadie puede crear versión propietaria de ZKPrivacy
-✅ Servicios basados en ZKPrivacy deben compartir modificaciones
+✅ Nadie puede crear versión propietaria de OpenZKTool
+✅ Servicios basados en OpenZKTool deben compartir modificaciones
 ✅ Usuarios tienen derechos perpetuos de uso
 
 **Texto completo:** [LICENSE](./LICENSE)
@@ -441,17 +441,17 @@ Todas las alternativas open source están documentadas en:
 
 ## 11. Contacto para Soporte Multi-Plataforma
 
-Si necesitas ayuda para desplegar ZKPrivacy en una plataforma específica:
+Si necesitas ayuda para desplegar OpenZKTool en una plataforma específica:
 
 💬 **GitHub Discussions:** https://github.com/xcapit/stellar-privacy-poc/discussions
 🐛 **GitHub Issues:** https://github.com/xcapit/stellar-privacy-poc/issues
-📧 **Email:** [Disponible en website](https://zkprivacy.vercel.app)
+📧 **Email:** [Disponible en website](https://openzktool.vercel.app)
 
 ---
 
 ## ✅ Conclusión
 
-ZKPrivacy cumple completamente con los requisitos de **independencia de plataforma** de DPGA:
+OpenZKTool cumple completamente con los requisitos de **independencia de plataforma** de DPGA:
 
 ✅ No lock-in a vendors específicos
 ✅ Todas las dependencias tienen alternativas open source

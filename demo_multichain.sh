@@ -42,7 +42,7 @@ cat << "EOF"
 EOF
 
 echo ""
-echo -e "${CYAN}Welcome to the ZKPrivacy Multi-Chain Demo!${NC}"
+echo -e "${CYAN}Welcome to the OpenZKTool Multi-Chain Demo!${NC}"
 echo ""
 echo -e "${CYAN}⏱️  Estimated time: 5-7 minutes${NC}"
 echo ""
@@ -84,9 +84,9 @@ echo ""
 pause
 
 cd circuits/scripts
-bash prove_and_verify.sh > /tmp/zkprivacy_proof.log 2>&1
+bash prove_and_verify.sh > /tmp/openzktool_proof.log 2>&1
 
-if grep -q "OK!" /tmp/zkprivacy_proof.log; then
+if grep -q "OK!" /tmp/openzktool_proof.log; then
     echo -e "${GREEN}✅ Proof generated successfully!${NC}"
     echo ""
     PROOF_SIZE=$(ls -lh ../artifacts/proof.json | awk '{print $5}')
@@ -131,11 +131,11 @@ export PATH="$HOME/.foundry/bin:$PATH"
 echo -e "${CYAN}Starting Ethereum verification...${NC}"
 echo ""
 
-bash verify_on_chain.sh 2>&1 | tee /tmp/zkprivacy_evm.log | grep -E "(🚀|📤|🔍|✅|❌|Starting|Deploying|Verifying|VERIFICATION|deployed at:|Proof|running)" || true
+bash verify_on_chain.sh 2>&1 | tee /tmp/openzktool_evm.log | grep -E "(🚀|📤|🔍|✅|❌|Starting|Deploying|Verifying|VERIFICATION|deployed at:|Proof|running)" || true
 
 echo ""
 
-if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_evm.log; then
+if grep -q "VERIFICATION SUCCESSFUL" /tmp/openzktool_evm.log; then
     echo ""
     echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo -e "${GREEN}                  ✅ ETHEREUM VERIFICATION: SUCCESS                 ${NC}"
@@ -147,7 +147,7 @@ if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_evm.log; then
     echo ""
 else
     echo -e "${YELLOW}❌ Ethereum verification failed${NC}"
-    cat /tmp/zkprivacy_evm.log
+    cat /tmp/openzktool_evm.log
     exit 1
 fi
 
@@ -182,11 +182,11 @@ cd soroban
 echo -e "${CYAN}Starting Soroban verification...${NC}"
 echo ""
 
-bash verify_on_chain.sh 2>&1 | tee /tmp/zkprivacy_soroban.log | grep -E "(🚀|🔨|📤|🔍|✅|❌|Starting|Building|Deploying|Invoking|VERIFICATION|Contract|Proof|network running|built:)" || true
+bash verify_on_chain.sh 2>&1 | tee /tmp/openzktool_soroban.log | grep -E "(🚀|🔨|📤|🔍|✅|❌|Starting|Building|Deploying|Invoking|VERIFICATION|Contract|Proof|network running|built:)" || true
 
 echo ""
 
-if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_soroban.log; then
+if grep -q "VERIFICATION SUCCESSFUL" /tmp/openzktool_soroban.log; then
     echo ""
     echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo -e "${GREEN}                   ✅ SOROBAN VERIFICATION: SUCCESS                 ${NC}"
@@ -198,7 +198,7 @@ if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_soroban.log; then
     echo ""
 else
     echo -e "${YELLOW}❌ Soroban verification failed${NC}"
-    cat /tmp/zkprivacy_soroban.log
+    cat /tmp/openzktool_soroban.log
     exit 1
 fi
 
@@ -277,7 +277,7 @@ echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━�
 echo ""
 echo -e "${GREEN}🔗 Learn More:${NC}"
 echo ""
-echo "  🌐 Web: https://zkprivacy.vercel.app"
+echo "  🌐 Web: https://openzktool.vercel.app"
 echo "  📚 GitHub: https://github.com/xcapit/stellar-privacy-poc"
 echo "  📖 Docs: See README.md for full documentation"
 echo "  💼 Grant: SCF #40 Build Award Proposal"

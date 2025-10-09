@@ -102,7 +102,7 @@ Simplify your prompt for recording:
 export PS1="\$ "
 
 # Or slightly fancier
-export PS1="\[\033[01;32m\]\u@zkprivacy\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+export PS1="\[\033[01;32m\]\u@openzktool\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
 ```
 
 ---
@@ -181,7 +181,7 @@ Format: MP4
 brew install asciinema
 
 # Record
-asciinema rec zkprivacy-demo.cast --title "ZKPrivacy Multi-Chain Demo"
+asciinema rec openzktool-demo.cast --title "OpenZKTool Multi-Chain Demo"
 
 # Run demo
 DEMO_AUTO=1 bash demo_video.sh
@@ -189,7 +189,7 @@ DEMO_AUTO=1 bash demo_video.sh
 # Stop: Ctrl+D
 
 # Upload to share
-asciinema upload zkprivacy-demo.cast
+asciinema upload openzktool-demo.cast
 ```
 
 **Pros:**
@@ -394,7 +394,7 @@ DEMO_AUTO=1 bash demo_video.sh
        🔐 STELLAR PRIVACY SDK
     Zero-Knowledge Proofs for TradFi
 
-         zkprivacy.vercel.app
+         openzktool.vercel.app
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -408,7 +408,7 @@ DEMO_AUTO=1 bash demo_video.sh
 
        ✨ Thank You! ✨
 
-   🌐 zkprivacy.vercel.app
+   🌐 openzktool.vercel.app
    📚 github.com/xcapit/stellar-privacy-poc
    💼 SCF #40 Build Award Proposal
 
@@ -723,7 +723,7 @@ In this demo:
 
 Perfect for: Banks, Fintechs, DeFi, Compliance
 
-🌐 Website: https://zkprivacy.vercel.app
+🌐 Website: https://openzktool.vercel.app
 📚 GitHub: https://github.com/xcapit/stellar-privacy-poc
 💼 Grant: SCF #40 Build Award Proposal
 
@@ -764,7 +764,7 @@ Watch: ONE proof verified on Ethereum AND Stellar
 Perfect for banks, fintechs, DeFi 🏦
 
 🎥 Demo: [link]
-📚 Docs: zkprivacy.vercel.app
+📚 Docs: openzktool.vercel.app
 
 #ZKP #Stellar #Ethereum
 ```

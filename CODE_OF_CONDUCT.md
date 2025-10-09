@@ -1,4 +1,4 @@
-# Código de Conducta del Proyecto ZKPrivacy
+# Código de Conducta del Proyecto OpenZKTool
 
 ## Nuestro Compromiso
 
@@ -36,7 +36,7 @@ Este Código de Conducta aplica tanto dentro de los espacios del proyecto como e
 
 Los casos de comportamiento abusivo, acosador o de otro modo inaceptable pueden ser reportados contactando al equipo del proyecto en:
 
-**Email de contacto:** [Disponible a través del sitio web](https://zkprivacy.vercel.app)
+**Email de contacto:** [Disponible a través del sitio web](https://openzktool.vercel.app)
 
 Todas las quejas serán revisadas e investigadas y resultarán en una respuesta que se considere necesaria y apropiada a las circunstancias. El equipo del proyecto está obligado a mantener la confidencialidad con respecto al informante de un incidente. Se pueden publicar por separado más detalles de políticas de aplicación específicas.
 

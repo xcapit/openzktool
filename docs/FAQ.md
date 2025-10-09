@@ -1,6 +1,6 @@
 # ❓ Frequently Asked Questions (FAQ)
 
-**Quick answers to common questions about ZKPrivacy**
+**Quick answers to common questions about OpenZKTool**
 
 ---
 
@@ -18,9 +18,9 @@
 
 ## 🌟 General Questions
 
-### What is ZKPrivacy?
+### What is OpenZKTool?
 
-ZKPrivacy is a **privacy-preserving SDK** that enables Zero-Knowledge Proofs (ZK-SNARKs) for blockchain applications. It allows users to **prove statements about their data without revealing the actual data**.
+OpenZKTool is a **privacy-preserving SDK** that enables Zero-Knowledge Proofs (ZK-SNARKs) for blockchain applications. It allows users to **prove statements about their data without revealing the actual data**.
 
 **Example:** Prove you're over 18 without revealing your exact age.
 
@@ -34,9 +34,9 @@ A Zero-Knowledge Proof (ZKP) is a cryptographic method where one party (the prov
 
 ---
 
-### Why use ZKPrivacy instead of other solutions?
+### Why use OpenZKTool instead of other solutions?
 
-| Feature | ZKPrivacy | Aztec | Tornado Cash | ZETH |
+| Feature | OpenZKTool | Aztec | Tornado Cash | ZETH |
 |---------|-----------|-------|--------------|------|
 | **Multi-chain** | ✅ ETH + Stellar | ❌ ETH only | ❌ ETH only | ❌ ETH only |
 | **Proof Size** | 800 bytes | ~2KB | ~1.5KB | ~1KB |
@@ -74,7 +74,7 @@ See [Use Cases](./use-cases/) for detailed examples.
 
 ---
 
-### Is ZKPrivacy ready for production?
+### Is OpenZKTool ready for production?
 
 **Current Status: Proof of Concept (POC) ✅**
 
@@ -95,7 +95,7 @@ This is a **working prototype** with:
 
 ---
 
-### Who is behind ZKPrivacy?
+### Who is behind OpenZKTool?
 
 **Team X1 - Xcapit Labs**
 
@@ -133,7 +133,7 @@ See [Proof Flow](./architecture/proof-flow.md) for detailed diagrams.
 
 ---
 
-### What is a "circuit" in ZKPrivacy?
+### What is a "circuit" in OpenZKTool?
 
 A **circuit** is like a mathematical program written in a special language (Circom) that defines:
 - **What to prove** (e.g., "age is greater than or equal to 18")
@@ -253,7 +253,7 @@ wget https://hermez.s3-eu-west-1.amazonaws.com/pot12_final_phase2.ptau
 
 ---
 
-### What cryptographic primitives does ZKPrivacy use?
+### What cryptographic primitives does OpenZKTool use?
 
 | Component | Technology | Security Level |
 |-----------|------------|----------------|
@@ -268,7 +268,7 @@ wget https://hermez.s3-eu-west-1.amazonaws.com/pot12_final_phase2.ptau
 
 ## 🔌 Integration & Development
 
-### How do I integrate ZKPrivacy into my app?
+### How do I integrate OpenZKTool into my app?
 
 **Quick integration (3 steps):**
 
@@ -327,10 +327,10 @@ See [Integration Examples](../examples/) for full code.
 **Coming soon!** 🚧
 
 Currently in development:
-- 📦 `@zkprivacy/sdk` - Main SDK package
-- 🔧 `@zkprivacy/circuits` - Circuit library
-- ⛓️ `@zkprivacy/evm` - EVM integration
-- 🌟 `@zkprivacy/soroban` - Stellar integration
+- 📦 `@openzktool/sdk` - Main SDK package
+- 🔧 `@openzktool/circuits` - Circuit library
+- ⛓️ `@openzktool/evm` - EVM integration
+- 🌟 `@openzktool/soroban` - Stellar integration
 
 **Current workaround:** Use `snarkjs` directly (see integration example above).
 
@@ -338,9 +338,9 @@ Currently in development:
 
 ---
 
-### Can I use ZKPrivacy with React/Vue/Next.js?
+### Can I use OpenZKTool with React/Vue/Next.js?
 
-**Yes!** ZKPrivacy works in the browser.
+**Yes!** OpenZKTool works in the browser.
 
 **Example (React):**
 ```jsx
@@ -386,7 +386,7 @@ See `examples/react-integration/` for full example *(coming soon)*.
 
 ---
 
-### How do I contribute to ZKPrivacy?
+### How do I contribute to OpenZKTool?
 
 **We welcome contributions!** 🎉
 
@@ -422,7 +422,7 @@ See [CONTRIBUTING.md](../CONTRIBUTING.md) for detailed guidelines.
 
 ## 🌐 Multi-Chain & Blockchain
 
-### Which blockchains does ZKPrivacy support?
+### Which blockchains does OpenZKTool support?
 
 **Currently supported:**
 - ✅ **Ethereum** (and all EVM-compatible chains: Polygon, Arbitrum, Optimism, etc.)
@@ -508,7 +508,7 @@ See [Deployment Guide](./guides/deployment.md) *(coming soon)* for details.
 
 ## 🔐 Security & Privacy
 
-### Is ZKPrivacy secure?
+### Is OpenZKTool secure?
 
 **Current security status:**
 
@@ -566,13 +566,13 @@ template KYCWithNonce() {
 
 ### What are the privacy guarantees?
 
-**ZKPrivacy provides:**
+**OpenZKTool provides:**
 
 1. **Completeness** - Valid proofs always verify
 2. **Soundness** - Invalid proofs never verify (except with negligible probability)
 3. **Zero-Knowledge** - Verifier learns nothing beyond the public output
 
-**What ZKPrivacy does NOT protect against:**
+**What OpenZKTool does NOT protect against:**
 - ❌ Network-level privacy (your IP is visible)
 - ❌ Metadata leakage (transaction patterns)
 - ❌ Side-channel attacks (timing, power analysis)
@@ -584,7 +584,7 @@ template KYCWithNonce() {
 
 ---
 
-### Has ZKPrivacy been audited?
+### Has OpenZKTool been audited?
 
 **Not yet.** ⚠️
 
@@ -809,8 +809,8 @@ module.exports = {
 
 ### Community
 - 💬 [GitHub Issues](https://github.com/xcapit/stellar-privacy-poc/issues)
-- 🌐 [Website](https://zkprivacy.vercel.app)
-- 📧 [Contact via website](https://zkprivacy.vercel.app)
+- 🌐 [Website](https://openzktool.vercel.app)
+- 📧 [Contact via website](https://openzktool.vercel.app)
 
 ---
 
@@ -820,7 +820,7 @@ module.exports = {
 
 1. 🔍 Search [existing issues](https://github.com/xcapit/stellar-privacy-poc/issues)
 2. 💬 Open a [new issue](https://github.com/xcapit/stellar-privacy-poc/issues/new)
-3. 📧 Contact us via [website](https://zkprivacy.vercel.app)
+3. 📧 Contact us via [website](https://openzktool.vercel.app)
 
 ---
 

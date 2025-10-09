@@ -1,6 +1,6 @@
 # 🧪 Testing Guide - Stellar Privacy SDK
 
-**Complete guide for testing the ZKPrivacy multi-chain proof system**
+**Complete guide for testing the OpenZKTool multi-chain proof system**
 
 ---
 
@@ -448,7 +448,7 @@ npm run prove
 ### GitHub Actions Example
 
 ```yaml
-name: Test ZKPrivacy
+name: Test OpenZKTool
 
 on: [push, pull_request]
 

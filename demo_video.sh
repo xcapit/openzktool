@@ -49,7 +49,7 @@ echo "  ⛓️  True multi-chain interoperability"
 echo "  ⚡ Production-ready performance"
 echo "  🏦 Real-world TradFi use case"
 echo ""
-echo -e "${CYAN}🌐 Website: https://zkprivacy.vercel.app${NC}"
+echo -e "${CYAN}🌐 Website: https://openzktool.vercel.app${NC}"
 echo -e "${CYAN}📚 GitHub: https://github.com/xcapit/stellar-privacy-poc${NC}"
 echo ""
 
@@ -184,7 +184,7 @@ cd circuits/scripts
 echo -e "${CYAN}📊 Proof generation in progress...${NC}"
 echo ""
 
-bash prove_and_verify.sh 2>&1 | tee /tmp/zkprivacy_proof.log | while IFS= read -r line; do
+bash prove_and_verify.sh 2>&1 | tee /tmp/openzktool_proof.log | while IFS= read -r line; do
     # Show snarkjs output to prove it's running live
     if echo "$line" | grep -qE "(INFO|WARN|witness|Proof|verif|generate|export|OK!)"; then
         echo "$line"
@@ -200,11 +200,11 @@ echo -e "${CYAN}                    PROOF GENERATION LOG                        
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 # Show last lines of proof generation for visibility
-tail -15 /tmp/zkprivacy_proof.log
+tail -15 /tmp/openzktool_proof.log
 echo ""
 sleep 2  # Pause to read the output
 
-if grep -q "OK!" /tmp/zkprivacy_proof.log; then
+if grep -q "OK!" /tmp/openzktool_proof.log; then
     echo ""
     echo -e "${GREEN}✅ Proof generated successfully!${NC}"
     echo ""
@@ -249,7 +249,7 @@ if grep -q "OK!" /tmp/zkprivacy_proof.log; then
     echo ""
 else
     echo -e "${RED}❌ Proof generation failed${NC}"
-    cat /tmp/zkprivacy_proof.log
+    cat /tmp/openzktool_proof.log
     exit 1
 fi
 
@@ -292,7 +292,7 @@ echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━�
 echo ""
 
 # Run verification and show live output with more details
-bash verify_on_chain.sh 2>&1 | tee /tmp/zkprivacy_evm.log | while IFS= read -r line; do
+bash verify_on_chain.sh 2>&1 | tee /tmp/openzktool_evm.log | while IFS= read -r line; do
     # Show compilation progress
     if echo "$line" | grep -qE "(Compiling|Compiler|Solc|Starting|Deploying|Running|Test|Suite|deployed|Verifier|Proof|VERIFICATION|gas|passed|failed)"; then
         echo "$line"
@@ -309,12 +309,12 @@ echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━�
 echo ""
 
 # Show the actual forge test output
-tail -30 /tmp/zkprivacy_evm.log | grep -v "^$" || true
+tail -30 /tmp/openzktool_evm.log | grep -v "^$" || true
 
 echo ""
 sleep 2  # Pause to read the test details
 
-if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_evm.log; then
+if grep -q "VERIFICATION SUCCESSFUL" /tmp/openzktool_evm.log; then
     echo ""
     echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo -e "${GREEN}              ✅ ETHEREUM: PROOF VERIFIED                        ${NC}"
@@ -322,7 +322,7 @@ if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_evm.log; then
     echo ""
 
     # Extract contract address from log
-    CONTRACT_ADDR=$(grep "deployed at:" /tmp/zkprivacy_evm.log | awk '{print $NF}' | head -1)
+    CONTRACT_ADDR=$(grep "deployed at:" /tmp/openzktool_evm.log | awk '{print $NF}' | head -1)
 
     echo -e "${CYAN}📋 Verification Details:${NC}"
     echo ""
@@ -362,7 +362,7 @@ if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_evm.log; then
     sleep 2  # Final pause before continuing
 else
     echo -e "${RED}❌ Ethereum verification failed${NC}"
-    cat /tmp/zkprivacy_evm.log
+    cat /tmp/openzktool_evm.log
     exit 1
 fi
 
@@ -406,7 +406,7 @@ echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━�
 echo ""
 
 # Run verification and show live output with more details
-bash verify_on_chain.sh 2>&1 | tee /tmp/zkprivacy_soroban.log | while IFS= read -r line; do
+bash verify_on_chain.sh 2>&1 | tee /tmp/openzktool_soroban.log | while IFS= read -r line; do
     # Show all relevant output including Docker, compilation, deployment
     if echo "$line" | grep -qE "(Building|Compiling|Starting|Waiting|network|Docker|stellar|Contract|Deploying|Invoking|Simulating|Signing|Submitting|Deployed|VERIFICATION|wasm|built:|deployed|version|ID:)"; then
         echo "$line"
@@ -423,12 +423,12 @@ echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━�
 echo ""
 
 # Show relevant lines from the log
-tail -40 /tmp/zkprivacy_soroban.log | grep -v "^$" | grep -E "(✅|📤|🔍|Contract|Deployed|version|Invoking|VERIFICATION)" || true
+tail -40 /tmp/openzktool_soroban.log | grep -v "^$" | grep -E "(✅|📤|🔍|Contract|Deployed|version|Invoking|VERIFICATION)" || true
 
 echo ""
 sleep 2  # Pause to read deployment details
 
-if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_soroban.log; then
+if grep -q "VERIFICATION SUCCESSFUL" /tmp/openzktool_soroban.log; then
     echo ""
     echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo -e "${GREEN}                ✅ STELLAR: PROOF VERIFIED                       ${NC}"
@@ -436,7 +436,7 @@ if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_soroban.log; then
     echo ""
 
     # Extract contract ID from log
-    CONTRACT_ID=$(grep "Contract ID:" /tmp/zkprivacy_soroban.log | awk '{print $NF}' | head -1)
+    CONTRACT_ID=$(grep "Contract ID:" /tmp/openzktool_soroban.log | awk '{print $NF}' | head -1)
 
     echo -e "${CYAN}📋 Verification Details:${NC}"
     echo ""
@@ -476,7 +476,7 @@ if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_soroban.log; then
     sleep 2  # Final pause before continuing
 else
     echo -e "${RED}❌ Soroban verification failed${NC}"
-    cat /tmp/zkprivacy_soroban.log
+    cat /tmp/openzktool_soroban.log
     exit 1
 fi
 
@@ -588,7 +588,7 @@ echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━�
 echo ""
 echo -e "${GREEN}🔗 Learn More & Get Involved:${NC}"
 echo ""
-echo "  🌐 Website: https://zkprivacy.vercel.app"
+echo "  🌐 Website: https://openzktool.vercel.app"
 echo "  📚 GitHub: https://github.com/xcapit/stellar-privacy-poc"
 echo "  📖 Documentation: See /docs folder"
 echo "  💼 Grant: SCF #40 Build Award Proposal"

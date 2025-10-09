@@ -1,6 +1,6 @@
-# 🏗️ ZKPrivacy Architecture Overview
+# 🏗️ OpenZKTool Architecture Overview
 
-This document provides a comprehensive visual overview of the ZKPrivacy system architecture.
+This document provides a comprehensive visual overview of the OpenZKTool system architecture.
 
 ---
 
@@ -16,7 +16,7 @@ This document provides a comprehensive visual overview of the ZKPrivacy system a
 
 ## 🎯 System Overview
 
-High-level view of the entire ZKPrivacy system:
+High-level view of the entire OpenZKTool system:
 
 ```mermaid
 graph TB

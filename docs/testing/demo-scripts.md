@@ -385,7 +385,7 @@ npm run demo:privacy
 
 ### Scenario 3: Developer Workshop
 
-**Goal:** Teach how to integrate ZKPrivacy
+**Goal:** Teach how to integrate OpenZKTool
 
 ```bash
 # 1. Show full flow interactively

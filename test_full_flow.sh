@@ -14,7 +14,7 @@ clear
 
 cat << "EOF"
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                    🧪 FULL FLOW TEST — ZKPrivacy Multi-Chain
+                    🧪 FULL FLOW TEST — OpenZKTool Multi-Chain
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 
@@ -75,9 +75,9 @@ echo "  • Min Balance: \$50"
 echo ""
 
 cd circuits/scripts
-bash prove_and_verify.sh > /tmp/zkprivacy_proof.log 2>&1
+bash prove_and_verify.sh > /tmp/openzktool_proof.log 2>&1
 
-if grep -q "OK!" /tmp/zkprivacy_proof.log; then
+if grep -q "OK!" /tmp/openzktool_proof.log; then
     echo -e "${GREEN}✅ Proof generated and verified locally!${NC}"
     echo ""
     PROOF_SIZE=$(ls -lh ../artifacts/proof.json | awk '{print $5}')
@@ -86,7 +86,7 @@ if grep -q "OK!" /tmp/zkprivacy_proof.log; then
     echo ""
 else
     echo -e "${RED}❌ Proof generation failed${NC}"
-    cat /tmp/zkprivacy_proof.log
+    cat /tmp/openzktool_proof.log
     exit 1
 fi
 
@@ -116,9 +116,9 @@ cd evm-verification
 # Export PATH for Foundry
 export PATH="$HOME/.foundry/bin:$PATH"
 
-bash verify_on_chain.sh > /tmp/zkprivacy_evm.log 2>&1
+bash verify_on_chain.sh > /tmp/openzktool_evm.log 2>&1
 
-if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_evm.log; then
+if grep -q "VERIFICATION SUCCESSFUL" /tmp/openzktool_evm.log; then
     echo ""
     echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo -e "${GREEN}              ✅ ETHEREUM VERIFICATION: SUCCESS                   ${NC}"
@@ -130,7 +130,7 @@ if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_evm.log; then
     echo ""
 else
     echo -e "${RED}❌ Ethereum verification failed${NC}"
-    cat /tmp/zkprivacy_evm.log
+    cat /tmp/openzktool_evm.log
     exit 1
 fi
 
@@ -161,9 +161,9 @@ echo ""
 
 cd soroban
 
-bash verify_on_chain.sh > /tmp/zkprivacy_soroban.log 2>&1
+bash verify_on_chain.sh > /tmp/openzktool_soroban.log 2>&1
 
-if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_soroban.log; then
+if grep -q "VERIFICATION SUCCESSFUL" /tmp/openzktool_soroban.log; then
     echo ""
     echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo -e "${GREEN}               ✅ SOROBAN VERIFICATION: SUCCESS                   ${NC}"
@@ -175,7 +175,7 @@ if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_soroban.log; then
     echo ""
 else
     echo -e "${RED}❌ Soroban verification failed${NC}"
-    cat /tmp/zkprivacy_soroban.log
+    cat /tmp/openzktool_soroban.log
     exit 1
 fi
 
@@ -239,7 +239,7 @@ echo ""
 echo "  • Run individual demos: bash demo_multichain.sh"
 echo "  • Deploy to testnet: Follow deployment guides"
 echo "  • Integrate with your app: Use the SDK"
-echo "  • Learn more: https://zkprivacy.vercel.app"
+echo "  • Learn more: https://openzktool.vercel.app"
 echo ""
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""

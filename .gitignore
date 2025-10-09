@@ -87,3 +87,4 @@ web/.vercel/
 .DS_Store
 Thumbs.db
 .internal/
+.aider*

@@ -48,7 +48,7 @@
   "bugs": {
     "url": "https://github.com/xcapit/stellar-privacy-poc/issues"
   },
-  "homepage": "https://zkprivacy.vercel.app",
+  "homepage": "https://openzktool.vercel.app",
   "devDependencies": {
     "snarkjs": "github:iden3/snarkjs"
   },

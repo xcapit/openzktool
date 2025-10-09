@@ -1,12 +1,12 @@
 # Política de Privacidad y Protección de Datos
 
-**ZKPrivacy - Stellar Privacy SDK**
+**OpenZKTool - Stellar Privacy SDK**
 
 ---
 
 ## 🔐 Resumen Ejecutivo
 
-ZKPrivacy es un **SDK de código abierto** para implementar privacidad mediante Zero-Knowledge Proofs. Como software de infraestructura, **ZKPrivacy no recopila, almacena ni procesa datos personales de usuarios finales**.
+OpenZKTool es un **SDK de código abierto** para implementar privacidad mediante Zero-Knowledge Proofs. Como software de infraestructura, **OpenZKTool no recopila, almacena ni procesa datos personales de usuarios finales**.
 
 **Principio fundamental:** Los datos privados nunca salen del dispositivo del usuario. Las pruebas criptográficas (proofs) no contienen información personal identificable (PII).
 
@@ -16,7 +16,7 @@ ZKPrivacy es un **SDK de código abierto** para implementar privacidad mediante 
 
 Esta política de privacidad cubre:
 
-### 1.1 El Software ZKPrivacy (SDK)
+### 1.1 El Software OpenZKTool (SDK)
 
 ✅ **Qué es:** Código abierto (AGPL-3.0) para generar y verificar Zero-Knowledge Proofs
 ✅ **Dónde se ejecuta:** Localmente en el dispositivo del usuario o servidor del desarrollador
@@ -30,7 +30,7 @@ Esta política de privacidad cubre:
 ✅ **Datos recopilados:** GitHub puede recopilar metadatos estándar (visitas, clones, stars)
 ✅ **Privacidad:** Regida por la [Política de Privacidad de GitHub](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
 
-### 1.3 Sitio Web zkprivacy.vercel.app
+### 1.3 Sitio Web openzktool.vercel.app
 
 ✅ **Qué es:** Landing page informativa
 ✅ **Datos recopilados:** Analytics básicos (visitas, país, navegador)
@@ -40,7 +40,7 @@ Esta política de privacidad cubre:
 
 ## 2. Principios de Privacidad by Design
 
-ZKPrivacy está diseñado desde el principio para **maximizar la privacidad** del usuario:
+OpenZKTool está diseñado desde el principio para **maximizar la privacidad** del usuario:
 
 ### 2.1 Zero-Knowledge Architecture
 
@@ -95,7 +95,7 @@ ZKPrivacy está diseñado desde el principio para **maximizar la privacidad** de
 **Dónde se procesan:**
 - ✅ Localmente en el navegador del usuario (browser-based)
 - ✅ Localmente en el servidor del desarrollador (backend integration)
-- ❌ **Nunca en servidores de ZKPrivacy/Xcapit**
+- ❌ **Nunca en servidores de OpenZKTool/Xcapit**
 
 **Almacenamiento:**
 - ✅ Solo en el dispositivo del usuario (localStorage, archivos locales)
@@ -161,7 +161,7 @@ ZKPrivacy está diseñado desde el principio para **maximizar la privacidad** de
 
 ### 4.1 GDPR (Reglamento General de Protección de Datos - UE)
 
-**Aplicabilidad:** ZKPrivacy como SDK no procesa datos de ciudadanos UE directamente. Sin embargo, aplicaciones que integren ZKPrivacy deben cumplir GDPR.
+**Aplicabilidad:** OpenZKTool como SDK no procesa datos de ciudadanos UE directamente. Sin embargo, aplicaciones que integren OpenZKTool deben cumplir GDPR.
 
 **Compliance:**
 
@@ -184,12 +184,12 @@ ZKPrivacy está diseñado desde el principio para **maximizar la privacidad** de
 - **Mitigación:** Proofs no contienen PII, por lo que no hay datos personales que borrar
 
 **Responsabilidades:**
-- **Desarrolladores que integran ZKPrivacy:** Deben implementar sus propias políticas de privacidad y obtener consentimiento
-- **ZKPrivacy (el SDK):** Proporciona herramientas privacy-preserving, no procesa datos personales
+- **Desarrolladores que integran OpenZKTool:** Deben implementar sus propias políticas de privacidad y obtener consentimiento
+- **OpenZKTool (el SDK):** Proporciona herramientas privacy-preserving, no procesa datos personales
 
 ### 4.2 CCPA (California Consumer Privacy Act)
 
-**Aplicabilidad:** Similar a GDPR, ZKPrivacy no procesa datos de consumidores de California.
+**Aplicabilidad:** Similar a GDPR, OpenZKTool no procesa datos de consumidores de California.
 
 **Compliance:**
 - ✅ No venta de datos personales (no recopilamos datos)
@@ -245,7 +245,7 @@ ZKPrivacy está diseñado desde el principio para **maximizar la privacidad** de
 
 ### 5.3 Buenas Prácticas para Desarrolladores
 
-Recomendaciones al integrar ZKPrivacy:
+Recomendaciones al integrar OpenZKTool:
 
 1. **Nunca enviar datos privados a servidores**
    ```javascript
@@ -266,7 +266,7 @@ Recomendaciones al integrar ZKPrivacy:
 
 ## 6. Derechos de los Usuarios
 
-Los usuarios que utilizan aplicaciones construidas con ZKPrivacy tienen los siguientes derechos:
+Los usuarios que utilizan aplicaciones construidas con OpenZKTool tienen los siguientes derechos:
 
 ### 6.1 Derecho a la Información
 
@@ -308,10 +308,10 @@ Los usuarios que utilizan aplicaciones construidas con ZKPrivacy tienen los sigu
 
 ### 7.1 Arquitectura Descentralizada
 
-ZKPrivacy no transfiere datos personales internacionalmente porque:
+OpenZKTool no transfiere datos personales internacionalmente porque:
 
 ✅ **Procesamiento local:** Generación de proof en dispositivo del usuario
-✅ **Sin servidores centrales:** No hay backend de ZKPrivacy que reciba datos
+✅ **Sin servidores centrales:** No hay backend de OpenZKTool que reciba datos
 ✅ **Blockchain distribuida:** Datos on-chain (proofs) están en red global descentralizada
 
 ### 7.2 Consideraciones Blockchain
@@ -329,16 +329,16 @@ ZKPrivacy no transfiere datos personales internacionalmente porque:
 
 ### 8.1 Uso por Menores
 
-⚠️ **ZKPrivacy no está diseñado específicamente para menores**
+⚠️ **OpenZKTool no está diseñado específicamente para menores**
 
 **Política:**
 - No recopilamos edad de usuarios (es un SDK, no un servicio)
-- Aplicaciones que integran ZKPrivacy deben cumplir con COPPA (US) y regulaciones locales
+- Aplicaciones que integran OpenZKTool deben cumplir con COPPA (US) y regulaciones locales
 - Padres/tutores son responsables de supervisar uso de aplicaciones por menores
 
 ### 8.2 Protección Especial
 
-Si desarrollas una aplicación para menores usando ZKPrivacy:
+Si desarrollas una aplicación para menores usando OpenZKTool:
 
 ✅ **Debes:**
 - Obtener consentimiento parental verificable
@@ -350,14 +350,14 @@ Si desarrollas una aplicación para menores usando ZKPrivacy:
 
 ## 9. Cookies y Tracking
 
-### 9.1 SDK ZKPrivacy
+### 9.1 SDK OpenZKTool
 
 ✅ **No usa cookies**
 ✅ **No usa tracking**
 ✅ **No usa analytics**
 ✅ **No usa telemetría**
 
-### 9.2 Sitio Web (zkprivacy.vercel.app)
+### 9.2 Sitio Web (openzktool.vercel.app)
 
 ⚠️ **Analytics mínimos:**
 - Vercel Analytics (visitas, país, referrer)
@@ -370,7 +370,7 @@ Si desarrollas una aplicación para menores usando ZKPrivacy:
 
 ## 10. Divulgación a Terceros
 
-### 10.1 ZKPrivacy NO comparte datos con:
+### 10.1 OpenZKTool NO comparte datos con:
 
 ❌ Anunciantes
 ❌ Data brokers
@@ -392,7 +392,7 @@ En circunstancias excepcionales, podríamos divulgar información si:
 
 ## 11. Retención de Datos
 
-### 11.1 SDK ZKPrivacy
+### 11.1 SDK OpenZKTool
 
 ✅ **No retiene datos:**
 - Datos privados en memoria solo durante proof generation (~1 segundo)
@@ -414,7 +414,7 @@ En circunstancias excepcionales, podríamos divulgar información si:
 
 Esta política puede actualizarse para reflejar:
 - Nuevas regulaciones de privacidad
-- Cambios en la arquitectura de ZKPrivacy
+- Cambios en la arquitectura de OpenZKTool
 - Feedback de la comunidad
 
 **Notificación:**
@@ -434,9 +434,9 @@ Esta política puede actualizarse para reflejar:
 
 Para consultas sobre privacidad y protección de datos:
 
-📧 **Email:** [Disponible en website](https://zkprivacy.vercel.app)
+📧 **Email:** [Disponible en website](https://openzktool.vercel.app)
 💬 **GitHub Issues:** https://github.com/xcapit/stellar-privacy-poc/issues
-🌐 **Website:** https://zkprivacy.vercel.app
+🌐 **Website:** https://openzktool.vercel.app
 
 **Tiempo de respuesta:** 7 días hábiles
 
@@ -446,7 +446,7 @@ Para consultas sobre privacidad y protección de datos:
 
 ### 14.1 Documentación Técnica
 
-- [Architecture Overview](./docs/architecture/overview.md) - Cómo funciona ZKPrivacy
+- [Architecture Overview](./docs/architecture/overview.md) - Cómo funciona OpenZKTool
 - [FAQ](./docs/FAQ.md) - Preguntas frecuentes sobre privacidad
 - [Security](./SECURITY.md) - Políticas de seguridad
 

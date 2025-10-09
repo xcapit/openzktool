@@ -1,4 +1,4 @@
-# 📜 Scripts Overview — ZKPrivacy
+# 📜 Scripts Overview — OpenZKTool
 
 **Quick reference guide for all demo and test scripts**
 
@@ -279,7 +279,7 @@ pkill stellar
 
 - **DEMO_GUIDE.md** - Detailed guide for each scenario
 - **README.md** - Full project documentation
-- **Web:** https://zkprivacy.vercel.app
+- **Web:** https://openzktool.vercel.app
 - **GitHub:** https://github.com/xcapit/stellar-privacy-poc
 
 ---
