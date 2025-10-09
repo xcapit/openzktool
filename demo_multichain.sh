@@ -127,8 +127,13 @@ cd evm-verification
 # Export PATH for Foundry
 export PATH="$HOME/.foundry/bin:$PATH"
 
-# Run EVM verification
-bash verify_on_chain.sh > /tmp/zkprivacy_evm.log 2>&1
+# Run EVM verification with live output
+echo -e "${CYAN}Starting Ethereum verification...${NC}"
+echo ""
+
+bash verify_on_chain.sh 2>&1 | tee /tmp/zkprivacy_evm.log | grep -E "(🚀|📤|🔍|✅|❌|Starting|Deploying|Verifying|VERIFICATION|deployed at:|Proof|running)" || true
+
+echo ""
 
 if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_evm.log; then
     echo ""
@@ -173,8 +178,13 @@ pause
 
 cd soroban
 
-# Run Soroban verification
-bash verify_on_chain.sh > /tmp/zkprivacy_soroban.log 2>&1
+# Run Soroban verification with live output
+echo -e "${CYAN}Starting Soroban verification...${NC}"
+echo ""
+
+bash verify_on_chain.sh 2>&1 | tee /tmp/zkprivacy_soroban.log | grep -E "(🚀|🔨|📤|🔍|✅|❌|Starting|Building|Deploying|Invoking|VERIFICATION|Contract|Proof|network running|built:)" || true
+
+echo ""
 
 if grep -q "VERIFICATION SUCCESSFUL" /tmp/zkprivacy_soroban.log; then
     echo ""
