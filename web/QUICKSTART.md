@@ -1,4 +1,4 @@
-# Quick Start - ZKPrivacy Website
+# Quick Start - OpenZKTool Website
 
 ## 🚀 Deploy in 3 Steps
 

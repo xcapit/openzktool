@@ -4,7 +4,7 @@ use soroban_sdk::{contract, contractimpl, contracttype, Bytes, Env, Vec};
 
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // -----------------------------------------------------------------------------
-//  ZKPrivacy – Soroban Verifier (Groth16 on BN254) - Demo Version
+//  OpenZKTool – Soroban Verifier (Groth16 on BN254) - Demo Version
 // -----------------------------------------------------------------------------
 // This is a simplified demo verifier for Soroban that validates proof structure
 // and performs basic checks. A full ark-groth16 implementation requires more

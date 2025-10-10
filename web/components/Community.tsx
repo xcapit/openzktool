@@ -103,7 +103,7 @@ export default function Community() {
             <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">🌐</div>
             <h3 className="text-2xl font-bold mb-3 group-hover:text-stellar-blue transition-colors">Xcapit Labs</h3>
             <p className="text-gray-400 mb-4">
-              Learn more about the team behind ZKPrivacy
+              Learn more about the team behind OpenZKTool
             </p>
             <div className="flex items-center gap-2 text-stellar-blue">
               <span>Visit Xcapit.com</span>
@@ -165,7 +165,7 @@ export default function Community() {
           <div className="text-5xl mb-4">⚖️</div>
           <h3 className="text-2xl font-bold mb-3">Open Source & Free</h3>
           <p className="text-gray-400 mb-4 max-w-2xl mx-auto">
-            ZKPrivacy is licensed under <span className="text-zk-green font-semibold">AGPL-3.0</span>, ensuring the ecosystem remains open and accessible to everyone.
+            OpenZKTool is licensed under <span className="text-zk-green font-semibold">AGPL-3.0</span>, ensuring the ecosystem remains open and accessible to everyone.
           </p>
           <a
             href="https://github.com/xcapit/stellar-privacy-poc/blob/main/LICENSE"

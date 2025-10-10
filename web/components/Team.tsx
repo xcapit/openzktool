@@ -3,38 +3,38 @@ export default function Team() {
     {
       name: "Fernando Boiero",
       role: "Project Lead & Cryptography Advisor",
-      emoji: "👨‍💻",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Fernando&backgroundColor=7b61ff&accessories=prescription02&top=shortHair&clothing=hoodie",
       responsibilities: "Architecture, circuit design, security strategy",
       linkedin: "https://www.linkedin.com/in/fboiero/"
     },
     {
       name: "Maximiliano César Nivoli",
       role: "Soroban Contract Lead",
-      emoji: "⛓️",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maximiliano&backgroundColor=00d4ff&accessories=sunglasses&top=shortHair&clothing=overall",
       responsibilities: "Rust contracts, verification logic, gas optimization"
     },
     {
       name: "Francisco Anuar Ardúh",
       role: "ZK Circuit / Cryptographer",
-      emoji: "🔐",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Francisco&backgroundColor=10b981&accessories=prescription01&top=shortHair&clothing=graphicShirt",
       responsibilities: "Circom circuits, optimization, formal verification"
     },
     {
       name: "Joel Edgar Dellamaggiore Kuns",
       role: "ZKP Proof Specialist",
-      emoji: "🧮",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Joel&backgroundColor=f59e0b&accessories=kurt&top=shortHair&clothing=collarSweater",
       responsibilities: "Proof generation, WASM/browser support"
     },
     {
       name: "Franco Schillage",
       role: "DevOps & Infrastructure Lead",
-      emoji: "🚀",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Franco&backgroundColor=ef4444&accessories=wayfarers&top=shortHair&clothing=hoodie",
       responsibilities: "CI/CD, deployment, monitoring, infrastructure"
     },
     {
       name: "Natalia Gatti & Carolina Medina",
       role: "QA Specialists",
-      emoji: "✅",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=NataliaCarolina&backgroundColor=ec4899&accessories=prescription02&top=longHair&clothing=blazer",
       responsibilities: "Testing, security, documentation quality"
     }
   ]
@@ -78,24 +78,32 @@ export default function Team() {
               key={idx}
               className="p-6 rounded-xl border-2 border-gray-700 bg-stellar-dark hover:border-stellar-purple transition-all duration-300 group"
             >
-              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">
-                {member.emoji}
+              <div className="mb-4 flex justify-center">
+                <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-stellar-purple group-hover:border-zk-green transition-colors shadow-lg">
+                  <img
+                    src={member.avatar}
+                    alt={member.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                  />
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-              <p className="text-stellar-purple font-semibold text-sm mb-3">{member.role}</p>
-              <p className="text-gray-400 text-sm mb-4">{member.responsibilities}</p>
+              <h3 className="text-xl font-bold mb-2 text-center">{member.name}</h3>
+              <p className="text-stellar-purple font-semibold text-sm mb-3 text-center">{member.role}</p>
+              <p className="text-gray-400 text-sm mb-4 text-center">{member.responsibilities}</p>
               {member.linkedin && (
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-stellar-blue hover:text-stellar-purple transition-colors text-sm"
-                >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                  LinkedIn
-                </a>
+                <div className="flex justify-center">
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-stellar-blue hover:text-stellar-purple transition-colors text-sm"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    LinkedIn
+                  </a>
+                </div>
               )}
             </div>
           ))}

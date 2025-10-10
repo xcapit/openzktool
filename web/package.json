@@ -1,7 +1,7 @@
 {
-  "name": "zkprivacy-web",
+  "name": "openzktool-web",
   "version": "1.0.0",
-  "description": "Landing page for ZKPrivacy - Interoperable Zero-Knowledge Privacy for Blockchain",
+  "description": "Landing page for OpenZKTool - Interoperable Zero-Knowledge Privacy for Blockchain",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

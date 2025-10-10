@@ -1,4 +1,4 @@
-# Deployment Guide - ZKPrivacy Website
+# Deployment Guide - OpenZKTool Website
 
 ## Quick Deploy to Vercel
 
@@ -19,10 +19,10 @@ Follow the prompts:
 1. **Set up and deploy?** → Yes
 2. **Which scope?** → Your Vercel account
 3. **Link to existing project?** → No
-4. **What's your project's name?** → zkprivacy (or your choice)
+4. **What's your project's name?** → openzktool (or your choice)
 5. **In which directory is your code located?** → ./ (current directory)
 
-Your site will be live at: `https://zkprivacy.vercel.app` (or your custom domain)
+Your site will be live at: `https://openzktool.vercel.app` (or your custom domain)
 
 ---
 
@@ -32,7 +32,7 @@ Your site will be live at: `https://zkprivacy.vercel.app` (or your custom domain
    ```bash
    cd /Users/fboiero/Documents/STELLAR/stellar-privacy-poc
    git add web/
-   git commit -m "feat: add ZKPrivacy landing page with multi-chain support"
+   git commit -m "feat: add OpenZKTool landing page with multi-chain support"
    git push origin main
    ```
 

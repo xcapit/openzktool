@@ -1,6 +1,6 @@
-# ZKPrivacy - Landing Page
+# OpenZKTool - Landing Page
 
-This is the landing page for **ZKPrivacy**, showcasing the interoperable zero-knowledge privacy toolkit for blockchain applications.
+This is the landing page for **OpenZKTool**, showcasing the interoperable zero-knowledge privacy toolkit for blockchain applications.
 
 ## Tech Stack
 

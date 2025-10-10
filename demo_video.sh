@@ -93,7 +93,7 @@ pause
 clear
 
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${GREEN}                   THE ZKPRIVACY SOLUTION                        ${NC}"
+echo -e "${GREEN}                   THE OPENZKTOOL SOLUTION                        ${NC}"
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo -e "${CYAN}Zero-Knowledge Proofs: Prove Without Revealing${NC}"

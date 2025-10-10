@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="col-span-2">
-            <h3 className="text-2xl font-bold mb-4 text-gradient">🔐 ZKPrivacy</h3>
+            <h3 className="text-2xl font-bold mb-4 text-gradient">🔐 OpenZKTool</h3>
             <p className="text-gray-400 mb-4 max-w-md">
               Interoperable zero-knowledge privacy toolkit for multi-chain KYC compliance and privacy-preserving applications.
             </p>

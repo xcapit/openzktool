@@ -1,8 +1,8 @@
-# ZKPrivacy - Website Summary
+# OpenZKTool - Website Summary
 
 ## 🎯 Purpose
 
-Landing page to showcase **ZKPrivacy** - an interoperable zero-knowledge privacy toolkit that demonstrates the benefits of using this blockchain-agnostic SDK across multiple networks.
+Landing page to showcase **OpenZKTool** - an interoperable zero-knowledge privacy toolkit that demonstrates the benefits of using this blockchain-agnostic SDK across multiple networks.
 
 This website is designed to:
 1. **Educate** visitors about zero-knowledge proofs and privacy-preserving KYC

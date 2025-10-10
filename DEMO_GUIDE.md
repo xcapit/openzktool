@@ -1,4 +1,4 @@
-# 🎬 Demo Guide — ZKPrivacy
+# 🎬 Demo Guide — OpenZKTool
 
 **Guía completa para demostrar el Stellar Privacy SDK**
 
@@ -203,7 +203,7 @@ bash demo_auto.sh
 **Tips para grabar:**
 ```bash
 # Graba la terminal con asciinema o similar
-asciinema rec zkprivacy-demo.cast
+asciinema rec openzktool-demo.cast
 bash demo_auto.sh
 # Ctrl+D para terminar
 
@@ -247,7 +247,7 @@ bash demo_multichain.sh
 - Destacar: MISMO proof, diferentes chains
 
 **3. Arquitectura (3 min)**
-- Mostrar diagrama (desde web: zkprivacy.vercel.app)
+- Mostrar diagrama (desde web: openzktool.vercel.app)
 - Explicar componentes:
   - Circom circuits
   - Soroban contracts
@@ -283,7 +283,7 @@ DEMO_AUTO=1 bash demo_multichain.sh
 **3. Call to Action (1 min)**
 - 6 meses, 3 tranches
 - 5+ partners objetivo
-- Link: zkprivacy.vercel.app
+- Link: openzktool.vercel.app
 
 ---
 
@@ -316,7 +316,7 @@ cat circuits/artifacts/input.json | jq '.'
 ```bash
 echo ""
 echo -e "${CYAN}🔗 Learn More:${NC}"
-echo "  • Website: https://zkprivacy.vercel.app"
+echo "  • Website: https://openzktool.vercel.app"
 echo "  • GitHub: https://github.com/xcapit/stellar-privacy-poc"
 echo "  • Open Source Privacy Toolkit"
 ```
@@ -386,7 +386,7 @@ fi
 **Grabación:**
 ```bash
 # Opción 1: asciinema (for terminal only)
-asciinema rec zkprivacy-demo.cast --title "ZKPrivacy Multi-Chain Demo"
+asciinema rec openzktool-demo.cast --title "OpenZKTool Multi-Chain Demo"
 bash demo_multichain.sh
 # Ctrl+D to stop
 
@@ -405,7 +405,7 @@ bash demo_multichain.sh
 # Cortar pausas largas
 # Acelerar partes de compilación (opcional)
 # Agregar subtítulos con puntos clave
-# Overlay con logo ZKPrivacy
+# Overlay con logo OpenZKTool
 ```
 
 ---
@@ -499,4 +499,4 @@ DEMO_AUTO=1 bash demo_multichain.sh
 ---
 
 *Creado por Team X1 - Xcapit Labs*
-*Proyecto: Stellar Privacy SDK (ZKPrivacy)*
+*Proyecto: Stellar Privacy SDK (OpenZKTool)*
