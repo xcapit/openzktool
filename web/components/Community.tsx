@@ -4,10 +4,13 @@ export default function Community() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Join the <span className="text-gradient">Community</span>
+            Build <span className="text-gradient">Together</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Connect with us, contribute to the project, and help build the future of privacy-preserving blockchain technology
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-4">
+            OpenZKTool is a <span className="text-zk-green font-semibold">Digital Public Good</span> — open source privacy infrastructure for everyone
+          </p>
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+            Join developers, institutions, and privacy advocates building the future of decentralized finance on Stellar
           </p>
         </div>
 
@@ -15,7 +18,7 @@ export default function Community() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {/* GitHub */}
           <a
-            href="https://github.com/xcapit/stellar-privacy-poc"
+            href="https://github.com/xcapit/openzktool"
             target="_blank"
             rel="noopener noreferrer"
             className="group p-8 rounded-xl border-2 border-gray-700 bg-stellar-dark hover:border-stellar-purple transition-all duration-300 hover:scale-105"
@@ -35,7 +38,7 @@ export default function Community() {
 
           {/* Discussions */}
           <a
-            href="https://github.com/xcapit/stellar-privacy-poc/discussions"
+            href="https://github.com/xcapit/openzktool/discussions"
             target="_blank"
             rel="noopener noreferrer"
             className="group p-8 rounded-xl border-2 border-gray-700 bg-stellar-dark hover:border-stellar-blue transition-all duration-300 hover:scale-105"
@@ -168,7 +171,7 @@ export default function Community() {
             OpenZKTool is licensed under <span className="text-zk-green font-semibold">AGPL-3.0</span>, ensuring the ecosystem remains open and accessible to everyone.
           </p>
           <a
-            href="https://github.com/xcapit/stellar-privacy-poc/blob/main/LICENSE"
+            href="https://github.com/xcapit/openzktool/blob/main/LICENSE"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 border-2 border-zk-green rounded-lg hover:bg-zk-green hover:bg-opacity-20 transition-all text-zk-green font-semibold"

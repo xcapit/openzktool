@@ -2,45 +2,51 @@ export default function UseCases() {
   const useCases = [
     {
       icon: "🏦",
-      title: "Privacy-Preserving KYC",
-      description: "Prove identity compliance without revealing personal details. Perfect for DeFi, exchanges, and regulated platforms.",
-      example: "Age verification: Prove you're 18+ without revealing exact birthdate",
-      color: "border-stellar-purple"
+      title: "Financial Privacy with Compliance",
+      description: "Enable institutions to verify user eligibility without collecting or storing sensitive personal data. Privacy-preserving KYC/AML that actually works.",
+      example: "Prove: Age ≥ 18, Balance ≥ $1000, Country: Allowed — without revealing exact values",
+      color: "border-stellar-purple",
+      impact: "1.7B unbanked people"
     },
     {
-      icon: "💰",
-      title: "Confidential DeFi",
-      description: "Execute financial operations while keeping balances and positions private. Enable compliant privacy in lending, trading, and yield farming.",
-      example: "Solvency proof: Access credit without revealing total net worth",
-      color: "border-stellar-blue"
+      icon: "💼",
+      title: "Cross-Border B2B Payments",
+      description: "Businesses can prove solvency and compliance for international transactions while keeping commercial relationships and financial details confidential.",
+      example: "Prove credit-worthiness for $50K trade without revealing total assets or cash flow",
+      color: "border-stellar-blue",
+      impact: "$150T B2B payments market"
     },
     {
       icon: "🌍",
-      title: "Geographic Compliance",
-      description: "Prove residency or jurisdiction without exposing exact location. Enables geo-restricted services while maintaining privacy.",
-      example: "Country verification: Access region-locked features without revealing citizenship",
-      color: "border-zk-green"
+      title: "Decentralized Identity",
+      description: "Self-sovereign identity that works across chains. Prove credentials, memberships, and qualifications without centralized databases.",
+      example: "Prove accredited investor status without sharing portfolio or tax documents",
+      color: "border-zk-green",
+      impact: "2B people without legal ID"
     },
     {
-      icon: "🎫",
-      title: "Private Credentials",
-      description: "Verify qualifications, memberships, or certifications without revealing the credential itself.",
-      example: "Accredited investor status without showing portfolio details",
-      color: "border-zk-cyan"
-    },
-    {
-      icon: "🔄",
-      title: "Cross-Chain Privacy",
-      description: "Maintain privacy across multiple blockchain ecosystems. Prove state on one chain without revealing it on another.",
-      example: "Bridge assets between Stellar and Ethereum while keeping amounts private",
-      color: "border-stellar-purple"
+      icon: "🔐",
+      title: "Private DeFi & Trading",
+      description: "Execute trades, provide liquidity, and access lending markets without exposing positions, balances, or trading strategies to the public.",
+      example: "Access DeFi lending with private collateral amounts and borrowing history",
+      color: "border-zk-cyan",
+      impact: "$100B+ DeFi TVL"
     },
     {
       icon: "🏛️",
       title: "Regulatory Reporting",
-      description: "Comply with regulations while minimizing data exposure. Selective disclosure for audits and compliance.",
-      example: "Tax compliance: Prove income threshold without revealing exact earnings",
-      color: "border-stellar-blue"
+      description: "Prove compliance with regulations (tax thresholds, sanctions, AML) while minimizing unnecessary data disclosure to third parties.",
+      example: "Prove tax bracket compliance without revealing exact income to service providers",
+      color: "border-stellar-purple",
+      impact: "Every regulated institution"
+    },
+    {
+      icon: "⛓️",
+      title: "Multi-Chain Interoperability",
+      description: "Prove state or ownership on one chain while executing actions on another. Bridge assets and data privately across Stellar, Ethereum, and L2s.",
+      example: "Prove Stellar asset ownership to unlock Ethereum features without bridge exposure",
+      color: "border-stellar-blue",
+      impact: "$20B+ cross-chain volume"
     }
   ]
 
@@ -49,10 +55,10 @@ export default function UseCases() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Real-World <span className="text-gradient">Applications</span>
+            Built for <span className="text-gradient">Real-World Impact</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Build the next generation of privacy-preserving applications across DeFi, identity, compliance, and more
+            Privacy infrastructure solving actual problems for financial institutions, developers, and 3.7 billion underserved users worldwide
           </p>
         </div>
 
@@ -60,40 +66,71 @@ export default function UseCases() {
           {useCases.map((useCase, idx) => (
             <div
               key={idx}
-              className={`p-8 rounded-xl border-2 ${useCase.color} bg-gradient-to-br from-stellar-dark to-black hover:scale-105 transition-all duration-300`}
+              className={`p-8 rounded-xl border-2 ${useCase.color} bg-gradient-to-br from-stellar-dark to-black hover:scale-105 transition-all duration-300 group`}
             >
-              <div className="text-6xl mb-4">{useCase.icon}</div>
+              <div className="flex justify-between items-start mb-4">
+                <div className="text-6xl group-hover:scale-110 transition-transform">{useCase.icon}</div>
+                <span className="text-xs px-3 py-1 bg-zk-green bg-opacity-20 border border-zk-green rounded-full text-zk-green font-semibold">
+                  {useCase.impact}
+                </span>
+              </div>
               <h3 className="text-2xl font-bold mb-3">{useCase.title}</h3>
-              <p className="text-gray-300 mb-4">{useCase.description}</p>
+              <p className="text-gray-300 mb-4 leading-relaxed">{useCase.description}</p>
               <div className="mt-4 p-4 rounded-lg bg-black bg-opacity-50 border-l-4 border-stellar-purple">
                 <p className="text-sm text-gray-400">
-                  <span className="font-semibold text-stellar-purple">Example:</span> {useCase.example}
+                  <span className="font-semibold text-stellar-purple">Use Case:</span> {useCase.example}
                 </p>
               </div>
             </div>
           ))}
         </div>
 
+        {/* Market Opportunity */}
+        <div className="mt-16 p-8 rounded-xl border-2 border-zk-green bg-gradient-to-br from-zk-green to-stellar-blue bg-opacity-10">
+          <div className="text-center">
+            <h3 className="text-3xl font-bold mb-6">Why Privacy Matters Now</h3>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div>
+                <div className="text-4xl mb-3">📈</div>
+                <div className="text-3xl font-bold text-zk-green mb-2">$500B+</div>
+                <p className="text-gray-400">Addressable market for privacy tech in finance (2024-2030)</p>
+              </div>
+              <div>
+                <div className="text-4xl mb-3">🏦</div>
+                <div className="text-3xl font-bold text-stellar-blue mb-2">73%</div>
+                <p className="text-gray-400">Of financial institutions cite privacy as #1 barrier to blockchain adoption</p>
+              </div>
+              <div>
+                <div className="text-4xl mb-3">⚡</div>
+                <div className="text-3xl font-bold text-stellar-purple mb-2">2025</div>
+                <p className="text-gray-400">Expected mass adoption of ZK privacy tech in TradFi and DeFi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Call to action */}
         <div className="mt-16 text-center p-8 rounded-xl border-2 border-stellar-purple bg-gradient-to-br from-stellar-dark to-black glow-box">
-          <h3 className="text-3xl font-bold mb-4">Ready to Build?</h3>
+          <h3 className="text-3xl font-bold mb-4">Build the Future of Private Finance</h3>
           <p className="text-xl text-gray-400 mb-6 max-w-2xl mx-auto">
-            Start integrating privacy into your application today with our comprehensive SDK and documentation
+            Join developers and institutions building privacy-first applications on Stellar
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://github.com/xcapit/stellar-privacy-poc"
+              href="https://github.com/xcapit/openzktool"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 bg-stellar-purple hover:bg-opacity-80 rounded-lg font-semibold transition-all text-white"
             >
-              Get Started
+              🚀 Get Started
             </a>
             <a
-              href="#roadmap"
-              className="px-8 py-4 border border-stellar-purple hover:bg-stellar-purple hover:bg-opacity-20 rounded-lg font-semibold transition-all text-white"
+              href="https://github.com/xcapit/openzktool/blob/main/ROADMAP.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 border border-zk-green hover:bg-zk-green hover:bg-opacity-20 rounded-lg font-semibold transition-all text-white"
             >
-              View Roadmap
+              📋 View Roadmap
             </a>
           </div>
         </div>

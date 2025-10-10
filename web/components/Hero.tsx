@@ -12,43 +12,57 @@ export default function Hero() {
       <div className="relative z-10 max-w-6xl mx-auto text-center">
         {/* Main headline */}
         <div className="mb-8">
-          <div className="inline-flex items-center gap-3 mb-6">
+          <div className="inline-flex items-center gap-3 mb-6 flex-wrap justify-center">
             <div className="px-4 py-2 border border-stellar-purple rounded-full glow-box">
               <span className="text-stellar-purple font-semibold">🔐 OpenZKTool</span>
             </div>
             <div className="px-4 py-2 bg-stellar-blue bg-opacity-20 border border-stellar-blue rounded-full">
               <span className="text-stellar-blue font-semibold">🌍 Digital Public Good</span>
             </div>
+            <div className="px-4 py-2 bg-zk-green bg-opacity-20 border border-zk-green rounded-full">
+              <span className="text-zk-green font-semibold">✅ PoC Complete</span>
+            </div>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Stellar Privacy SDK
+            Privacy & Identity Layer
             <br />
-            <span className="text-gradient">for TradFi Compliance</span>
+            <span className="text-gradient">for Stellar</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Production-ready SDK for privacy-preserving transactions on Stellar using ZK-SNARKs.
-            <br />
-            <span className="text-stellar-purple">Enable institutions to transact privately while maintaining regulatory compliance.</span>
+          <p className="text-xl md:text-2xl text-gray-300 mb-4 max-w-3xl mx-auto">
+            Zero-Knowledge Proof toolkit enabling <span className="text-zk-green font-semibold">privacy-preserving verification</span> across Stellar and EVM chains.
+          </p>
+
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+            Prove identity, compliance, and solvency — <span className="text-stellar-purple font-semibold">without revealing sensitive data</span>.
+            Open source, production-ready, multi-chain interoperable.
           </p>
         </div>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <a
-            href="https://github.com/xcapit/stellar-privacy-poc"
+            href="https://github.com/xcapit/openzktool"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 bg-stellar-purple hover:bg-opacity-80 rounded-lg font-semibold transition-all glow-box text-white"
           >
-            View on GitHub
+            🚀 View on GitHub
           </a>
           <a
-            href="#features"
+            href="#roadmap"
             className="px-8 py-4 border border-stellar-purple hover:bg-stellar-purple hover:bg-opacity-20 rounded-lg font-semibold transition-all text-white"
           >
-            Explore Features
+            📋 See Roadmap
+          </a>
+          <a
+            href="https://github.com/xcapit/openzktool/blob/main/README.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 border border-zk-green hover:bg-zk-green hover:bg-opacity-20 rounded-lg font-semibold transition-all text-white"
+          >
+            📖 Documentation
           </a>
         </div>
 
@@ -70,6 +84,12 @@ export default function Hero() {
             <div className="text-3xl md:text-4xl font-bold text-stellar-blue mb-2">Multi-Chain</div>
             <div className="text-gray-400">EVM + Soroban</div>
           </div>
+        </div>
+
+        {/* Phase indicator */}
+        <div className="mt-12 inline-block p-4 rounded-xl border-2 border-stellar-blue bg-stellar-dark">
+          <p className="text-sm text-gray-400 mb-1">Current Phase</p>
+          <p className="text-xl font-bold text-stellar-blue">PoC → MVP → Testnet → Mainnet</p>
         </div>
       </div>
 
