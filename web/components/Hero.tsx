@@ -25,18 +25,18 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Privacy & Identity Layer
+            Zero-Knowledge Proofs
             <br />
-            <span className="text-gradient">for Stellar</span>
+            <span className="text-gradient">Made Easy</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 mb-4 max-w-3xl mx-auto">
-            Zero-Knowledge Proof toolkit enabling <span className="text-zk-green font-semibold">privacy-preserving verification</span> across Stellar and EVM chains.
+            <span className="text-zk-green font-semibold">Developer toolkit</span> for building privacy-preserving applications on Stellar and EVM chains — no cryptography PhD required.
           </p>
 
           <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
-            Prove identity, compliance, and solvency — <span className="text-stellar-purple font-semibold">without revealing sensitive data</span>.
-            Open source, production-ready, multi-chain interoperable.
+            Generate proofs, verify on-chain, and build private dApps with our <span className="text-stellar-purple font-semibold">simple SDK and no-code tools</span>.
+            From circuits to deployment in minutes, not months.
           </p>
         </div>
 

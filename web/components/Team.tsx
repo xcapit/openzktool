@@ -3,38 +3,44 @@ export default function Team() {
     {
       name: "Fernando Boiero",
       role: "Project Lead & Cryptography Advisor",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Fernando&backgroundColor=7b61ff&accessories=prescription02&top=shortHair&clothing=hoodie",
+      emoji: "👨‍💻",
+      color: "bg-stellar-purple",
       responsibilities: "Architecture, circuit design, security strategy",
       linkedin: "https://www.linkedin.com/in/fboiero/"
     },
     {
       name: "Maximiliano César Nivoli",
       role: "Soroban Contract Lead",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maximiliano&backgroundColor=00d4ff&accessories=sunglasses&top=shortHair&clothing=overall",
+      emoji: "⛓️",
+      color: "bg-stellar-blue",
       responsibilities: "Rust contracts, verification logic, gas optimization"
     },
     {
       name: "Francisco Anuar Ardúh",
       role: "ZK Circuit / Cryptographer",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Francisco&backgroundColor=10b981&accessories=prescription01&top=shortHair&clothing=graphicShirt",
+      emoji: "🔐",
+      color: "bg-zk-green",
       responsibilities: "Circom circuits, optimization, formal verification"
     },
     {
       name: "Joel Edgar Dellamaggiore Kuns",
       role: "ZKP Proof Specialist",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Joel&backgroundColor=f59e0b&accessories=kurt&top=shortHair&clothing=collarSweater",
+      emoji: "🧮",
+      color: "bg-yellow-500",
       responsibilities: "Proof generation, WASM/browser support"
     },
     {
       name: "Franco Schillage",
       role: "DevOps & Infrastructure Lead",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Franco&backgroundColor=ef4444&accessories=wayfarers&top=shortHair&clothing=hoodie",
+      emoji: "🚀",
+      color: "bg-red-500",
       responsibilities: "CI/CD, deployment, monitoring, infrastructure"
     },
     {
       name: "Natalia Gatti & Carolina Medina",
       role: "QA Specialists",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=NataliaCarolina&backgroundColor=ec4899&accessories=prescription02&top=longHair&clothing=blazer",
+      emoji: "✅",
+      color: "bg-pink-500",
       responsibilities: "Testing, security, documentation quality"
     }
   ]
@@ -79,12 +85,8 @@ export default function Team() {
               className="p-6 rounded-xl border-2 border-gray-700 bg-stellar-dark hover:border-stellar-purple transition-all duration-300 group"
             >
               <div className="mb-4 flex justify-center">
-                <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-stellar-purple group-hover:border-zk-green transition-colors shadow-lg">
-                  <img
-                    src={member.avatar}
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform"
-                  />
+                <div className={`w-24 h-24 rounded-full flex items-center justify-center border-4 border-gray-700 group-hover:border-zk-green transition-all shadow-lg ${member.color} bg-opacity-20`}>
+                  <span className="text-5xl group-hover:scale-110 transition-transform">{member.emoji}</span>
                 </div>
               </div>
               <h3 className="text-xl font-bold mb-2 text-center">{member.name}</h3>
