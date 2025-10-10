@@ -702,91 +702,111 @@ Before production use:
 
 ---
 
-## 🚧 Development Roadmap
+## 🚀 Roadmap – Privacy & Identity Layer on Stellar
 
-### ✅ Completed: Proof of Concept (Pre-Grant)
-- [x] KYC Transfer circuit implementation
-- [x] EVM Solidity verifier
-- [x] Soroban Rust verifier (testnet)
-- [x] Multi-chain demo scripts
-- [x] Educational documentation
+**PoC → MVP → Testnet → Mainnet**
+
+### Phase 0 – Proof of Concept (✅ Completed)
+
+**Goal:** Validate the feasibility of privacy-preserving verification using Zero-Knowledge Proofs across Stellar (Soroban) and EVM-compatible environments.
+
+**Deliverables:**
+- [x] Circuits: `range_proof`, `solvency_check`, `compliance_verify`, and `kyc_transfer`
+- [x] Working proof generation and verification scripts (snarkjs CLI)
+- [x] EVM verifier (Solidity) and Soroban verifier (Rust no_std)
+- [x] Demonstration of end-to-end proof verification for KYC attributes (age, solvency, compliance)
 - [x] Web landing page (openzktool.vercel.app)
 
-### 🔨 Tranche 1: MVP Development (Months 1-5)
+**Outcome:** A reproducible proof lifecycle showing full ZKP generation → proof → on-chain verification. Forms the technical foundation for the next 3 phases.
 
-**Production ZK Circuits:**
-- [ ] Private transaction circuits (amount hiding)
-- [ ] Balance proof circuits
-- [ ] Counterparty masking circuits
-- [ ] Circuit optimization and formal verification
+---
 
-**Soroban Contracts:**
-- [ ] Production verification contracts
-- [ ] Gas optimization
-- [ ] Testnet deployment and testing
-- [ ] Integration testing
+### Phase 1 – MVP (🚧 Upcoming)
 
-**SDK Development:**
-- [ ] JavaScript/TypeScript SDK (v1.0)
-- [ ] Proof generation libraries
-- [ ] WASM/browser support
-- [ ] Sample applications and demos
+**Goal:** Build the minimum viable product to make ZKP privacy verification accessible for developers through a clean SDK and modular architecture.
 
-**Documentation:**
-- [ ] API reference
-- [ ] Integration guides
-- [ ] Developer tutorials
-- [ ] Architecture documentation
+**Deliverables (Milestones):**
 
-### 🏦 Tranche 2: Testnet & Pilot Integration (Month 6)
+1. **ZKP Core SDK (TypeScript/JS)**
+   - [ ] Interfaces for proof generation, verification, and circuit management
+   - [ ] WASM/browser support
+   - [ ] Sample applications and demos
 
-**Pilot Partner Integration:**
-- [ ] Onboard 2 pilot partners on testnet
-- [ ] Real-world transaction testing
-- [ ] Performance monitoring and optimization
+2. **Unified API Layer**
+   - [ ] REST/GraphQL endpoints to interact with proofs from external systems
+   - [ ] Authentication and rate limiting
+   - [ ] Documentation and OpenAPI spec
 
-**Banking Integration Layer:**
-- [ ] KYC/AML compliance interface
-- [ ] Authorized auditor disclosure system
-- [ ] Regulatory reporting tools
+3. **Integration Examples**
+   - [ ] Stellar integration examples
+   - [ ] EVM integration (Polygon Amoy/Sepolia)
+   - [ ] Developer tutorials and quickstart guides
 
-**Compliance Dashboard:**
-- [ ] Audit trail viewer
-- [ ] Proof verification status
-- [ ] Monitoring and alerts
-- [ ] Partner onboarding tools
+**Verification:** Functional SDK and API tested locally; verified proofs across dev networks.
 
-**Security:**
-- [ ] Independent security audit of circuits
-- [ ] Contract audit
-- [ ] Penetration testing
-- [ ] Fix identified issues
+---
 
-### 🚀 Tranche 3: Mainnet Launch & Scaling (Month 6)
+### Phase 2 – Testnet (🧭 Planned)
 
-**Mainnet Deployment:**
-- [ ] Deploy verification contracts on Soroban mainnet
-- [ ] Gas cost optimization and monitoring
-- [ ] Infrastructure setup (RPC, indexers)
+**Goal:** Deploy the MVP to Stellar and EVM testnets, enabling interoperability and real network testing.
 
-**Production Release:**
-- [ ] Publish final audit reports
-- [ ] Complete documentation
-- [ ] Demo videos and tutorials
-- [ ] Open source release announcement
+**Deliverables (Milestones):**
 
-**Ecosystem Growth:**
-- [ ] Onboard 5+ partners on mainnet (first 3 months)
-- [ ] Developer community support
-- [ ] Ongoing maintenance and updates
-- [ ] Feature roadmap for Phase 2
+1. **Contract Deployment**
+   - [ ] Deploy verification contracts on Stellar Soroban testnet
+   - [ ] Deploy on EVM testnets (Polygon Amoy, Sepolia)
+   - [ ] Gas optimization and monitoring
 
-### 🔮 Future Phases (Post-Grant)
-- [ ] Mobile SDK integration
-- [ ] Additional circuit libraries (Merkle proofs, signatures)
-- [ ] Cross-chain proof aggregation
-- [ ] Advanced privacy features (mixers, shielded pools)
-- [ ] zkEVM integration for full smart contract privacy
+2. **Hosted SDK/API Service**
+   - [ ] Public API endpoint for testnet
+   - [ ] Rate limiting and abuse prevention
+   - [ ] Monitoring and analytics
+
+3. **Documentation & Developer Tools**
+   - [ ] Technical documentation portal
+   - [ ] API reference documentation
+   - [ ] Integration guides and tutorials
+   - [ ] Sample dApps and reference implementations
+
+**Verification:** End-to-end proof validation between Stellar and EVM testnets with reproducible results.
+
+---
+
+### Phase 3 – Mainnet (🌐 Future)
+
+**Goal:** Launch production-ready privacy and identity infrastructure on Stellar and EVM mainnets, supported by a no-code interface and developer tooling.
+
+**Deliverables (Milestones):**
+
+1. **Playground UI**
+   - [ ] Visual interface to create and simulate ZKP circuits (no-code)
+   - [ ] Circuit testing and debugging tools
+   - [ ] Proof visualization and validation
+
+2. **Open-Source SDK Release**
+   - [ ] Publish `@stellar-privacy/sdk` to npm
+   - [ ] Complete API documentation
+   - [ ] Video tutorials and demos
+   - [ ] Community support channels
+
+3. **Mainnet Deployment**
+   - [ ] Deploy verification contracts on Stellar and EVM mainnets
+   - [ ] Production infrastructure (RPC, indexers)
+   - [ ] Security audit and penetration testing
+   - [ ] Public documentation portal
+
+**Verification:** Public SDK, functional Playground, and verified proofs on mainnets.
+
+---
+
+### Roadmap Summary Table
+
+| Phase | Network Scope | Focus | Key Deliverables | Verification |
+|-------|--------------|-------|------------------|-------------|
+| **0 – PoC** | Local / Dev | Circuits & CLI | Functional ZKP proof system | ✅ Reproducible repo |
+| **1 – MVP** | Dev / Local | SDK + API design | TS/JS SDK + API endpoints | Unit testing |
+| **2 – Testnet** | Stellar + EVM Testnets | Interoperability | Public contracts + hosted SDK | Cross-chain validation |
+| **3 – Mainnet** | Stellar + EVM Mainnets | Production & UI | Playground + SDK release | Public proof verification |
 
 ---
 
