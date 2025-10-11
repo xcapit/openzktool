@@ -1,7 +1,4 @@
-# 📚 Stellar Privacy SDK - Documentation
-
-**Complete technical documentation for the OpenZKTool toolkit**
-
+# Technical documentation for the OpenZKTool toolkit
 ---
 
 ## 📖 Documentation Structure
