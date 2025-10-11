@@ -31,7 +31,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 mb-4 max-w-3xl mx-auto">
-            <span className="text-zk-green font-semibold">Developer toolkit</span> for building privacy-preserving applications on Stellar and EVM chains — no cryptography PhD required.
+            <span className="text-zk-green font-semibold">Open source developer toolkit</span> for building privacy-preserving applications on Stellar Soroban, Ethereum, and EVM chains — no cryptography PhD required.
           </p>
 
           <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
@@ -81,8 +81,8 @@ export default function Hero() {
             <div className="text-gray-400">Verification</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-stellar-blue mb-2">Multi-Chain</div>
-            <div className="text-gray-400">EVM + Soroban</div>
+            <div className="text-3xl md:text-4xl font-bold text-stellar-blue mb-2">2 Chains</div>
+            <div className="text-gray-400">Ethereum + Soroban</div>
           </div>
         </div>
 

@@ -42,9 +42,9 @@ export default function UseCases() {
     },
     {
       icon: "⛓️",
-      title: "Multi-Chain Interoperability",
-      description: "Prove state or ownership on one chain while executing actions on another. Bridge assets and data privately across Stellar, Ethereum, and L2s.",
-      example: "Prove Stellar asset ownership to unlock Ethereum features without bridge exposure",
+      title: "Cross-Chain Privacy",
+      description: "Prove state or ownership on one chain while executing actions on another. Currently supports Ethereum and Stellar Soroban, with more chains coming.",
+      example: "Prove Stellar asset ownership to unlock Ethereum features, or vice versa",
       color: "border-stellar-blue",
       impact: "$20B+ cross-chain volume"
     }
@@ -58,7 +58,7 @@ export default function UseCases() {
             Built for <span className="text-gradient">Real-World Impact</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Privacy infrastructure solving actual problems for financial institutions, developers, and 3.7 billion underserved users worldwide
+            Multi-chain privacy infrastructure solving real problems for financial institutions, developers, and 3.7 billion underserved users worldwide
           </p>
         </div>
 
@@ -113,7 +113,7 @@ export default function UseCases() {
         <div className="mt-16 text-center p-8 rounded-xl border-2 border-stellar-purple bg-gradient-to-br from-stellar-dark to-black glow-box">
           <h3 className="text-3xl font-bold mb-4">Build the Future of Private Finance</h3>
           <p className="text-xl text-gray-400 mb-6 max-w-2xl mx-auto">
-            Join developers and institutions building privacy-first applications on Stellar
+            Join developers and institutions building privacy-first applications across multiple blockchains
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

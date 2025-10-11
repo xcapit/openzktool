@@ -1,13 +1,13 @@
 # 🔐 OpenZKTool
 
-**Stellar Privacy SDK — Zero-Knowledge Proof Toolkit for TradFi**
+**Open Source Zero-Knowledge Proof Toolkit for Multi-Chain Privacy**
 
-> *Project Name:* **Stellar Privacy SDK** | *Brand:* **OpenZKTool**
+> *Project Name:* **OpenZKTool**
 > *Status:* **Proof of Concept**
 
-A production-ready SDK enabling developers, retail partners, and financial institutions to execute **privacy-preserving transactions** on Stellar using **ZK-SNARKs** — with full regulatory compliance and auditability for real-world institutional use.
+An open source toolkit enabling developers and institutions to build **privacy-preserving applications** using **ZK-SNARKs** across multiple blockchains — with full regulatory compliance and auditability for real-world use.
 
-> 🎯 **Mission:** Enable private transactions (hidden amounts, balances, counterparties) while maintaining regulatory transparency for authorized auditors.
+> 🎯 **Mission:** Make Zero-Knowledge Proofs accessible for developers on Stellar Soroban, EVM chains, and beyond — enabling private transactions while maintaining regulatory transparency.
 
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%203.0-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Circom](https://img.shields.io/badge/Circom-2.1.9-brightgreen)](https://docs.circom.io/)
@@ -234,7 +234,7 @@ Retail partners and financial institutions face a critical barrier to adopting p
 - 🔓 **Regulatory Barriers**: Privacy protocols must meet compliance standards requiring selective auditability
 
 ### The Solution
-The **Stellar Privacy SDK** uses **Zero-Knowledge Proofs (ZK-SNARKs)** to enable:
+**OpenZKTool** uses **Zero-Knowledge Proofs (ZK-SNARKs)** to enable:
 
 - ✅ **Private Transactions**: Hide amounts, balances, and counterparties on-chain
 - ✅ **Regulatory Transparency**: Full disclosure to authorized auditors and regulators
@@ -431,9 +431,17 @@ This will:
 
 ## 🌍 Multi-Chain Deployment
 
-### EVM (Ethereum, Polygon, BSC, etc.)
+### ✅ Ethereum / EVM Chains (Implemented)
 
 **Verifier Contract:** `circuits/evm/Verifier.sol`
+
+**Status:** ✅ Fully implemented and tested on Ethereum
+
+**Deployment ready for:**
+- ✅ Ethereum (Mainnet, Sepolia)
+- ⏳ Polygon (same contract, needs deployment)
+- ⏳ BSC (same contract, needs deployment)
+- ⏳ Arbitrum, Optimism, Base (same contract, needs deployment)
 
 ```bash
 # Deploy to your target network
@@ -451,9 +459,11 @@ if (valid) {
 }
 ```
 
-### Soroban (Stellar)
+### ✅ Stellar Soroban (Implemented)
 
 **Verifier Contract:** `soroban/src/lib.rs`
+
+**Status:** ✅ Fully implemented and tested on Soroban
 
 ```bash
 cd soroban
@@ -465,6 +475,14 @@ soroban contract deploy --wasm target/wasm32-unknown-unknown/release/verifier.wa
 - Lower fees than EVM
 - Fast finality (~5 seconds)
 - Native multi-asset support
+
+### ⏳ Future Blockchain Support (Planned)
+
+Additional blockchain integrations planned for future phases:
+- Solana
+- Cosmos/IBC chains
+- Polkadot parachains
+- Other Layer 2s
 
 ---
 
@@ -702,22 +720,29 @@ Before production use:
 
 ---
 
-## 🚀 Roadmap – Privacy & Identity Layer on Stellar
+## 🚀 Roadmap – Multi-Chain Privacy Infrastructure
 
 **PoC → MVP → Testnet → Mainnet**
 
 ### Phase 0 – Proof of Concept (✅ Completed)
 
-**Goal:** Validate the feasibility of privacy-preserving verification using Zero-Knowledge Proofs across Stellar (Soroban) and EVM-compatible environments.
+**Goal:** Validate the feasibility of privacy-preserving verification using Zero-Knowledge Proofs across multiple blockchain environments.
 
 **Deliverables:**
 - [x] Circuits: `range_proof`, `solvency_check`, `compliance_verify`, and `kyc_transfer`
 - [x] Working proof generation and verification scripts (snarkjs CLI)
-- [x] EVM verifier (Solidity) and Soroban verifier (Rust no_std)
+- [x] **Ethereum verifier** (Solidity smart contract) ✅
+- [x] **Stellar Soroban verifier** (Rust no_std) ✅
 - [x] Demonstration of end-to-end proof verification for KYC attributes (age, solvency, compliance)
 - [x] Web landing page (openzktool.vercel.app)
 
-**Outcome:** A reproducible proof lifecycle showing full ZKP generation → proof → on-chain verification. Forms the technical foundation for the next 3 phases.
+**Multi-Chain Status:**
+- ✅ **Ethereum/EVM** - Fully implemented and tested
+- ✅ **Stellar Soroban** - Fully implemented and tested
+- ⏳ **Other EVM chains** (Polygon, BSC, etc.) - Pending (same verifier can be deployed)
+- ⏳ **Other chains** - Future roadmap items
+
+**Outcome:** A reproducible proof lifecycle showing full ZKP generation → proof → on-chain verification on Ethereum and Stellar Soroban. Forms the technical foundation for the next 3 phases.
 
 ---
 
@@ -856,16 +881,16 @@ This program is free software: you can redistribute it and/or modify it under th
 
 ## 🎯 Impact & Vision
 
-**Unlocking TradFi for Stellar:**
-- Enable institutional adoption of Stellar for private transactions
+**Unlocking Privacy for All Blockchains:**
+- Enable institutional adoption across multiple chains for private transactions
 - Support cross-border B2B payments with high transaction volumes
 - Compete with traditional finance by adding privacy + auditability
-- Bridge Web2 financial institutions to Web3
+- Bridge Web2 financial institutions to Web3 across Stellar, Ethereum, and beyond
 
 **Network Effects:**
-- Developers build privacy-preserving dApps
-- Institutions bring liquidity and transaction volume
-- Stellar ecosystem grows in revenue and real-world usage
+- Developers build privacy-preserving dApps on any supported chain
+- Institutions bring liquidity and transaction volume across ecosystems
+- Multi-chain privacy infrastructure grows the entire Web3 space
 - Regulatory compliance becomes a feature, not a barrier
 
 ---

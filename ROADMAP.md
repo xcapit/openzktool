@@ -1,30 +1,44 @@
-# 🚀 Roadmap – Privacy & Identity Layer on Stellar
+# 🚀 Roadmap – Multi-Chain Privacy Infrastructure
 
 **PoC → MVP → Testnet → Mainnet**
 
-This document outlines the development phases for OpenZKTool, a privacy and identity infrastructure for Stellar and EVM-compatible blockchains using Zero-Knowledge Proofs.
+This document outlines the development phases for OpenZKTool, an open source privacy infrastructure toolkit for multiple blockchains (Stellar Soroban, Ethereum/EVM, and more) using Zero-Knowledge Proofs.
 
 ---
 
 ## Phase 0 – Proof of Concept (✅ Completed)
 
-**Goal:** Validate the feasibility of privacy-preserving verification using Zero-Knowledge Proofs across Stellar (Soroban) and EVM-compatible environments.
+**Goal:** Validate the feasibility of privacy-preserving verification using Zero-Knowledge Proofs across multiple blockchain environments.
 
 ### Deliverables
 
 - ✅ **Circuits:** `range_proof`, `solvency_check`, `compliance_verify`, and `kyc_transfer`
 - ✅ **Proof Generation:** Working proof generation and verification scripts (snarkjs CLI)
-- ✅ **EVM Verifier:** Solidity smart contract for proof verification
-- ✅ **Soroban Verifier:** Rust no_std verifier for Stellar
+- ✅ **Ethereum Verifier:** Solidity smart contract for proof verification ✅
+- ✅ **Stellar Soroban Verifier:** Rust no_std verifier ✅
 - ✅ **Demo:** End-to-end proof verification for KYC attributes (age, solvency, compliance)
 - ✅ **Web Landing Page:** https://openzktool.vercel.app
 - ✅ **Documentation:** Complete technical documentation and tutorials
+
+### Multi-Chain Implementation Status
+
+**✅ Implemented & Tested:**
+- ✅ **Ethereum/EVM** - Fully working with Solidity verifier contract
+- ✅ **Stellar Soroban** - Fully working with Rust no_std verifier
+
+**⏳ Ready for Deployment (same verifier):**
+- ⏳ Polygon, BSC, Arbitrum, Optimism, Base, etc.
+
+**⏳ Future Blockchains (roadmap):**
+- ⏳ Solana
+- ⏳ Cosmos/IBC chains
+- ⏳ Polkadot parachains
 
 ### Outcome
 
 A reproducible proof lifecycle showing:
 ```
-Private Data → Circuit → Proof Generation → Verification (EVM + Soroban)
+Private Data → Circuit → Proof Generation → Verification (Ethereum + Soroban)
 ```
 
 This forms the technical foundation for the next 3 phases.
@@ -34,7 +48,7 @@ This forms the technical foundation for the next 3 phases.
 - ~800 byte proof size
 - 586 constraints (highly efficient)
 - <50ms verification time
-- Multi-chain interoperability (EVM + Soroban)
+- Multi-chain interoperability (Ethereum + Stellar Soroban implemented)
 - Complete demo scripts and documentation
 
 ---
@@ -95,24 +109,32 @@ This forms the technical foundation for the next 3 phases.
 
 ## Phase 2 – Testnet (🧭 Planned)
 
-**Goal:** Deploy the MVP to Stellar and EVM testnets, enabling interoperability and real network testing.
+**Goal:** Deploy the MVP to multiple blockchain testnets, enabling true multi-chain interoperability and real network testing.
 
 **Timeline:** TBD
-**Network Scope:** Stellar Testnet + EVM Testnets (Polygon Amoy, Sepolia)
+**Network Scope:** Stellar Testnet + EVM Testnets (Ethereum Sepolia, Polygon Amoy) + future chains
 
 ### Milestones
 
 #### 1. Contract Deployment
 
-**Purpose:** Deploy production-ready verification contracts on testnets.
+**Purpose:** Deploy production-ready verification contracts on multiple blockchain testnets.
 
+**Priority Chains:**
+- [ ] **Ethereum Sepolia:** Deploy EVM verifier
 - [ ] **Stellar Soroban Testnet:** Deploy Groth16 verifier
 - [ ] **Polygon Amoy:** Deploy EVM verifier
-- [ ] **Sepolia:** Deploy EVM verifier
-- [ ] **Gas Optimization:** Minimize verification costs
+
+**Additional EVM Testnets:**
+- [ ] **BSC Testnet:** Deploy EVM verifier
+- [ ] **Arbitrum Sepolia:** Deploy EVM verifier
+- [ ] **Base Sepolia:** Deploy EVM verifier
+
+**Optimization:**
+- [ ] **Gas Optimization:** Minimize verification costs across all chains
 - [ ] **Monitoring:** Transaction monitoring and analytics
 
-**Deliverable:** Public testnet contracts with monitoring dashboard
+**Deliverable:** Public testnet contracts on 3+ chains with monitoring dashboard
 
 #### 2. Hosted SDK/API Service
 
@@ -149,10 +171,10 @@ This forms the technical foundation for the next 3 phases.
 
 ## Phase 3 – Mainnet (🌐 Future)
 
-**Goal:** Launch production-ready privacy and identity infrastructure on Stellar and EVM mainnets, supported by a no-code interface and developer tooling.
+**Goal:** Launch production-ready multi-chain privacy infrastructure on multiple mainnets, supported by a no-code interface and developer tooling.
 
 **Timeline:** TBD
-**Network Scope:** Stellar Mainnet + EVM Mainnets (Polygon, Ethereum)
+**Network Scope:** Stellar Mainnet + Multiple EVM Mainnets (Ethereum, Polygon, etc.) + future chains
 
 ### Milestones
 
@@ -184,17 +206,26 @@ This forms the technical foundation for the next 3 phases.
 
 #### 3. Mainnet Deployment
 
-**Purpose:** Launch production infrastructure on mainnets.
+**Purpose:** Launch production infrastructure on multiple blockchain mainnets.
 
+**Priority Chains:**
+- [ ] **Ethereum Mainnet:** Deploy EVM verifier
 - [ ] **Stellar Mainnet:** Deploy production verifier
 - [ ] **Polygon Mainnet:** Deploy EVM verifier
-- [ ] **Ethereum Mainnet:** Deploy EVM verifier (optional)
+
+**Additional Chains:**
+- [ ] **BSC Mainnet:** Deploy EVM verifier
+- [ ] **Arbitrum One:** Deploy EVM verifier
+- [ ] **Base Mainnet:** Deploy EVM verifier
+- [ ] **Optimism:** Deploy EVM verifier
+
+**Infrastructure:**
 - [ ] **Production Infra:** RPC nodes, indexers, monitoring
 - [ ] **Security Audit:** Independent third-party audit
 - [ ] **Penetration Testing:** Security testing and hardening
 - [ ] **Documentation Portal:** Public docs at `docs.openzktool.dev`
 
-**Deliverable:** Production-ready mainnet contracts with security audit report
+**Deliverable:** Production-ready mainnet contracts on 3+ chains with security audit report
 
 ### Verification Criteria
 
@@ -210,10 +241,10 @@ This forms the technical foundation for the next 3 phases.
 
 | Phase | Network Scope | Focus | Key Deliverables | Verification |
 |-------|--------------|-------|------------------|-------------|
-| **0 – PoC** | Local / Dev | Circuits & CLI | Functional ZKP proof system | ✅ Reproducible repo |
+| **0 – PoC** | Local / Dev | Circuits & CLI | Functional ZKP on Ethereum + Soroban | ✅ Reproducible repo |
 | **1 – MVP** | Dev / Local | SDK + API design | TS/JS SDK + API endpoints | Unit testing |
-| **2 – Testnet** | Stellar + EVM Testnets | Interoperability | Public contracts + hosted SDK | Cross-chain validation |
-| **3 – Mainnet** | Stellar + EVM Mainnets | Production & UI | Playground + SDK release | Public proof verification |
+| **2 – Testnet** | Multi-chain Testnets | Interoperability | Contracts on 3+ chains + hosted SDK | Cross-chain validation |
+| **3 – Mainnet** | Multi-chain Mainnets | Production & UI | Playground + SDK on 3+ mainnets | Public proof verification |
 
 ---
 

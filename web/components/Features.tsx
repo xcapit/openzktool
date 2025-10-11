@@ -9,10 +9,10 @@ export default function Features() {
     },
     {
       icon: "⛓️",
-      title: "True Multi-Chain Interoperability",
-      description: "One proof, multiple chains. Deploy on Stellar Soroban and any EVM-compatible network (Ethereum, Polygon, Optimism, Arbitrum).",
+      title: "Multi-Chain Ready",
+      description: "Implemented on Ethereum and Stellar Soroban. Ready to deploy on any EVM-compatible network (Polygon, BSC, Arbitrum, Optimism, Base).",
       color: "border-stellar-blue",
-      phase: "✅ PoC"
+      phase: "✅ PoC: ETH + Soroban"
     },
     {
       icon: "⚡",

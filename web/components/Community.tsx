@@ -10,7 +10,7 @@ export default function Community() {
             OpenZKTool is a <span className="text-zk-green font-semibold">Digital Public Good</span> — open source privacy infrastructure for everyone
           </p>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Join developers, institutions, and privacy advocates building the future of decentralized finance on Stellar
+            Join developers, institutions, and privacy advocates building multi-chain privacy infrastructure for Web3
           </p>
         </div>
 
