@@ -687,7 +687,9 @@ OpenZKTool directly contributes to:
 
 **Next steps:**
 1. ✅ Complete compliance documentation (done)
-2. 🔜 Professional security audit (Q2 2025)
+2. 🔜 Professional security audit (Q1 2026) - By UTN FRVM Blockchain Lab research team
+   - Francisco Anuar Ardúh (Principal Researcher)
+   - Joel Edgar Dellamaggiore Kuns (Blockchain Specialist)
 3. 🔜 Formal DPGA submission
 4. 🔜 Technical review by DPGA (30 days)
 5. 🔜 Inclusion in DPG Registry
