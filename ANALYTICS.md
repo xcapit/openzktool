@@ -50,14 +50,19 @@ stellar-privacy-poc/
 
 ### ✅ Stellar Soroban Implementation
 
-**Status:** Fully implemented and tested
+**Status:** ✅ Deployed on Stellar Testnet
 
 **Verifier Contract:** `soroban/src/lib.rs`
 - **Language:** Rust (no_std)
 - **Framework:** Soroban SDK
-- **Testing:** Local Stellar Quickstart (Docker)
-- **Deployment:** Stellar testnet ready
+- **Network:** Stellar Testnet
+- **Contract ID:** `CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI`
 - **Proof System:** Groth16 SNARK verification
+
+**Live Testnet Transactions:**
+- **Deploy Transaction:** [https://stellar.expert/explorer/testnet/tx/39654bd739908d093d6d7e9362ea5cae3298332b3c7e385c49996ba08796cefc](https://stellar.expert/explorer/testnet/tx/39654bd739908d093d6d7e9362ea5cae3298332b3c7e385c49996ba08796cefc)
+- **Contract Explorer:** [https://stellar.expert/explorer/testnet/contract/CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI](https://stellar.expert/explorer/testnet/contract/CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI)
+- **WASM Hash:** `22d814196149e8f8d3eaa56ff20ba2e1292e7eb66ddfade8c3e00d88c2f135a5`
 
 **Evidence:**
 - Contract source: [soroban/src/lib.rs](./soroban/src/lib.rs)
@@ -70,6 +75,37 @@ stellar-privacy-poc/
 - Public signal validation
 - Version tracking
 - Error handling
+
+---
+
+## 🌟 Live Testnet Deployments
+
+### Stellar Testnet - Groth16 Verifier Contract
+
+**Deployed:** October 11, 2024
+
+**Contract Details:**
+- **Contract ID:** `CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI`
+- **Network:** Stellar Testnet (Test SDF Network ; September 2015)
+- **WASM Size:** 2.1 KB (highly optimized)
+- **WASM Hash:** `22d814196149e8f8d3eaa56ff20ba2e1292e7eb66ddfade8c3e00d88c2f135a5`
+
+**Transaction Links:**
+1. **Contract Deployment:**
+   - TX Hash: `39654bd739908d093d6d7e9362ea5cae3298332b3c7e385c49996ba08796cefc`
+   - Explorer: [View on Stellar.Expert](https://stellar.expert/explorer/testnet/tx/39654bd739908d093d6d7e9362ea5cae3298332b3c7e385c49996ba08796cefc)
+
+2. **Contract Page:**
+   - Explorer: [View Contract](https://stellar.expert/explorer/testnet/contract/CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI)
+
+**Contract Functions:**
+- `version()` - Returns contract version (v1)
+- `verify_proof()` - Verifies Groth16 ZK proofs
+- Supports full BN254 curve operations
+- No_std Rust implementation for minimal footprint
+
+**Deployment Account:**
+- Address: `GAEIO5GF6JAQXG7YK3YI7I3ZIAZAXD3P2FMBSRUFYDME54AT2LVKZO73`
 
 ---
 
