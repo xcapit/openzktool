@@ -1,7 +1,7 @@
 import fs from "fs";
 
 if (process.argv.length < 3) {
-  console.error("❌ Uso: node zk_convert.js <proof.json> [vkey.json]");
+  console.error("❌ Usage: node zk_convert.js <proof.json> [vkey.json]");
   process.exit(1);
 }
 
@@ -13,23 +13,23 @@ try {
   proof = JSON.parse(fs.readFileSync(proofPath, "utf8"));
   vkey = JSON.parse(fs.readFileSync(vkeyPath, "utf8"));
 } catch (err) {
-  console.error("❌ Error al leer archivos:", err.message);
+  console.error("❌ Error reading files:", err.message);
   process.exit(1);
 }
 
-// 🔧 Convierte un punto G1 (2 coordenadas) a formato Soroban
+// 🔧 Converts a G1 point (2 coordinates) to Soroban format
 function convertG1Point(coords) {
-  // coords = [x, y] donde cada uno es un string BigInt
+  // coords = [x, y] where each is a BigInt string
   return {
     x: "0x" + BigInt(coords[0]).toString(16).padStart(64, "0"),
     y: "0x" + BigInt(coords[1]).toString(16).padStart(64, "0")
   };
 }
 
-// 🔧 Convierte un punto G2 (2 coordenadas de 2 elementos cada una) a formato Soroban
+// 🔧 Converts a G2 point (2 coordinates of 2 elements each) to Soroban format
 function convertG2Point(coords) {
   // coords = [[x1, x2], [y1, y2]]
-  // En Fq2: c0 + c1*u, así que x = [x1, x2] representa x1 + x2*u
+  // In Fq2: c0 + c1*u, so x = [x1, x2] represents x1 + x2*u
   return {
     x: [
       "0x" + BigInt(coords[0][0]).toString(16).padStart(64, "0"),
@@ -71,7 +71,7 @@ const args = {
 };
 
 fs.writeFileSync("args.json", JSON.stringify(args, null, 2));
-console.log("✅ args.json generado en formato Soroban v3 (ProofData + VerifyingKey + public_inputs)");
+console.log("✅ args.json generated in Soroban v3 format (ProofData + VerifyingKey + public_inputs)");
 console.log(`   - Proof points: pi_a, pi_b, pi_c`);
 console.log(`   - VK points: alpha, beta, gamma, delta, ic (${verifyingKey.ic.length} elements)`);
 console.log(`   - Public inputs: ${publicInputs.length} elements`);

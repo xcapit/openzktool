@@ -6,39 +6,39 @@ ACCOUNT="futurenet-key"
 NETWORK="futurenet"
 CONVERTER="soroban/zk_convert.js"
 
-echo "🚀 Ejecutando pipeline ZK → Soroban (v3 Full Crypto)"
-echo "--------------------------------------------------------"
+echo "🚀 Running ZK → Soroban pipeline (v3 Full Crypto)"
+echo "---------------------------------------------------"
 
 PROOF_FILE="../circuits/artifacts/proof.json"
 VKEY_FILE="../circuits/artifacts/kyc_transfer_vkey.json"
 
 if [ ! -f "$PROOF_FILE" ]; then
-  echo "❌ Error: no se encontró $PROOF_FILE"
+  echo "❌ Error: $PROOF_FILE not found"
   exit 1
 fi
 if [ ! -f "$VKEY_FILE" ]; then
-  echo "❌ Error: no se encontró $VKEY_FILE"
+  echo "❌ Error: $VKEY_FILE not found"
   exit 1
 fi
 if [ ! -f "$CONVERTER" ]; then
-  echo "❌ Error: no se encontró $CONVERTER"
+  echo "❌ Error: $CONVERTER not found"
   exit 1
 fi
 
-echo "📝 Convirtiendo proof + vkey a formato Soroban v3..."
+echo "📝 Converting proof + vkey to Soroban v3 format..."
 node "$CONVERTER" "$PROOF_FILE" "$VKEY_FILE"
 
-echo "📦 Argumentos generados:"
+echo "📦 Generated arguments:"
 jq . args.json
 
 echo ""
-read -p "¿Deseás enviar la transacción on-chain? (y/N): " choice
+read -p "Do you want to send the transaction on-chain? (y/N): " choice
 SEND_FLAG="--send=no"
 if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
   SEND_FLAG="--send=yes"
-  echo "🚀 Ejecutando con envío on-chain..."
+  echo "🚀 Running with on-chain submission..."
 else
-  echo "🧪 Ejecutando en modo simulación..."
+  echo "🧪 Running in simulation mode..."
 fi
 echo ""
 
@@ -54,4 +54,4 @@ stellar contract invoke \
   --public_inputs "$(jq -c .public_inputs args.json)"
 
 echo ""
-echo "✅ Ejecución completada."
+echo "✅ Execution completed."
