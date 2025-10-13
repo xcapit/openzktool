@@ -2,17 +2,17 @@
 WASM="target/wasm32-unknown-unknown/release/soroban_groth16_verifier.wasm"
 
 if [ ! -f "$WASM" ]; then
-  echo "❌ No se encontró el archivo wasm en $WASM"
+  echo "❌ WASM file not found at $WASM"
   exit 1
 fi
 
-echo "✅ Tamaño del binario:"
+echo "✅ Binary size:"
 ls -lh "$WASM"
 
-echo -e "\n🔍 Verificando imports y features..."
-wasm-objdump -x "$WASM" | grep -E "import|reference-types" || echo "Sin reference-types activas ✅"
+echo -e "\n🔍 Verifying imports and features..."
+wasm-objdump -x "$WASM" | grep -E "import|reference-types" || echo "No active reference-types ✅"
 
-echo -e "\n📦 Verificando símbolos de std (debería estar vacío):"
-wasm-nm "$WASM" | grep std || echo "Sin símbolos de std ✅"
+echo -e "\n📦 Verifying std symbols (should be empty):"
+wasm-nm "$WASM" | grep std || echo "No std symbols ✅"
 
-echo -e "\n✅ Verificación completada correctamente."
+echo -e "\n✅ Verification completed successfully."
