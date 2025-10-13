@@ -6,11 +6,18 @@ ACCOUNT="futurenet-key"
 NETWORK="futurenet"
 CONVERTER="soroban/zk_convert.js"
 
-echo "🚀 Ejecutando pipeline ZK → Soroban"
-echo "-----------------------------------"
+echo "🚀 Ejecutando pipeline ZK → Soroban (v3 Full Crypto)"
+echo "--------------------------------------------------------"
 
-if [ ! -f "calldata.json" ]; then
-  echo "❌ Error: no se encontró calldata.json en $(pwd)"
+PROOF_FILE="../circuits/artifacts/proof.json"
+VKEY_FILE="../circuits/artifacts/kyc_transfer_vkey.json"
+
+if [ ! -f "$PROOF_FILE" ]; then
+  echo "❌ Error: no se encontró $PROOF_FILE"
+  exit 1
+fi
+if [ ! -f "$VKEY_FILE" ]; then
+  echo "❌ Error: no se encontró $VKEY_FILE"
   exit 1
 fi
 if [ ! -f "$CONVERTER" ]; then
@@ -18,7 +25,8 @@ if [ ! -f "$CONVERTER" ]; then
   exit 1
 fi
 
-node "$CONVERTER" calldata.json > args.json
+echo "📝 Convirtiendo proof + vkey a formato Soroban v3..."
+node "$CONVERTER" "$PROOF_FILE" "$VKEY_FILE"
 
 echo "📦 Argumentos generados:"
 jq . args.json
@@ -40,11 +48,10 @@ stellar contract invoke \
   --network "$NETWORK" \
   $SEND_FLAG \
   -- \
-  verify_struct \
-  --a "$(jq -c .a args.json)" \
-  --b "$(jq -c .b args.json)" \
-  --c "$(jq -c .c args.json)" \
-  --input "$(jq -c .input args.json)"
+  verify_proof \
+  --proof "$(jq -c .proof args.json)" \
+  --vk "$(jq -c .vk args.json)" \
+  --public_inputs "$(jq -c .public_inputs args.json)"
 
 echo ""
 echo "✅ Ejecución completada."

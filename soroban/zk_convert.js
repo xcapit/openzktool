@@ -1,41 +1,77 @@
 import fs from "fs";
 
 if (process.argv.length < 3) {
-  console.error("❌ Uso: node zk_convert.js <calldata.json>");
+  console.error("❌ Uso: node zk_convert.js <proof.json> [vkey.json]");
   process.exit(1);
 }
 
-const calldataPath = process.argv[2];
+const proofPath = process.argv[2];
+const vkeyPath = process.argv[3] || "../circuits/artifacts/kyc_transfer_vkey.json";
 
-let calldata;
+let proof, vkey;
 try {
-  calldata = JSON.parse(fs.readFileSync(calldataPath, "utf8"));
+  proof = JSON.parse(fs.readFileSync(proofPath, "utf8"));
+  vkey = JSON.parse(fs.readFileSync(vkeyPath, "utf8"));
 } catch (err) {
-  console.error("❌ Error al leer el archivo:", err.message);
+  console.error("❌ Error al leer archivos:", err.message);
   process.exit(1);
 }
 
-// 🔧 Convierte recursivamente valores a string hexadecimal 0x...
-function flattenToHex(value) {
-  if (Array.isArray(value)) {
-    return "0x" + value.flat(Infinity)
-      .map(v => v.replace(/^0x/, "").padStart(2, "0"))
-      .join("");
-  }
-  if (typeof value === "string" && value.startsWith("0x")) return value;
-  return value;
+// 🔧 Convierte un punto G1 (2 coordenadas) a formato Soroban
+function convertG1Point(coords) {
+  // coords = [x, y] donde cada uno es un string BigInt
+  return {
+    x: "0x" + BigInt(coords[0]).toString(16).padStart(64, "0"),
+    y: "0x" + BigInt(coords[1]).toString(16).padStart(64, "0")
+  };
 }
 
-// 📦 Si calldata viene como array [a,b,c,input]
-const [a, b, c, input] = calldata;
+// 🔧 Convierte un punto G2 (2 coordenadas de 2 elementos cada una) a formato Soroban
+function convertG2Point(coords) {
+  // coords = [[x1, x2], [y1, y2]]
+  // En Fq2: c0 + c1*u, así que x = [x1, x2] representa x1 + x2*u
+  return {
+    x: [
+      "0x" + BigInt(coords[0][0]).toString(16).padStart(64, "0"),
+      "0x" + BigInt(coords[0][1]).toString(16).padStart(64, "0")
+    ],
+    y: [
+      "0x" + BigInt(coords[1][0]).toString(16).padStart(64, "0"),
+      "0x" + BigInt(coords[1][1]).toString(16).padStart(64, "0")
+    ]
+  };
+}
 
-// 🔁 Compactar cada grupo en una única cadena hex
+// 📦 Construir ProofData
+const proofData = {
+  pi_a: convertG1Point(proof.pi_a),
+  pi_b: convertG2Point(proof.pi_b),
+  pi_c: convertG1Point(proof.pi_c)
+};
+
+// 📦 Construir VerifyingKey
+const verifyingKey = {
+  alpha: convertG1Point(vkey.vk_alpha_1),
+  beta: convertG2Point(vkey.vk_beta_2),
+  gamma: convertG2Point(vkey.vk_gamma_2),
+  delta: convertG2Point(vkey.vk_delta_2),
+  ic: vkey.IC.map(ic => convertG1Point(ic))
+};
+
+// 📦 Public inputs
+const publicInputs = proof.publicSignals
+  ? proof.publicSignals.map(s => "0x" + BigInt(s).toString(16).padStart(64, "0"))
+  : [];
+
+// 🔁 Output en formato esperado por verify_proof
 const args = {
-  a: flattenToHex(a),
-  b: flattenToHex(b),
-  c: flattenToHex(c),
-  input: flattenToHex(input)
+  proof: proofData,
+  vk: verifyingKey,
+  public_inputs: publicInputs
 };
 
 fs.writeFileSync("args.json", JSON.stringify(args, null, 2));
-console.log("✅ args.json generado correctamente en formato compacto (Soroban-ready)");
+console.log("✅ args.json generado en formato Soroban v3 (ProofData + VerifyingKey + public_inputs)");
+console.log(`   - Proof points: pi_a, pi_b, pi_c`);
+console.log(`   - VK points: alpha, beta, gamma, delta, ic (${verifyingKey.ic.length} elements)`);
+console.log(`   - Public inputs: ${publicInputs.length} elements`);
