@@ -1,0 +1,59 @@
+{
+  "name": "stellar-privacy-sdk",
+  "version": "0.1.0-poc",
+  "description": "Stellar Privacy SDK — Zero-Knowledge Proof Toolkit for TradFi. Production-ready SDK for privacy-preserving transactions on Stellar using ZK-SNARKs with regulatory compliance.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "bash test_full_flow_auto.sh",
+    "test:interactive": "bash test_full_flow.sh",
+    "demo": "bash demo_multichain.sh",
+    "demo:privacy": "bash demo_privacy_proof.sh",
+    "demo:video": "bash demo_video.sh",
+    "demo:evm": "cd evm-verification && bash verify_on_chain.sh",
+    "demo:soroban": "cd soroban && bash verify_on_chain.sh",
+    "setup": "cd circuits/scripts && bash prepare_and_setup.sh",
+    "prove": "cd circuits/scripts && bash prove_and_verify.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xcapit/stellar-privacy-poc.git"
+  },
+  "keywords": [
+    "stellar",
+    "soroban",
+    "zero-knowledge",
+    "privacy",
+    "groth16",
+    "zk-snarks",
+    "circom",
+    "compliance",
+    "tradfi",
+    "regulatory",
+    "audit",
+    "kyc",
+    "aml",
+    "multi-chain",
+    "ethereum",
+    "sdk"
+  ],
+  "author": "Team X1 - Xcapit Labs",
+  "license": "AGPL-3.0-or-later",
+  "funding": {
+    "type": "grant",
+    "url": "https://communityfund.stellar.org/"
+  },
+  "bugs": {
+    "url": "https://github.com/xcapit/stellar-privacy-poc/issues"
+  },
+  "homepage": "https://openzktool.vercel.app",
+  "devDependencies": {
+    "snarkjs": "github:iden3/snarkjs"
+  },
+  "dependencies": {
+    "circomlib": "^2.0.5",
+    "circomlibjs": "^0.1.7"
+  }
+}
