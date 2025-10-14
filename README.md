@@ -14,6 +14,12 @@ An open source toolkit enabling developers and institutions to build **privacy-p
 [![Solidity](https://img.shields.io/badge/Solidity-0.8+-orange)](https://soliditylang.org/)
 [![Website](https://img.shields.io/badge/Website-openzktool.vercel.app-purple)](https://openzktool.vercel.app)
 
+![Soroban Tests](https://github.com/xcapit/openzktool/workflows/Soroban%20Tests/badge.svg)
+![EVM Tests](https://github.com/xcapit/openzktool/workflows/EVM%20Tests/badge.svg)
+![Circuit Tests](https://github.com/xcapit/openzktool/workflows/Circuit%20Tests/badge.svg)
+![Web Build](https://github.com/xcapit/openzktool/workflows/Web%20Build/badge.svg)
+![Security](https://github.com/xcapit/openzktool/workflows/Security/badge.svg)
+
 🌐 **Website:** [https://openzktool.vercel.app](https://openzktool.vercel.app)
 
 ---

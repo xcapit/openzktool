@@ -1,0 +1,138 @@
+name: Good First Issue
+description: Suggest a beginner-friendly task for new contributors
+title: "[Good First Issue]: "
+labels: ["good first issue", "help wanted", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This template is for maintainers to create beginner-friendly issues.
+
+        **For new contributors:** Check out our [existing good first issues](https://github.com/xcapit/openzktool/labels/good%20first%20issue)!
+
+  - type: textarea
+    id: task
+    attributes:
+      label: Task Description
+      description: Clear description of what needs to be done
+      placeholder: |
+        We need to...
+        This task involves...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Which component does this affect?
+      options:
+        - Documentation
+        - Examples
+        - Tests
+        - Web Interface
+        - SDK/API
+        - Circuits
+        - Contracts
+        - CI/CD
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: skills
+    attributes:
+      label: Required Skills
+      description: What skills are needed?
+      multiple: true
+      options:
+        - Markdown/Documentation
+        - JavaScript/TypeScript
+        - React
+        - Node.js
+        - Rust
+        - Solidity
+        - Circom
+        - Testing
+        - CI/CD
+        - No coding required
+    validations:
+      required: true
+
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Difficulty Level
+      options:
+        - Very Easy (< 1 hour)
+        - Easy (1-2 hours)
+        - Medium (2-4 hours)
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: How do we know when this is done?
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Tests pass
+    validations:
+      required: true
+
+  - type: textarea
+    id: guidance
+    attributes:
+      label: Implementation Guidance
+      description: Step-by-step guidance for new contributors
+      placeholder: |
+        1. Fork the repository
+        2. Navigate to [file/directory]
+        3. Make the following changes...
+        4. Run tests with...
+        5. Submit a PR
+    validations:
+      required: true
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Files to Modify
+      description: Which files need to be changed?
+      placeholder: |
+        - `docs/README.md`
+        - `examples/1-basic-proof/README.md`
+    validations:
+      required: true
+
+  - type: textarea
+    id: resources
+    attributes:
+      label: Helpful Resources
+      description: Links to relevant documentation or examples
+      placeholder: |
+        - [Contributing Guide](../CONTRIBUTING.md)
+        - [Documentation Style Guide](docs/STYLE_GUIDE.md)
+        - Example: [Link to similar implementation]
+
+  - type: textarea
+    id: mentor
+    attributes:
+      label: Mentor/Contact
+      description: Who can help with this issue?
+      placeholder: |
+        @username is available to help with questions
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Maintainer Checklist
+      options:
+        - label: This issue is appropriate for beginners
+          required: true
+        - label: Clear guidance has been provided
+          required: true
+        - label: Success criteria are well-defined
+          required: true

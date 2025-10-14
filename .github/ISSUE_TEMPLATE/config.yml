@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/xcapit/openzktool/tree/main/docs
+    about: Read the documentation before opening an issue
+  - name: Discussions
+    url: https://github.com/xcapit/openzktool/discussions
+    about: Ask questions and discuss ideas with the community
+  - name: Security Issues
+    url: https://github.com/xcapit/openzktool/security/policy
+    about: Report security vulnerabilities privately
