@@ -54,21 +54,21 @@ export default function Hero() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 fade-in-up stagger-6">
           <a
-            href="https://github.com/xcapit/stellar-privacy-poc"
+            href="#demo"
+            className="px-8 py-4 bg-stellar-purple hover:bg-opacity-80 rounded-lg font-semibold transition-all glow-box text-white ripple hover-lift"
+          >
+            🎬 Watch Demo (5 min)
+          </a>
+          <a
+            href="https://github.com/xcapit/openzktool"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-4 bg-stellar-purple hover:bg-opacity-80 rounded-lg font-semibold transition-all glow-box text-white ripple hover-lift"
+            className="px-8 py-4 glass-strong border border-stellar-purple hover:bg-stellar-purple hover:bg-opacity-20 rounded-lg font-semibold transition-all text-white ripple hover-lift"
           >
             🚀 View on GitHub
           </a>
           <a
-            href="#roadmap"
-            className="px-8 py-4 glass-strong border border-stellar-purple hover:bg-stellar-purple hover:bg-opacity-20 rounded-lg font-semibold transition-all text-white ripple hover-lift"
-          >
-            📋 See Roadmap
-          </a>
-          <a
-            href="https://github.com/xcapit/stellar-privacy-poc/blob/main/README.md"
+            href="https://github.com/xcapit/openzktool/blob/main/README.md"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 glass-strong border border-zk-green hover:bg-zk-green hover:bg-opacity-20 rounded-lg font-semibold transition-all text-white ripple hover-lift"
