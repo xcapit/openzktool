@@ -60,13 +60,13 @@ export default function Features() {
           {features.map((feature, idx) => (
             <div
               key={idx}
-              className={`p-6 rounded-xl border-2 ${feature.color} bg-gradient-to-br from-stellar-dark to-black hover:scale-105 transition-all duration-300 group`}
+              className={`p-6 rounded-xl border-2 ${feature.color} glass hover:glass-strong hover-lift transition-all duration-300 group shimmer fade-in-up stagger-${(idx % 6) + 1}`}
             >
               <div className="flex justify-between items-start mb-4">
-                <div className="text-5xl group-hover:scale-110 transition-transform">{feature.icon}</div>
-                <span className="text-xs px-2 py-1 bg-gray-700 rounded-full text-gray-400">{feature.phase}</span>
+                <div className="text-5xl group-hover:scale-110 group-hover:rotate-12 transition-all float-animation">{feature.icon}</div>
+                <span className="text-xs px-2 py-1 glass-strong rounded-full text-gray-300 pulse">{feature.phase}</span>
               </div>
-              <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
+              <h3 className="text-2xl font-bold mb-3 group-hover:text-gradient-fast transition-all">{feature.title}</h3>
               <p className="text-gray-400 leading-relaxed">{feature.description}</p>
             </div>
           ))}
