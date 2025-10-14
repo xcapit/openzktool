@@ -1,0 +1,103 @@
+# Development Override for docker-compose.yml
+#
+# Usage:
+#   docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+
+version: '3.8'
+
+services:
+  # Circuits - Development Mode
+  circuits:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.circuits
+      target: dev
+    volumes:
+      - ./circuits:/workspace/circuits:rw
+      - /workspace/circuits/node_modules  # Don't mount node_modules
+    command: bash
+    stdin_open: true
+    tty: true
+
+  # Soroban - Development Mode
+  soroban:
+    volumes:
+      - ./soroban:/workspace/soroban:rw
+      - cargo-cache:/usr/local/cargo/registry
+      - cargo-git:/usr/local/cargo/git
+      # Cache target directory for faster builds
+      - soroban-target:/workspace/soroban/target
+    environment:
+      - RUST_BACKTRACE=1
+      - RUST_LOG=debug
+    command: bash
+    stdin_open: true
+    tty: true
+
+  # EVM - Development Mode
+  evm:
+    volumes:
+      - ./evm-verification:/workspace/evm-verification:rw
+      - foundry-cache:/root/.foundry
+    environment:
+      - FOUNDRY_PROFILE=dev
+    command: bash
+    stdin_open: true
+    tty: true
+
+  # Anvil - Development Mode with verbose logging
+  anvil:
+    command: >
+      anvil
+      --host 0.0.0.0
+      --chain-id 31337
+      --block-time 1
+      --gas-limit 30000000
+      --accounts 10
+      --balance 10000
+    ports:
+      - "8545:8545"
+
+  # Stellar Quickstart - Development Mode
+  stellar-quickstart:
+    command: --standalone --enable-soroban-rpc --enable-soroban-diagnostic-events
+    environment:
+      - LOG_LEVEL=debug
+    volumes:
+      - stellar-data:/data
+
+  # Web - Development Mode (Hot Reload)
+  web:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.web
+      target: dev
+    volumes:
+      - ./web:/app:rw
+      - /app/node_modules  # Don't mount node_modules
+      - /app/.next  # Don't mount .next
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_EVM_RPC=http://localhost:8545
+      - NEXT_PUBLIC_SOROBAN_RPC=http://localhost:8000
+      - WATCHPACK_POLLING=true  # Enable file watching in Docker
+    command: npm run dev
+    ports:
+      - "3000:3000"
+      - "3001:3001"  # Next.js dev server
+    stdin_open: true
+    tty: true
+
+# Development-specific volumes
+volumes:
+  soroban-target:
+    name: openzktool-soroban-target-dev
+  stellar-data:
+    name: openzktool-stellar-data-dev
+
+# Notes:
+# - All services have hot-reload enabled
+# - Source code is mounted with read-write permissions
+# - Verbose logging enabled for debugging
+# - Additional development tools available
+# - node_modules and build artifacts are not mounted (performance)

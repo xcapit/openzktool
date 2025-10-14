@@ -1,0 +1,49 @@
+# Circom Compilation Environment
+#
+# Provides everything needed for circuit compilation and proof generation:
+# - Node.js 18
+# - Circom 2.1.9
+# - snarkjs
+# - Required dependencies
+
+FROM node:18-alpine
+
+LABEL maintainer="OpenZKTool <fboiero@frvm.utn.edu.ar>"
+LABEL description="Circom circuit compilation and ZK proof generation"
+
+# Install system dependencies
+RUN apk add --no-cache \
+    wget \
+    bash \
+    git \
+    build-base
+
+# Install Circom 2.1.9
+RUN wget -q https://github.com/iden3/circom/releases/download/v2.1.9/circom-linux-amd64 && \
+    chmod +x circom-linux-amd64 && \
+    mv circom-linux-amd64 /usr/local/bin/circom && \
+    circom --version
+
+# Install snarkjs globally
+RUN npm install -g snarkjs
+
+# Set working directory
+WORKDIR /workspace
+
+# Copy package.json for circuit dependencies
+COPY circuits/package*.json ./circuits/
+RUN cd circuits && npm ci --only=production
+
+# Copy circuits
+COPY circuits/ ./circuits/
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD circom --version || exit 1
+
+# Default command
+CMD ["bash"]
+
+# Usage:
+# docker build -f docker/Dockerfile.circuits -t openzktool/circuits .
+# docker run -v $(pwd)/circuits:/workspace/circuits openzktool/circuits circom --version
