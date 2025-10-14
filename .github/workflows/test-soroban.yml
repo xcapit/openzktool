@@ -1,0 +1,81 @@
+name: Test Soroban Contract
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'soroban/**'
+      - '.github/workflows/test-soroban.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'soroban/**'
+
+jobs:
+  test:
+    name: Run Soroban Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: wasm32-unknown-unknown
+          override: true
+          components: rustfmt, clippy
+
+      - name: Cache cargo registry
+        uses: actions/cache@v3
+        with:
+          path: ~/.cargo/registry
+          key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Cache cargo index
+        uses: actions/cache@v3
+        with:
+          path: ~/.cargo/git
+          key: ${{ runner.os }}-cargo-git-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Cache cargo build
+        uses: actions/cache@v3
+        with:
+          path: soroban/target
+          key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Run cargo fmt check
+        working-directory: ./soroban
+        run: cargo fmt -- --check
+
+      - name: Run clippy
+        working-directory: ./soroban
+        run: cargo clippy -- -D warnings
+
+      - name: Run tests
+        working-directory: ./soroban
+        run: cargo test --lib --verbose
+
+      - name: Build for WASM
+        working-directory: ./soroban
+        run: cargo build --target wasm32-unknown-unknown --release
+
+      - name: Check WASM size
+        working-directory: ./soroban
+        run: |
+          WASM_SIZE=$(stat -c%s "target/wasm32-unknown-unknown/release/soroban_groth16_verifier.wasm" 2>/dev/null || stat -f%z "target/wasm32-unknown-unknown/release/soroban_groth16_verifier.wasm")
+          echo "WASM size: $WASM_SIZE bytes"
+          if [ $WASM_SIZE -gt 30000 ]; then
+            echo "⚠️ Warning: WASM binary larger than 30KB ($WASM_SIZE bytes)"
+            echo "Current size is acceptable but monitor growth"
+          else
+            echo "✅ WASM size is optimal"
+          fi
+
+      - name: Upload WASM artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: soroban-wasm
+          path: soroban/target/wasm32-unknown-unknown/release/*.wasm

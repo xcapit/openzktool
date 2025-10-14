@@ -1,0 +1,51 @@
+name: Test EVM Contracts
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'evm-verification/**'
+      - '.github/workflows/test-evm.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'evm-verification/**'
+
+jobs:
+  test:
+    name: Run EVM Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+
+      - name: Run Forge build
+        working-directory: ./evm-verification
+        run: forge build --sizes
+
+      - name: Run Forge tests
+        working-directory: ./evm-verification
+        run: forge test -vvv
+
+      - name: Run Forge coverage
+        working-directory: ./evm-verification
+        run: forge coverage --report lcov
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./evm-verification/lcov.info
+          flags: evm
+          name: evm-coverage
+
+      - name: Run Forge snapshot
+        working-directory: ./evm-verification
+        run: forge snapshot --check
