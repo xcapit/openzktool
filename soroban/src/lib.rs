@@ -2,10 +2,13 @@
 
 mod field;
 mod curve;
+mod fq12;
+mod pairing;
 
 use soroban_sdk::{contract, contractimpl, contracttype, Bytes, Env, Vec};
 use field::{Fq, Fq2};
 use curve::{G1Affine, G2Affine};
+use pairing::pairing_check;
 
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // -----------------------------------------------------------------------------
@@ -132,7 +135,7 @@ impl Groth16Verifier {
         Some(result)
     }
 
-    /// Verify the pairing equation
+    /// Verify the pairing equation using complete BN254 optimal ate pairing
     /// e(A, B) = e(α, β) · e(L, γ) · e(C, δ)
     fn verify_pairing_equation(
         env: &Env,
@@ -140,30 +143,15 @@ impl Groth16Verifier {
         vk: &VerifyingKey,
         vk_x: &G1Point,
     ) -> bool {
-        // In practice, we compute 4 pairings and check if their product equals 1
+        // We check the pairing equation by computing:
+        // e(A, B) · e(-α, β) · e(-L, γ) · e(-C, δ) = 1
         //
-        // Pairing 1: e(A, B)
-        // Pairing 2: e(-α, β)
-        // Pairing 3: e(-L, γ)
-        // Pairing 4: e(-C, δ)
-        //
-        // Check: Pairing1 · Pairing2 · Pairing3 · Pairing4 = 1
+        // This is the Groth16 verification equation, where:
+        // - A, B, C are proof elements (pi_a, pi_b, pi_c)
+        // - α, β, γ, δ are from the verification key
+        // - L is the linear combination of IC points (vk_x)
 
-        // Negate points for the equation
-        let _neg_alpha = Self::g1_negate(env, &vk.alpha);
-        let _neg_vk_x = Self::g1_negate(env, vk_x);
-        let _neg_c = Self::g1_negate(env, &proof.pi_c);
-
-        // Compute pairings (using optimized batch verification)
-        // This would call the pairing precompile or compute Miller loop + final exponentiation
-
-        // For now, we perform structure validation and basic point operations
-        // Full pairing computation requires either:
-        // 1. Native Soroban precompile (when available)
-        // 2. Heavy computation (not practical in WASM)
-        // 3. Off-chain verification with on-chain proof submission
-
-        // Validate all points are on curve
+        // Step 1: Validate all points are on their respective curves
         if !Self::is_on_curve_g1(env, &proof.pi_a) {
             return false;
         }
@@ -177,11 +165,59 @@ impl Groth16Verifier {
             return false;
         }
 
-        // In production, this would call: pairing_check([A, -α, -L, -C], [B, β, γ, δ])
-        // For now, we return true if all structure and curve checks pass
-        // TODO: Add full pairing computation when Soroban adds crypto precompiles
+        // Step 2: Convert contract types to affine points
+        let pi_a = match Self::bytes_to_g1affine(env, &proof.pi_a) {
+            Some(p) => p,
+            None => return false,
+        };
+        let pi_b = match Self::bytes_to_g2affine(env, &proof.pi_b) {
+            Some(p) => p,
+            None => return false,
+        };
+        let pi_c = match Self::bytes_to_g1affine(env, &proof.pi_c) {
+            Some(p) => p,
+            None => return false,
+        };
+        let alpha = match Self::bytes_to_g1affine(env, &vk.alpha) {
+            Some(p) => p,
+            None => return false,
+        };
+        let beta = match Self::bytes_to_g2affine(env, &vk.beta) {
+            Some(p) => p,
+            None => return false,
+        };
+        let gamma = match Self::bytes_to_g2affine(env, &vk.gamma) {
+            Some(p) => p,
+            None => return false,
+        };
+        let delta = match Self::bytes_to_g2affine(env, &vk.delta) {
+            Some(p) => p,
+            None => return false,
+        };
+        let vk_x_affine = match Self::bytes_to_g1affine(env, vk_x) {
+            Some(p) => p,
+            None => return false,
+        };
 
-        true
+        // Step 3: Negate G1 points as required by the equation
+        let neg_alpha = alpha.neg();
+        let neg_vk_x = vk_x_affine.neg();
+        let neg_pi_c = pi_c.neg();
+
+        // Step 4: Prepare pairs for multi-pairing check
+        // e(A, B) · e(-α, β) · e(-L, γ) · e(-C, δ) = 1
+        // Using an array since we're in no_std environment
+        let pairs = [
+            (pi_a, pi_b),         // e(A, B)
+            (neg_alpha, beta),    // e(-α, β)
+            (neg_vk_x, gamma),    // e(-L, γ)
+            (neg_pi_c, delta),    // e(-C, δ)
+        ];
+
+        // Step 5: Perform the pairing check
+        // This uses the complete BN254 optimal ate pairing implementation
+        // with Miller loop and final exponentiation
+        pairing_check(&pairs)
     }
 
     /// Validate proof structure
@@ -351,6 +387,48 @@ impl Groth16Verifier {
         }
     }
 
+    /// Helper: Convert Bytes to G2Affine
+    fn bytes_to_g2affine(_env: &Env, point: &G2Point) -> Option<G2Affine> {
+        if point.x.len() != 2 || point.y.len() != 2 {
+            return None;
+        }
+
+        let x0_bytes_raw = point.x.get(0)?;
+        let x1_bytes_raw = point.x.get(1)?;
+        let y0_bytes_raw = point.y.get(0)?;
+        let y1_bytes_raw = point.y.get(1)?;
+
+        if x0_bytes_raw.len() != 32
+            || x1_bytes_raw.len() != 32
+            || y0_bytes_raw.len() != 32
+            || y1_bytes_raw.len() != 32
+        {
+            return None;
+        }
+
+        let mut x0_bytes = [0u8; 32];
+        let mut x1_bytes = [0u8; 32];
+        let mut y0_bytes = [0u8; 32];
+        let mut y1_bytes = [0u8; 32];
+
+        for i in 0u32..32u32 {
+            x0_bytes[i as usize] = x0_bytes_raw.get(i)?;
+            x1_bytes[i as usize] = x1_bytes_raw.get(i)?;
+            y0_bytes[i as usize] = y0_bytes_raw.get(i)?;
+            y1_bytes[i as usize] = y1_bytes_raw.get(i)?;
+        }
+
+        let x0 = Fq::from_bytes_be(&x0_bytes);
+        let x1 = Fq::from_bytes_be(&x1_bytes);
+        let y0 = Fq::from_bytes_be(&y0_bytes);
+        let y1 = Fq::from_bytes_be(&y1_bytes);
+
+        let x = Fq2::new(x0, x1);
+        let y = Fq2::new(y0, y1);
+
+        Some(G2Affine::new(x, y))
+    }
+
     /// Helper: Convert Bytes to scalar (u64 array)
     fn bytes_to_scalar(bytes: &Bytes) -> Option<[u64; 4]> {
         if bytes.len() != 32 {
@@ -382,15 +460,15 @@ impl Groth16Verifier {
 
     /// Get verifier contract version
     pub fn version(_env: Env) -> u32 {
-        3 // Version 3 with FULL cryptographic implementation
+        4 // Version 4 with complete BN254 pairing implementation
     }
 
     /// Get contract info
     pub fn info(env: Env) -> Vec<Bytes> {
         let mut info = Vec::new(&env);
         info.push_back(Bytes::from_slice(&env, b"OpenZKTool Groth16 Verifier"));
-        info.push_back(Bytes::from_slice(&env, b"BN254 Curve - Full Crypto"));
-        info.push_back(Bytes::from_slice(&env, b"Version 3"));
+        info.push_back(Bytes::from_slice(&env, b"BN254 - Complete Pairing"));
+        info.push_back(Bytes::from_slice(&env, b"Version 4 - Full Crypto"));
         info
     }
 }
@@ -426,7 +504,7 @@ mod test {
         let client = Groth16VerifierClient::new(&env, &contract_id);
 
         let version = client.version();
-        assert_eq!(version, 3); // Version 3 with full cryptographic implementation
+        assert_eq!(version, 4); // Version 4 with complete BN254 pairing implementation
     }
 
     #[test]

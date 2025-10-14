@@ -2,8 +2,6 @@
 // Field modulus: p = 21888242871839275222246405745257275088696311157297823662689037894645226208583
 // = 0x30644e72e131a029b85045b68181585d97816a916871ca8d3c208c16d87cfd47
 
-use soroban_sdk::Bytes;
-
 // BN254 field modulus as u64 limbs (little-endian)
 pub const MODULUS: [u64; 4] = [
     0x3c208c16d87cfd47,
@@ -331,6 +329,22 @@ impl Fq2 {
             c0: self.c0.mul(&norm_inv),
             c1: self.c1.neg().mul(&norm_inv),
         })
+    }
+
+    /// Frobenius endomorphism (raise to p-th power)
+    /// For Fq2 = Fq[u] / (u^2 + 1), frobenius(a + bu) = a + b*conj(u)
+    /// where conj(u) = -u, so (a + bu)^p = a - bu
+    pub fn frobenius_map(&self, power: usize) -> Fq2 {
+        if power % 2 == 0 {
+            // Even powers: no change
+            *self
+        } else {
+            // Odd powers: conjugate (negate imaginary part)
+            Fq2 {
+                c0: self.c0,
+                c1: self.c1.neg(),
+            }
+        }
     }
 }
 

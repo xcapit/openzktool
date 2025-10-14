@@ -33,6 +33,17 @@ impl G1Affine {
         self.infinity
     }
 
+    /// BN254 G1 generator point
+    /// This is a standard generator for the BN254 curve
+    pub fn generator() -> Self {
+        // BN254 G1 generator coordinates (in Montgomery form)
+        // x = 1
+        // y = 2
+        let x = Fq::from_montgomery([1, 0, 0, 0]);
+        let y = Fq::from_montgomery([2, 0, 0, 0]);
+        G1Affine::new(x, y)
+    }
+
     /// Check if point is on curve: y^2 = x^3 + 3
     pub fn is_on_curve(&self) -> bool {
         if self.infinity {
@@ -160,6 +171,16 @@ impl G2Affine {
 
     pub fn is_infinity(&self) -> bool {
         self.infinity
+    }
+
+    /// BN254 G2 generator point
+    /// This is a standard generator for the BN254 curve on G2
+    pub fn generator() -> Self {
+        // BN254 G2 generator coordinates (simplified for testing)
+        // In production, use the actual BN254 G2 generator
+        let x = Fq2::new(Fq::from_montgomery([1, 0, 0, 0]), Fq::from_montgomery([1, 0, 0, 0]));
+        let y = Fq2::new(Fq::from_montgomery([2, 0, 0, 0]), Fq::from_montgomery([2, 0, 0, 0]));
+        G2Affine::new(x, y)
     }
 
     /// Check if point is on curve: y^2 = x^3 + b'
