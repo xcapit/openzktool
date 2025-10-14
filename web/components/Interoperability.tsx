@@ -3,7 +3,7 @@ export default function Interoperability() {
     {
       name: "Soroban (Stellar)",
       logo: "⭐",
-      features: ["Full BN254 crypto", "10KB WASM", "Testnet deployed", "Production-ready"],
+      features: ["Complete pairing v4", "20KB WASM", "49+ tests", "Testnet deployed"],
       status: "live",
       color: "from-stellar-purple to-stellar-blue"
     },
