@@ -1,0 +1,21 @@
+{
+  "name": "openzktool-example-basic-proof",
+  "version": "0.1.0",
+  "description": "Basic proof generation example for OpenZKTool",
+  "private": true,
+  "scripts": {
+    "start": "node generate.js",
+    "verify": "node verify.js",
+    "test": "echo 'Tests will be added in implementation phase'"
+  },
+  "keywords": [
+    "zero-knowledge",
+    "zk-snarks",
+    "example"
+  ],
+  "author": "Team X1 - Xcapit Labs",
+  "license": "AGPL-3.0-or-later",
+  "dependencies": {
+    "@openzktool/sdk": "file:../../sdk"
+  }
+}

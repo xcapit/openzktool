@@ -1,0 +1,60 @@
+name: Build Web
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'web/**'
+      - '.github/workflows/build-web.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'web/**'
+
+jobs:
+  build:
+    name: Build Next.js Application
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+          cache-dependency-path: 'web/package-lock.json'
+
+      - name: Install dependencies
+        working-directory: ./web
+        run: npm ci
+
+      - name: Run build
+        working-directory: ./web
+        run: npm run build
+
+      - name: Check build output
+        working-directory: ./web
+        run: |
+          if [ -d "out" ]; then
+            echo "✅ Static export successful"
+            echo "Build size:"
+            du -sh out/
+          elif [ -d ".next" ]; then
+            echo "✅ Next.js build successful"
+            echo "Build size:"
+            du -sh .next/
+          else
+            echo "❌ Build output not found"
+            exit 1
+          fi
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: web-build
+          path: |
+            web/.next/
+            web/out/
