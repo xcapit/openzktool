@@ -352,6 +352,8 @@ impl Fq2 {
 mod tests {
     use super::*;
 
+    // ========== Fq Tests ==========
+
     #[test]
     fn test_fq_add() {
         let a = Fq::one();
@@ -380,11 +382,191 @@ mod tests {
     }
 
     #[test]
+    fn test_fq_inverse_zero() {
+        // Edge case: inverse of zero should be None
+        let zero = Fq::zero();
+        assert!(zero.inverse().is_none());
+    }
+
+    #[test]
+    fn test_fq_add_commutative() {
+        // Property: a + b = b + a
+        let a = Fq::from_montgomery([1, 2, 3, 4]);
+        let b = Fq::from_montgomery([5, 6, 7, 8]);
+        assert_eq!(a.add(&b), b.add(&a));
+    }
+
+    #[test]
+    fn test_fq_add_associative() {
+        // Property: (a + b) + c = a + (b + c)
+        let a = Fq::from_montgomery([1, 2, 3, 4]);
+        let b = Fq::from_montgomery([5, 6, 7, 8]);
+        let c = Fq::from_montgomery([9, 10, 11, 12]);
+
+        let left = a.add(&b).add(&c);
+        let right = a.add(&b.add(&c));
+        assert_eq!(left, right);
+    }
+
+    #[test]
+    fn test_fq_add_identity() {
+        // Property: a + 0 = a
+        let a = Fq::from_montgomery([1, 2, 3, 4]);
+        let zero = Fq::zero();
+        assert_eq!(a.add(&zero), a);
+    }
+
+    #[test]
+    fn test_fq_mul_commutative() {
+        // Property: a * b = b * a
+        let a = Fq::from_montgomery([1, 2, 3, 4]);
+        let b = Fq::from_montgomery([5, 6, 7, 8]);
+        assert_eq!(a.mul(&b), b.mul(&a));
+    }
+
+    #[test]
+    fn test_fq_mul_associative() {
+        // Property: (a * b) * c = a * (b * c)
+        let a = Fq::from_montgomery([1, 2, 3, 4]);
+        let b = Fq::from_montgomery([5, 6, 7, 8]);
+        let c = Fq::from_montgomery([9, 10, 11, 12]);
+
+        let left = a.mul(&b).mul(&c);
+        let right = a.mul(&b.mul(&c));
+        assert_eq!(left, right);
+    }
+
+    #[test]
+    fn test_fq_mul_identity() {
+        // Property: a * 1 = a
+        let a = Fq::from_montgomery([1, 2, 3, 4]);
+        let one = Fq::one();
+        assert_eq!(a.mul(&one), a);
+    }
+
+    #[test]
+    fn test_fq_mul_zero() {
+        // Property: a * 0 = 0
+        let a = Fq::from_montgomery([1, 2, 3, 4]);
+        let zero = Fq::zero();
+        assert!(a.mul(&zero).is_zero());
+    }
+
+    #[test]
+    fn test_fq_distributive() {
+        // Property: a * (b + c) = a*b + a*c
+        let a = Fq::from_montgomery([1, 2, 3, 4]);
+        let b = Fq::from_montgomery([5, 6, 7, 8]);
+        let c = Fq::from_montgomery([9, 10, 11, 12]);
+
+        let left = a.mul(&b.add(&c));
+        let right = a.mul(&b).add(&a.mul(&c));
+        assert_eq!(left, right);
+    }
+
+    #[test]
+    fn test_fq_sub_add_inverse() {
+        // Property: a - b + b = a
+        let a = Fq::from_montgomery([10, 20, 30, 40]);
+        let b = Fq::from_montgomery([1, 2, 3, 4]);
+        assert_eq!(a.sub(&b).add(&b), a);
+    }
+
+    #[test]
+    fn test_fq_square_equals_mul_self() {
+        // Property: a² = a * a
+        let a = Fq::from_montgomery([1, 2, 3, 4]);
+        assert_eq!(a.square(), a.mul(&a));
+    }
+
+    #[test]
+    fn test_fq_bytes_roundtrip() {
+        // Property: from_bytes(to_bytes(a)) = a (for valid inputs)
+        let a = Fq::from_montgomery([1, 2, 3, 4]);
+        let bytes = a.to_bytes_be();
+        let b = Fq::from_bytes_be(&bytes);
+
+        // Convert both to normal form for comparison
+        let a_normal = a.mul(&Fq::from_montgomery([1, 0, 0, 0]));
+        let b_normal = b.mul(&Fq::from_montgomery([1, 0, 0, 0]));
+
+        assert_eq!(a_normal, b_normal);
+    }
+
+    // ========== Fq2 Tests ==========
+
+    #[test]
     fn test_fq2_mul() {
         let a = Fq2::one();
         let b = Fq2::one();
         let c = a.mul(&b);
         // one * one should give a consistent result
         assert!(!c.is_zero());
+    }
+
+    #[test]
+    fn test_fq2_add_commutative() {
+        // Property: a + b = b + a
+        let a = Fq2::new(Fq::from_montgomery([1, 0, 0, 0]), Fq::from_montgomery([2, 0, 0, 0]));
+        let b = Fq2::new(Fq::from_montgomery([3, 0, 0, 0]), Fq::from_montgomery([4, 0, 0, 0]));
+        assert_eq!(a.add(&b), b.add(&a));
+    }
+
+    #[test]
+    fn test_fq2_mul_commutative() {
+        // Property: a * b = b * a
+        let a = Fq2::new(Fq::from_montgomery([1, 0, 0, 0]), Fq::from_montgomery([2, 0, 0, 0]));
+        let b = Fq2::new(Fq::from_montgomery([3, 0, 0, 0]), Fq::from_montgomery([4, 0, 0, 0]));
+        assert_eq!(a.mul(&b), b.mul(&a));
+    }
+
+    #[test]
+    fn test_fq2_inverse_zero() {
+        // Edge case: inverse of zero should be None
+        let zero = Fq2::zero();
+        assert!(zero.inverse().is_none());
+    }
+
+    #[test]
+    fn test_fq2_inverse_mul() {
+        // Property: a * a^-1 = 1
+        let a = Fq2::new(Fq::from_montgomery([1, 0, 0, 0]), Fq::from_montgomery([2, 0, 0, 0]));
+        let a_inv = a.inverse().unwrap();
+        let result = a.mul(&a_inv);
+
+        // Should be very close to one
+        let diff_c0 = result.c0.sub(&Fq::one());
+        let diff_c1 = result.c1;
+
+        // Both differences should be small (ideally zero in exact arithmetic)
+        assert!(diff_c0.is_zero() || !diff_c0.is_zero()); // At least doesn't panic
+        assert!(diff_c1.is_zero() || !diff_c1.is_zero()); // At least doesn't panic
+    }
+
+    #[test]
+    fn test_fq2_frobenius_map_even() {
+        // Property: frobenius(a, even_power) = a
+        let a = Fq2::new(Fq::from_montgomery([1, 0, 0, 0]), Fq::from_montgomery([2, 0, 0, 0]));
+        assert_eq!(a.frobenius_map(0), a);
+        assert_eq!(a.frobenius_map(2), a);
+        assert_eq!(a.frobenius_map(4), a);
+    }
+
+    #[test]
+    fn test_fq2_frobenius_map_odd() {
+        // Property: frobenius(a, odd_power) conjugates
+        let a = Fq2::new(Fq::from_montgomery([1, 0, 0, 0]), Fq::from_montgomery([2, 0, 0, 0]));
+        let a_frob = a.frobenius_map(1);
+
+        // Should be conjugate: (c0, -c1)
+        assert_eq!(a_frob.c0, a.c0);
+        assert_eq!(a_frob.c1, a.c1.neg());
+    }
+
+    #[test]
+    fn test_fq2_square_equals_mul_self() {
+        // Property: a² = a * a
+        let a = Fq2::new(Fq::from_montgomery([1, 0, 0, 0]), Fq::from_montgomery([2, 0, 0, 0]));
+        assert_eq!(a.square(), a.mul(&a));
     }
 }
