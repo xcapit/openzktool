@@ -1,0 +1,496 @@
+openapi: 3.0.3
+
+info:
+  title: OpenZKTool API
+  description: |
+    OpenZKTool REST API for zero-knowledge proof generation and verification.
+
+    ## Features
+    - Generate ZK proofs from circuit inputs
+    - Verify proofs locally (off-chain)
+    - Verify proofs on-chain (EVM + Soroban)
+    - Multi-chain support (Ethereum, Stellar, Polygon, Arbitrum, Optimism)
+
+    ## Status
+    ⚠️ **API is PLANNED** - Currently available as TypeScript SDK only.
+
+    REST API endpoints will be available in future release.
+
+    ## SDK Usage
+    ```typescript
+    import { OpenZKTool } from '@openzktool/sdk';
+
+    const zktool = new OpenZKTool({
+      wasmPath: './kyc_transfer.wasm',
+      zkeyPath: './kyc_transfer_final.zkey'
+    });
+
+    const { proof, publicSignals } = await zktool.generateProof({
+      age: 25,
+      balance: 150,
+      country: 32
+    });
+    ```
+
+  version: 1.0.0-alpha
+  contact:
+    name: OpenZKTool Support
+    email: fboiero@frvm.utn.edu.ar
+    url: https://github.com/xcapit/openzktool
+  license:
+    name: AGPL-3.0-or-later
+    url: https://www.gnu.org/licenses/agpl-3.0.html
+
+servers:
+  - url: https://api.openzktool.com/v1
+    description: Production API (planned)
+  - url: https://staging-api.openzktool.com/v1
+    description: Staging API (planned)
+  - url: http://localhost:3000/api/v1
+    description: Local development
+
+tags:
+  - name: Proof
+    description: Proof generation and verification
+  - name: Contracts
+    description: Contract information and management
+  - name: Health
+    description: API health and status
+
+paths:
+  /health:
+    get:
+      tags:
+        - Health
+      summary: Health check
+      description: Check if the API is running
+      operationId: healthCheck
+      responses:
+        '200':
+          description: API is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  version:
+                    type: string
+                    example: 1.0.0-alpha
+                  timestamp:
+                    type: string
+                    format: date-time
+
+  /proof/generate:
+    post:
+      tags:
+        - Proof
+      summary: Generate zero-knowledge proof
+      description: Generate a ZK proof from circuit inputs
+      operationId: generateProof
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CircuitInputs'
+            examples:
+              validUser:
+                summary: Valid user (Alice)
+                value:
+                  age: 25
+                  balance: 150
+                  country: 32
+                  minAge: 18
+                  minBalance: 50
+                  allowedCountries: [11, 1, 5, 32]
+              edgeCase:
+                summary: Edge case (minimum values)
+                value:
+                  age: 18
+                  balance: 50
+                  country: 11
+                  minAge: 18
+                  minBalance: 50
+                  allowedCountries: [11]
+      responses:
+        '200':
+          description: Proof generated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProofResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalError'
+      security:
+        - ApiKeyAuth: []
+
+  /proof/verify:
+    post:
+      tags:
+        - Proof
+      summary: Verify proof locally
+      description: Verify a proof off-chain without blockchain interaction
+      operationId: verifyProof
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyRequest'
+      responses:
+        '200':
+          description: Verification result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerificationResult'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalError'
+      security:
+        - ApiKeyAuth: []
+
+  /proof/verify-onchain:
+    post:
+      tags:
+        - Proof
+      summary: Verify proof on-chain
+      description: Verify a proof on a blockchain (EVM or Soroban)
+      operationId: verifyProofOnChain
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyOnChainRequest'
+            examples:
+              ethereum:
+                summary: Verify on Ethereum
+                value:
+                  proof:
+                    pi_a: ["0x...", "0x..."]
+                    pi_b: [["0x...", "0x..."], ["0x...", "0x..."]]
+                    pi_c: ["0x...", "0x..."]
+                    protocol: groth16
+                    curve: bn128
+                  publicSignals: ["1"]
+                  chain: ethereum
+                  contractAddress: "0x1234567890123456789012345678901234567890"
+                  network: sepolia
+              stellar:
+                summary: Verify on Stellar
+                value:
+                  proof:
+                    pi_a: ["0x...", "0x..."]
+                    pi_b: [["0x...", "0x..."], ["0x...", "0x..."]]
+                    pi_c: ["0x...", "0x..."]
+                    protocol: groth16
+                    curve: bn128
+                  publicSignals: ["1"]
+                  chain: stellar
+                  contractId: "CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI"
+                  network: testnet
+      responses:
+        '200':
+          description: Verification completed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OnChainVerificationResult'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+      security:
+        - ApiKeyAuth: []
+
+  /contracts/{chain}/{address}:
+    get:
+      tags:
+        - Contracts
+      summary: Get contract information
+      description: Get information about a deployed verifier contract
+      operationId: getContract
+      parameters:
+        - name: chain
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [ethereum, stellar, polygon, arbitrum, optimism]
+        - name: address
+          in: path
+          required: true
+          description: Contract address (EVM) or contract ID (Soroban)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Contract information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContractInfo'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      security:
+        - ApiKeyAuth: []
+
+components:
+  schemas:
+    CircuitInputs:
+      type: object
+      required:
+        - age
+        - balance
+        - country
+      properties:
+        age:
+          type: integer
+          minimum: 0
+          maximum: 150
+          description: User's age
+          example: 25
+        balance:
+          type: integer
+          minimum: 0
+          description: User's balance
+          example: 150
+        country:
+          type: integer
+          minimum: 0
+          description: User's country code
+          example: 32
+        minAge:
+          type: integer
+          minimum: 0
+          description: Minimum required age
+          default: 18
+          example: 18
+        minBalance:
+          type: integer
+          minimum: 0
+          description: Minimum required balance
+          default: 50
+          example: 50
+        allowedCountries:
+          type: array
+          items:
+            type: integer
+          description: List of allowed country codes
+          default: [11, 1, 5, 32]
+          example: [11, 1, 5, 32]
+
+    Proof:
+      type: object
+      required:
+        - pi_a
+        - pi_b
+        - pi_c
+        - protocol
+        - curve
+      properties:
+        pi_a:
+          type: array
+          items:
+            type: string
+          minItems: 2
+          maxItems: 2
+        pi_b:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+            minItems: 2
+            maxItems: 2
+          minItems: 2
+          maxItems: 2
+        pi_c:
+          type: array
+          items:
+            type: string
+          minItems: 2
+          maxItems: 2
+        protocol:
+          type: string
+          enum: [groth16]
+        curve:
+          type: string
+          enum: [bn128]
+
+    ProofResponse:
+      type: object
+      properties:
+        proof:
+          $ref: '#/components/schemas/Proof'
+        publicSignals:
+          type: array
+          items:
+            type: string
+          description: Public outputs of the circuit
+          example: ["1"]
+        generatedAt:
+          type: string
+          format: date-time
+
+    VerifyRequest:
+      type: object
+      required:
+        - proof
+        - publicSignals
+      properties:
+        proof:
+          $ref: '#/components/schemas/Proof'
+        publicSignals:
+          type: array
+          items:
+            type: string
+
+    VerificationResult:
+      type: object
+      properties:
+        valid:
+          type: boolean
+          description: Whether the proof is valid
+        verifiedAt:
+          type: string
+          format: date-time
+
+    VerifyOnChainRequest:
+      type: object
+      required:
+        - proof
+        - publicSignals
+        - chain
+      properties:
+        proof:
+          $ref: '#/components/schemas/Proof'
+        publicSignals:
+          type: array
+          items:
+            type: string
+        chain:
+          type: string
+          enum: [ethereum, stellar, polygon, arbitrum, optimism]
+        contractAddress:
+          type: string
+          description: Contract address (required for EVM chains)
+        contractId:
+          type: string
+          description: Contract ID (required for Stellar)
+        network:
+          type: string
+          enum: [mainnet, testnet]
+          default: testnet
+
+    OnChainVerificationResult:
+      allOf:
+        - $ref: '#/components/schemas/VerificationResult'
+        - type: object
+          properties:
+            txHash:
+              type: string
+              description: Transaction hash
+            blockNumber:
+              type: integer
+              description: Block number
+            gasUsed:
+              type: integer
+              description: Gas used (EVM only)
+            computeUnits:
+              type: integer
+              description: Compute units used (Soroban only)
+
+    ContractInfo:
+      type: object
+      properties:
+        chain:
+          type: string
+        address:
+          type: string
+        network:
+          type: string
+        version:
+          type: integer
+        deployed:
+          type: boolean
+        deployedAt:
+          type: string
+          format: date-time
+
+    Error:
+      type: object
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Human-readable error message
+        details:
+          type: object
+          description: Additional error details
+
+  responses:
+    BadRequest:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: InvalidInput
+            message: Age must be a positive number
+            details:
+              field: age
+              value: -5
+
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: ContractNotFound
+            message: Contract not found at address 0x...
+            details:
+              address: "0x..."
+              network: sepolia
+
+    InternalError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: ProofGenerationFailed
+            message: Failed to generate proof
+            details:
+              reason: Circuit file not found
+
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: |
+        API key for authentication (future implementation).
+
+        Get your API key at: https://dashboard.openzktool.com
+
+security:
+  - ApiKeyAuth: []

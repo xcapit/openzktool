@@ -1,0 +1,57 @@
+# EVM Contract Development Environment
+#
+# Provides everything needed for Ethereum/EVM smart contracts:
+# - Foundry (forge, cast, anvil)
+# - Node.js 18
+# - Solidity development tools
+
+FROM ghcr.io/foundry-rs/foundry:latest
+
+LABEL maintainer="OpenZKTool <fboiero@frvm.utn.edu.ar>"
+LABEL description="Ethereum/EVM contract development and testing"
+
+# Install Node.js and npm
+RUN apk add --no-cache \
+    nodejs \
+    npm \
+    bash \
+    git \
+    curl
+
+# Verify installations
+RUN forge --version && \
+    cast --version && \
+    anvil --version && \
+    node --version && \
+    npm --version
+
+# Set working directory
+WORKDIR /workspace
+
+# Copy package.json for EVM dependencies
+COPY evm-verification/package*.json ./evm-verification/ 2>/dev/null || true
+RUN if [ -f evm-verification/package.json ]; then \
+        cd evm-verification && npm ci --only=production; \
+    fi
+
+# Copy EVM contracts
+COPY evm-verification/ ./evm-verification/
+
+# Install Foundry dependencies
+RUN cd evm-verification && \
+    forge install || true
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD forge --version || exit 1
+
+# Expose Anvil port
+EXPOSE 8545
+
+# Default command starts Anvil
+CMD ["anvil", "--host", "0.0.0.0"]
+
+# Usage:
+# docker build -f docker/Dockerfile.evm -t openzktool/evm .
+# docker run -p 8545:8545 openzktool/evm
+# docker run openzktool/evm forge test -vvv

@@ -1,0 +1,159 @@
+version: '3.8'
+
+services:
+  # Circom Circuit Compilation Service
+  circuits:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.circuits
+    container_name: openzktool-circuits
+    volumes:
+      - ./circuits:/workspace/circuits
+      - circuits-artifacts:/workspace/circuits/artifacts
+    networks:
+      - openzktool
+    profiles:
+      - circuits
+      - all
+
+  # Soroban Contract Development Service
+  soroban:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.soroban
+    container_name: openzktool-soroban
+    volumes:
+      - ./soroban:/workspace/soroban
+      - cargo-cache:/usr/local/cargo/registry
+      - cargo-git:/usr/local/cargo/git
+    environment:
+      - STELLAR_NETWORK=testnet
+      - STELLAR_RPC_URL=https://soroban-testnet.stellar.org
+    networks:
+      - openzktool
+    profiles:
+      - soroban
+      - all
+
+  # Stellar Quickstart (Local Soroban Network)
+  stellar-quickstart:
+    image: stellar/quickstart:testing
+    container_name: openzktool-stellar
+    ports:
+      - "8000:8000"   # Soroban RPC
+      - "8001:8001"   # Horizon
+    command: --standalone --enable-soroban-rpc
+    networks:
+      - openzktool
+    profiles:
+      - soroban-local
+      - all
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # EVM Development Service (Foundry)
+  evm:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.evm
+    container_name: openzktool-evm
+    volumes:
+      - ./evm-verification:/workspace/evm-verification
+      - foundry-cache:/root/.foundry
+    networks:
+      - openzktool
+    profiles:
+      - evm
+      - all
+
+  # Anvil (Local EVM Network)
+  anvil:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.evm
+    container_name: openzktool-anvil
+    command: anvil --host 0.0.0.0 --chain-id 31337
+    ports:
+      - "8545:8545"
+    networks:
+      - openzktool
+    profiles:
+      - evm-local
+      - all
+    healthcheck:
+      test: ["CMD", "cast", "client", "--rpc-url", "http://localhost:8545"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # Next.js Web Application
+  web:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.web
+      target: runner
+    container_name: openzktool-web
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_EVM_RPC=http://anvil:8545
+      - NEXT_PUBLIC_SOROBAN_RPC=http://stellar-quickstart:8000
+    depends_on:
+      - anvil
+      - stellar-quickstart
+    networks:
+      - openzktool
+    profiles:
+      - web
+      - all
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+# Persistent volumes
+volumes:
+  circuits-artifacts:
+    name: openzktool-circuits-artifacts
+  cargo-cache:
+    name: openzktool-cargo-cache
+  cargo-git:
+    name: openzktool-cargo-git
+  foundry-cache:
+    name: openzktool-foundry-cache
+
+# Network
+networks:
+  openzktool:
+    name: openzktool-network
+    driver: bridge
+
+# Usage Examples:
+#
+# Start all services:
+#   docker-compose --profile all up -d
+#
+# Start specific profiles:
+#   docker-compose --profile circuits up -d
+#   docker-compose --profile soroban up -d
+#   docker-compose --profile evm up -d
+#   docker-compose --profile web up -d
+#
+# Start local blockchains:
+#   docker-compose --profile evm-local --profile soroban-local up -d
+#
+# Run commands:
+#   docker-compose run circuits circom --version
+#   docker-compose run soroban cargo test
+#   docker-compose run evm forge test
+#
+# Stop all services:
+#   docker-compose down
+#
+# Clean everything (including volumes):
+#   docker-compose down -v

@@ -1,0 +1,71 @@
+# Soroban Contract Development Environment
+#
+# Provides everything needed for Stellar/Soroban smart contracts:
+# - Rust 1.75+
+# - Stellar CLI
+# - Soroban SDK
+# - wasm32-unknown-unknown target
+
+FROM rust:1.75-slim
+
+LABEL maintainer="OpenZKTool <fboiero@frvm.utn.edu.ar>"
+LABEL description="Stellar Soroban contract development and deployment"
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    pkg-config \
+    libssl-dev \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install wasm32 target for Soroban
+RUN rustup target add wasm32-unknown-unknown
+
+# Install Stellar CLI (latest)
+RUN cargo install --locked \
+    --git https://github.com/stellar/stellar-cli \
+    --tag v20.0.0 \
+    stellar-cli
+
+# Install Soroban SDK tools
+RUN cargo install --locked soroban-cli || true
+
+# Verify installations
+RUN rustc --version && \
+    cargo --version && \
+    stellar --version
+
+# Set working directory
+WORKDIR /workspace
+
+# Copy Cargo files first (for caching)
+COPY soroban/Cargo.toml soroban/Cargo.lock ./soroban/
+RUN cd soroban && \
+    mkdir -p src && \
+    echo "fn main() {}" > src/lib.rs && \
+    cargo build --release --target wasm32-unknown-unknown && \
+    rm -rf src target
+
+# Copy source code
+COPY soroban/ ./soroban/
+
+# Build contract (cached if no source changes)
+RUN cd soroban && \
+    cargo build --release --target wasm32-unknown-unknown
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD stellar --version || exit 1
+
+# Environment variables
+ENV STELLAR_NETWORK=testnet
+ENV STELLAR_RPC_URL=https://soroban-testnet.stellar.org
+
+# Default command
+CMD ["bash"]
+
+# Usage:
+# docker build -f docker/Dockerfile.soroban -t openzktool/soroban .
+# docker run -v $(pwd)/soroban:/workspace/soroban openzktool/soroban cargo test
