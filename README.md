@@ -24,6 +24,28 @@ An open source toolkit enabling developers and institutions to build **privacy-p
 
 ---
 
+## 🎬 Complete Demo (NEW!)
+
+**Watch the full capabilities of OpenZKTool in 5 minutes!**
+
+```bash
+# Interactive demonstration (recommended)
+./DEMO_COMPLETE.sh
+
+# Automatic mode (for presentations)
+DEMO_AUTO=1 ./DEMO_COMPLETE.sh
+```
+
+**What you'll see:**
+- 🔐 Zero-Knowledge Proof Generation (Alice's story)
+- ✅ Local Verification (<50ms)
+- ⛓️ Multi-Chain Verification (EVM + Soroban)
+- 🌐 Real-World Use Case (Privacy + Compliance)
+
+📖 **[Complete Demo Guide](./DEMO_GUIDE_COMPLETE.md)** | 📝 **[Quick Start](./DEMO_README.md)**
+
+---
+
 ## 🚀 Quick Start
 
 ### Option 1: Full Flow Test (Automated) ⚡
