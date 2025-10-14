@@ -63,7 +63,7 @@ jobs:
           fi
 
       - name: Upload circuit artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: circuit-artifacts
           path: |

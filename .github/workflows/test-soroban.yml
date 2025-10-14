@@ -75,7 +75,7 @@ jobs:
           fi
 
       - name: Upload WASM artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: soroban-wasm
           path: soroban/target/wasm32-unknown-unknown/release/*.wasm
