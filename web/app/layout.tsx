@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     siteName: 'OpenZKTool',
     images: [
       {
-        url: '/og-image.png',
+        url: '/og-image.svg',
         width: 1200,
         height: 630,
         alt: 'OpenZKTool - Zero-Knowledge Privacy Toolkit'
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'OpenZKTool - Zero-Knowledge Proofs for Stellar & EVM',
     description: 'Open-source toolkit for privacy-preserving applications. Generate and verify ZK proofs on Stellar Soroban and Ethereum.',
-    images: ['/og-image.png']
+    images: ['/og-image.svg']
   },
   robots: {
     index: true,
@@ -69,8 +69,12 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon-192.svg', sizes: '192x192', type: 'image/svg+xml' }
+    ],
+    apple: '/apple-touch-icon.svg',
+    shortcut: '/favicon.svg'
   },
   manifest: '/manifest.json',
   category: 'technology',
