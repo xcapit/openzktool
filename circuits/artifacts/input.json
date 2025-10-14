@@ -1,0 +1,8 @@
+{
+  "age": 25,
+  "minAge": 18,
+  "maxAge": 99,
+  "balance": 150,
+  "minBalance": 50,
+  "countryId": 32
+}
