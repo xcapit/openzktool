@@ -10,9 +10,9 @@ export default function Features() {
     {
       icon: "⛓️",
       title: "Multi-Chain Ready",
-      description: "Implemented on Ethereum and Stellar Soroban. Ready to deploy on any EVM-compatible network (Polygon, BSC, Arbitrum, Optimism, Base).",
+      description: "Full implementation on Ethereum and Stellar Soroban (v4 with complete BN254 pairing). Ready to deploy on any EVM-compatible network (Polygon, BSC, Arbitrum, Optimism, Base).",
       color: "border-stellar-blue",
-      phase: "✅ PoC: ETH + Soroban"
+      phase: "✅ PoC: ETH + Soroban v4"
     },
     {
       icon: "⚡",
