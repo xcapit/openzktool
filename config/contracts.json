@@ -1,0 +1,189 @@
+{
+  "$schema": "./contracts.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2025-01-14",
+  "contracts": {
+    "soroban": {
+      "testnet": {
+        "contractId": "CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI",
+        "network": "testnet",
+        "networkPassphrase": "Test SDF Network ; September 2015",
+        "rpcUrl": "https://soroban-testnet.stellar.org",
+        "horizonUrl": "https://horizon-testnet.stellar.org",
+        "version": 4,
+        "deployedAt": "2025-01-01T00:00:00Z",
+        "deployer": "fboiero",
+        "txHash": "39654bd739908d093d6d7e9362ea5cae3298332b3c7e385c49996ba08796cefc",
+        "explorerUrl": "https://stellar.expert/explorer/testnet/contract/CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI",
+        "wasmSize": "19.8KB",
+        "status": "active"
+      },
+      "mainnet": {
+        "contractId": "",
+        "network": "mainnet",
+        "networkPassphrase": "Public Global Stellar Network ; September 2015",
+        "rpcUrl": "https://soroban-rpc.stellar.org",
+        "horizonUrl": "https://horizon.stellar.org",
+        "version": null,
+        "deployedAt": null,
+        "deployer": null,
+        "txHash": null,
+        "explorerUrl": null,
+        "wasmSize": null,
+        "status": "not_deployed",
+        "note": "Mainnet deployment planned for Q2 2025 after security audit"
+      }
+    },
+    "evm": {
+      "ethereum": {
+        "sepolia": {
+          "contractAddress": "",
+          "network": "sepolia",
+          "chainId": 11155111,
+          "rpcUrl": "https://sepolia.infura.io/v3/YOUR_INFURA_KEY",
+          "explorerUrl": "https://sepolia.etherscan.io",
+          "version": null,
+          "deployedAt": null,
+          "deployer": null,
+          "txHash": null,
+          "status": "not_deployed"
+        },
+        "mainnet": {
+          "contractAddress": "",
+          "network": "mainnet",
+          "chainId": 1,
+          "rpcUrl": "https://mainnet.infura.io/v3/YOUR_INFURA_KEY",
+          "explorerUrl": "https://etherscan.io",
+          "version": null,
+          "deployedAt": null,
+          "deployer": null,
+          "txHash": null,
+          "status": "not_deployed",
+          "note": "Mainnet deployment planned for Q2 2025 after security audit"
+        }
+      },
+      "polygon": {
+        "amoy": {
+          "contractAddress": "",
+          "network": "amoy",
+          "chainId": 80002,
+          "rpcUrl": "https://rpc-amoy.polygon.technology",
+          "explorerUrl": "https://amoy.polygonscan.com",
+          "version": null,
+          "deployedAt": null,
+          "deployer": null,
+          "txHash": null,
+          "status": "not_deployed"
+        },
+        "mainnet": {
+          "contractAddress": "",
+          "network": "mainnet",
+          "chainId": 137,
+          "rpcUrl": "https://polygon-rpc.com",
+          "explorerUrl": "https://polygonscan.com",
+          "version": null,
+          "deployedAt": null,
+          "deployer": null,
+          "txHash": null,
+          "status": "not_deployed"
+        }
+      },
+      "arbitrum": {
+        "sepolia": {
+          "contractAddress": "",
+          "network": "sepolia",
+          "chainId": 421614,
+          "rpcUrl": "https://sepolia-rollup.arbitrum.io/rpc",
+          "explorerUrl": "https://sepolia.arbiscan.io",
+          "version": null,
+          "deployedAt": null,
+          "deployer": null,
+          "txHash": null,
+          "status": "not_deployed"
+        },
+        "mainnet": {
+          "contractAddress": "",
+          "network": "mainnet",
+          "chainId": 42161,
+          "rpcUrl": "https://arb1.arbitrum.io/rpc",
+          "explorerUrl": "https://arbiscan.io",
+          "version": null,
+          "deployedAt": null,
+          "deployer": null,
+          "txHash": null,
+          "status": "not_deployed"
+        }
+      },
+      "optimism": {
+        "sepolia": {
+          "contractAddress": "",
+          "network": "sepolia",
+          "chainId": 11155420,
+          "rpcUrl": "https://sepolia.optimism.io",
+          "explorerUrl": "https://sepolia-optimism.etherscan.io",
+          "version": null,
+          "deployedAt": null,
+          "deployer": null,
+          "txHash": null,
+          "status": "not_deployed"
+        },
+        "mainnet": {
+          "contractAddress": "",
+          "network": "mainnet",
+          "chainId": 10,
+          "rpcUrl": "https://mainnet.optimism.io",
+          "explorerUrl": "https://optimistic.etherscan.io",
+          "version": null,
+          "deployedAt": null,
+          "deployer": null,
+          "txHash": null,
+          "status": "not_deployed"
+        }
+      }
+    },
+    "local": {
+      "anvil": {
+        "contractAddress": "",
+        "network": "local",
+        "chainId": 31337,
+        "rpcUrl": "http://127.0.0.1:8545",
+        "explorerUrl": null,
+        "version": null,
+        "deployedAt": null,
+        "deployer": null,
+        "txHash": null,
+        "status": "ephemeral",
+        "note": "Local development network, contracts deployed on demand"
+      },
+      "stellar-sandbox": {
+        "contractId": "",
+        "network": "local",
+        "networkPassphrase": "Standalone Network ; February 2017",
+        "rpcUrl": "http://localhost:8000",
+        "horizonUrl": "http://localhost:8001",
+        "version": null,
+        "deployedAt": null,
+        "deployer": null,
+        "txHash": null,
+        "status": "ephemeral",
+        "note": "Local Stellar sandbox, contracts deployed on demand"
+      }
+    }
+  },
+  "metadata": {
+    "contractType": "Groth16 ZK Proof Verifier",
+    "curve": "BN254",
+    "protocol": "groth16",
+    "circuitConstraints": 586,
+    "gasEstimates": {
+      "evm": {
+        "verification": "~245,000 gas",
+        "deployment": "~2,500,000 gas"
+      },
+      "soroban": {
+        "verification": "~48,000 compute units",
+        "deployment": "~1,000,000 compute units"
+      }
+    }
+  }
+}

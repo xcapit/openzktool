@@ -75,7 +75,18 @@ temp/
 # Secrets (NEVER COMMIT)
 *.secret
 *.key
+*.pem
+*.p12
+*.pfx
 private_keys/
+.secrets/
+credentials.json
+*_credentials*.json
+*_secret*.json
+*.wallet
+mnemonic.txt
+seed.txt
+private-key*.txt
 
 # Web (Next.js)
 web/.next/
@@ -96,3 +107,21 @@ Thumbs.db
 # Rust build artifacts
 contracts/target/
 contracts/Cargo.lock
+
+# Docker
+docker-compose.override.yml
+.docker/
+
+# Stellar/Blockchain specific
+.stellar/
+.soroban/
+stellar-accounts.json
+*.identity
+
+# Benchmarks results (can be large)
+benchmarks/results/
+!benchmarks/results/baseline/.gitkeep
+
+# Security audit reports (private until disclosed)
+security-reports/
+audit-private/

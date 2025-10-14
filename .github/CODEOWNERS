@@ -1,0 +1,66 @@
+# Code Owners for OpenZKTool
+#
+# This file defines who should review pull requests for different parts of the codebase.
+# GitHub will automatically request reviews from these users when PRs are opened.
+#
+# Format: path/to/file @github-username
+# Documentation: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything (unless overridden below)
+* @fboiero
+
+# Documentation
+/docs/ @fboiero
+*.md @fboiero
+/examples/ @fboiero
+
+# Core ZK Circuits
+/circuits/ @fboiero
+*.circom @fboiero
+
+# Soroban Contracts (Rust)
+/soroban/ @fboiero
+/contracts/ @fboiero
+*.rs @fboiero
+
+# EVM Contracts (Solidity)
+/evm/ @fboiero
+/evm-verification/ @fboiero
+*.sol @fboiero
+
+# SDK and API
+/sdk/ @fboiero
+/api/ @fboiero
+
+# Web Application
+/web/ @fboiero
+
+# Infrastructure and DevOps
+/docker/ @fboiero
+/.github/ @fboiero
+docker-compose*.yml @fboiero
+Dockerfile* @fboiero
+
+# Security and Configuration
+/config/ @fboiero
+SECURITY.md @fboiero
+.gitignore @fboiero
+
+# Testing
+/tests/ @fboiero
+/benchmarks/ @fboiero
+
+# Build and CI/CD
+/.github/workflows/ @fboiero
+package.json @fboiero
+Cargo.toml @fboiero
+
+# Governance
+CODE_OF_CONDUCT.md @fboiero
+CONTRIBUTING.md @fboiero
+LICENSE @fboiero
+AUTHORS.md @fboiero
+
+# Scripts
+/scripts/ @fboiero
+*.sh @fboiero
