@@ -6,7 +6,7 @@
 # - snarkjs
 # - Required dependencies
 
-FROM node:18-alpine
+FROM node:24-alpine
 
 LABEL maintainer="OpenZKTool <fboiero@frvm.utn.edu.ar>"
 LABEL description="Circom circuit compilation and ZK proof generation"
