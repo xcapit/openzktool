@@ -270,85 +270,64 @@ stellar-privacy-poc/
 │   ├── range_proof.circom        # Age range validation
 │   ├── solvency_check.circom     # Balance verification
 │   ├── compliance_verify.circom  # Country allowlist check
-│   │
-│   ├── scripts/                  # Demo and build scripts
-│   │   ├── full_demo.sh         # Complete educational demo
-│   │   ├── demo.sh              # Interactive demo
-│   │   ├── demo_auto.sh         # Auto-play demo (for videos)
-│   │   ├── prepare_and_setup.sh # Trusted setup
-│   │   └── prove_and_verify.sh  # Quick proof generation
-│   │
-│   ├── artifacts/               # Generated files (gitignored)
-│   │   ├── kyc_transfer.wasm   # Witness calculator
-│   │   ├── kyc_transfer_final.zkey  # Proving key
-│   │   ├── kyc_transfer_vkey.json   # Verification key
-│   │   ├── proof.json          # Example proof
-│   │   └── input.json          # Sample inputs
-│   │
-│   └── evm/
-│       └── Verifier.sol         # Solidity verifier contract
+│   ├── scripts/                  # Circuit build scripts
+│   └── artifacts/                # Generated files (gitignored)
 │
-├── evm-verification/            # Ethereum/EVM verification
-│   ├── src/Verifier.sol        # Groth16 verifier contract
-│   ├── test/VerifierTest.t.sol # Foundry test
-│   └── verify_on_chain.sh      # Automated verification script
+├── contracts/                     # Smart contract implementations
+│   └── src/                      # Rust contracts
 │
-├── soroban/                     # Stellar/Soroban verifier
-│   ├── src/lib.rs              # Rust verifier contract (no_std)
-│   └── verify_on_chain.sh      # Automated verification script
+├── evm/                          # EVM verifier contracts
+│   └── contracts/Verifier.sol    # Solidity Groth16 verifier
 │
-├── test_full_flow.sh            # Complete test suite (interactive)
-├── test_full_flow_auto.sh       # Complete test suite (auto mode)
-├── demo_multichain.sh           # Multi-chain demo (technical)
-└── demo_privacy_proof.sh        # Privacy narrative demo (non-technical)
+├── evm-verification/             # Ethereum/EVM verification
+│   ├── src/Verifier.sol         # Groth16 verifier contract
+│   └── test/VerifierTest.t.sol  # Foundry tests
 │
-├── web/                         # OpenZKTool landing page
-│   └── (Next.js 14 app)        # https://openzktool.vercel.app
+├── soroban/                      # Stellar/Soroban verifier
+│   ├── src/
+│   │   ├── lib.rs               # Main verifier contract (v4)
+│   │   ├── field.rs             # BN254 field arithmetic
+│   │   ├── curve.rs             # G1/G2 curve operations
+│   │   ├── fq12.rs              # Fq12 tower extension
+│   │   └── pairing.rs           # Complete pairing implementation
+│   └── TEST_EXECUTION_GUIDE.md  # Testing guide
 │
-├── demo_multichain.sh           # Multi-chain demo ⭐
-├── DEMO.md                      # Step-by-step tutorial
-├── COMPLETE_DEMO.md             # Full demo documentation
-├── VIDEO_DEMO.md                # Video recording guide
-├── QUICKSTART.md                # Quick reference
-└── README.md                    # This file
+├── web/                          # Landing page
+│   ├── app/                     # Next.js application
+│   └── components/              # React components
+│
+├── docs/                         # 📚 Documentation (reorganized!)
+│   ├── guides/                  # User guides and tutorials
+│   │   ├── QUICKSTART.md
+│   │   ├── COMPLETE_DEMO.md
+│   │   └── DEMO_GUIDE.md
+│   ├── architecture/            # Technical documentation
+│   │   ├── CRYPTOGRAPHIC_COMPARISON.md
+│   │   └── CONTRACTS_ARCHITECTURE.md
+│   ├── testing/                 # Testing documentation
+│   │   └── TESTING_STRATEGY.md
+│   ├── deployment/              # Deployment guides
+│   ├── governance/              # Project governance
+│   └── analytics/               # Project management
+│       └── ROADMAP.md
+│
+├── scripts/                      # 🔧 Executable scripts (reorganized!)
+│   ├── demo/                    # Demo scripts
+│   │   ├── demo_multichain.sh
+│   │   ├── demo_privacy_proof.sh
+│   │   └── demo_video.sh
+│   ├── testing/                 # Test scripts
+│   │   ├── quick_test.sh
+│   │   └── test_full_flow.sh
+│   └── pipeline/                # Build/deploy scripts
+│       └── complete_pipeline.sh
+│
+├── README.md                    # This file
+├── LICENSE                      # AGPL-3.0-or-later
+└── package.json                 # npm configuration
 ```
 
----
-
-## 🎬 Available Demos
-
-| Demo Script | Description | Duration | Best For |
-|-------------|-------------|----------|----------|
-| `demo_multichain.sh` 🌐 | **Multi-chain verification**: EVM + Soroban | 5-7 min | **Showcasing interoperability** ⭐ |
-| `full_demo.sh` | Complete education: Theory + Practice + Benefits | 8-10 min | Learning, teaching, presentations |
-| `demo_auto.sh` | Auto-play technical demo | 3-4 min | Video recording, quick walkthrough |
-| `demo.sh` | Interactive demo with manual pauses | 5-6 min | Live presentations, workshops |
-| `prove_and_verify.sh` | Quick proof generation only | 30 sec | Testing, development |
-
-### Example: Multi-Chain Demo (Recommended) 🌐
-
-```bash
-bash demo_multichain.sh
-```
-
-**What it shows:**
-1. 🔐 **Proof Generation**: Create a Groth16 ZK proof for KYC compliance
-2. ⛓️ **EVM Verification**: Deploy and verify on local Ethereum testnet (Foundry/Anvil)
-3. 🌟 **Soroban Verification**: Deploy and verify SAME proof on Stellar/Soroban
-4. 🎯 **Interoperability**: One proof, multiple blockchains
-
-### Example: Full Educational Demo
-
-```bash
-cd circuits/scripts
-bash full_demo.sh
-```
-
-**What it shows:**
-1. 📚 **ZK Theory**: Ali Baba's Cave, 3 properties, SNARKs vs STARKs
-2. 🛠️ **Practice**: Compilation → Setup → Proof → Verification
-3. 💎 **Benefits**: 6 real-world use cases (zkRollups, private identity, etc.)
-4. ⛓️ **Deployment**: EVM and Soroban verifier export
+> **Note:** Repository reorganized for better clarity. All documentation is now in `docs/` and executable scripts in `scripts/`.
 
 ---
 
@@ -509,10 +488,10 @@ Additional blockchain integrations planned for future phases:
 
 ## 📚 Documentation
 
-- **[QUICKSTART.md](QUICKSTART.md)** - Get started in 1 command
-- **[DEMO.md](DEMO.md)** - Detailed step-by-step guide
-- **[COMPLETE_DEMO.md](COMPLETE_DEMO.md)** - Full demo documentation
-- **[VIDEO_DEMO.md](VIDEO_DEMO.md)** - Tips for recording videos
+- **[QUICKSTART.md](docs/guides/QUICKSTART.md)** - Get started in 1 command
+- **[DEMO.md](docs/guides/DEMO.md)** - Detailed step-by-step guide
+- **[COMPLETE_DEMO.md](docs/guides/COMPLETE_DEMO.md)** - Full demo documentation
+- **[VIDEO_DEMO.md](docs/guides/VIDEO_DEMO.md)** - Tips for recording videos
 - **[circuits/scripts/SCRIPTS_GUIDE.md](circuits/scripts/SCRIPTS_GUIDE.md)** - All available scripts
 
 ---
@@ -654,15 +633,15 @@ OpenZKTool complies with **Digital Public Goods Alliance (DPGA)** standards to b
 
 | Indicator | Requirement | Evidence | Status |
 |-----------|-------------|----------|--------|
-| **1. SDG Relevance** | Alignment with SDGs | [SDG_MAPPING.md](./SDG_MAPPING.md) | ✅ Complete |
+| **1. SDG Relevance** | Alignment with SDGs | [SDG_MAPPING.md](./docs/governance/SDG_MAPPING.md) | ✅ Complete |
 | **2. Open License** | Approved open source license | [LICENSE](./LICENSE) (AGPL-3.0) | ✅ Complete |
 | **3. Clear Ownership** | Defined ownership | Team X1 - Xcapit Labs | ✅ Complete |
-| **4. Platform Independence** | No vendor lock-in | [PLATFORM_INDEPENDENCE.md](./PLATFORM_INDEPENDENCE.md) | ✅ Complete |
+| **4. Platform Independence** | No vendor lock-in | [PLATFORM_INDEPENDENCE.md](./docs/architecture/PLATFORM_INDEPENDENCE.md) | ✅ Complete |
 | **5. Documentation** | Technical documentation | [docs/](./docs/) | ✅ Complete |
 | **6. Non-PII Data** | Non-PII data extraction | Proofs without PII, open formats | ✅ Complete |
-| **7. Privacy & Legal** | Legal compliance | [PRIVACY.md](./PRIVACY.md) | ✅ Complete |
+| **7. Privacy & Legal** | Legal compliance | [PRIVACY.md](./docs/governance/PRIVACY.md) | ✅ Complete |
 | **8. Open Standards** | Open standards | Groth16, Circom, Solidity, Rust | ✅ Complete |
-| **9. Do No Harm** | Protection policies | [DO_NO_HARM.md](./DO_NO_HARM.md) | ✅ Complete |
+| **9. Do No Harm** | Protection policies | [DO_NO_HARM.md](./docs/governance/DO_NO_HARM.md) | ✅ Complete |
 
 ### 🎯 SDG Contributions
 
@@ -688,17 +667,17 @@ OpenZKTool directly contributes to:
   - Access to financial services (microcredit, remittances)
   - Empowers entrepreneurs with free infrastructure
 
-**Full details:** [SDG_MAPPING.md](./SDG_MAPPING.md)
+**Full details:** [SDG_MAPPING.md](./docs/governance/SDG_MAPPING.md)
 
 ### 📋 Compliance Documentation
 
 | Document | Description | Link |
 |----------|-------------|------|
-| **CODE_OF_CONDUCT.md** | Community code of conduct | [View](./CODE_OF_CONDUCT.md) |
-| **SDG_MAPPING.md** | Alignment with Sustainable Development Goals | [View](./SDG_MAPPING.md) |
-| **PRIVACY.md** | Privacy policy and data protection | [View](./PRIVACY.md) |
-| **PLATFORM_INDEPENDENCE.md** | Platform independence and alternatives | [View](./PLATFORM_INDEPENDENCE.md) |
-| **DO_NO_HARM.md** | "Do No Harm by Design" policy | [View](./DO_NO_HARM.md) |
+| **CODE_OF_CONDUCT.md** | Community code of conduct | [View](./docs/governance/CODE_OF_CONDUCT.md) |
+| **SDG_MAPPING.md** | Alignment with Sustainable Development Goals | [View](./docs/governance/SDG_MAPPING.md) |
+| **PRIVACY.md** | Privacy policy and data protection | [View](./docs/governance/PRIVACY.md) |
+| **PLATFORM_INDEPENDENCE.md** | Platform independence and alternatives | [View](./docs/architecture/PLATFORM_INDEPENDENCE.md) |
+| **DO_NO_HARM.md** | "Do No Harm by Design" policy | [View](./docs/governance/DO_NO_HARM.md) |
 | **LICENSE** | Open source license (AGPL-3.0) | [View](./LICENSE) |
 | **SECURITY.md** | Security policies and vulnerability reporting | [View](./SECURITY.md) |
 
@@ -960,4 +939,4 @@ This program is free software: you can redistribute it and/or modify it under th
 
 🌐 **Visit:** [openzktool.vercel.app](https://openzktool.vercel.app)
 
-🚀 **Try the demo:** `bash demo_multichain.sh`
+🚀 **Try the demo:** `bash scripts/demo/demo_multichain.sh`

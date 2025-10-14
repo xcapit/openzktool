@@ -7,11 +7,11 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "bash test_full_flow_auto.sh",
-    "test:interactive": "bash test_full_flow.sh",
-    "demo": "bash demo_multichain.sh",
-    "demo:privacy": "bash demo_privacy_proof.sh",
-    "demo:video": "bash demo_video.sh",
+    "test": "bash scripts/testing/test_full_flow_auto.sh",
+    "test:interactive": "bash scripts/testing/test_full_flow.sh",
+    "demo": "bash scripts/demo/demo_multichain.sh",
+    "demo:privacy": "bash scripts/demo/demo_privacy_proof.sh",
+    "demo:video": "bash scripts/demo/demo_video.sh",
     "demo:evm": "cd evm-verification && bash verify_on_chain.sh",
     "demo:soroban": "cd soroban && bash verify_on_chain.sh",
     "setup": "cd circuits/scripts && bash prepare_and_setup.sh",
