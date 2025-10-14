@@ -201,7 +201,7 @@ export default function Roadmap() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://github.com/xcapit/openzktool"
+                href="https://github.com/xcapit/stellar-privacy-poc"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-4 bg-white text-stellar-dark hover:bg-gray-100 rounded-lg font-semibold transition-all"
@@ -209,7 +209,7 @@ export default function Roadmap() {
                 Contribute on GitHub
               </a>
               <a
-                href="https://github.com/xcapit/openzktool/blob/main/ROADMAP.md"
+                href="https://github.com/xcapit/stellar-privacy-poc/blob/main/ROADMAP.md"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-4 border-2 border-white hover:bg-white hover:text-stellar-dark rounded-lg font-semibold transition-all text-white"

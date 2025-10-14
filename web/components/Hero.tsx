@@ -43,7 +43,7 @@ export default function Hero() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <a
-            href="https://github.com/xcapit/openzktool"
+            href="https://github.com/xcapit/stellar-privacy-poc"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 bg-stellar-purple hover:bg-opacity-80 rounded-lg font-semibold transition-all glow-box text-white"
@@ -57,7 +57,7 @@ export default function Hero() {
             📋 See Roadmap
           </a>
           <a
-            href="https://github.com/xcapit/openzktool/blob/main/README.md"
+            href="https://github.com/xcapit/stellar-privacy-poc/blob/main/README.md"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 border border-zk-green hover:bg-zk-green hover:bg-opacity-20 rounded-lg font-semibold transition-all text-white"
