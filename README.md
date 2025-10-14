@@ -10,15 +10,20 @@ An open source toolkit enabling developers and institutions to build **privacy-p
 > 🎯 **Mission:** Make Zero-Knowledge Proofs accessible for developers on Stellar Soroban, EVM chains, and beyond — enabling private transactions while maintaining regulatory transparency.
 
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%203.0-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![Circom](https://img.shields.io/badge/Circom-2.1.9-brightgreen)](https://docs.circom.io/)
-[![Solidity](https://img.shields.io/badge/Solidity-0.8+-orange)](https://soliditylang.org/)
-[![Website](https://img.shields.io/badge/Website-openzktool.vercel.app-purple)](https://openzktool.vercel.app)
+[![GitHub Stars](https://img.shields.io/github/stars/xcapit/openzktool?style=social)](https://github.com/xcapit/openzktool)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fopenzktool.vercel.app)](https://openzktool.vercel.app)
+[![Digital Public Good](https://img.shields.io/badge/Digital%20Public%20Good-Certified-brightgreen)](./docs/governance/SDG_MAPPING.md)
 
 ![Soroban Tests](https://github.com/xcapit/openzktool/workflows/Soroban%20Tests/badge.svg)
 ![EVM Tests](https://github.com/xcapit/openzktool/workflows/EVM%20Tests/badge.svg)
 ![Circuit Tests](https://github.com/xcapit/openzktool/workflows/Circuit%20Tests/badge.svg)
 ![Web Build](https://github.com/xcapit/openzktool/workflows/Web%20Build/badge.svg)
 ![Security](https://github.com/xcapit/openzktool/workflows/Security/badge.svg)
+
+[![Circom](https://img.shields.io/badge/Circom-2.1.9-brightgreen)](https://docs.circom.io/)
+[![Solidity](https://img.shields.io/badge/Solidity-0.8+-orange)](https://soliditylang.org/)
+[![Rust](https://img.shields.io/badge/Rust-1.75+-red)](https://www.rust-lang.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org/)
 
 🌐 **Website:** [https://openzktool.vercel.app](https://openzktool.vercel.app)
 
