@@ -4,42 +4,42 @@ export default function Interoperability() {
       name: "Soroban (Stellar)",
       logo: "⭐",
       features: ["Complete pairing v4", "20KB WASM", "49+ tests", "Testnet deployed"],
-      status: "live",
+      status: "testnet",
       color: "from-stellar-purple to-stellar-blue"
     },
     {
       name: "Ethereum",
       logo: "◆",
-      features: ["Solidity verifier", "~250k gas cost", "Battle-tested", "Full EVM support"],
-      status: "live",
+      features: ["Solidity verifier", "~250k gas cost", "Battle-tested", "Testnet deployed"],
+      status: "testnet",
       color: "from-stellar-blue to-zk-cyan"
     },
     {
       name: "Polygon",
       logo: "🟣",
       features: ["Low gas fees", "EVM compatible", "High throughput", "Same verifier as ETH"],
-      status: "live",
+      status: "mvp-mainnet",
       color: "from-purple-500 to-purple-700"
     },
     {
       name: "BSC",
       logo: "🟡",
       features: ["Fast blocks", "EVM compatible", "Low latency", "Wide adoption"],
-      status: "live",
+      status: "mvp-mainnet",
       color: "from-yellow-500 to-yellow-700"
     },
     {
       name: "Arbitrum",
       logo: "🔵",
       features: ["L2 scaling", "Lower fees", "ETH security", "EVM compatible"],
-      status: "coming-soon",
+      status: "mvp-mainnet",
       color: "from-blue-500 to-blue-700"
     },
     {
       name: "Optimism",
       logo: "🔴",
       features: ["L2 optimistic", "Low costs", "ETH security", "EVM compatible"],
-      status: "coming-soon",
+      status: "mvp-mainnet",
       color: "from-red-500 to-red-700"
     }
   ]
@@ -53,7 +53,9 @@ export default function Interoperability() {
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             One SDK, multiple chains. Generate proofs once, verify anywhere.
-            Seamless integration across EVM and non-EVM ecosystems.
+            <br />
+            <span className="text-stellar-blue">Currently on testnet:</span> Ethereum & Soroban.
+            <span className="text-yellow-400"> MVP roadmap:</span> Full mainnet deployment across all EVM chains.
           </p>
         </div>
 
@@ -106,13 +108,13 @@ export default function Interoperability() {
                   <div className="text-4xl">{chain.logo}</div>
                   <h3 className="text-xl font-bold">{chain.name}</h3>
                 </div>
-                {chain.status === "live" ? (
-                  <span className="px-3 py-1 bg-zk-green bg-opacity-20 text-zk-green text-sm rounded-full border border-zk-green">
-                    Live
+                {chain.status === "testnet" ? (
+                  <span className="px-3 py-1 bg-stellar-blue bg-opacity-20 text-stellar-blue text-sm rounded-full border border-stellar-blue">
+                    Testnet
                   </span>
                 ) : (
-                  <span className="px-3 py-1 bg-gray-700 text-gray-400 text-sm rounded-full border border-gray-600">
-                    Soon
+                  <span className="px-3 py-1 bg-yellow-600 bg-opacity-20 text-yellow-400 text-sm rounded-full border border-yellow-600">
+                    MVP Mainnet
                   </span>
                 )}
               </div>
