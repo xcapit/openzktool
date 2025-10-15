@@ -60,7 +60,7 @@ export default function Hero() {
             🎬 Watch Demo (5 min)
           </a>
           <a
-            href="https://github.com/xcapit/openzktool"
+            href="https://github.com/fboiero/stellar-privacy-poc"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 glass-strong border border-stellar-purple hover:bg-stellar-purple hover:bg-opacity-20 rounded-lg font-semibold transition-all text-white ripple hover-lift"
@@ -68,7 +68,7 @@ export default function Hero() {
             🚀 View on GitHub
           </a>
           <a
-            href="https://github.com/xcapit/openzktool/blob/main/README.md"
+            href="https://github.com/fboiero/stellar-privacy-poc/blob/main/README.md"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 glass-strong border border-zk-green hover:bg-zk-green hover:bg-opacity-20 rounded-lg font-semibold transition-all text-white ripple hover-lift"

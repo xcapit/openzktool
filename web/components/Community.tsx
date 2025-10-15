@@ -18,7 +18,7 @@ export default function Community() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {/* GitHub */}
           <a
-            href="https://github.com/xcapit/openzktool"
+            href="https://github.com/fboiero/stellar-privacy-poc"
             target="_blank"
             rel="noopener noreferrer"
             className="group p-8 rounded-xl border-2 border-gray-700 bg-stellar-dark hover:border-stellar-purple transition-all duration-300 hover:scale-105"
@@ -38,7 +38,7 @@ export default function Community() {
 
           {/* Discussions */}
           <a
-            href="https://github.com/xcapit/openzktool/discussions"
+            href="https://github.com/fboiero/stellar-privacy-poc/discussions"
             target="_blank"
             rel="noopener noreferrer"
             className="group p-8 rounded-xl border-2 border-gray-700 bg-stellar-dark hover:border-stellar-blue transition-all duration-300 hover:scale-105"
@@ -171,7 +171,7 @@ export default function Community() {
             OpenZKTool is licensed under <span className="text-zk-green font-semibold">AGPL-3.0</span>, ensuring the ecosystem remains open and accessible to everyone.
           </p>
           <a
-            href="https://github.com/xcapit/openzktool/blob/main/LICENSE"
+            href="https://github.com/fboiero/stellar-privacy-poc/blob/main/LICENSE"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 border-2 border-zk-green rounded-lg hover:bg-zk-green hover:bg-opacity-20 transition-all text-zk-green font-semibold"
