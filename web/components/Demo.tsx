@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import CopyButton from './CopyButton'
 
 export default function Demo() {
   const [selectedDemo, setSelectedDemo] = useState<'basic' | 'interactive' | 'automatic'>('basic')
@@ -152,12 +153,7 @@ export default function Demo() {
           <div className="bg-black bg-opacity-50 rounded-lg p-4 border border-gray-700 mb-6">
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs text-gray-500 uppercase font-mono">Terminal</span>
-              <button
-                onClick={() => navigator.clipboard.writeText(demos[selectedDemo].command)}
-                className="text-xs text-stellar-purple hover:text-stellar-blue transition-colors"
-              >
-                📋 Copy
-              </button>
+              <CopyButton text={demos[selectedDemo].command} />
             </div>
             <code className="text-zk-green font-mono text-lg">{demos[selectedDemo].command}</code>
           </div>
