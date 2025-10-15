@@ -1,107 +1,107 @@
-# 🗺️ OpenZKTool - Plan de Desarrollo 6 Meses
+# 🗺️ OpenZKTool - 6-Month Development Plan
 
-**Plan detallado para transformar OpenZKTool de PoC a plataforma de producción**
+**Detailed plan to transform OpenZKTool from PoC to production platform**
 
-**Período:** Octubre 2025 - Marzo 2026
-**Autor:** Fernando Boiero
-**Última actualización:** 15 de Octubre de 2025
-
----
-
-## 📋 Tabla de Contenidos
-
-1. [Resumen Ejecutivo](#resumen-ejecutivo)
-2. [Estado Actual](#estado-actual)
-3. [Mes 1: SDK TypeScript + Web Interactiva](#mes-1-sdk-typescript--web-interactiva)
-4. [Mes 2: Backend API + Rust Tooling](#mes-2-backend-api--rust-tooling)
-5. [Mes 3: Soroban Developer Tools](#mes-3-soroban-developer-tools)
-6. [Mes 4: Circuit Builder Visual + Testing Suite](#mes-4-circuit-builder-visual--testing-suite)
-7. [Mes 5: Production Deployment + Security Audit](#mes-5-production-deployment--security-audit)
-8. [Mes 6: Community Tools + Ecosystem](#mes-6-community-tools--ecosystem)
-9. [Herramientas Rust para Soroban](#herramientas-rust-para-soroban)
-10. [Lo que Yo Haría](#lo-que-yo-haría)
-11. [Métricas de Éxito](#métricas-de-éxito)
+**Period:** October 2025 - March 2026
+**Author:** Fernando Boiero
+**Last update:** October 15, 2025
 
 ---
 
-## 🎯 Resumen Ejecutivo
+## 📋 Table of Contents
 
-### Objetivo Principal
-Transformar OpenZKTool de un **Proof of Concept funcional** a una **plataforma de producción completa** para zero-knowledge proofs en Stellar y EVM chains, con enfoque especial en herramientas para desarrolladores de Soroban.
+1. [Executive Summary](#executive-summary)
+2. [Current State](#current-state)
+3. [Month 1: TypeScript SDK + Interactive Web](#month-1-typescript-sdk--interactive-web)
+4. [Month 2: Backend API + Rust Tooling](#month-2-backend-api--rust-tooling)
+5. [Month 3: Soroban Developer Tools](#month-3-soroban-developer-tools)
+6. [Month 4: Visual Circuit Builder + Testing Suite](#month-4-visual-circuit-builder--testing-suite)
+7. [Month 5: Production Deployment + Security Audit](#month-5-production-deployment--security-audit)
+8. [Month 6: Community Tools + Ecosystem](#month-6-community-tools--ecosystem)
+9. [Rust Tools for Soroban](#rust-tools-for-soroban)
+10. [What I Would Do](#what-i-would-do)
+11. [Success Metrics](#success-metrics)
 
-### Entregables Clave (6 meses)
-1. ✅ **SDK TypeScript/JavaScript** para proof generation & verification
-2. ✅ **API Backend** (Node.js o Rust) con queue system
-3. ✅ **Web Playground** interactivo (generación de proofs en browser)
-4. ✅ **Rust CLI Tools** para Soroban developers
+---
+
+## 🎯 Executive Summary
+
+### Main Objective
+Transform OpenZKTool from a **functional Proof of Concept** to a **complete production platform** for zero-knowledge proofs on Stellar and EVM chains, with special focus on developer tools for Soroban.
+
+### Key Deliverables (6 months)
+1. ✅ **TypeScript/JavaScript SDK** for proof generation & verification
+2. ✅ **Backend API** (Node.js or Rust) with queue system
+3. ✅ **Interactive Web Playground** (browser-based proof generation)
+4. ✅ **Rust CLI Tools** for Soroban developers
 5. ✅ **Visual Circuit Builder** (no-code)
-6. ✅ **Production Deployment** en mainnet (Stellar + Ethereum)
-7. ✅ **Security Audit** completo
+6. ✅ **Production Deployment** on mainnet (Stellar + Ethereum)
+7. ✅ **Complete Security Audit**
 8. ✅ **Community Tools** (templates, examples, tutorials)
 
-### Budget Estimado
-- **Desarrollo:** 6 meses full-time (1-2 developers)
-- **Infraestructura:** ~$500-1000/mes (hosting, RPC nodes, IPFS)
+### Estimated Budget
+- **Development:** 6 months full-time (1-2 developers)
+- **Infrastructure:** ~$500-1000/month (hosting, RPC nodes, IPFS)
 - **Security Audit:** $15,000-25,000
 - **Total:** ~$50,000-75,000
 
 ---
 
-## 📊 Estado Actual
+## 📊 Current State
 
-### ✅ Lo que Tenemos (PoC Completo)
+### ✅ What We Have (Complete PoC)
 
 **Circuits (Circom):**
 - ✅ `kyc_transfer.circom` - KYC verification (586 constraints)
 - ✅ `range_proof.circom` - Age range validation
 - ✅ `solvency_check.circom` - Balance verification
 - ✅ `compliance_verify.circom` - Country allowlist
-- ✅ Scripts de compilación y setup
+- ✅ Compilation and setup scripts
 
 **Soroban Contracts (Rust):**
-- ✅ Groth16Verifier - Verificación matemática pura (v3)
+- ✅ Groth16Verifier - Pure mathematical verification (v3)
 - ✅ Complete BN254 cryptography (Fq, Fq2, G1, G2)
-- ✅ Field arithmetic con Montgomery form
-- ✅ Deployed en testnet: `CBPBVJJ...`
-- ✅ 10KB WASM binary optimizado
+- ✅ Field arithmetic with Montgomery form
+- ✅ Deployed on testnet: `CBPBVJJ...`
+- ✅ Optimized 10KB WASM binary
 
 **EVM Contracts (Solidity):**
 - ✅ Verifier.sol - Groth16 verifier
-- ✅ Tested con Foundry
+- ✅ Tested with Foundry
 - ✅ Multi-chain compatible (Ethereum, Polygon, BSC, Arbitrum)
 
 **Web (Next.js):**
-- ✅ Landing page con documentación
-- ✅ SEO optimizado
+- ✅ Landing page with documentation
+- ✅ SEO optimized
 - ✅ Responsive design
-- ❌ Sin interactividad (solo links a GitHub)
+- ❌ No interactivity (only links to GitHub)
 
 **Documentation:**
 - ✅ 850+ lines cryptography guides (EN/ES)
-- ✅ Architecture docs con diagramas Mermaid
+- ✅ Architecture docs with Mermaid diagrams
 - ✅ Complete testing guide
 - ✅ Deployment guides
 
-### ❌ Lo que Falta
+### ❌ What's Missing
 
 **SDK:**
 - ❌ TypeScript/JavaScript library
 - ❌ Browser support (WASM)
-- ❌ npm package publicado
+- ❌ Published npm package
 
 **Backend:**
-- ❌ API REST/GraphQL
-- ❌ Queue system para jobs pesados
-- ❌ Database para metadata
+- ❌ REST/GraphQL API
+- ❌ Queue system for heavy jobs
+- ❌ Database for metadata
 
-**Web Interactiva:**
-- ❌ Proof generation en browser
+**Interactive Web:**
+- ❌ Browser-based proof generation
 - ❌ On-chain verification UI
 - ❌ Wallet integration
 - ❌ User dashboard
 
 **Rust Tooling:**
-- ❌ CLI para Soroban developers
+- ❌ CLI for Soroban developers
 - ❌ Contract templates
 - ❌ Testing helpers
 - ❌ Deployment automation
@@ -114,14 +114,14 @@ Transformar OpenZKTool de un **Proof of Concept funcional** a una **plataforma d
 
 ---
 
-## 🚀 Mes 1: SDK TypeScript + Web Interactiva
+## 🚀 Month 1: TypeScript SDK + Interactive Web
 
-**Objetivo:** Crear SDK para developers y web playground funcional
+**Objective:** Create SDK for developers and functional web playground
 
-### Semana 1-2: TypeScript SDK Core
+### Week 1-2: TypeScript SDK Core
 
-**Tareas:**
-1. **Setup del proyecto SDK**
+**Tasks:**
+1. **SDK Project Setup**
    ```bash
    mkdir packages/sdk
    cd packages/sdk
@@ -184,16 +184,16 @@ Transformar OpenZKTool de un **Proof of Concept funcional** a una **plataforma d
    }
    ```
 
-**Entregables:**
-- ✅ `@openzktool/sdk` npm package (private, aún no publicar)
-- ✅ TypeScript types exportados
-- ✅ Unit tests con Vitest
-- ✅ README con ejemplos
+**Deliverables:**
+- ✅ `@openzktool/sdk` npm package (private, not yet published)
+- ✅ Exported TypeScript types
+- ✅ Unit tests with Vitest
+- ✅ README with examples
 
-### Semana 3-4: Web Playground
+### Week 3-4: Web Playground
 
-**Tareas:**
-1. **Nueva ruta /playground**
+**Tasks:**
+1. **New /playground route**
    ```typescript
    // web/app/playground/page.tsx
    'use client';
@@ -246,7 +246,7 @@ Transformar OpenZKTool de un **Proof of Concept funcional** a una **plataforma d
    }
    ```
 
-3. **Web Worker para Proof Generation**
+3. **Web Worker for Proof Generation**
    ```typescript
    // web/workers/proof-worker.ts
    import { groth16 } from 'snarkjs';
@@ -286,14 +286,14 @@ Transformar OpenZKTool de un **Proof of Concept funcional** a una **plataforma d
    }
    ```
 
-**Entregables:**
-- ✅ /playground ruta funcional
-- ✅ Proof generation en browser (WASM)
+**Deliverables:**
+- ✅ Functional /playground route
+- ✅ Browser-based proof generation (WASM)
 - ✅ Wallet connection (MetaMask + Freighter)
-- ✅ Beautiful UI con animaciones
+- ✅ Beautiful UI with animations
 - ✅ Mobile responsive
 
-**Stack Tecnológico:**
+**Tech Stack:**
 - Next.js 14 (App Router)
 - React 18
 - Zustand (state management)
@@ -302,18 +302,18 @@ Transformar OpenZKTool de un **Proof of Concept funcional** a una **plataforma d
 - snarkjs (WASM)
 - Tailwind CSS
 
-**Tiempo estimado:** 4 semanas
-**Recursos:** 1 developer full-time
+**Estimated time:** 4 weeks
+**Resources:** 1 full-time developer
 
 ---
 
-## ⚙️ Mes 2: Backend API + Rust Tooling
+## ⚙️ Month 2: Backend API + Rust Tooling
 
-**Objetivo:** API backend para proof jobs pesados + herramientas Rust para Soroban
+**Objective:** Backend API for heavy proof jobs + Rust tools for Soroban
 
-### Semana 1-2: Backend API (Node.js o Rust)
+### Week 1-2: Backend API (Node.js or Rust)
 
-**Opción A: Node.js + Express (Rápido)**
+**Option A: Node.js + Express (Fast)**
 ```typescript
 // backend/src/index.ts
 import express from 'express';
@@ -343,7 +343,7 @@ app.get('/api/proof/:jobId', async (req, res) => {
 });
 ```
 
-**Opción B: Rust + Axum (Rápido + Type-safe)**
+**Option B: Rust + Axum (Fast + Type-safe)**
 ```rust
 // backend/src/main.rs
 use axum::{
@@ -368,14 +368,14 @@ async fn generate_proof(Json(req): Json<ProofRequest>) -> Json<ProofResponse> {
 }
 ```
 
-**Recomendación:** **Rust + Axum** por:
+**Recommendation:** **Rust + Axum** because:
 - ✅ Type safety
 - ✅ Performance
-- ✅ Mejor integración con tooling Rust
-- ✅ Menor memory footprint
-- ❌ Curva de aprendizaje más alta
+- ✅ Better integration with Rust tooling
+- ✅ Lower memory footprint
+- ❌ Steeper learning curve
 
-**Componentes Backend:**
+**Backend Components:**
 ```
 backend/
 ├── src/
@@ -412,9 +412,9 @@ stellar-sdk = "0.11"
 ethers = "2.0"
 ```
 
-### Semana 3-4: Rust CLI Tools para Soroban
+### Week 3-4: Rust CLI Tools for Soroban
 
-**1. CLI Principal**
+**1. Main CLI**
 ```rust
 // tools/cli/src/main.rs
 use clap::{Parser, Subcommand};
@@ -540,7 +540,7 @@ impl ZKVerifier {{
 **4. Deployment Helper**
 ```rust
 // tools/cli/src/deploy/soroban.rs
-use stellar_sdk::{{Network, Server, Keypair}};
+use stellar_sdk::{Network, Server, Keypair};
 
 pub async fn deploy_contract(
     wasm_path: &str,
@@ -563,29 +563,29 @@ pub async fn deploy_contract(
 }
 ```
 
-**Entregables Mes 2:**
-- ✅ Backend API (Rust + Axum) con endpoints REST
-- ✅ Queue system (Redis + Bull) para jobs pesados
-- ✅ Database (PostgreSQL) para metadata
-- ✅ CLI `openzk` para Soroban developers
-- ✅ Project templates y generators
+**Month 2 Deliverables:**
+- ✅ Backend API (Rust + Axum) with REST endpoints
+- ✅ Queue system (Redis + Bull) for heavy jobs
+- ✅ Database (PostgreSQL) for metadata
+- ✅ `openzk` CLI for Soroban developers
+- ✅ Project templates and generators
 - ✅ Deployment automation
 
-**Tiempo estimado:** 4 semanas
-**Recursos:** 1-2 developers
+**Estimated time:** 4 weeks
+**Resources:** 1-2 developers
 
 ---
 
-## 🛠️ Mes 3: Soroban Developer Tools
+## 🛠️ Month 3: Soroban Developer Tools
 
-**Objetivo:** Suite completa de herramientas para developers de Soroban
+**Objective:** Complete suite of tools for Soroban developers
 
-### Semana 1: Testing Framework
+### Week 1: Testing Framework
 
 **1. Soroban Test Helpers**
 ```rust
 // tools/soroban-test-utils/src/lib.rs
-use soroban_sdk::testutils::{{Ledger, LedgerInfo}};
+use soroban_sdk::testutils::{Ledger, LedgerInfo};
 
 pub struct ZKTestEnv {
     env: Env,
@@ -670,13 +670,13 @@ mod tests {
 }
 ```
 
-### Semana 2: Contract Templates
+### Week 2: Contract Templates
 
 **1. Basic Verifier Template**
 ```rust
 // tools/templates/contracts/basic_verifier.rs
 #![no_std]
-use soroban_sdk::{{contract, contractimpl, contracttype, Env, Vec, Bytes, BytesN}};
+use soroban_sdk::{contract, contractimpl, contracttype, Env, Vec, Bytes, BytesN};
 
 #[contracttype]
 pub struct Proof {
@@ -780,7 +780,7 @@ impl PrivacyApp {
 }
 ```
 
-### Semana 3: Circuit Library
+### Week 3: Circuit Library
 
 **1. Common Circuit Components**
 ```circom
@@ -888,7 +888,7 @@ template KYC() {
 component main = KYC();
 ```
 
-### Semana 4: Documentation & Examples
+### Week 4: Documentation & Examples
 
 **1. Developer Guide**
 ```markdown
@@ -935,24 +935,24 @@ openzk verify --proof proof.json --network testnet
 ...
 ```
 
-**Entregables Mes 3:**
-- ✅ Testing framework para Soroban ZK contracts
+**Month 3 Deliverables:**
+- ✅ Testing framework for Soroban ZK contracts
 - ✅ Contract templates (basic + privacy app)
 - ✅ Circuit component library
 - ✅ Complete developer guide
 - ✅ 10+ working examples
 - ✅ Video tutorials (YouTube)
 
-**Tiempo estimado:** 4 semanas
-**Recursos:** 1 developer + 1 technical writer
+**Estimated time:** 4 weeks
+**Resources:** 1 developer + 1 technical writer
 
 ---
 
-## 🎨 Mes 4: Circuit Builder Visual + Testing Suite
+## 🎨 Month 4: Visual Circuit Builder + Testing Suite
 
-**Objetivo:** Visual circuit builder y testing comprehensivo
+**Objective:** Visual circuit builder and comprehensive testing
 
-### Semana 1-2: Visual Circuit Builder
+### Week 1-2: Visual Circuit Builder
 
 **Tech Stack:**
 - React Flow (node editor)
@@ -1037,7 +1037,7 @@ export function generateCircomCode(nodes: Node[], edges: Edge[]): string {
 }
 ```
 
-### Semana 3-4: Comprehensive Testing Suite
+### Week 3-4: Comprehensive Testing Suite
 
 **1. Unit Tests**
 ```rust
@@ -1136,7 +1136,7 @@ fuzz_target!(|data: &[u8]| {
 });
 ```
 
-**Entregables Mes 4:**
+**Month 4 Deliverables:**
 - ✅ Visual circuit builder (no-code)
 - ✅ Real-time constraint counter
 - ✅ Circom code generator
@@ -1144,18 +1144,18 @@ fuzz_target!(|data: &[u8]| {
 - ✅ 50+ integration tests
 - ✅ Property-based testing suite
 - ✅ Fuzzing tests
-- ✅ CI/CD pipeline con GitHub Actions
+- ✅ CI/CD pipeline with GitHub Actions
 
-**Tiempo estimado:** 4 semanas
-**Recursos:** 2 developers
+**Estimated time:** 4 weeks
+**Resources:** 2 developers
 
 ---
 
-## 🔐 Mes 5: Production Deployment + Security Audit
+## 🔐 Month 5: Production Deployment + Security Audit
 
-**Objetivo:** Deploy a mainnet y security audit completo
+**Objective:** Deploy to mainnet and complete security audit
 
-### Semana 1-2: Mainnet Deployment
+### Week 1-2: Mainnet Deployment
 
 **1. Soroban Mainnet**
 ```bash
@@ -1259,7 +1259,7 @@ export const proofDuration = new Histogram({
 });
 ```
 
-### Semana 3-4: Security Audit
+### Week 3-4: Security Audit
 
 **Scope:**
 1. **Smart Contracts:**
@@ -1345,34 +1345,27 @@ export const proofDuration = new Histogram({
 - [ ] Backup strategy
 ```
 
-**Audit Firms (Recomendaciones):**
-- Trail of Bits
-- ConsenSys Diligence
-- OpenZeppelin
-- Quantstamp
-- Certik
-
 **Budget:** $15,000-25,000
-**Tiempo:** 2-4 semanas
+**Time:** 2-4 weeks
 
-**Entregables Mes 5:**
+**Month 5 Deliverables:**
 - ✅ Mainnet deployment (Stellar + Ethereum)
 - ✅ Production infrastructure (Docker, k8s)
 - ✅ Monitoring & alerts (Sentry, Prometheus, Grafana)
 - ✅ Security audit report
-- ✅ Fixes para vulnerabilidades encontradas
+- ✅ Fixes for vulnerabilities found
 - ✅ Public announcement
 
-**Tiempo estimado:** 4 semanas
-**Recursos:** 1 DevOps + 1 developer + audit firm
+**Estimated time:** 4 weeks
+**Resources:** 1 DevOps + 1 developer + audit firm
 
 ---
 
-## 🌍 Mes 6: Community Tools + Ecosystem
+## 🌍 Month 6: Community Tools + Ecosystem
 
-**Objetivo:** Tools para la comunidad y ecosystem growth
+**Objective:** Tools for the community and ecosystem growth
 
-### Semana 1: Templates & Starter Kits
+### Week 1: Templates & Starter Kits
 
 **1. Starter Kits**
 ```bash
@@ -1445,7 +1438,7 @@ impl PrivacyKYC {
 }
 ```
 
-### Semana 2: Circuit Templates Library
+### Week 2: Circuit Templates Library
 
 **Circuit Categories:**
 1. **Identity & KYC**
@@ -1493,7 +1486,7 @@ circuit-library/
     └── ecdsa-verify.circom
 ```
 
-### Semana 3: Developer Documentation Hub
+### Week 3: Developer Documentation Hub
 
 **Documentation Site (Nextra):**
 ```
@@ -1539,7 +1532,7 @@ docs-site/
 - Video tutorials
 - Community snippets
 
-### Semana 4: Ecosystem Growth
+### Week 4: Ecosystem Growth
 
 **1. Community Programs**
 - Hackathon templates
@@ -1594,7 +1587,7 @@ export function MetaMaskSnap() {
 - Wallet providers
 - Enterprise solutions
 
-**Entregables Mes 6:**
+**Month 6 Deliverables:**
 - ✅ 10+ starter templates
 - ✅ 20+ circuit templates
 - ✅ Complete documentation hub
@@ -1602,12 +1595,12 @@ export function MetaMaskSnap() {
 - ✅ Community program launched
 - ✅ 5+ partnerships announced
 
-**Tiempo estimado:** 4 semanas
-**Recursos:** 2 developers + 1 developer relations + 1 technical writer
+**Estimated time:** 4 weeks
+**Resources:** 2 developers + 1 developer relations + 1 technical writer
 
 ---
 
-## 🛠️ Herramientas Rust para Soroban
+## 🛠️ Rust Tools for Soroban
 
 ### Comprehensive Rust Tooling Suite
 
@@ -1647,7 +1640,7 @@ openzk export-vkey              # Export verification key
 
 #### 2. `openzk-sdk` Rust Library
 ```rust
-use openzk_sdk::{{Circuit, Proof, Network}};
+use openzk_sdk::{Circuit, Proof, Network};
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -1681,7 +1674,7 @@ async fn main() -> Result<()> {
 
 #### 3. Contract Testing Framework
 ```rust
-use openzk_test::{{TestEnv, ProofBuilder}};
+use openzk_test::{TestEnv, ProofBuilder};
 
 #[test]
 fn test_proof_verification() {
@@ -1715,7 +1708,7 @@ fn main() {
 
 #### 5. Deployment Manager
 ```rust
-use openzk_deploy::{{Deployer, Network}};
+use openzk_deploy::{Deployer, Network};
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -1739,160 +1732,160 @@ async fn main() -> Result<()> {
 
 ---
 
-## 💡 Lo que Yo Haría
+## 💡 What I Would Do
 
-### Priorización Personal (Si fuera el proyecto)
+### Personal Prioritization (If it were my project)
 
-#### Mes 1: Foundation (Lo más crítico)
-**Prioridad 1: SDK TypeScript**
-- ✅ Esto desbloquea todo - developers pueden usar OpenZKTool inmediatamente
-- ✅ Browser support con WASM es game-changer
-- ✅ Ejemplos funcionando en docs
+#### Month 1: Foundation (Most Critical)
+**Priority 1: TypeScript SDK**
+- ✅ This unlocks everything - developers can use OpenZKTool immediately
+- ✅ Browser support with WASM is a game-changer
+- ✅ Working examples in docs
 
-**Prioridad 2: Web Playground**
-- ✅ Marketing gigante - la gente puede probar sin instalar nada
-- ✅ Diferenciador clave vs. otros proyectos ZK
-- ✅ Onboarding super rápido
+**Priority 2: Web Playground**
+- ✅ Huge marketing - people can try without installing anything
+- ✅ Key differentiator vs. other ZK projects
+- ✅ Super fast onboarding
 
-**Tiempo:** 100% en esto, nada más
+**Time:** 100% on this, nothing else
 
-#### Mes 2: Developer Experience
-**Prioridad 1: Rust CLI**
-- ✅ Soroban developers necesitan tooling nativo
-- ✅ Integración natural con stellar CLI
-- ✅ Templates aceleran adoption
+#### Month 2: Developer Experience
+**Priority 1: Rust CLI**
+- ✅ Soroban developers need native tooling
+- ✅ Natural integration with stellar CLI
+- ✅ Templates accelerate adoption
 
-**Prioridad 2: Backend API (Simple)**
-- ⚠️ Empezar simple: Next.js API routes
-- ⚠️ No over-engineer - solo lo necesario
-- ⚠️ Queue system puede esperar al mes 3
+**Priority 2: Backend API (Simple)**
+- ⚠️ Start simple: Next.js API routes
+- ⚠️ Don't over-engineer - only what's needed
+- ⚠️ Queue system can wait until month 3
 
-**Decisión clave:** **Rust CLI primero, backend después**
+**Key Decision:** **Rust CLI first, backend later**
 
-#### Mes 3: Production-Ready Tooling
-**Prioridad 1: Testing Framework**
-- ✅ Sin tests comprehensivos, no hay mainnet
-- ✅ Developers necesitan confidence
-- ✅ Fuzzing es CRITICAL para crypto
+#### Month 3: Production-Ready Tooling
+**Priority 1: Testing Framework**
+- ✅ Without comprehensive tests, no mainnet
+- ✅ Developers need confidence
+- ✅ Fuzzing is CRITICAL for crypto
 
-**Prioridad 2: Contract Templates**
-- ✅ Acelera time-to-market para users
+**Priority 2: Contract Templates**
+- ✅ Accelerates time-to-market for users
 - ✅ Best practices built-in
-- ✅ Security patterns incluidos
+- ✅ Security patterns included
 
-**Tiempo:** 60% testing, 40% templates
+**Time:** 60% testing, 40% templates
 
-#### Mes 4: Visual Tools (Diferenciación)
-**Prioridad 1: Circuit Builder**
-- ✅ HUGE differentiator - nadie más tiene esto
-- ✅ Onboarding para non-technical users
+#### Month 4: Visual Tools (Differentiation)
+**Priority 1: Circuit Builder**
+- ✅ HUGE differentiator - nobody else has this
+- ✅ Onboarding for non-technical users
 - ✅ Viral potential (demos, videos)
 
-**Prioridad 2: Advanced Testing**
+**Priority 2: Advanced Testing**
 - ✅ Property-based testing
-- ✅ Integration tests completos
-- ✅ CI/CD pipeline robusto
+- ✅ Complete integration tests
+- ✅ Robust CI/CD pipeline
 
-**Decisión:** Circuit Builder es el killer feature - invertir fuerte aquí
+**Decision:** Circuit Builder is the killer feature - invest heavily here
 
-#### Mes 5: Go Live
-**Prioridad 1: Security Audit**
-- ✅ NO NEGOCIABLE antes de mainnet
-- ✅ Reputation is everything en crypto
-- ✅ Budget $20k-25k (vale la pena)
+#### Month 5: Go Live
+**Priority 1: Security Audit**
+- ✅ NON-NEGOTIABLE before mainnet
+- ✅ Reputation is everything in crypto
+- ✅ Budget $20k-25k (worth it)
 
-**Prioridad 2: Mainnet Deployment**
-- ✅ Stellar primero (más barato, menos riesgo)
-- ✅ Ethereum después (más expensive)
-- ✅ Monitoring desde día 1
+**Priority 2: Mainnet Deployment**
+- ✅ Stellar first (cheaper, less risk)
+- ✅ Ethereum after (more expensive)
+- ✅ Monitoring from day 1
 
-**Timing:** Audit primero, deploy después (no al revés)
+**Timing:** Audit first, deploy after (not the other way around)
 
-#### Mes 6: Ecosystem
-**Prioridad 1: Developer Relations**
-- ✅ Hackathons, workshops, tutoriales
-- ✅ Community es el moat
-- ✅ Open source thrives con community
+#### Month 6: Ecosystem
+**Priority 1: Developer Relations**
+- ✅ Hackathons, workshops, tutorials
+- ✅ Community is the moat
+- ✅ Open source thrives with community
 
-**Prioridad 2: Partnerships**
+**Priority 2: Partnerships**
 - ✅ DeFi protocols (Soroswap, etc.)
 - ✅ Identity projects
 - ✅ Wallets (Freighter, Lobstr)
 
-**Strategy:** Partnerships antes de mass marketing
+**Strategy:** Partnerships before mass marketing
 
-### Decisiones Técnicas Clave
+### Key Technical Decisions
 
 #### 1. Backend: Rust vs. Node.js
-**Mi elección: Rust (Axum)**
+**My choice: Rust (Axum)**
 
-**Por qué:**
-- ✅ Type safety extrema
-- ✅ Performance superior
-- ✅ Mejor integración con Soroban ecosystem
-- ✅ Memory safety (critical para crypto)
-- ✅ Compilación a WASM si es necesario
+**Why:**
+- ✅ Extreme type safety
+- ✅ Superior performance
+- ✅ Better integration with Soroban ecosystem
+- ✅ Memory safety (critical for crypto)
+- ✅ Compilation to WASM if needed
 
 **Trade-off:**
-- ❌ Curva de aprendizaje más alta
-- ❌ Ecosystem más pequeño que Node
-- ✅ Pero: vale la pena para long-term
+- ❌ Steeper learning curve
+- ❌ Smaller ecosystem than Node
+- ✅ But: worth it for long-term
 
 #### 2. State Management: Zustand vs. Redux
-**Mi elección: Zustand**
+**My choice: Zustand**
 
-**Por qué:**
-- ✅ Más simple (menos boilerplate)
-- ✅ Mejor TypeScript support
-- ✅ Más liviano
-- ✅ Perfect para este use case
+**Why:**
+- ✅ Simpler (less boilerplate)
+- ✅ Better TypeScript support
+- ✅ Lighter weight
+- ✅ Perfect for this use case
 
 #### 3. Database: PostgreSQL vs. MongoDB
-**Mi elección: PostgreSQL + TimescaleDB**
+**My choice: PostgreSQL + TimescaleDB**
 
-**Por qué:**
+**Why:**
 - ✅ ACID transactions (critical)
-- ✅ TimescaleDB para time-series data (metrics)
+- ✅ TimescaleDB for time-series data (metrics)
 - ✅ Better tooling
 - ✅ JSON support (best of both worlds)
 
 #### 4. Deployment: Kubernetes vs. Docker Compose
-**Mi elección: Empezar con Docker Compose, migrar a k8s**
+**My choice: Start with Docker Compose, migrate to k8s**
 
 **Strategy:**
-- Mes 1-3: Docker Compose (simple, rápido)
-- Mes 4-6: Kubernetes (escalable)
+- Month 1-3: Docker Compose (simple, fast)
+- Month 4-6: Kubernetes (scalable)
 
 #### 5. Testing: Jest vs. Vitest
-**Mi elección: Vitest**
+**My choice: Vitest**
 
-**Por qué:**
-- ✅ Más rápido
-- ✅ Mejor integración con Vite/Next.js
+**Why:**
+- ✅ Faster
+- ✅ Better integration with Vite/Next.js
 - ✅ Native ESM support
-- ✅ Same API que Jest (fácil migración)
+- ✅ Same API as Jest (easy migration)
 
-### Estrategia de Marketing
+### Marketing Strategy
 
-#### Fase 1 (Mes 1-2): Developer Preview
-- Tweet threads técnicos
-- GitHub discussions activas
-- Weekly demos en Twitter Spaces
+#### Phase 1 (Month 1-2): Developer Preview
+- Technical tweet threads
+- Active GitHub discussions
+- Weekly demos on Twitter Spaces
 
-#### Fase 2 (Mes 3-4): Public Beta
-- Blog posts técnicos (Medium, Dev.to)
+#### Phase 2 (Month 3-4): Public Beta
+- Technical blog posts (Medium, Dev.to)
 - YouTube tutorials
 - Hackathon sponsorships
 
-#### Fase 3 (Mes 5-6): Production Launch
+#### Phase 3 (Month 5-6): Production Launch
 - Press release
 - Conference talks (Meridian, Devcon)
 - Partnership announcements
 
-### Budget Allocation (6 meses)
+### Budget Allocation (6 months)
 
-| Categoría | Mes 1-2 | Mes 3-4 | Mes 5-6 | Total |
-|-----------|---------|---------|---------|-------|
+| Category | Month 1-2 | Month 3-4 | Month 5-6 | Total |
+|----------|-----------|-----------|-----------|-------|
 | **Development** | $20k | $20k | $20k | $60k |
 | **Infrastructure** | $500 | $1k | $2k | $3.5k |
 | **Security Audit** | - | - | $20k | $20k |
@@ -1905,9 +1898,9 @@ async fn main() -> Result<()> {
 - 1x Senior Rust Developer (backend + CLI)
 - 1x Senior Frontend Developer (React + Web3)
 - 1x Cryptography Expert (part-time, advisory)
-- 1x DevOps Engineer (part-time, mes 4-6)
-- 1x Technical Writer (part-time, mes 3-6)
-- 1x Developer Relations (part-time, mes 5-6)
+- 1x DevOps Engineer (part-time, month 4-6)
+- 1x Technical Writer (part-time, month 3-6)
+- 1x Developer Relations (part-time, month 5-6)
 
 **Minimum Viable Team:**
 - 1x Full-stack Developer (Rust + TypeScript)
@@ -1924,31 +1917,31 @@ async fn main() -> Result<()> {
 
 ---
 
-## 📊 Métricas de Éxito
+## 📊 Success Metrics
 
-### KPIs por Mes
+### KPIs by Month
 
-#### Mes 1-2: Foundation
-- ✅ SDK publicado en npm
+#### Month 1-2: Foundation
+- ✅ SDK published on npm
 - ✅ 10+ GitHub stars/week
 - ✅ 5+ developers testing playground
-- ✅ 100% test coverage en SDK
+- ✅ 100% test coverage in SDK
 
-#### Mes 3-4: Tooling
+#### Month 3-4: Tooling
 - ✅ 50+ CLI installations
-- ✅ 20+ contracts deployed usando templates
+- ✅ 20+ contracts deployed using templates
 - ✅ 500+ circuit compilations
 - ✅ 10+ community contributions
 
-#### Mes 5-6: Production
+#### Month 5-6: Production
 - ✅ Mainnet deployment (Stellar + Ethereum)
 - ✅ 100+ proofs verified on-chain
 - ✅ 0 critical vulnerabilities
 - ✅ 5+ production dApps using OpenZKTool
 - ✅ 1000+ GitHub stars
-- ✅ 50+ Discord members activos
+- ✅ 50+ active Discord members
 
-### Long-term Success Metrics (12 meses)
+### Long-term Success Metrics (12 months)
 
 **Adoption:**
 - 10,000+ proofs generated
@@ -1967,28 +1960,28 @@ async fn main() -> Result<()> {
 
 ---
 
-## 🎯 Conclusión
+## 🎯 Conclusion
 
-Este plan de 6 meses transforma OpenZKTool de un PoC prometedor a una plataforma de producción completa para zero-knowledge proofs en Stellar y EVM chains.
+This 6-month plan transforms OpenZKTool from a promising PoC to a complete production platform for zero-knowledge proofs on Stellar and EVM chains.
 
-**Factores Clave de Éxito:**
-1. ✅ Developer Experience primero (SDK, CLI, templates)
-2. ✅ Visual tools como diferenciador (Circuit Builder)
-3. ✅ Security audit ANTES de mainnet
-4. ✅ Community-driven desde día 1
-5. ✅ Rust tooling nativo para Soroban
+**Key Success Factors:**
+1. ✅ Developer Experience first (SDK, CLI, templates)
+2. ✅ Visual tools as differentiator (Circuit Builder)
+3. ✅ Security audit BEFORE mainnet
+4. ✅ Community-driven from day 1
+5. ✅ Native Rust tooling for Soroban
 
-**Mi Recomendación Personal:**
-Si tuviera que elegir **UNA** cosa en la que invertir fuerte, sería el **Circuit Builder Visual**. Es el killer feature que ningún otro proyecto ZK tiene, y el que más puede acelerar adoption.
+**My Personal Recommendation:**
+If I had to choose **ONE** thing to invest heavily in, it would be the **Visual Circuit Builder**. It's the killer feature that no other ZK project has, and the one that can most accelerate adoption.
 
-**Next Steps Inmediatos:**
-1. Semana 1: Setup repo del SDK + primera versión alpha
-2. Semana 2: Web playground con proof generation básico
-3. Semana 3: Rust CLI primera versión
-4. Semana 4: Marketing push (Twitter, demos)
+**Immediate Next Steps:**
+1. Week 1: SDK repo setup + first alpha version
+2. Week 2: Web playground with basic proof generation
+3. Week 3: Rust CLI first version
+4. Week 4: Marketing push (Twitter, demos)
 
 ---
 
-**Autor:** Fernando Boiero
-**Fecha:** 15 de Octubre de 2025
-**Versión:** 1.0
+**Author:** Fernando Boiero
+**Date:** October 15, 2025
+**Version:** 1.0
