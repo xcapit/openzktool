@@ -30,11 +30,10 @@ export const metadata: Metadata = {
     'cryptography'
   ],
   authors: [
-    { name: 'Fernando Boiero', url: 'https://github.com/fboiero' },
-    { name: 'Xcapit Labs', url: 'https://github.com/xcapit' }
+    { name: 'Fernando Boiero', url: 'https://github.com/fboiero' }
   ],
-  creator: 'Xcapit Labs',
-  publisher: 'Xcapit Labs',
+  creator: 'Fernando Boiero',
+  publisher: 'Fernando Boiero',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -94,9 +93,9 @@ export default function RootLayout({
     description: 'Open-source toolkit for building privacy-preserving applications with zero-knowledge proofs on Stellar Soroban and Ethereum',
     url: 'https://openzktool.vercel.app',
     author: {
-      '@type': 'Organization',
-      name: 'Xcapit Labs',
-      url: 'https://github.com/xcapit'
+      '@type': 'Person',
+      name: 'Fernando Boiero',
+      url: 'https://github.com/fboiero'
     },
     offers: {
       '@type': 'Offer',
