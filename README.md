@@ -10,15 +10,15 @@ An open source toolkit enabling developers and institutions to build **privacy-p
 > 🎯 **Mission:** Make Zero-Knowledge Proofs accessible for developers on Stellar Soroban, EVM chains, and beyond — enabling private transactions while maintaining regulatory transparency.
 
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%203.0-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![GitHub Stars](https://img.shields.io/github/stars/xcapit/openzktool?style=social)](https://github.com/xcapit/openzktool)
+[![GitHub Stars](https://img.shields.io/github/stars/fboiero/stellar-privacy-poc?style=social)](https://github.com/fboiero/stellar-privacy-poc)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fopenzktool.vercel.app)](https://openzktool.vercel.app)
 [![Digital Public Good](https://img.shields.io/badge/Digital%20Public%20Good-Certified-brightgreen)](./docs/governance/SDG_MAPPING.md)
 
-![Soroban Tests](https://github.com/xcapit/openzktool/workflows/Soroban%20Tests/badge.svg)
-![EVM Tests](https://github.com/xcapit/openzktool/workflows/EVM%20Tests/badge.svg)
-![Circuit Tests](https://github.com/xcapit/openzktool/workflows/Circuit%20Tests/badge.svg)
-![Web Build](https://github.com/xcapit/openzktool/workflows/Web%20Build/badge.svg)
-![Security](https://github.com/xcapit/openzktool/workflows/Security/badge.svg)
+![Soroban Tests](https://github.com/fboiero/stellar-privacy-poc/workflows/Soroban%20Tests/badge.svg)
+![EVM Tests](https://github.com/fboiero/stellar-privacy-poc/workflows/EVM%20Tests/badge.svg)
+![Circuit Tests](https://github.com/fboiero/stellar-privacy-poc/workflows/Circuit%20Tests/badge.svg)
+![Web Build](https://github.com/fboiero/stellar-privacy-poc/workflows/Web%20Build/badge.svg)
+![Security](https://github.com/fboiero/stellar-privacy-poc/workflows/Security/badge.svg)
 
 [![Circom](https://img.shields.io/badge/Circom-2.1.9-brightgreen)](https://docs.circom.io/)
 [![Solidity](https://img.shields.io/badge/Solidity-0.8+-orange)](https://soliditylang.org/)
@@ -407,7 +407,7 @@ jq --version     # For JSON formatting
 
 ```bash
 # Clone the repository
-git clone https://github.com/xcapit/stellar-privacy-poc.git
+git clone https://github.com/fboiero/stellar-privacy-poc.git
 cd stellar-privacy-poc
 
 # Install dependencies
@@ -957,8 +957,8 @@ This program is free software: you can redistribute it and/or modify it under th
 
 ## 📞 Support
 
-- **GitHub Issues:** [Report a bug](https://github.com/xcapit/stellar-privacy-poc/issues)
-- **Discussions:** [Ask questions](https://github.com/xcapit/stellar-privacy-poc/discussions)
+- **GitHub Issues:** [Report a bug](https://github.com/fboiero/stellar-privacy-poc/issues)
+- **Discussions:** [Ask questions](https://github.com/fboiero/stellar-privacy-poc/discussions)
 - **Twitter:** [@XcapitOfficial](https://twitter.com/XcapitOfficial)
 
 ---
@@ -966,7 +966,7 @@ This program is free software: you can redistribute it and/or modify it under th
 ## 🔗 Links
 
 - **🌐 OpenZKTool Website:** https://openzktool.vercel.app
-- **Repository:** https://github.com/xcapit/stellar-privacy-poc
+- **Repository:** https://github.com/fboiero/stellar-privacy-poc
 - **Xcapit Labs:** https://xcapit.com
 - **Circom Docs:** https://docs.circom.io
 - **ZK Learning Resources:** https://zkp.science
