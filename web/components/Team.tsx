@@ -3,7 +3,8 @@ export default function Team() {
     {
       name: "Fernando Boiero",
       role: "Project Lead & Cryptography Advisor",
-      emoji: "👨‍💻",
+      emoji: "🦉",
+      animalName: "Wise Owl",
       color: "bg-stellar-purple",
       responsibilities: "Architecture, circuit design, security strategy",
       linkedin: "https://www.linkedin.com/in/fboiero/"
@@ -11,35 +12,40 @@ export default function Team() {
     {
       name: "Maximiliano César Nivoli",
       role: "Soroban Contract Lead",
-      emoji: "⛓️",
+      emoji: "🦀",
+      animalName: "Rust Crab",
       color: "bg-stellar-blue",
       responsibilities: "Rust contracts, verification logic, gas optimization"
     },
     {
       name: "Francisco Anuar Ardúh",
       role: "ZK Circuit / Cryptographer",
-      emoji: "🔐",
+      emoji: "🦊",
+      animalName: "Clever Fox",
       color: "bg-zk-green",
       responsibilities: "Circom circuits, optimization, formal verification"
     },
     {
       name: "Joel Edgar Dellamaggiore Kuns",
       role: "ZKP Proof Specialist",
-      emoji: "🧮",
+      emoji: "🐺",
+      animalName: "Wolf Pack Leader",
       color: "bg-yellow-500",
       responsibilities: "Proof generation, WASM/browser support"
     },
     {
       name: "Franco Schillage",
       role: "DevOps & Infrastructure Lead",
-      emoji: "🚀",
+      emoji: "🐉",
+      animalName: "Infrastructure Dragon",
       color: "bg-red-500",
       responsibilities: "CI/CD, deployment, monitoring, infrastructure"
     },
     {
       name: "Natalia Gatti & Carolina Medina",
       role: "QA Specialists",
-      emoji: "✅",
+      emoji: "🐝",
+      animalName: "Quality Bees",
       color: "bg-pink-500",
       responsibilities: "Testing, security, documentation quality"
     }
@@ -50,10 +56,12 @@ export default function Team() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Meet <span className="text-gradient">Team X1</span>
+            Meet <span className="text-gradient">Team X1</span> 🦾
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            Expert team from Xcapit Labs building the future of privacy-preserving blockchain technology
+            Expert hacker team from Xcapit Labs building the future of privacy-preserving blockchain technology.
+            <br />
+            <span className="text-sm text-gray-500 italic">Each member represented by their spirit animal 🐾</span>
           </p>
 
           {/* Team Stats */}
@@ -84,9 +92,12 @@ export default function Team() {
               key={idx}
               className="p-6 rounded-xl border-2 border-gray-700 bg-stellar-dark hover:border-stellar-purple transition-all duration-300 group"
             >
-              <div className="mb-4 flex justify-center">
+              <div className="mb-4 flex flex-col items-center">
                 <div className={`w-24 h-24 rounded-full flex items-center justify-center border-4 border-gray-700 group-hover:border-zk-green transition-all shadow-lg ${member.color} bg-opacity-20`}>
                   <span className="text-5xl group-hover:scale-110 transition-transform">{member.emoji}</span>
+                </div>
+                <div className="mt-2 text-xs text-gray-500 group-hover:text-zk-green transition-colors italic">
+                  {member.animalName}
                 </div>
               </div>
               <h3 className="text-xl font-bold mb-2 text-center">{member.name}</h3>
