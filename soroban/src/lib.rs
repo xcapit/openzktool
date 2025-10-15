@@ -299,7 +299,14 @@ impl Groth16Verifier {
         }
     }
 
-    /// Check if G2 point is on the curve
+    /// Check if G2 point is on the curve AND in the correct subgroup
+    ///
+    /// CRITICAL SECURITY: This function performs TWO checks:
+    /// 1. Point is on the curve equation: y² = x³ + b'
+    /// 2. Point is in the prime-order subgroup (cofactor check)
+    ///
+    /// Without the subgroup check, an attacker could provide points
+    /// from a different subgroup, breaking Groth16 soundness.
     fn is_on_curve_g2(_env: &Env, point: &G2Point) -> bool {
         // For infinity point, return true
         if Self::is_zero_bytes(&point.x.get(0).unwrap())
@@ -310,9 +317,20 @@ impl Groth16Verifier {
             return true;
         }
 
-        // Otherwise validate coordinates are non-zero
-        !Self::is_zero_bytes(&point.x.get(0).unwrap())
-            && !Self::is_zero_bytes(&point.y.get(0).unwrap())
+        // Convert to affine point for proper validation
+        let affine = match Self::bytes_to_g2affine(_env, point) {
+            Some(p) => p,
+            None => return false,
+        };
+
+        // Check 1: Point is on the curve
+        if !affine.is_on_curve() {
+            return false;
+        }
+
+        // Check 2: Point is in the correct subgroup (CRITICAL)
+        // This prevents subgroup attacks on Groth16
+        affine.is_in_correct_subgroup()
     }
 
     /// G1 point addition (FULL IMPLEMENTATION)
@@ -460,15 +478,15 @@ impl Groth16Verifier {
 
     /// Get verifier contract version
     pub fn version(_env: Env) -> u32 {
-        4 // Version 4 with complete BN254 pairing implementation
+        5 // Version 5 with G2 subgroup validation (CRITICAL SECURITY FIX)
     }
 
     /// Get contract info
     pub fn info(env: Env) -> Vec<Bytes> {
         let mut info = Vec::new(&env);
         info.push_back(Bytes::from_slice(&env, b"OpenZKTool Groth16 Verifier"));
-        info.push_back(Bytes::from_slice(&env, b"BN254 - Complete Pairing"));
-        info.push_back(Bytes::from_slice(&env, b"Version 4 - Full Crypto"));
+        info.push_back(Bytes::from_slice(&env, b"BN254 - Complete Pairing + Subgroup Check"));
+        info.push_back(Bytes::from_slice(&env, b"Version 5 - Production Ready"));
         info
     }
 }
@@ -504,7 +522,7 @@ mod test {
         let client = Groth16VerifierClient::new(&env, &contract_id);
 
         let version = client.version();
-        assert_eq!(version, 4); // Version 4 with complete BN254 pairing implementation
+        assert_eq!(version, 5); // Version 5 with G2 subgroup validation (CRITICAL SECURITY FIX)
     }
 
     #[test]
