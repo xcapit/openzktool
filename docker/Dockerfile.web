@@ -4,7 +4,7 @@
 # Development mode available via docker-compose.dev.yml
 
 # Stage 1: Dependencies
-FROM node:18-alpine AS deps
+FROM node:25-alpine AS deps
 
 LABEL maintainer="OpenZKTool <fboiero@frvm.utn.edu.ar>"
 LABEL description="OpenZKTool Next.js web application"
@@ -20,7 +20,7 @@ COPY web/package.json web/package-lock.json* ./
 RUN npm ci
 
 # Stage 2: Builder
-FROM node:18-alpine AS builder
+FROM node:25-alpine AS builder
 
 WORKDIR /app
 
@@ -38,7 +38,7 @@ ENV NODE_ENV=production
 RUN npm run build
 
 # Stage 3: Runner (Production)
-FROM node:18-alpine AS runner
+FROM node:25-alpine AS runner
 
 WORKDIR /app
 
@@ -74,7 +74,7 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
 CMD ["node", "server.js"]
 
 # Development stage (used in docker-compose.dev.yml)
-FROM node:18-alpine AS dev
+FROM node:25-alpine AS dev
 
 WORKDIR /app
 
