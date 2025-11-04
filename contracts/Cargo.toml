@@ -1,0 +1,31 @@
+[package]
+name = "stellar-privacy-verifier"
+version = "0.1.0"
+edition = "2021"
+authors = ["Xcapit <dev@xcapit.com>"]
+description = "Zero-Knowledge proof verifier for Stellar (Soroban)"
+license = "Apache-2.0"
+repository = "https://github.com/xcapit/stellar-privacy-poc"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+soroban-sdk = "23.1.0"
+
+[dev-dependencies]
+soroban-sdk = { version = "23.1.0", features = ["testutils"] }
+
+[profile.release]
+opt-level = "z"
+overflow-checks = true
+debug = 0
+strip = "symbols"
+debug-assertions = false
+panic = "abort"
+codegen-units = 1
+lto = true
+
+[profile.release-with-logs]
+inherits = "release"
+debug-assertions = true
