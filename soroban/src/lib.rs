@@ -5,6 +5,9 @@ mod curve;
 mod fq12;
 mod pairing;
 
+#[cfg(test)]
+mod tests;
+
 use soroban_sdk::{contract, contractimpl, contracttype, Bytes, Env, Vec};
 use field::{Fq, Fq2};
 use curve::{G1Affine, G2Affine};
