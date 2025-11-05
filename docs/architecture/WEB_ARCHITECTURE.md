@@ -1,10 +1,8 @@
-# 🌐 OpenZKTool Web Architecture
+# OpenZKTool Web Architecture
 
-**Complete architecture documentation for the OpenZKTool landing page and future web platform**
+Architecture documentation for the OpenZKTool landing page and future web platform
 
----
-
-## 📋 Table of Contents
+## Table of Contents
 
 1. [Current Architecture (v1.0)](#current-architecture-v10)
 2. [Technology Stack](#technology-stack)
@@ -12,13 +10,11 @@
 4. [Improved Architecture Proposal (v2.0)](#improved-architecture-proposal-v20)
 5. [Future Enhancements](#future-enhancements)
 
----
-
-## 🎯 Current Architecture (v1.0)
+## Current Architecture (v1.0)
 
 ### Overview
 
-The current web implementation is a **static Next.js landing page** deployed on Vercel, focused on presenting the project and providing documentation links.
+The current web implementation is a static Next.js landing page deployed on Vercel, focused on presenting the project and providing documentation links.
 
 ```
 ┌─────────────────────────────────────────────────────┐
