@@ -1,0 +1,28 @@
+{
+  "name": "openzktool-private-transfer-example",
+  "version": "0.2.0",
+  "description": "Private transfer example using OpenZKTool ZK-SNARK toolkit",
+  "main": "generateProof.js",
+  "scripts": {
+    "generate": "node generateProof.js",
+    "submit": "node submitProof.js",
+    "demo": "npm run generate && npm run submit",
+    "test": "node generateProof.js --age 25 --balance 150 --country 11"
+  },
+  "keywords": [
+    "zero-knowledge",
+    "zk-snark",
+    "stellar",
+    "privacy",
+    "kyc"
+  ],
+  "author": "Team X1 - Xcapit Labs",
+  "license": "AGPL-3.0-or-later",
+  "dependencies": {
+    "@stellar/stellar-sdk": "^11.0.0",
+    "snarkjs": "^0.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
