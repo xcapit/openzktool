@@ -1,79 +1,67 @@
-# 🚀 Quick Start - KYC Transfer Demo
+# Quick Start - KYC Transfer Demo
 
-## ⚡ Ejecutar Demo (1 comando)
+## Run Demo (1 command)
 
 ```bash
 bash circuits/scripts/demo.sh
 ```
 
-Este script automatizado ejecuta todo el flujo de prueba zero-knowledge:
+This automated script runs the complete zero-knowledge proof flow:
 
-✅ Compila el circuito
-✅ Ejecuta el Trusted Setup (si es necesario)
-✅ Crea un input de ejemplo
-✅ Genera el witness
-✅ Crea la prueba ZK
-✅ Verifica la prueba
-✅ Exporta el verifier Solidity
+- Compiles the circuit
+- Runs Trusted Setup (if needed)
+- Creates example input
+- Generates witness
+- Creates ZK proof
+- Verifies proof
+- Exports Solidity verifier
 
----
+## What it demonstrates
 
-## 📊 ¿Qué demuestra?
+A user with:
+- Age: 25 years (private)
+- Balance: $150 (private)
+- Country: Argentina - ID 32 (private)
 
-Un usuario con:
-- **Edad**: 25 años (privado)
-- **Balance**: $150 (privado)
-- **País**: Argentina - ID 32 (privado)
+Can prove they meet KYC requirements:
+- Age between 18-99
+- Balance ≥ $50
+- Country allowed (ID 32)
 
-Puede **probar** que cumple con los requisitos KYC:
-- ✓ Edad entre 18-99
-- ✓ Balance ≥ $50
-- ✓ País permitido (ID 32)
+WITHOUT revealing their exact data. Only shows: `kycValid = 1`
 
-**SIN revelar** sus datos exactos. Solo muestra: `kycValid = 1`
+## For more details
 
----
+See: [DEMO.md](./DEMO.md) - Complete step-by-step guide
 
-## 📝 Para más detalles
-
-Ver: [DEMO.md](./DEMO.md) - Guía completa paso a paso para el video
-
----
-
-## 🎬 Resultado de la Demo
+## Demo Result
 
 ```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🎉 SUCCESS! Proof verified!
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SUCCESS! Proof verified!
 
-📌 Summary:
-   ✓ User is 25 years old (NOT revealed)
-   ✓ User has balance of $150 (NOT revealed)
-   ✓ User is from Argentina - ID 32 (NOT revealed)
-   ✓ Public output: kycValid = 1 (VERIFIED)
+Summary:
+   - User is 25 years old (NOT revealed)
+   - User has balance of $150 (NOT revealed)
+   - User is from Argentina - ID 32 (NOT revealed)
+   - Public output: kycValid = 1 (VERIFIED)
 
-🔐 The verifier confirmed the proof WITHOUT seeing:
+The verifier confirmed the proof WITHOUT seeing:
    • The actual age
    • The actual balance
    • The actual country ID
 
-✨ This is the power of Zero-Knowledge Proofs!
+This is the power of Zero-Knowledge Proofs.
 ```
 
----
-
-## 🛠️ Prerequisitos
+## Prerequisites
 
 ```bash
 node --version  # >= v16
 circom --version  # >= 2.1.9
-npm install  # Instala snarkjs y circomlib
+npm install  # Installs snarkjs and circomlib
 ```
 
----
-
-## 📁 Archivos Generados
+## Generated Files
 
 Después de ejecutar la demo:
 
