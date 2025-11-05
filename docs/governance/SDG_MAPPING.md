@@ -6,7 +6,7 @@ Este documento mapea cómo el proyecto **OpenZKTool** contribuye a los Objetivos
 
 ---
 
-## 🎯 SDGs Principales
+## SDGs Principales
 
 ### SDG 9: Industria, Innovación e Infraestructura
 
@@ -14,17 +14,17 @@ Este documento mapea cómo el proyecto **OpenZKTool** contribuye a los Objetivos
 
 **Cómo OpenZKTool contribuye:**
 
-✅ **Infraestructura tecnológica abierta**
+- **Infraestructura tecnológica abierta**
 - Proporciona infraestructura de privacidad de código abierto para blockchains públicas
 - Elimina barreras técnicas para implementar privacidad en aplicaciones financieras
 - SDK gratuito y de código abierto accesible globalmente
 
-✅ **Innovación en tecnología financiera**
+- **Innovación en tecnología financiera**
 - Implementa Zero-Knowledge Proofs (ZK-SNARKs) de última generación
 - Habilita nuevos modelos de negocio que antes eran imposibles sin privacidad
 - Reduce costos de compliance mediante automatización criptográfica
 
-✅ **Interoperabilidad multi-chain**
+- **Interoperabilidad multi-chain**
 - Funciona en múltiples blockchains (Ethereum, Stellar, Polygon, etc.)
 - No lock-in a plataformas propietarias
 - Promueve estándares abiertos en la industria blockchain
@@ -43,17 +43,17 @@ Este documento mapea cómo el proyecto **OpenZKTool** contribuye a los Objetivos
 
 **Cómo OpenZKTool contribuye:**
 
-✅ **Inclusión financiera**
+- **Inclusión financiera**
 - Permite a individuos en países con infraestructura bancaria limitada acceder a servicios financieros privados
 - Reduce discriminación basada en historial financiero visible en blockchain pública
 - Habilita microfinanzas y remesas privadas para poblaciones no bancarizadas
 
-✅ **Privacidad como derecho, no privilegio**
+- **Privacidad como derecho, no privilegio**
 - Privacidad financiera accesible para todos, no solo para instituciones grandes
 - No requiere infraestructura costosa (funciona con computadoras estándar)
 - Open source garantiza que cualquiera puede auditar y mejorar el sistema
 
-✅ **Anti-discriminación**
+- **Anti-discriminación**
 - Permite probar elegibilidad sin revelar características personales sensibles
 - Previene discriminación basada en edad, género, nacionalidad, etc.
 - Ejemplo: Probar edad ≥ 18 sin revelar edad exacta, género o nacionalidad
@@ -73,17 +73,17 @@ Este documento mapea cómo el proyecto **OpenZKTool** contribuye a los Objetivos
 
 **Cómo OpenZKTool contribuye:**
 
-✅ **Transparencia con privacidad**
+- **Transparencia con privacidad**
 - Permite auditoría selectiva: reguladores pueden verificar compliance sin exponer datos de usuarios
 - Registros on-chain inmutables y verificables
 - Balance entre privacidad individual y supervisión regulatoria
 
-✅ **Protección de libertades fundamentales**
+- **Protección de libertades fundamentales**
 - Derecho a la privacidad financiera (Artículo 12, Declaración Universal de Derechos Humanos)
 - Protección contra vigilancia masiva financiera
 - Permite disidentes y activistas realizar transacciones sin persecución
 
-✅ **Instituciones responsables**
+- **Instituciones responsables**
 - Compliance by design: KYC/AML integrado criptográficamente
 - Reducción de corrupción mediante transparencia verificable
 - Auditabilidad sin comprometer privacidad individual
@@ -103,17 +103,17 @@ Este documento mapea cómo el proyecto **OpenZKTool** contribuye a los Objetivos
 
 **Cómo OpenZKTool contribuye:**
 
-✅ **Nuevas oportunidades económicas**
+- **Nuevas oportunidades económicas**
 - Habilita nuevos modelos de negocio en DeFi privado
 - Permite startups y empresas competir con instituciones establecidas
 - Reduce costos de entrada a servicios financieros
 
-✅ **Acceso a servicios financieros**
+- **Acceso a servicios financieros**
 - Permite crédito privado basado en credit score sin revelar historial completo
 - Facilita remesas internacionales privadas con costos reducidos
 - Habilita microseguros y microcréditos privacy-preserving
 
-✅ **Emprendimiento e innovación**
+- **Emprendimiento e innovación**
 - SDK de código abierto permite a desarrolladores crear nuevas aplicaciones
 - Ejemplos de integración reducen tiempo de desarrollo
 - Comunidad abierta fomenta colaboración e innovación
@@ -218,10 +218,10 @@ Este documento mapea cómo el proyecto **OpenZKTool** contribuye a los Objetivos
 
 OpenZKTool cumple con la definición de Digital Public Good (DPG):
 
-✅ **Open source software** - Licencia AGPL-3.0
-✅ **Adherence to privacy and applicable laws** - Ver [PRIVACY.md](./PRIVACY.md)
-✅ **Do no harm by design** - Ver [DO_NO_HARM.md](./DO_NO_HARM.md)
-✅ **Help attain the SDGs** - Este documento
+- **Open source software** - Licencia AGPL-3.0
+- **Adherence to privacy and applicable laws** - Ver [PRIVACY.md](./PRIVACY.md)
+- **Do no harm by design** - Ver [DO_NO_HARM.md](./DO_NO_HARM.md)
+- **Help attain the SDGs** - Este documento
 
 ---
 

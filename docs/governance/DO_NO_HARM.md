@@ -6,14 +6,14 @@ Este documento describe cómo OpenZKTool cumple con el principio **"Do No Harm b
 
 ---
 
-## 🎯 Compromiso Fundamental
+## Compromiso Fundamental
 
 **OpenZKTool se compromete a:**
 
-✅ **Proteger a los usuarios** de daños potenciales
-✅ **Prevenir mal uso** del software
-✅ **Promover uso ético** de tecnología de privacidad
-✅ **Transparencia total** sobre riesgos y limitaciones
+- **Proteger a los usuarios** de daños potenciales
+- **Prevenir mal uso** del software
+- **Promover uso ético** de tecnología de privacidad
+- **Transparencia total** sobre riesgos y limitaciones
 
 ---
 
@@ -21,7 +21,7 @@ Este documento describe cómo OpenZKTool cumple con el principio **"Do No Harm b
 
 ### 1.1 Arquitectura Privacy-First
 
-✅ **Diseño que protege PII:**
+- **Diseño que protege PII:**
 
 ```
 Usuario → Datos Privados (edad: 25, balance: $150)
@@ -37,12 +37,12 @@ Usuario → Datos Privados (edad: 25, balance: $150)
 
 ### 1.2 Zero-Knowledge por Defecto
 
-✅ **No es posible extraer PII del proof:**
+- **No es posible extraer PII del proof:**
 - Matemáticamente imposible (propiedad de Zero-Knowledge)
 - Security level: 128-bit (2^128 ≈ 10^38 intentos para romper)
 - Auditado por comunidad ZK internacional
 
-✅ **Ejemplo:**
+- **Ejemplo:**
 ```javascript
 // Input privado (NO se publica)
 const privateData = { age: 25, balance: 150, country: "Argentina" };
@@ -51,18 +51,18 @@ const privateData = { age: 25, balance: 150, country: "Argentina" };
 const proof = { pi_a: [...], pi_b: [...], pi_c: [...] };
 const publicOutput = [1]; // Solo "kycValid = true"
 
-// ❌ NO es posible: proof → age, balance, country
-// ✅ Solo se sabe: usuario pasó las validaciones
+// - NO es posible: proof → age, balance, country
+// - Solo se sabe: usuario pasó las validaciones
 ```
 
 ### 1.3 Minimización de Datos
 
-✅ **Solo se procesan datos necesarios:**
+- **Solo se procesan datos necesarios:**
 - Usuario decide qué probar (ej: edad ≥ 18)
 - No se recopilan datos adicionales
 - No logs, no telemetría, no tracking
 
-✅ **Política de datos:**
+- **Política de datos:**
 Ver [PRIVACY.md](./PRIVACY.md) para política completa.
 
 ---
@@ -71,7 +71,7 @@ Ver [PRIVACY.md](./PRIVACY.md) para política completa.
 
 ### 2.1 Uso Prohibido
 
-❌ **OpenZKTool NO debe usarse para:**
+- **OpenZKTool NO debe usarse para:**
 
 1. **Lavado de dinero**
    - OpenZKTool NO es un mixer/tumbler
@@ -100,7 +100,7 @@ Ver [PRIVACY.md](./PRIVACY.md) para política completa.
 
 ### 2.2 Controles Técnicos para Prevenir Mal Uso
 
-✅ **Compliance by design:**
+- **Compliance by design:**
 
 ```circom
 // Ejemplo: Circuit que permite auditoría selectiva
@@ -124,11 +124,11 @@ template KYCWithAudit() {
 }
 ```
 
-✅ **Transparency on-chain:**
+- **Transparency on-chain:**
 - Todas las transacciones registradas en blockchain pública
 - Auditoría posible con herramientas estándar (Etherscan, StellarExpert)
 
-✅ **Rate limiting y abuse prevention:**
+- **Rate limiting y abuse prevention:**
 - Documentación incluye mejores prácticas para evitar spam
 - Ejemplo de rate limiting en [Node.js backend example](./examples/nodejs-backend/)
 
@@ -152,31 +152,31 @@ template KYCWithAudit() {
 
 ### 3.1 Código de Conducta
 
-✅ **Comunidad segura y respetuosa:**
+- **Comunidad segura y respetuosa:**
 - [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) establece reglas claras
 - Cero tolerancia a acoso, discriminación, hate speech
 - Proceso de reporte y resolución de conflictos
 
 ### 3.2 Revisión de Contribuciones
 
-✅ **Pull requests revisados:**
+- **Pull requests revisados:**
 - Code review obligatorio antes de merge
 - Testing automatizado (CI/CD)
 - Análisis de seguridad (linters, static analysis)
 
-✅ **Reporte de vulnerabilidades:**
+- **Reporte de vulnerabilidades:**
 - [SECURITY.md](./SECURITY.md) describe cómo reportar issues de seguridad
 - Respuesta en < 48 horas
 - Disclosure responsable
 
 ### 3.3 Prevención de Contenido Dañino
 
-❌ **No se permite:**
+- **No se permite:**
 - Circuits diseñados para discriminación
 - Ejemplos de mal uso en documentación
 - Promoción de actividades ilegales
 
-✅ **Se fomenta:**
+- **Se fomenta:**
 - Uso ético y legal
 - Compliance con regulaciones
 - Beneficio social (SDGs)
@@ -189,12 +189,12 @@ template KYCWithAudit() {
 
 ⚠️ **OpenZKTool SDK no está diseñado específicamente para menores**
 
-✅ **Política:**
+- **Política:**
 - No recopilamos edad de usuarios (es un SDK, no un servicio)
 - Aplicaciones que integran OpenZKTool son responsables de compliance COPPA
 - Documentación incluye advertencias sobre uso por menores
 
-✅ **Recomendaciones para desarrolladores:**
+- **Recomendaciones para desarrolladores:**
 
 Si construyes aplicación para menores:
 
@@ -211,12 +211,12 @@ Ver [PRIVACY.md - Sección 8](./PRIVACY.md#8-menores-de-edad)
 
 ### 5.1 Protección Contra Ataques
 
-✅ **Criptografía robusta:**
+- **Criptografía robusta:**
 - Groth16 (128-bit security)
 - BN254 curve (estándar de la industria)
 - Poseidon hash (ZK-friendly)
 
-✅ **Best practices:**
+- **Best practices:**
 - Código auditado por comunidad
 - Testing extensivo
 - Documentación de riesgos conocidos
@@ -230,12 +230,12 @@ Ver [SECURITY.md](./SECURITY.md) para detalles completos.
 
 ### 5.2 Educación de Usuarios
 
-✅ **Documentación clara:**
+- **Documentación clara:**
 - [FAQ](./docs/FAQ.md) responde preguntas de seguridad
 - [Interactive Tutorial](./docs/getting-started/interactive-tutorial.md) enseña uso seguro
 - [Examples](./examples/) muestran mejores prácticas
 
-✅ **Advertencias visibles:**
+- **Advertencias visibles:**
 ```
 ⚠️ ADVERTENCIA: Este es un Proof of Concept
 ⚠️ NO usar en producción con fondos reales
@@ -248,19 +248,19 @@ Ver [SECURITY.md](./SECURITY.md) para detalles completos.
 
 ### 6.1 Consentimiento Informado
 
-✅ **Usuario controla sus datos:**
+- **Usuario controla sus datos:**
 - Generación de proof es acción intencional y voluntaria
 - Usuario puede inspeccionar proof antes de enviar on-chain
 - Usuario puede verificar proof localmente
 
-✅ **Transparencia total:**
+- **Transparencia total:**
 - Código 100% open source (AGPL-3.0)
 - Documentación completa de qué se prueba y qué se oculta
 - No "sorpresas" o recopilación de datos oculta
 
 ### 6.2 Derechos del Usuario
 
-✅ **Protegidos por diseño:**
+- **Protegidos por diseño:**
 - Derecho a la privacidad (datos nunca salen del dispositivo)
 - Derecho al acceso (código open source, auditabilidad)
 - Derecho a la portabilidad (proofs funcionan en múltiples chains)
@@ -274,7 +274,7 @@ Ver [PRIVACY.md - Sección 6](./PRIVACY.md#6-derechos-de-los-usuarios)
 
 ### 7.1 Cumplimiento de Leyes
 
-✅ **OpenZKTool compatible con:**
+- **OpenZKTool compatible con:**
 - **GDPR** (EU) - Privacy by design, minimización de datos
 - **CCPA** (California) - No venta de datos, transparencia
 - **LGPD** (Brasil) - Principios similares a GDPR
@@ -284,14 +284,14 @@ Ver [PRIVACY.md - Sección 4](./PRIVACY.md#4-compliance-con-regulaciones)
 
 ### 7.2 Framework de Compliance
 
-✅ **Documentación de compliance:**
+- **Documentación de compliance:**
 
 | Regulación | Documento | Status |
 |------------|-----------|--------|
-| GDPR | [PRIVACY.md](./PRIVACY.md) | ✅ Compliant |
-| DPGA Standard | Este archivo + otros | ✅ Compliant |
-| Open Source | [LICENSE](./LICENSE) | ✅ AGPL-3.0 |
-| Code of Conduct | [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) | ✅ Implementado |
+| GDPR | [PRIVACY.md](./PRIVACY.md) | - Compliant |
+| DPGA Standard | Este archivo + otros | - Compliant |
+| Open Source | [LICENSE](./LICENSE) | - AGPL-3.0 |
+| Code of Conduct | [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) | - Implementado |
 
 ### 7.3 Responsabilidad de Desarrolladores
 
@@ -317,7 +317,7 @@ Los desarrolladores deben cumplir con leyes y regulaciones aplicables.
 
 ### 8.1 Alineación con SDGs
 
-✅ **OpenZKTool contribuye a:**
+- **OpenZKTool contribuye a:**
 - **SDG 9:** Innovación e infraestructura
 - **SDG 10:** Reducción de desigualdades
 - **SDG 16:** Paz, justicia e instituciones sólidas
@@ -327,13 +327,13 @@ Ver [SDG_MAPPING.md](./SDG_MAPPING.md) para detalles completos.
 
 ### 8.2 Beneficios Sociales
 
-✅ **Impacto positivo:**
+- **Impacto positivo:**
 - **Inclusión financiera** para 1.7 mil millones de no bancarizados
 - **Privacidad como derecho** accesible para todos
 - **Reducción de discriminación** basada en datos personales
 - **Empoderamiento de individuos** con control sobre sus datos
 
-✅ **Casos de uso benéficos:**
+- **Casos de uso benéficos:**
 - Remesas privadas para trabajadores migrantes
 - Microcrédito sin discriminación
 - KYC portátil (hacer una vez, usar en múltiples plataformas)
@@ -345,7 +345,7 @@ Ver [SDG_MAPPING.md](./SDG_MAPPING.md) para detalles completos.
 
 ### 9.1 Open Source Total
 
-✅ **100% transparente:**
+- **100% transparente:**
 - Todo el código es AGPL-3.0: https://github.com/xcapit/stellar-privacy-poc
 - Commits públicos, historial completo
 - Issues y pull requests públicos
@@ -353,25 +353,25 @@ Ver [SDG_MAPPING.md](./SDG_MAPPING.md) para detalles completos.
 
 ### 9.2 Comunicación Abierta
 
-✅ **Canales de comunicación:**
+- **Canales de comunicación:**
 - GitHub Discussions: Preguntas y feedback de comunidad
 - GitHub Issues: Bugs y feature requests
 - Email: [Disponible en website](https://openzktool.vercel.app)
 
-✅ **Respuesta a incidentes:**
+- **Respuesta a incidentes:**
 - Security issues: < 48 horas
 - General issues: < 7 días
 - Pull requests: < 14 días
 
 ### 9.3 Accountability
 
-✅ **Responsables del proyecto:**
+- **Responsables del proyecto:**
 - **Team X1 - Xcapit Labs**
 - ⛓️ 6+ años experiencia blockchain
 - 🏆 Multiple years of blockchain development experience
 - 🌍 Basado en Argentina
 
-✅ **Contacto:**
+- **Contacto:**
 - Website: https://openzktool.vercel.app
 - GitHub: https://github.com/xcapit/stellar-privacy-poc
 
@@ -381,7 +381,7 @@ Ver [SDG_MAPPING.md](./SDG_MAPPING.md) para detalles completos.
 
 ### 10.1 Revisiones Periódicas
 
-✅ **Esta política será revisada:**
+- **Esta política será revisada:**
 - Cada 6 meses
 - Cuando cambien regulaciones
 - Cuando se descubran nuevos riesgos
@@ -389,12 +389,12 @@ Ver [SDG_MAPPING.md](./SDG_MAPPING.md) para detalles completos.
 
 ### 10.2 Incorporación de Feedback
 
-✅ **Feedback de comunidad:**
+- **Feedback de comunidad:**
 - Issues de seguridad priorizados
 - Sugerencias de mejora consideradas
 - Contribuciones de comunidad bienvenidas
 
-✅ **Auditorías externas:**
+- **Auditorías externas:**
 - 🔜 Auditoría profesional prevista Q2 2025
 - 🔜 Bug bounty program Q4 2025
 - 🔜 Formal verification de circuits
@@ -405,7 +405,7 @@ Ver [SDG_MAPPING.md](./SDG_MAPPING.md) para detalles completos.
 
 ### 11.1 Recursos Educativos
 
-✅ **Documentación completa:**
+- **Documentación completa:**
 - [Interactive Tutorial](./docs/getting-started/interactive-tutorial.md) - Aprende haciendo
 - [FAQ](./docs/FAQ.md) - Preguntas frecuentes
 - [Architecture](./docs/architecture/) - Entendiendo cómo funciona
@@ -413,14 +413,14 @@ Ver [SDG_MAPPING.md](./SDG_MAPPING.md) para detalles completos.
 
 ### 11.2 Promoción de Uso Ético
 
-✅ **Guías de uso ético:**
+- **Guías de uso ético:**
 - Documentación enfatiza compliance legal
 - Ejemplos muestran casos de uso benéficos
 - Advertencias sobre mal uso
 
 ### 11.3 Colaboración con Comunidad
 
-✅ **Participación activa:**
+- **Participación activa:**
 - Responder preguntas en GitHub
 - Participar en comunidad ZK (Discord, forums)
 - Presentaciones en conferencias blockchain
@@ -433,53 +433,53 @@ Ver [SDG_MAPPING.md](./SDG_MAPPING.md) para detalles completos.
 ### 12.1 Riesgo: Uso para Lavado de Dinero
 
 **Mitigación:**
-- ✅ Compatible con KYC/AML mediante selective disclosure
-- ✅ Circuits pueden incluir encrypted user IDs para reguladores
-- ✅ Blockchain pública permite rastreo de transacciones
-- ✅ Documentación enfatiza compliance con regulaciones financieras
+- - Compatible con KYC/AML mediante selective disclosure
+- - Circuits pueden incluir encrypted user IDs para reguladores
+- - Blockchain pública permite rastreo de transacciones
+- - Documentación enfatiza compliance con regulaciones financieras
 
 ### 12.2 Riesgo: Discriminación Algorítmica
 
 **Mitigación:**
-- ✅ Circuits open source y auditables
-- ✅ Documentación de cómo funcionan los checks
-- ✅ Comunidad puede reportar circuits sesgados
-- ✅ Ejemplos muestran uso justo e inclusivo
+- - Circuits open source y auditables
+- - Documentación de cómo funcionan los checks
+- - Comunidad puede reportar circuits sesgados
+- - Ejemplos muestran uso justo e inclusivo
 
 ### 12.3 Riesgo: Fallo de Privacidad (Data Leak)
 
 **Mitigación:**
-- ✅ Arquitectura Zero-Knowledge garantiza privacidad
-- ✅ Código auditado por comunidad
-- ✅ Testing extensivo
-- ✅ Documentación de limitaciones conocidas
+- - Arquitectura Zero-Knowledge garantiza privacidad
+- - Código auditado por comunidad
+- - Testing extensivo
+- - Documentación de limitaciones conocidas
 
 ### 12.4 Riesgo: Uso por Menores sin Supervisión
 
 **Mitigación:**
-- ✅ Advertencias en documentación
-- ✅ Responsabilidad de desarrolladores que integran
-- ✅ Recomendaciones de controles parentales
+- - Advertencias en documentación
+- - Responsabilidad de desarrolladores que integran
+- - Recomendaciones de controles parentales
 
 ---
 
-## ✅ DPGA Compliance Checklist
+## DPGA Compliance Checklist
 
 Este documento cumple con **DPGA Indicator 9: Do No Harm**
 
 **Requisitos cumplidos:**
 
-✅ **Data Privacy & Security**
+- **Data Privacy & Security**
 - [x] Políticas de protección de datos → [PRIVACY.md](./PRIVACY.md)
 - [x] Seguridad de datos personales → Arquitectura Zero-Knowledge
 - [x] Compliance con regulaciones → GDPR, CCPA, LGPD
 
-✅ **Inappropriate & Illegal Content**
+- **Inappropriate & Illegal Content**
 - [x] Código de conducta → [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
 - [x] Proceso de reporte → GitHub Issues + Security
 - [x] Moderación de contribuciones → Code review
 
-✅ **Protection from Harassment**
+- **Protection from Harassment**
 - [x] Políticas anti-acoso → CODE_OF_CONDUCT
 - [x] Procedimientos de enforcement → Código de conducta
 

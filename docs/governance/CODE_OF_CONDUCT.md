@@ -50,10 +50,10 @@ Este Código de Conducta es una adaptación del [Contributor Covenant](https://w
 
 Este Código de Conducta es parte de nuestro compromiso con los estándares de Digital Public Goods Alliance (DPGA) para garantizar que este proyecto:
 
-- ✅ Fomenta un ambiente inclusivo y acogedor
-- ✅ Protege a los contribuyentes de acoso y discriminación
-- ✅ Establece procedimientos claros para reportar problemas
-- ✅ Demuestra compromiso con prácticas éticas de desarrollo de software
+- - Fomenta un ambiente inclusivo y acogedor
+- - Protege a los contribuyentes de acoso y discriminación
+- - Establece procedimientos claros para reportar problemas
+- - Demuestra compromiso con prácticas éticas de desarrollo de software
 
 ---
 
