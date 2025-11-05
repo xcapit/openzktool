@@ -1,4 +1,4 @@
-# 🎬 Demo: Circuito KYC Transfer - Prueba Zero-Knowledge
+# Demo: Circuito KYC Transfer - Prueba Zero-Knowledge
 
 Este documento describe paso a paso cómo ejecutar una demostración completa del circuito **KYCTransfer** implementado en Circom y snarkjs.
 
@@ -21,7 +21,7 @@ npm install
 
 ---
 
-## 🎯 Objetivo de la Demo
+## Objetivo de la Demo
 
 El circuito **KYCTransfer** combina tres validaciones ZK:
 
@@ -122,7 +122,7 @@ snarkjs zkey export verificationkey kyc_transfer_final.zkey kyc_transfer_vkey.js
 
 ---
 
-## ✅ Atajo: Usar el Script Automatizado
+## - Atajo: Usar el Script Automatizado
 
 Si prefieres no ejecutar los pasos 2-3 manualmente:
 
@@ -199,7 +199,7 @@ cat artifacts/public.json
 
 ---
 
-## ✅ Paso 6: Verificar la Prueba
+## - Paso 6: Verificar la Prueba
 
 ```bash
 snarkjs groth16 verify \
@@ -220,7 +220,7 @@ snarkjs groth16 verify \
 
 ---
 
-## 🎬 Atajo: Script End-to-End
+## Atajo: Script End-to-End
 
 Para ejecutar los pasos 4-6 automáticamente:
 
@@ -270,15 +270,15 @@ Muestra el resultado `OK!` y explica:
 
 ---
 
-## 📊 Archivos Importantes a Mostrar
+## Archivos Importantes a Mostrar
 
 | Archivo | Descripción | Mostrar en video |
 |---------|-------------|------------------|
-| `kyc_transfer.circom` | Código del circuito | ✅ Brevemente |
-| `input.json` | Datos de prueba | ✅ Explicar valores |
-| `proof.json` | Prueba ZK generada | ✅ Mostrar tamaño |
-| `public.json` | Output público (kycValid) | ✅ Mostrar valor |
-| `kyc_transfer_vkey.json` | Clave de verificación | ⚠️ Opcional |
+| `kyc_transfer.circom` | Código del circuito | - Brevemente |
+| `input.json` | Datos de prueba | - Explicar valores |
+| `proof.json` | Prueba ZK generada | - Mostrar tamaño |
+| `public.json` | Output público (kycValid) | - Mostrar valor |
+| `kyc_transfer_vkey.json` | Clave de verificación | Opcional |
 
 ---
 
@@ -311,17 +311,17 @@ cat ../artifacts/public.json
 
 ---
 
-## 🎯 Resultado Esperado
+## Resultado Esperado
 
 Si todos los pasos fueron exitosos, deberías ver:
 
 ```bash
-✅ Witness generated: artifacts/witness.wtns
-✅ Proof generated: artifacts/proof.json
-✅ Public inputs: artifacts/public.json
+- Witness generated: artifacts/witness.wtns
+- Proof generated: artifacts/proof.json
+- Public inputs: artifacts/public.json
 🧠 Verifying proof...
 [INFO]  snarkJS: OK!
-✅ Proof verified successfully!
+- Proof verified successfully!
 ```
 
 Y `public.json` contendrá:

@@ -1,10 +1,10 @@
-# 🎬 Demo Guide — OpenZKTool
+# Demo Guide — OpenZKTool
 
 **Guía completa para demostrar el Stellar Privacy SDK**
 
 ---
 
-## 📊 Resumen de Scripts Disponibles
+## Resumen de Scripts Disponibles
 
 | Script | Duración | Audiencia | Propósito | Modo |
 |--------|----------|-----------|-----------|------|
@@ -32,7 +32,7 @@ npm run demo:soroban      # Verify on Soroban only
 
 ---
 
-## 🎯 Recomendaciones por Escenario
+## Recomendaciones por Escenario
 
 ### 0. **Presentación para Stakeholders No Técnicos** 💡 NUEVO
 
@@ -59,18 +59,18 @@ DEMO_AUTO=1 bash demo_privacy_proof.sh
 
 **La Historia que Cuenta:**
 1. 👤 **El Problema**: Alice necesita acceder a un servicio financiero
-2. ❌ **Método Tradicional**: Compartir todos sus datos (ID, balance, etc.)
-3. ✅ **La Solución ZK**: Probar que cumple requisitos SIN revelar datos
-4. 🔐 **El Proof**: Un archivo de 800 bytes que prueba todo
+2. - **Método Tradicional**: Compartir todos sus datos (ID, balance, etc.)
+3. - **La Solución ZK**: Probar que cumple requisitos SIN revelar datos
+4. **El Proof**: Un archivo de 800 bytes que prueba todo
 5. ⛓️ **Verificación Multi-Chain**: Mismo proof en Ethereum Y Stellar
-6. ✨ **Resultado**: Privacidad + Compliance
+6. **Resultado**: Privacidad + Compliance
 
 **Qué Demuestra:**
-- ✅ Alice prueba que es mayor de 18 (sin revelar que tiene 25)
-- ✅ Alice prueba que tiene balance suficiente (sin revelar $150)
-- ✅ Alice prueba que es de país permitido (sin revelar Argentina)
-- ✅ El proof funciona en DOS blockchains diferentes
-- ✅ Todo en ~800 bytes, <1 segundo para generar
+- - Alice prueba que es mayor de 18 (sin revelar que tiene 25)
+- - Alice prueba que tiene balance suficiente (sin revelar $150)
+- - Alice prueba que es de país permitido (sin revelar Argentina)
+- - El proof funciona en DOS blockchains diferentes
+- - Todo en ~800 bytes, <1 segundo para generar
 
 **Audiencia Ideal:**
 - CEOs, CFOs, CTOs de fintechs
@@ -113,12 +113,12 @@ npm run test:interactive
 ```
 
 **Qué verifica:**
-1. ✅ Setup inicial (si no existe)
-2. ✅ Compilación de circuito
-3. ✅ Generación de proof
-4. ✅ Verificación local (snarkjs)
-5. ✅ Verificación en EVM (Ethereum/Anvil)
-6. ✅ Verificación en Soroban (Stellar)
+1. - Setup inicial (si no existe)
+2. - Compilación de circuito
+3. - Generación de proof
+4. - Verificación local (snarkjs)
+5. - Verificación en EVM (Ethereum/Anvil)
+6. - Verificación en Soroban (Stellar)
 
 **Cuándo usar:**
 - Antes de cualquier demo o presentación
@@ -149,10 +149,10 @@ DEMO_AUTO=1 bash demo_multichain.sh
 ```
 
 **Qué muestra:**
-1. ✅ Generación de proof (Circom + Groth16)
-2. ✅ Verificación en Ethereum (Foundry/Anvil)
-3. ✅ Verificación en Stellar/Soroban
-4. ✅ Mismo proof, diferentes blockchains
+1. - Generación de proof (Circom + Groth16)
+2. - Verificación en Ethereum (Foundry/Anvil)
+3. - Verificación en Stellar/Soroban
+4. - Mismo proof, diferentes blockchains
 
 **Requisitos previos:**
 ```bash
@@ -287,11 +287,11 @@ DEMO_AUTO=1 bash demo_multichain.sh
 
 ---
 
-## 🛠️ Mejoras Sugeridas a los Scripts
+## Mejoras Sugeridas a los Scripts
 
 ### Demo Multi-Chain (demo_multichain.sh)
 
-**✅ Fortalezas actuales:**
+**- Fortalezas actuales:**
 - Excelente visualización ASCII
 - Flujo claro en 3 pasos
 - Colores bien usados
@@ -324,7 +324,7 @@ echo "  • Open Source Privacy Toolkit"
 4. **Opción para skip setup si ya está hecho**
 ```bash
 if [ -f "circuits/artifacts/kyc_transfer_final.zkey" ]; then
-    echo -e "${GREEN}✅ Setup already complete, skipping...${NC}"
+    echo -e "${GREEN}- Setup already complete, skipping...${NC}"
 else
     echo "Running initial setup..."
     # run setup
@@ -333,7 +333,7 @@ fi
 
 ---
 
-## 📝 Script de Narración
+## Script de Narración
 
 ### Para Demo Multi-Chain (5 min)
 
@@ -350,13 +350,13 @@ fi
 "Ahora verificamos este proof en Ethereum. Desplegamos un smart contract Solidity que valida el proof usando pairing checks en la curva BN254."
 
 **[Esperar resultado EVM]**
-"✅ Verificado en Ethereum. El contrato confirma que el proof es válido."
+"- Verificado en Ethereum. El contrato confirma que el proof es válido."
 
 **[Paso 3 - Soroban Verification]**
 "Ahora, el MISMO proof lo verificamos en Stellar. Usamos un contrato Rust en Soroban que hace la misma validación."
 
 **[Esperar resultado Soroban]**
-"✅ Verificado en Soroban también."
+"- Verificado en Soroban también."
 
 **[CONCLUSIÓN]**
 "Esto demuestra verdadera interoperabilidad: UN proof funciona en múltiples blockchains. Esto es clave para instituciones que operan en múltiples redes."
@@ -450,7 +450,7 @@ DEMO_AUTO=0 bash demo_multichain.sh
 
 ---
 
-## 📊 Métricas para Reportar
+## Métricas para Reportar
 
 Al final de tu demo, menciona estas métricas:
 
@@ -458,7 +458,7 @@ Al final de tu demo, menciona estas métricas:
 - ⚡ Proof generation: <1 second
 - 📊 Circuit constraints: ~100 (very efficient)
 - 📦 Proof size: ~800 bytes
-- ✅ Verification: <50ms off-chain, ~200k gas on-chain
+- - Verification: <50ms off-chain, ~200k gas on-chain
 
 **Alcance:**
 - 🎯 Target: 5+ partners mainnet (3 months)
@@ -467,23 +467,23 @@ Al final de tu demo, menciona estas métricas:
 - 👥 Team: 6 members (6+ years blockchain)
 
 **Traction:**
-- ✅ POC Complete (circuits + contracts + SDK + demo)
-- ✅ 6+ years blockchain development experience
-- ✅ Academic backing (UTN partnership)
-- ✅ Multi-chain ready (EVM + Soroban)
+- - POC Complete (circuits + contracts + SDK + demo)
+- - 6+ years blockchain development experience
+- - Academic backing (UTN partnership)
+- - Multi-chain ready (EVM + Soroban)
 
 ---
 
-## 🎯 Conclusión
+## Conclusión
 
 **Para la mayoría de casos: USA `demo_multichain.sh`**
 
 Es el mejor balance entre:
-- ✅ Impacto visual
-- ✅ Duración adecuada
-- ✅ Demuestra valor único (interoperabilidad)
-- ✅ Técnicamente completo
-- ✅ Fácil de narrar
+- - Impacto visual
+- - Duración adecuada
+- - Demuestra valor único (interoperabilidad)
+- - Técnicamente completo
+- - Fácil de narrar
 
 **Comando recomendado:**
 ```bash

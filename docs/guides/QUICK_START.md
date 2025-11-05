@@ -13,12 +13,12 @@ Run the full pipeline from scratch:
 ./complete_pipeline.sh
 
 # Expected output:
-# ✅ Circuit compiled
-# ✅ Trusted setup completed
-# ✅ Proof generated
-# ✅ Local verification: PASSED
-# ✅ Contract deployed
-# ✅ On-chain verification: PASSED
+# - Circuit compiled
+# - Trusted setup completed
+# - Proof generated
+# - Local verification: PASSED
+# - Contract deployed
+# - On-chain verification: PASSED
 ```
 
 **Time:** ~5-10 minutes (includes downloading Powers of Tau)
@@ -34,7 +34,7 @@ Run the full pipeline from scratch:
 
 ---
 
-## ⚡ Option 2: Quick Test (After First Run)
+## Option 2: Quick Test (After First Run)
 
 Once you've run the complete pipeline, use quick test for faster iterations:
 
@@ -43,10 +43,10 @@ Once you've run the complete pipeline, use quick test for faster iterations:
 ./quick_test.sh
 
 # Expected output:
-# ✅ Witness generated
-# ✅ Proof generated
-# ✅ Local verification: PASSED
-# ✅ On-chain verification: PASSED
+# - Witness generated
+# - Proof generated
+# - Local verification: PASSED
+# - On-chain verification: PASSED
 ```
 
 **Time:** ~10-30 seconds
@@ -58,7 +58,7 @@ Once you've run the complete pipeline, use quick test for faster iterations:
 
 ---
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -93,7 +93,7 @@ SKIP_DEPLOY=true ./complete_pipeline.sh
 
 ---
 
-## 📝 Custom Input Data
+## Custom Input Data
 
 Edit `circuits/artifacts/input.json` to test different scenarios:
 
@@ -110,7 +110,7 @@ Edit `circuits/artifacts/input.json` to test different scenarios:
 
 **Scenarios:**
 
-### ✅ Valid Proof (all conditions pass)
+### Valid Proof (all conditions pass)
 ```json
 {
   "age": 30,
@@ -122,7 +122,7 @@ Edit `circuits/artifacts/input.json` to test different scenarios:
 }
 ```
 
-### ❌ Invalid Proof (age too low)
+### - Invalid Proof (age too low)
 ```json
 {
   "age": 16,
@@ -134,7 +134,7 @@ Edit `circuits/artifacts/input.json` to test different scenarios:
 }
 ```
 
-### ❌ Invalid Proof (insufficient balance)
+### - Invalid Proof (insufficient balance)
 ```json
 {
   "age": 30,
@@ -150,7 +150,7 @@ Edit `circuits/artifacts/input.json` to test different scenarios:
 
 ---
 
-## 📊 Step-by-Step Manual Execution
+## Step-by-Step Manual Execution
 
 If you want to run each step manually:
 
@@ -360,7 +360,7 @@ For complete documentation, see:
 
 ---
 
-## 🎯 Next Steps
+## Next Steps
 
 ### For Development
 
@@ -406,12 +406,12 @@ At current prices (~$0.10/XLM), each verification costs less than **$0.000001** 
 
 ## 🌟 Features
 
-- ✅ **Zero-knowledge proofs** - Privacy-preserving verification
-- ✅ **On-chain verification** - Trustless and transparent
-- ✅ **Fast proofs** - Generate in seconds
-- ✅ **Low cost** - ~$0.000001 per verification
-- ✅ **Production-ready** - Full BN254 cryptography
-- ✅ **Well-tested** - 12/12 tests passing
+- - **Zero-knowledge proofs** - Privacy-preserving verification
+- - **On-chain verification** - Trustless and transparent
+- - **Fast proofs** - Generate in seconds
+- - **Low cost** - ~$0.000001 per verification
+- - **Production-ready** - Full BN254 cryptography
+- - **Well-tested** - 12/12 tests passing
 
 ---
 

@@ -1,4 +1,4 @@
-# 🎬 Complete Zero-Knowledge Proof Demo
+# Complete Zero-Knowledge Proof Demo
 
 ## All-in-One Educational Demo with Theory + Practice + Benefits
 
@@ -153,7 +153,7 @@ bash full_demo.sh
 
 ---
 
-## 📊 What Gets Demonstrated
+## What Gets Demonstrated
 
 ### Private Inputs (Hidden):
 - Age: 25 years
@@ -161,9 +161,9 @@ bash full_demo.sh
 - Country: Argentina (ID 32)
 
 ### What Gets Proven:
-- ✅ Age is between 18-99
-- ✅ Balance ≥ $50
-- ✅ Country is allowed
+- - Age is between 18-99
+- - Balance ≥ $50
+- - Country is allowed
 
 ### What Verifier Learns:
 - **Only:** `kycValid = 1` (all checks passed)
@@ -185,11 +185,11 @@ bash full_demo.sh
 ### Learning Outcomes:
 
 After watching, viewers will understand:
-- ✅ What Zero-Knowledge means (intuitively)
-- ✅ How ZK proofs work (technically)
-- ✅ Why ZK matters (real-world benefits)
-- ✅ How to implement ZK (practical steps)
-- ✅ Where to use ZK (applications)
+- - What Zero-Knowledge means (intuitively)
+- - How ZK proofs work (technically)
+- - Why ZK matters (real-world benefits)
+- - How to implement ZK (practical steps)
+- - Where to use ZK (applications)
 
 ---
 
@@ -218,7 +218,7 @@ PAUSE_TIME=2  # Change to 3, 4, 5... for longer pauses
 
 ---
 
-## 📁 Generated Files
+## Generated Files
 
 After running, you'll have:
 
@@ -242,7 +242,7 @@ soroban/
 
 ---
 
-## 🎬 For Video Content Creators
+## For Video Content Creators
 
 ### Recommended Script:
 
@@ -295,7 +295,7 @@ soroban/
 
 ---
 
-## 🔧 Prerequisites
+## Prerequisites
 
 ```bash
 # Required
@@ -337,28 +337,28 @@ brew install jq  # macOS
 ## 🌟 Why This Demo Is Special
 
 ### Comprehensive Coverage
-- ✅ Theory AND practice
-- ✅ "Why" AND "how"
-- ✅ Concepts AND code
+- - Theory AND practice
+- - "Why" AND "how"
+- - Concepts AND code
 
 ### Beginner-Friendly
-- ✅ No prior ZK knowledge needed
-- ✅ Visual ASCII art explanations
-- ✅ Real-world analogies
+- - No prior ZK knowledge needed
+- - Visual ASCII art explanations
+- - Real-world analogies
 
 ### Production-Ready
-- ✅ Actual working code
-- ✅ Multi-chain verifiers
-- ✅ Complete workflow
+- - Actual working code
+- - Multi-chain verifiers
+- - Complete workflow
 
 ### Educational
-- ✅ 6 use cases explained
-- ✅ Comparison tables
-- ✅ Industry examples
+- - 6 use cases explained
+- - Comparison tables
+- - Industry examples
 
 ---
 
-## 🎯 Demo Statistics
+## Demo Statistics
 
 | Metric | Value |
 |--------|-------|

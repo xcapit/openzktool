@@ -89,9 +89,9 @@ stellar --version
 ## Step 2: Generate ZK Circuit
 
 Our example uses a **KYC Transfer** circuit that proves:
-- ✅ Age is within valid range (18-99)
-- ✅ Balance meets minimum requirement
-- ✅ Country is in allowed list
+- - Age is within valid range (18-99)
+- - Balance meets minimum requirement
+- - Country is in allowed list
 
 ### Circuit Structure
 
@@ -124,9 +124,9 @@ cd circuits
 circom kyc_transfer.circom --r1cs --wasm --sym -o artifacts/
 
 # Output:
-# ✅ artifacts/kyc_transfer.r1cs
-# ✅ artifacts/kyc_transfer_js/kyc_transfer.wasm
-# ✅ artifacts/kyc_transfer.sym
+# - artifacts/kyc_transfer.r1cs
+# - artifacts/kyc_transfer_js/kyc_transfer.wasm
+# - artifacts/kyc_transfer.sym
 ```
 
 ### Generate Trusted Setup
@@ -208,7 +208,7 @@ snarkjs groth16 prove \
   artifacts/proof.json \
   artifacts/public.json
 
-echo "✅ Proof generated!"
+echo "- Proof generated!"
 ```
 
 **Output Files:**
@@ -435,11 +435,11 @@ BASE_DIR="/Users/fboiero/Documents/STELLAR/stellar-privacy-poc"
 echo "📐 Step 1: Building circuits..."
 cd "$BASE_DIR/circuits"
 ./scripts/build_all.sh
-echo "✅ Circuits built"
+echo "- Circuits built"
 echo ""
 
 # Step 2: Generate proof
-echo "🔐 Step 2: Generating proof..."
+echo "Step 2: Generating proof..."
 cd "$BASE_DIR/circuits"
 
 # Generate witness
@@ -455,7 +455,7 @@ snarkjs groth16 prove \
   artifacts/proof.json \
   artifacts/public.json
 
-echo "✅ Proof generated"
+echo "- Proof generated"
 echo ""
 
 # Step 3: Verify locally
@@ -465,7 +465,7 @@ snarkjs groth16 verify \
   artifacts/public.json \
   artifacts/proof.json
 
-echo "✅ Local verification passed"
+echo "- Local verification passed"
 echo ""
 
 # Step 4: Convert to Soroban format
@@ -475,7 +475,7 @@ node zk_convert.js \
   ../circuits/artifacts/proof.json \
   ../circuits/artifacts/kyc_transfer_vkey.json
 
-echo "✅ Conversion complete"
+echo "- Conversion complete"
 echo ""
 
 # Step 5: Deploy contract (if needed)
@@ -499,7 +499,7 @@ cd "$BASE_DIR/soroban"
 ./zk_run.sh
 
 echo ""
-echo "✅ Complete pipeline finished successfully!"
+echo "- Complete pipeline finished successfully!"
 echo ""
 echo "View contract on explorer:"
 echo "https://stellar.expert/explorer/$NETWORK/contract/$CONTRACT_ID"
@@ -515,28 +515,28 @@ chmod +x complete_pipeline.sh
 
 ---
 
-## 🎯 What You Just Did
+## What You Just Did
 
-1. ✅ **Compiled** a zero-knowledge circuit for KYC verification
-2. ✅ **Generated** cryptographic keys (proving + verification)
-3. ✅ **Created** a proof that age=25, balance=150, country=32
-4. ✅ **Verified** the proof locally with snarkjs
-5. ✅ **Converted** to Soroban-compatible format
-6. ✅ **Deployed** smart contract to Stellar testnet
-7. ✅ **Verified** the proof on-chain
+1. - **Compiled** a zero-knowledge circuit for KYC verification
+2. - **Generated** cryptographic keys (proving + verification)
+3. - **Created** a proof that age=25, balance=150, country=32
+4. - **Verified** the proof locally with snarkjs
+5. - **Converted** to Soroban-compatible format
+6. - **Deployed** smart contract to Stellar testnet
+7. - **Verified** the proof on-chain
 
 **Privacy Preserved:** The blockchain only sees:
-- ✅ Proof is valid
-- ✅ kycValid = 1 (passed)
+- - Proof is valid
+- - kycValid = 1 (passed)
 
 **Never Revealed:**
-- ❌ Actual age (25)
-- ❌ Actual balance (150)
-- ❌ Actual country (32)
+- - Actual age (25)
+- - Actual balance (150)
+- - Actual country (32)
 
 ---
 
-## 📊 Next Steps
+## Next Steps
 
 ### For Development
 
@@ -625,7 +625,7 @@ stellar contract invoke \
 
 ---
 
-## 📝 Summary
+## Summary
 
 You now have a **complete end-to-end zero-knowledge proof system** running on Stellar:
 

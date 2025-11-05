@@ -1,4 +1,4 @@
-# 🎥 Video Demo Instructions
+# Video Demo Instructions
 
 ## Quick Start for Video Recording
 
@@ -11,11 +11,11 @@ bash demo_auto.sh
 ```
 
 This runs the complete demo automatically with:
-- ✅ Beautiful ASCII art header
-- ✅ Step-by-step explanations in English
-- ✅ Evidence of execution (file listings, proof contents)
-- ✅ Both EVM and Soroban verifier export
-- ✅ Automatic pauses (no ENTER required)
+- - Beautiful ASCII art header
+- - Step-by-step explanations in English
+- - Evidence of execution (file listings, proof contents)
+- - Both EVM and Soroban verifier export
+- - Automatic pauses (no ENTER required)
 
 ### Option 2: Interactive Demo (Manual Pauses)
 Great for live presentations:
@@ -69,11 +69,11 @@ Each step includes:
 
 ### Evidence of Execution
 
-- ✅ Real-time file creation
-- ✅ File sizes displayed
-- ✅ Proof contents shown (with jq formatting)
-- ✅ Contract code previews
-- ✅ Verification success confirmation
+- - Real-time file creation
+- - File sizes displayed
+- - Proof contents shown (with jq formatting)
+- - Contract code previews
+- - Verification success confirmation
 
 ### Multi-Chain Support
 
@@ -82,7 +82,7 @@ Each step includes:
 
 ---
 
-## 🎬 Recording Tips
+## Recording Tips
 
 ### Camera Angles
 
@@ -112,7 +112,7 @@ Each step includes:
 
 ---
 
-## 📊 Demo Highlights to Capture
+## Demo Highlights to Capture
 
 ### Key Moments
 
@@ -120,20 +120,20 @@ Each step includes:
 2. **Circuit Stats** - "586 constraints, 590 wires"
 3. **Private Data Box** - Shows what's hidden
 4. **Proof Generation** - The "magic" moment
-5. **Verification Success** - "✅ VERIFICATION SUCCESSFUL!"
+5. **Verification Success** - "- VERIFICATION SUCCESSFUL!"
 6. **Proof Size** - "Only ~800 bytes!"
 7. **Multi-Chain Export** - EVM + Soroban
 8. **Final Summary** - Stats and next steps
 
 ---
 
-## 🎯 What Gets Proven
+## What Gets Proven
 
 The demo proves:
-- ✅ User is 25 years old (NOT revealed)
-- ✅ User has $150 balance (NOT revealed)
-- ✅ User is from Argentina (NOT revealed)
-- ✅ **Public output: kycValid = 1**
+- - User is 25 years old (NOT revealed)
+- - User has $150 balance (NOT revealed)
+- - User is from Argentina (NOT revealed)
+- - **Public output: kycValid = 1**
 
 The verifier only knows:
 - Age is between 18-99
@@ -142,7 +142,7 @@ The verifier only knows:
 
 ---
 
-## 🛠️ Troubleshooting
+## Troubleshooting
 
 ### If jq is not installed:
 ```bash
@@ -162,7 +162,7 @@ bash circuits/scripts/demo_auto.sh
 
 ---
 
-## 📁 Output Files Showcased
+## Output Files Showcased
 
 The demo lists all generated files:
 
