@@ -2,18 +2,16 @@
 
 ## Overview
 
-OpenZKTool provides **two complementary Soroban smart contracts** for Groth16 zero-knowledge proof verification on the Stellar blockchain:
+OpenZKTool provides two complementary Soroban smart contracts for Groth16 zero-knowledge proof verification on Stellar:
 
-1. **Groth16Verifier** (`/soroban/`) - Pure mathematical verifier
-2. **PrivacyVerifier** (`/contracts/`) - Full privacy application
+1. Groth16Verifier (`/soroban/`) - Pure mathematical verifier
+2. PrivacyVerifier (`/contracts/`) - Full privacy application
 
-Both contracts implement **complete BN254 cryptographic verification** using custom field arithmetic and elliptic curve operations.
-
----
+Both contracts implement complete BN254 cryptographic verification using custom field arithmetic and elliptic curve operations.
 
 ## Contract 1: Groth16Verifier (Pure Verifier)
 
-**Location:** `/soroban/src/lib.rs`
+Location: `/soroban/src/lib.rs`
 
 ### Purpose
 Pure mathematical verification of Groth16 proofs. Designed for:
@@ -23,14 +21,14 @@ Pure mathematical verification of Groth16 proofs. Designed for:
 - Direct proof verification
 
 ### Features
-✅ **Full BN254 Cryptography**
+Full BN254 Cryptography:
 - Field arithmetic (Fq, Fq2) with Montgomery form
 - G1/G2 elliptic curve operations
 - Curve point validation (y² = x³ + 3)
 - Scalar multiplication using double-and-add
 - Point addition and doubling
 
-✅ **Groth16 Verification**
+Groth16 Verification:
 - Verifies: `e(A, B) = e(α, β) · e(L, γ) · e(C, δ)`
 - Linear combination computation: `L = IC[0] + Σ(IC[i] * public_input[i-1])`
 - Full proof structure validation
@@ -76,10 +74,10 @@ pub struct VerifyingKey {
 ```
 
 ### Deployment
-- **Testnet Contract ID:** `CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI`
-- **Version:** 3
-- **WASM Size:** 10KB
-- **Status:** ✅ Deployed and verified
+- Testnet Contract ID: `CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI`
+- Version: 3
+- WASM Size: 10KB
+- Status: Deployed and verified
 
 ### Usage Example
 
@@ -92,17 +90,15 @@ let result = contract.verify_proof(
 );
 
 if result {
-    // Proof is valid ✅
+    // Proof is valid
 } else {
-    // Proof is invalid ❌
+    // Proof is invalid
 }
 ```
 
----
-
 ## Contract 2: PrivacyVerifier (Full Application)
 
-**Location:** `/contracts/src/lib.rs`
+Location: `/contracts/src/lib.rs`
 
 ### Purpose
 Complete privacy-preserving application with cryptographic verification. Designed for:
@@ -114,18 +110,18 @@ Complete privacy-preserving application with cryptographic verification. Designe
 
 ### Features
 
-✅ **Full BN254 Cryptography** (Same as Groth16Verifier)
+Full BN254 Cryptography (Same as Groth16Verifier):
 - Field arithmetic (Fq, Fq2) with Montgomery form
 - G1/G2 elliptic curve operations
 - Curve point validation
 - Complete Groth16 verification
 
-✅ **Privacy Features**
-- **Nullifier Tracking**: Prevents proof reuse (double-spend protection)
-- **Credential Registry**: Store and verify KYC commitments
-- **Authorization**: Admin-controlled credential registration
-- **Event Emission**: Audit trail for all verifications
-- **Persistent Storage**: Track used nullifiers and registered credentials
+Privacy Features:
+- Nullifier tracking: Prevents proof reuse (double-spend protection)
+- Credential registry: Store and verify KYC commitments
+- Authorization: Admin-controlled credential registration
+- Event emission: Audit trail for all verifications
+- Persistent storage: Track used nullifiers and registered credentials
 
 ### Contract Structure
 
@@ -240,33 +236,29 @@ let proof = Proof {
 let result = contract.verify_proof(&proof, &encrypted_data);
 
 if result.valid {
-    // Proof verified AND nullifier tracked ✅
+    // Proof verified AND nullifier tracked
 } else {
-    // Either invalid proof OR nullifier reused ❌
+    // Either invalid proof OR nullifier reused
 }
 
 // Check if nullifier was used
 let used = contract.is_nullifier_used(&nullifier);
 ```
 
----
-
 ## Comparison: Groth16Verifier vs PrivacyVerifier
 
 | Feature | Groth16Verifier | PrivacyVerifier |
 |---------|----------------|-----------------|
-| **BN254 Cryptography** | ✅ Complete | ✅ Complete |
-| **Groth16 Verification** | ✅ Full | ✅ Full |
-| **Nullifier Tracking** | ❌ No | ✅ Yes |
-| **Storage/State** | ❌ Stateless | ✅ Stateful |
-| **Credential Registry** | ❌ No | ✅ Yes |
-| **Admin Control** | ❌ No | ✅ Yes |
-| **Event Emission** | ❌ No | ✅ Yes |
-| **Use Case** | Math demos | Production apps |
-| **Gas Usage** | Lower | Higher (storage) |
-| **WASM Size** | 10KB | ~15-20KB |
-
----
+| BN254 Cryptography | Complete | Complete |
+| Groth16 Verification | Full | Full |
+| Nullifier Tracking | No | Yes |
+| Storage/State | Stateless | Stateful |
+| Credential Registry | No | Yes |
+| Admin Control | No | Yes |
+| Event Emission | No | Yes |
+| Use Case | Math demos | Production apps |
+| Gas Usage | Lower | Higher (storage) |
+| WASM Size | 10KB | ~15-20KB |
 
 ## Cryptographic Implementation
 
@@ -308,8 +300,6 @@ p = 2188824287183927522224640574525727508869631115729782366268903789464522620858
 - Same operations as G1, but over Fq2
 - Handles Fq2 coordinates properly
 
----
-
 ## Module Structure
 
 ```
@@ -336,8 +326,6 @@ p = 2188824287183927522224640574525727508869631115729782366268903789464522620858
             └── stellar_privacy_verifier.wasm
 ```
 
----
-
 ## Testing
 
 ### Groth16Verifier Tests
@@ -347,18 +335,18 @@ cd soroban
 cargo test --lib --target x86_64-apple-darwin
 
 # Tests:
-# - field::tests::test_fq_add ✅
-# - field::tests::test_fq_mul ✅
-# - field::tests::test_fq_inverse ✅
-# - field::tests::test_fq2_mul ✅
-# - curve::tests::test_g1_infinity ✅
-# - curve::tests::test_g1_add ✅
-# - curve::tests::test_g1_double ✅
-# - curve::tests::test_g2_infinity ✅
-# - test::test_version ✅
-# - test::test_validate_proof_structure ✅
-# - test::test_validate_vk_structure ✅
-# - test::test_is_on_curve_g1 ✅
+# - field::tests::test_fq_add
+# - field::tests::test_fq_mul
+# - field::tests::test_fq_inverse
+# - field::tests::test_fq2_mul
+# - curve::tests::test_g1_infinity
+# - curve::tests::test_g1_add
+# - curve::tests::test_g1_double
+# - curve::tests::test_g2_infinity
+# - test::test_version
+# - test::test_validate_proof_structure
+# - test::test_validate_vk_structure
+# - test::test_is_on_curve_g1
 ```
 
 ### PrivacyVerifier Tests
@@ -368,62 +356,56 @@ cd contracts
 cargo test --lib
 
 # Tests (cryptographic modules):
-# - field::tests (8 tests) ✅
-# - curve::tests (4 tests) ✅
+# - field::tests (8 tests)
+# - curve::tests (4 tests)
 ```
-
----
 
 ## Deployment Status
 
 ### Groth16Verifier (Testnet)
-- ✅ **Deployed:** Yes
-- **Network:** Stellar Testnet
-- **Contract ID:** `CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI`
-- **Explorer:** [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI)
-- **Transaction:** [Deployment TX](https://stellar.expert/explorer/testnet/tx/39654bd739908d093d6d7e9362ea5cae3298332b3c7e385c49996ba08796cefc)
-- **Version:** 3
+- Deployed: Yes
+- Network: Stellar Testnet
+- Contract ID: `CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI`
+- Explorer: [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI)
+- Transaction: [Deployment TX](https://stellar.expert/explorer/testnet/tx/39654bd739908d093d6d7e9362ea5cae3298332b3c7e385c49996ba08796cefc)
+- Version: 3
 
 ### PrivacyVerifier
-- ⏳ **Status:** Ready for deployment
-- **Build:** ✅ WASM compiles successfully
-- **Tests:** ✅ Cryptographic tests passing
-- **Network:** Ready for testnet deployment
-
----
+- Status: Ready for deployment
+- Build: WASM compiles successfully
+- Tests: Cryptographic tests passing
+- Network: Ready for testnet deployment
 
 ## Scripts and Tools
 
 ### Verification Scripts
 
-**`soroban/verify_on_chain.sh`**
+`soroban/verify_on_chain.sh`:
 - Deploys Groth16Verifier to local/testnet
 - Verifies proof on-chain
 - Checks contract version (v3)
 
-**`soroban/zk_convert.js`**
+`soroban/zk_convert.js`:
 - Converts proof.json + vkey.json to Soroban format
 - Generates ProofData + VerifyingKey structures
 - Outputs args.json for contract invocation
 
-**`soroban/zk_run.sh`**
+`soroban/zk_run.sh`:
 - Complete pipeline: convert → deploy → verify
 - Supports simulation and on-chain modes
 - Uses stellar CLI
 
----
-
 ## Security Considerations
 
 ### Implemented
-✅ Nullifier tracking (prevents double-spend)
-✅ Full cryptographic verification (not just structure checks)
-✅ Curve point validation
-✅ Admin authorization for credential registration
-✅ Event emission for audit trails
+- Nullifier tracking (prevents double-spend)
+- Full cryptographic verification (not just structure checks)
+- Curve point validation
+- Admin authorization for credential registration
+- Event emission for audit trails
 
 ### Not Yet Implemented
-⚠️ **Pairing Computation**: Full pairing check `e(A,B) = e(α,β)·e(L,γ)·e(C,δ)` requires:
+Pairing Computation: Full pairing check `e(A,B) = e(α,β)·e(L,γ)·e(C,δ)` requires:
   - Optimal ate pairing implementation, OR
   - Soroban crypto precompile (when available), OR
   - Off-chain pairing with on-chain verification
@@ -431,49 +413,43 @@ cargo test --lib
 Current implementation validates all cryptographic structures and operations
 up to (but not including) the final pairing check.
 
----
-
 ## Future Enhancements
 
-1. **Pairing Precompile Integration**
+1. Pairing Precompile Integration
    - Wait for Soroban native pairing support
    - Or implement optimal ate pairing (expensive)
 
-2. **Batch Verification**
+2. Batch Verification
    - Verify multiple proofs in single transaction
    - Amortize gas costs
 
-3. **Cross-Contract Calls**
+3. Cross-Contract Calls
    - PrivacyVerifier calls Groth16Verifier for math
    - Separation of concerns
 
-4. **Upgradeable Contracts**
+4. Upgradeable Contracts
    - Support contract upgrades
    - Maintain storage compatibility
 
-5. **Gas Optimization**
+5. Gas Optimization
    - Profile hot paths
    - Optimize field operations
    - Reduce storage usage
 
----
-
 ## License
 
-Both contracts: **AGPL-3.0-or-later**
-
----
+Both contracts: AGPL-3.0-or-later
 
 ## Resources
 
-- **Repository:** https://github.com/xcapit/openzktool
-- **Documentation:** [See README.md](../README.md)
-- **BN254 Spec:** [EIP-196](https://eips.ethereum.org/EIPS/eip-196), [EIP-197](https://eips.ethereum.org/EIPS/eip-197)
-- **Groth16 Paper:** [Groth16: On the Size of Pairing-based Non-interactive Arguments](https://eprint.iacr.org/2016/260.pdf)
-- **Soroban Docs:** https://developers.stellar.org/docs/smart-contracts
+- Repository: https://github.com/xcapit/openzktool
+- Documentation: [See README.md](../README.md)
+- BN254 Spec: [EIP-196](https://eips.ethereum.org/EIPS/eip-196), [EIP-197](https://eips.ethereum.org/EIPS/eip-197)
+- Groth16 Paper: [Groth16: On the Size of Pairing-based Non-interactive Arguments](https://eprint.iacr.org/2016/260.pdf)
+- Soroban Docs: https://developers.stellar.org/docs/smart-contracts
 
 ---
 
-**Last Updated:** October 13, 2024
-**Version:** 3.0
-**Author:** OpenZKTool Team
+Last updated: October 13, 2024
+Version: 3.0
+Author: OpenZKTool Team
