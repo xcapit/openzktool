@@ -2,7 +2,7 @@
 
 > Build your own zero-knowledge circuit from scratch
 
-⚠️ **Status:** Structure only - Implementation coming in next phase
+**Status:** Structure only - Implementation coming in next phase
 
 ---
 
@@ -141,7 +141,7 @@ component main = MerkleTreeChecker(20);
 
 ---
 
-## 🛠️ Circuit Development Workflow
+## Circuit Development Workflow
 
 1. **Design Circuit**
    ```bash
@@ -299,4 +299,4 @@ template Nullifier() {
 
 ---
 
-**⚠️ Note:** Custom circuits require careful security review. Always audit before production use.
+**Note:** Custom circuits require careful security review. Always audit before production use.

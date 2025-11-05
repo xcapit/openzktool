@@ -2,7 +2,7 @@
 
 > On-chain proof verification on Stellar network
 
-⚠️ **Status:** Structure only - Implementation coming in next phase
+**Status:** Structure only - Implementation coming in next phase
 
 ---
 
@@ -92,12 +92,12 @@ verifyOnStellar().catch(console.error);
 
 ## 🌟 Stellar-Specific Features
 
-- ✅ Testnet deployment
-- ✅ Contract invocation
-- ✅ Transaction signing
-- ✅ Freighter wallet integration
-- ✅ Network selection (testnet/mainnet)
-- ✅ Gas estimation
+- - Testnet deployment
+- - Contract invocation
+- - Transaction signing
+- - Freighter wallet integration
+- - Network selection (testnet/mainnet)
+- - Gas estimation
 
 ---
 
@@ -120,15 +120,15 @@ npm run test:verify
 
 ```
 Connecting to Stellar testnet...
-✅ Connected to RPC: https://soroban-testnet.stellar.org
+- Connected to RPC: https://soroban-testnet.stellar.org
 
 Generating proof...
-✅ Proof generated (823 bytes)
+- Proof generated (823 bytes)
 
 Invoking contract CBPBVJJW5NMV...
-✅ Transaction submitted: TX_HASH
+- Transaction submitted: TX_HASH
 ⏳ Waiting for confirmation...
-✅ Verification successful!
+- Verification successful!
 
 Contract version: 4
 Proof valid: true

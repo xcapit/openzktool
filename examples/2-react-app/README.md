@@ -2,7 +2,7 @@
 
 > Browser-based proof generation with MetaMask integration
 
-⚠️ **Status:** Structure only - Implementation coming in next phase
+**Status:** Structure only - Implementation coming in next phase
 
 ---
 
@@ -54,12 +54,12 @@ npm run build
 
 ## 💻 Features
 
-- ✅ Connect MetaMask wallet
-- ✅ Generate proof in browser
-- ✅ Verify proof on-chain (Ethereum)
-- ✅ Display proof details
-- ✅ Copy proof to clipboard
-- ✅ Responsive design
+- - Connect MetaMask wallet
+- - Generate proof in browser
+- - Verify proof on-chain (Ethereum)
+- - Display proof details
+- - Copy proof to clipboard
+- - Responsive design
 
 ---
 

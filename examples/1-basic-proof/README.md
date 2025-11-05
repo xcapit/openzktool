@@ -2,7 +2,7 @@
 
 > Simple CLI tool for generating and verifying zero-knowledge proofs
 
-⚠️ **Status:** Structure only - Implementation coming in next phase
+**Status:** Structure only - Implementation coming in next phase
 
 ---
 
@@ -71,7 +71,7 @@ async function main() {
   console.log('Generating proof...');
   const { proof, publicSignals } = await zktool.generateProof(inputs);
 
-  console.log('✅ Proof generated!');
+  console.log('- Proof generated!');
   console.log('Public Signals:', publicSignals);
   console.log('Proof size:', JSON.stringify(proof).length, 'bytes');
 
@@ -99,7 +99,7 @@ async function main() {
   const isValid = await zktool.verifyLocal(proof, publicSignals);
 
   if (isValid) {
-    console.log('✅ Proof is VALID');
+    console.log('- Proof is VALID');
     console.log('KYC Status:', publicSignals.kycValid === 1 ? 'PASSED' : 'FAILED');
   } else {
     console.log('❌ Proof is INVALID');
@@ -111,16 +111,16 @@ main().catch(console.error);
 
 ---
 
-## 🎯 Expected Output
+## Expected Output
 
 ```
 Generating proof...
-✅ Proof generated!
+- Proof generated!
 Public Signals: { kycValid: 1 }
 Proof size: 823 bytes
 
 Verifying proof...
-✅ Proof is VALID
+- Proof is VALID
 KYC Status: PASSED
 ```
 

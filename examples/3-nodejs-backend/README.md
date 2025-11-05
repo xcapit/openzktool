@@ -2,7 +2,7 @@
 
 > REST API for proof generation and verification
 
-⚠️ **Status:** Structure only - Implementation coming in next phase
+**Status:** Structure only - Implementation coming in next phase
 
 ---
 
@@ -198,13 +198,13 @@ npm run test:e2e        # End-to-end tests
 
 ## 📚 Features
 
-- ✅ RESTful API design
-- ✅ Rate limiting
-- ✅ Input validation
-- ✅ Database persistence
-- ✅ Error handling
-- ✅ API documentation (OpenAPI)
-- ✅ Authentication (JWT)
+- - RESTful API design
+- - Rate limiting
+- - Input validation
+- - Database persistence
+- - Error handling
+- - API documentation (OpenAPI)
+- - Authentication (JWT)
 
 ---
 
