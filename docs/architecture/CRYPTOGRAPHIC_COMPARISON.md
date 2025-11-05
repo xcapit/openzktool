@@ -1,12 +1,10 @@
 # Cryptographic Implementation Comparison: EVM vs Soroban Groth16 Verifiers
 
-## Executive Summary
+## Summary
 
-This document provides a comprehensive technical comparison between the Groth16 zero-knowledge proof verification implementations on Ethereum Virtual Machine (EVM) and Stellar Soroban platforms. Both implementations verify proofs using the BN254 (alt_bn128) elliptic curve, but employ fundamentally different architectural approaches.
+Technical comparison between Groth16 zero-knowledge proof verification on EVM and Stellar Soroban. Both verify proofs using the BN254 (alt_bn128) elliptic curve, but use different architectural approaches.
 
-**Key Finding**: Soroban implementation now includes complete pairing cryptography (Version 4), matching EVM's cryptographic capabilities without relying on precompiled contracts.
-
----
+Key finding: Soroban implementation now includes complete pairing cryptography (Version 4), matching EVM's cryptographic capabilities without relying on precompiled contracts.
 
 ## Table of Contents
 
@@ -19,15 +17,13 @@ This document provides a comprehensive technical comparison between the Groth16 
 7. [Security Considerations](#security-considerations)
 8. [Conclusions](#conclusions)
 
----
-
 ## 1. Introduction
 
-### 1.1 Purpose
+### Purpose
 
-Zero-knowledge proofs enable privacy-preserving verification in blockchain systems. Groth16 is one of the most efficient SNARK (Succinct Non-Interactive Argument of Knowledge) schemes, requiring only a single pairing check for verification.
+Zero-knowledge proofs enable privacy-preserving verification in blockchain systems. Groth16 is one of the most efficient SNARK schemes, requiring only a single pairing check for verification.
 
-### 1.2 The Groth16 Verification Equation
+### The Groth16 Verification Equation
 
 Both implementations verify the same mathematical equation:
 
@@ -47,11 +43,9 @@ This is typically checked as:
 e(A, B) · e(-α, β) · e(-L, γ) · e(-C, δ) = 1
 ```
 
----
-
 ## 2. Architectural Overview
 
-### 2.1 EVM Approach: Precompiled Contracts
+### EVM Approach: Precompiled Contracts
 
 EVM provides native precompiled contracts for BN254 operations:
 
@@ -61,34 +55,32 @@ EVM provides native precompiled contracts for BN254 operations:
 | 0x07 | EC Scalar Multiplication (G1) | 6,000 gas |
 | 0x08 | Pairing Check | 45,000 + 34,000 per pair |
 
-**Advantages:**
+Advantages:
 - Native performance (implemented in Go/Rust at client level)
 - Battle-tested (used since Byzantium fork, EIP-196/197)
 - Minimal contract code (~250 lines of Solidity)
 - Low gas costs
 
-**Disadvantages:**
+Disadvantages:
 - Black-box operation (no visibility into pairing computation)
 - Limited to BN254 curve
 - Cannot customize or optimize for specific use cases
 
-### 2.2 Soroban Approach: Pure Rust Implementation
+### Soroban Approach: Pure Rust Implementation
 
 Soroban implements all cryptographic primitives from scratch in Rust (no_std):
 
-**Advantages:**
+Advantages:
 - Full transparency and auditability
 - Portable across any WASM environment
 - Extensible to other curves/schemes
 - Educational value and documentation
 - Complete control over optimization
 
-**Disadvantages:**
+Disadvantages:
 - Larger WASM binary size (~10KB vs EVM's native code)
 - Potentially higher execution costs
 - Requires careful security review
-
----
 
 ## 3. Cryptographic Primitives Comparison
 
@@ -560,68 +552,66 @@ WASM binary: ~10 KB (release build)
 
 ## 8. Conclusions
 
-### 8.1 Key Achievements
+### Key Achievements
 
 The Soroban Groth16 verifier (Version 4) now includes:
 
-✅ **Complete BN254 field arithmetic** (Fq, Fq2, Fq6, Fq12)
-✅ **Full elliptic curve operations** (G1 and G2)
-✅ **Optimal ate pairing implementation** (Miller loop + final exp)
-✅ **Batch pairing verification** (efficient multi-pairing)
-✅ **Production-ready structure** (modular, testable, documented)
+- Complete BN254 field arithmetic (Fq, Fq2, Fq6, Fq12)
+- Full elliptic curve operations (G1 and G2)
+- Optimal ate pairing implementation (Miller loop + final exp)
+- Batch pairing verification (efficient multi-pairing)
+- Production-ready structure (modular, testable, documented)
 
-### 8.2 Comparison Summary
+### Comparison Summary
 
 | Aspect | EVM | Soroban |
 |--------|-----|---------|
-| **Cryptographic Completeness** | ✅ Full (precompiles) | ✅ Full (native implementation) |
-| **Implementation** | Native (black-box) | Rust WASM (transparent) |
-| **Code Size** | 168 lines Solidity | 1,987 lines Rust |
-| **Binary Size** | N/A (native) | ~10 KB WASM |
-| **Auditability** | Limited | Complete |
-| **Performance** | Optimal (native) | Good (WASM) |
-| **Extensibility** | Limited to BN254 | Can support multiple curves |
-| **Battle-Testing** | Production (5+ years) | New (requires audit) |
-| **Documentation** | EIP-196/197 | Extensive inline docs |
+| Cryptographic Completeness | Full (precompiles) | Full (native implementation) |
+| Implementation | Native (black-box) | Rust WASM (transparent) |
+| Code Size | 168 lines Solidity | 1,987 lines Rust |
+| Binary Size | N/A (native) | ~10 KB WASM |
+| Auditability | Limited | Complete |
+| Performance | Optimal (native) | Good (WASM) |
+| Extensibility | Limited to BN254 | Can support multiple curves |
+| Battle-Testing | Production (5+ years) | New (requires audit) |
+| Documentation | EIP-196/197 | Extensive inline docs |
 
-### 8.3 When to Use Each
+### When to Use Each
 
-**Use EVM Verifier When**:
+Use EVM Verifier:
 - Deploying on Ethereum mainnet or EVM L2s
 - Minimizing gas costs is critical
 - Using standard BN254 Groth16 proofs
 - Want battle-tested implementation
 
-**Use Soroban Verifier When**:
+Use Soroban Verifier:
 - Building on Stellar network
 - Need full transparency and auditability
 - Want educational implementation
 - Planning to extend to other curves
 - Require customized optimizations
 
-### 8.4 Future Work
+### Future Work
 
-**Optimization Opportunities**:
+Optimization opportunities:
 1. Sparse multiplication in Miller loop
 2. Precomputed Frobenius constants
 3. Assembly-level field operations
 4. Batch inversion techniques
 5. Lazy reduction strategies
 
-**Testing & Validation**:
+Testing & validation:
 1. Cross-chain test vectors (compare EVM ↔ Soroban)
 2. Formal verification of critical paths
 3. Performance benchmarking
 4. Fuzz testing campaign
 5. Independent security audit
 
-**Documentation**:
+Documentation:
 1. Developer integration guide
 2. Performance tuning guide
 3. Security best practices
 4. Migration guide (EVM → Soroban)
-
----
 
 ## Appendix A: BN254 Curve Parameters
 
