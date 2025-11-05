@@ -271,7 +271,7 @@ Get API keys at: https://dashboard.openzktool.com (planned)
 
 ---
 
-## ⚠️ Error Responses
+## Error Responses
 
 ### 400 Bad Request
 ```json

@@ -85,7 +85,7 @@ process.env.TEST_ENV = 'testnet'
 // Uses real testnet deployments
 ```
 
-## 📋 Prerequisites
+## Prerequisites
 
 ### Local Testing
 ```bash
@@ -105,7 +105,7 @@ docker run -d -p 8000:8000 stellar/quickstart:testing --standalone
 ### CI/CD Testing
 All prerequisites are handled by GitHub Actions workflows.
 
-## 🎯 Coverage Goals
+## Coverage Goals
 
 - **Unit Tests:** 80%+ coverage
 - **Integration Tests:** 70%+ coverage

@@ -2,7 +2,7 @@
 
 > TypeScript SDK for OpenZKTool - Zero-Knowledge Proof toolkit for multi-chain privacy
 
-⚠️ **Status:** Alpha - Structure only, implementation in progress
+**Status:** Alpha - Structure only, implementation in progress
 
 ## 📦 Installation
 
@@ -110,8 +110,8 @@ const stellarResult = await sorobanVerifier.verifyOnChain(proof, publicSignals);
 
 ## 🌐 Supported Chains
 
-- ✅ Ethereum (EVM)
-- ✅ Stellar (Soroban)
+- - Ethereum (EVM)
+- - Stellar (Soroban)
 - ⏳ Polygon
 - ⏳ Arbitrum
 - ⏳ Optimism
@@ -221,4 +221,4 @@ AGPL-3.0-or-later
 
 ---
 
-**⚠️ Note:** This SDK is in alpha stage. Structure is complete but implementation is in progress. Not recommended for production use.
+**Note:** This SDK is in alpha stage. Structure is complete but implementation is in progress. Not recommended for production use.

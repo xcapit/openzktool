@@ -124,8 +124,8 @@ Example:
 
 ## 🔐 Security Notes
 
-- ✅ This file contains **public** contract addresses
-- ✅ Safe to commit to git
+- - This file contains **public** contract addresses
+- - Safe to commit to git
 - ❌ Do NOT include:
   - Private keys
   - Mnemonics
@@ -134,7 +134,7 @@ Example:
 
 ---
 
-## ✅ Validation
+## Validation
 
 Validate `contracts.json` against schema:
 

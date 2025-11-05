@@ -1,4 +1,4 @@
-# 📚 OpenZKTool - Documentation Hub
+# OpenZKTool - Documentation Hub
 
 > **Complete technical documentation for the OpenZKTool Zero-Knowledge Proof toolkit**
 
@@ -6,7 +6,7 @@ Welcome to the OpenZKTool documentation! This toolkit enables **privacy-preservi
 
 ---
 
-## 🚀 Quick Navigation
+## Quick Navigation
 
 | **New to ZK Proofs?** | **Ready to Build?** | **Need Help?** |
 |----------------------|---------------------|----------------|
@@ -16,7 +16,7 @@ Welcome to the OpenZKTool documentation! This toolkit enables **privacy-preservi
 
 ---
 
-## 📖 Documentation Index
+## Documentation Index
 
 ### 🎯 Getting Started
 
@@ -24,8 +24,8 @@ Welcome to the OpenZKTool documentation! This toolkit enables **privacy-preservi
 
 | Document | Description | Status |
 |----------|-------------|--------|
-| [**Quick Start**](./getting-started/quickstart.md) | Run your first demo in 5 minutes | ✅ |
-| [**Interactive Tutorial**](./getting-started/interactive-tutorial.md) | Learn by doing - Generate your first ZK proof | ✅ |
+| [**Quick Start**](./getting-started/quickstart.md) | Run your first demo in 5 minutes | - |
+| [**Interactive Tutorial**](./getting-started/interactive-tutorial.md) | Learn by doing - Generate your first ZK proof | - |
 | [Installation Guide](./getting-started/installation.md) | Setup dependencies and environment | 📋 |
 
 **Recommended path:** Quick Start → Interactive Tutorial → Testing Guide
@@ -119,7 +119,7 @@ npm run test:interactive    # Interactive testing
 | [**DO_NO_HARM**](./governance/DO_NO_HARM.md) | "Do No Harm by Design" policy | Ethical AI |
 | [**SDG_MAPPING**](./governance/SDG_MAPPING.md) | UN Sustainable Development Goals alignment | DPG Standard |
 
-**Digital Public Good (DPG) Compliance:** ✅ 9/9 indicators met
+**Digital Public Good (DPG) Compliance:** - 9/9 indicators met
 
 ---
 
@@ -132,7 +132,7 @@ npm run test:interactive    # Interactive testing
 | [**ROADMAP**](./analytics/ROADMAP.md) | Product roadmap (PoC → MVP → Testnet → Mainnet) | Quarterly |
 | [**ANALYTICS**](./analytics/ANALYTICS.md) | Project metrics and analytics | Monthly |
 
-**Current Phase:** ✅ PoC Complete → 🚧 MVP Development
+**Current Phase:** - PoC Complete → 🚧 MVP Development
 
 ---
 
@@ -173,10 +173,10 @@ OpenZKTool is an **open source Zero-Knowledge Proof toolkit** for building **pri
 
 ### Core Capabilities
 
-- ✅ **Prove without revealing**: Age ≥ 18 without showing exact age
-- ✅ **Multi-chain**: Same proof works on Ethereum AND Stellar
-- ✅ **Compliance-ready**: Selective disclosure for regulators
-- ✅ **Production-ready**: 800-byte proofs, <1s generation, <50ms verification
+- - **Prove without revealing**: Age ≥ 18 without showing exact age
+- - **Multi-chain**: Same proof works on Ethereum AND Stellar
+- - **Compliance-ready**: Selective disclosure for regulators
+- - **Production-ready**: 800-byte proofs, <1s generation, <50ms verification
 
 ### Key Components
 
@@ -203,19 +203,19 @@ OpenZKTool is an **open source Zero-Knowledge Proof toolkit** for building **pri
 
 | Section | Files | Status | Last Updated |
 |---------|-------|--------|--------------|
-| **Getting Started** | 2 | ✅ Complete | 2025-01-10 |
-| **Architecture** | 6 | ✅ Complete | 2025-01-14 |
-| **Testing** | 4 | ✅ Complete | 2025-01-14 |
-| **Guides** | 7 | ✅ Complete | 2025-01-10 |
+| **Getting Started** | 2 | - Complete | 2025-01-10 |
+| **Architecture** | 6 | - Complete | 2025-01-14 |
+| **Testing** | 4 | - Complete | 2025-01-14 |
+| **Guides** | 7 | - Complete | 2025-01-10 |
 | **Deployment** | 1 | 🚧 Partial | 2025-01-10 |
-| **Governance** | 4 | ✅ Complete | 2025-01-10 |
-| **Analytics** | 2 | ✅ Complete | 2025-01-10 |
-| **Video** | 1 | ✅ Complete | 2025-01-10 |
-| **FAQ** | 1 | ✅ Complete | 2025-01-10 |
+| **Governance** | 4 | - Complete | 2025-01-10 |
+| **Analytics** | 2 | - Complete | 2025-01-10 |
+| **Video** | 1 | - Complete | 2025-01-10 |
+| **FAQ** | 1 | - Complete | 2025-01-10 |
 
 **Total documentation:** 30 files | **Coverage:** ~85% complete
 
-**Legend:** ✅ Complete | 🚧 In Progress | 📋 Planned | 🆕 Recently Added
+**Legend:** - Complete | 🚧 In Progress | 📋 Planned | 🆕 Recently Added
 
 ---
 
@@ -263,12 +263,12 @@ Found an error or want to improve documentation?
 
 ### Documentation Guidelines
 
-- ✅ Use clear, concise language
-- ✅ Include code examples
-- ✅ Add diagrams where helpful
-- ✅ Test all links
-- ✅ Follow existing formatting
-- ✅ Update this index when adding new docs
+- - Use clear, concise language
+- - Include code examples
+- - Add diagrams where helpful
+- - Test all links
+- - Follow existing formatting
+- - Update this index when adding new docs
 
 See [CONTRIBUTING.md](../CONTRIBUTING.md) for detailed guidelines.
 

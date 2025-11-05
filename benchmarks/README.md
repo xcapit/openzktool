@@ -67,7 +67,7 @@ npm run benchmark:history       # Show historical trends
 - **WASM Size:** Size of generated WASM file
 - **ZKey Size:** Size of proving key
 
-## 🎯 Performance Goals
+## Performance Goals
 
 | Metric | Current | Target | Status |
 |--------|---------|--------|--------|
@@ -112,7 +112,7 @@ npm run benchmark:history       # Show historical trends
 
 Summary:
   Total Time: 7.5s
-  All Checks: ✅ PASSED
+  All Checks: - PASSED
 ```
 
 ## 🔄 Continuous Benchmarking
