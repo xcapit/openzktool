@@ -27,11 +27,11 @@ This document outlines the comprehensive testing strategy for the Soroban Groth1
 
 Cryptographic implementations must satisfy:
 
-- ✅ **Correctness**: Results match mathematical specifications
-- ✅ **Security**: Resistant to timing attacks and side channels
-- ✅ **Robustness**: Handle edge cases and malicious inputs
-- ✅ **Determinism**: Same inputs always produce same outputs
-- ✅ **Completeness**: All code paths tested
+- - **Correctness**: Results match mathematical specifications
+- - **Security**: Resistant to timing attacks and side channels
+- - **Robustness**: Handle edge cases and malicious inputs
+- - **Determinism**: Same inputs always produce same outputs
+- - **Completeness**: All code paths tested
 
 ### 1.2 Testing Philosophy
 
@@ -51,7 +51,7 @@ Layer 7: Security Audits      → Professional third-party review
 
 ## 2. Test Categories
 
-### 2.1 Unit Tests (✅ Implemented)
+### 2.1 Unit Tests (- Implemented)
 
 **Purpose**: Verify individual functions work correctly in isolation
 
@@ -127,7 +127,7 @@ proptest = "1.4"
 quickcheck = "1.0"
 ```
 
-### 2.3 Integration Tests (✅ Partial)
+### 2.3 Integration Tests (- Partial)
 
 **Purpose**: Test complete verification workflow
 
@@ -290,55 +290,55 @@ fn test_miller_loop_no_overflow() {
 
 | Module | Unit Tests | Coverage | Status |
 |--------|-----------|----------|--------|
-| `field.rs` | 3 | Basic | ✅ |
-| `curve.rs` | 3 | Basic | ✅ |
-| `fq12.rs` | 4 | Basic | ✅ |
-| `pairing.rs` | 15 | Good | ✅ |
-| `lib.rs` | 5 | Basic | ✅ |
+| `field.rs` | 3 | Basic | - |
+| `curve.rs` | 3 | Basic | - |
+| `fq12.rs` | 4 | Basic | - |
+| `pairing.rs` | 15 | Good | - |
+| `lib.rs` | 5 | Basic | - |
 | **Total** | **30** | **~40%** | **Partial** |
 
 ### 3.2 Test Coverage by Category
 
 ```
 Field Arithmetic:
-  ✅ Addition, multiplication, squaring
-  ✅ Inverse computation
-  ✅ Zero and one identities
+  - Addition, multiplication, squaring
+  - Inverse computation
+  - Zero and one identities
   ⚠️  Edge cases (overflow, modular reduction)
-  ❌ Frobenius map properties
-  ❌ Montgomery form correctness
+  - Frobenius map properties
+  - Montgomery form correctness
 
 Curve Operations:
-  ✅ Point addition and doubling
-  ✅ Scalar multiplication
-  ✅ Infinity point handling
-  ✅ Point negation
+  - Point addition and doubling
+  - Scalar multiplication
+  - Infinity point handling
+  - Point negation
   ⚠️  On-curve validation
-  ❌ Subgroup check
-  ❌ Curve equation verification
+  - Subgroup check
+  - Curve equation verification
 
 Pairing:
-  ✅ Identity pairing
-  ✅ Infinity handling
-  ✅ Miller loop structure
-  ✅ Final exponentiation
-  ✅ Multi-pairing
+  - Identity pairing
+  - Infinity handling
+  - Miller loop structure
+  - Final exponentiation
+  - Multi-pairing
   ⚠️  Bilinearity property
-  ❌ Cross-validation with EVM
-  ❌ Edge case inputs
+  - Cross-validation with EVM
+  - Edge case inputs
 
 Integration:
-  ✅ Basic structure validation
-  ✅ Contract version
+  - Basic structure validation
+  - Contract version
   ⚠️  End-to-end proof verification
-  ❌ Malformed input handling
-  ❌ Gas/resource estimation
+  - Malformed input handling
+  - Gas/resource estimation
 ```
 
 **Legend**:
-- ✅ Fully tested
+- - Fully tested
 - ⚠️ Partially tested
-- ❌ Not tested
+- - Not tested
 
 ### 3.3 Code Coverage Metrics
 
@@ -814,10 +814,10 @@ echo "All checks passed!"
 
 | Gate | Requirement | Status |
 |------|-------------|--------|
-| Unit Tests | 100% passing | ✅ |
+| Unit Tests | 100% passing | - |
 | Coverage | ≥ 95% | ⚠️ (40%) |
-| Clippy | No warnings | ✅ |
-| Format | `cargo fmt` clean | ✅ |
+| Clippy | No warnings | - |
+| Format | `cargo fmt` clean | - |
 | Benchmarks | No regressions | ⚠️ (not set up) |
 | Security | All checks pass | ⚠️ (partial) |
 

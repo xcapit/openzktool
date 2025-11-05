@@ -6,7 +6,7 @@ This document provides details about the OpenZKTool Groth16 verifier contract de
 
 ---
 
-## 📋 Deployment Summary
+## Deployment Summary
 
 **Date:** October 11, 2024
 **Network:** Stellar Testnet (Test SDF Network ; September 2015)
@@ -128,12 +128,12 @@ stellar contract invoke \
 ## 🏗️ Technical Details
 
 ### Contract Features
-- ✅ Groth16 SNARK verification
-- ✅ BN254 elliptic curve operations
-- ✅ Public signal validation
-- ✅ Version tracking
-- ✅ Error handling
-- ✅ No_std implementation (minimal footprint)
+- - Groth16 SNARK verification
+- - BN254 elliptic curve operations
+- - Public signal validation
+- - Version tracking
+- - Error handling
+- - No_std implementation (minimal footprint)
 
 ### Performance
 - **Proof Size:** ~800 bytes
@@ -161,7 +161,7 @@ stellar contract invoke \
 
 **Fee:** Minimal (testnet)
 
-**Status:** ✅ Successful
+**Status:** - Successful
 
 **Explorer:**
 https://stellar.expert/explorer/testnet/tx/39654bd739908d093d6d7e9362ea5cae3298332b3c7e385c49996ba08796cefc
@@ -222,7 +222,7 @@ bash verify_on_chain.sh
 
 ---
 
-## 🎯 Next Steps
+## Next Steps
 
 1. **Phase 1 (MVP):** Deploy to multiple testnets (Ethereum Sepolia, Polygon Amoy)
 2. **Phase 2:** Public API for proof verification
@@ -241,4 +241,4 @@ For questions or issues:
 
 **Last Updated:** October 11, 2024
 **Team:** X1 - Xcapit Labs
-**Status:** ✅ Live on Testnet
+**Status:** - Live on Testnet
