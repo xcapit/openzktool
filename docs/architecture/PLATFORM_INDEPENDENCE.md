@@ -1,36 +1,32 @@
 # Independencia de Plataforma
 
-**OpenZKTool - Stellar Privacy SDK**
+OpenZKTool - Stellar Privacy SDK
 
-Este documento describe cómo OpenZKTool logra **independencia de plataforma** y evita el vendor lock-in, cumpliendo con los requisitos de Digital Public Goods Alliance (DPGA).
+Este documento describe cómo OpenZKTool logra independencia de plataforma y evita el vendor lock-in, cumpliendo con los requisitos de Digital Public Goods Alliance (DPGA).
 
----
+## Resumen
 
-## 🎯 Resumen Ejecutivo
+OpenZKTool está diseñado para ser completamente independiente de plataformas propietarias:
 
-OpenZKTool está diseñado para ser **completamente independiente** de plataformas propietarias:
-
-✅ **Open source** 100% (AGPL-3.0)
-✅ **Estándares abiertos** (Groth16, Circom, Solidity, Rust)
-✅ **Multi-chain** (funciona en cualquier blockchain compatible)
-✅ **Sin dependencias propietarias**
-✅ **Alternativas abiertas** para todas las dependencias críticas
-
----
+- Open source 100% (AGPL-3.0)
+- Estándares abiertos (Groth16, Circom, Solidity, Rust)
+- Multi-chain (funciona en cualquier blockchain compatible)
+- Sin dependencias propietarias
+- Alternativas abiertas para todas las dependencias críticas
 
 ## 1. Componentes del Sistema y su Independencia
 
 ### 1.1 Circuitos ZK (Circom)
 
-**Tecnología:** [Circom](https://docs.circom.io/) - lenguaje DSL open source para circuits
+Tecnología: [Circom](https://docs.circom.io/) - lenguaje DSL open source para circuits
 
-✅ **Independencia:**
+Independencia:
 - Lenguaje open source (GPL-3.0)
 - Compilador open source
 - No atado a ningún proveedor
 - Estándar de facto en la industria ZK
 
-✅ **Alternativas abiertas:**
+Alternativas abiertas:
 - [ZoKrates](https://zokrates.github.io/) - DSL alternativo para ZK circuits
 - [Noir](https://noir-lang.org/) - Lenguaje de Aztec Labs
 - [Cairo](https://www.cairo-lang.org/) - Lenguaje de StarkWare
@@ -49,12 +45,12 @@ zokrates compile -i circuit.zok
 
 **Tecnología:** [snarkjs](https://github.com/iden3/snarkjs) - JavaScript library para ZK-SNARKs
 
-✅ **Independencia:**
+**Independencia:**
 - 100% open source (GPL-3.0)
 - No requiere servicios en la nube
 - Ejecuta localmente (browser, Node.js, Deno)
 
-✅ **Alternativas abiertas:**
+**Alternativas abiertas:**
 - [rapidsnark](https://github.com/iden3/rapidsnark) - Implementación en C++/WASM (más rápida)
 - [arkworks](https://arkworks.rs/) - Librería Rust para ZK
 - [bellman](https://github.com/zkcrypto/bellman) - Rust SNARK library
@@ -75,12 +71,12 @@ const { proof } = await rapidsnark.prove(input, zkeyFile);
 
 **Tecnología:** Solidity smart contracts
 
-✅ **Independencia:**
+**Independencia:**
 - Solidity es open source
 - Compatible con cualquier blockchain EVM
 - No lock-in a Ethereum
 
-✅ **Blockchains soportadas (sin cambios de código):**
+**Blockchains soportadas (sin cambios de código):**
 - Ethereum (mainnet, testnets)
 - Polygon
 - Arbitrum
@@ -90,7 +86,7 @@ const { proof } = await rapidsnark.prove(input, zkeyFile);
 - BNB Chain
 - **100+ blockchains EVM-compatible**
 
-✅ **Alternativas open source:**
+**Alternativas open source:**
 - [Vyper](https://docs.vyperlang.org/) - Lenguaje alternativo para EVM
 - [Fe](https://fe-lang.org/) - Lenguaje inspirado en Rust
 - Implementación directa en EVM bytecode
@@ -99,19 +95,19 @@ const { proof } = await rapidsnark.prove(input, zkeyFile);
 
 **Tecnología:** Rust/WASM smart contracts
 
-✅ **Independencia:**
+**Independencia:**
 - Rust es open source
 - WASM es estándar abierto (W3C)
 - No lock-in a Stellar
 
-✅ **Potencial multi-chain WASM:**
+**Potencial multi-chain WASM:**
 - Stellar Soroban
 - NEAR Protocol (AssemblyScript/Rust → WASM)
 - Internet Computer (Motoko/Rust → WASM)
 - Polkadot parachains
 - CosmWasm (Cosmos)
 
-✅ **Alternativas:**
+**Alternativas:**
 - AssemblyScript para WASM
 - C/C++ → WASM
 - Go → WASM (experimental)
@@ -158,12 +154,12 @@ circuits/artifacts/
 └── kyc_transfer_vkey.json     # JSON: estándar abierto
 ```
 
-✅ **Formatos abiertos:**
+**Formatos abiertos:**
 - **R1CS** (Rank-1 Constraint System): Estándar de la industria ZK
 - **WASM** (WebAssembly): Estándar W3C, ejecutable en cualquier runtime
 - **JSON**: RFC 8259, universal
 
-✅ **Portabilidad:**
+**Portabilidad:**
 Estos archivos pueden usarse con cualquier implementación de Groth16 (snarkjs, rapidsnark, arkworks, etc.)
 
 ### 3.2 Proofs
@@ -178,12 +174,12 @@ Estos archivos pueden usarse con cualquier implementación de Groth16 (snarkjs, 
 }
 ```
 
-✅ **Formato abierto:**
+**Formato abierto:**
 - JSON estándar
 - Representación de puntos en curva elíptica BN254
 - Compatible con cualquier verifier Groth16
 
-✅ **Interoperabilidad:**
+**Interoperabilidad:**
 El mismo proof puede verificarse en:
 - snarkjs (JavaScript)
 - Solidity smart contract (EVM)
@@ -203,7 +199,7 @@ El mismo proof puede verificarse en:
 | **BN254** | Curva elíptica (alt_bn128) | [EIP-196/197](https://eips.ethereum.org/EIPS/eip-196) |
 | **Poseidon** | Hash function ZK-friendly | [Paper (2019)](https://eprint.iacr.org/2019/458.pdf) |
 
-✅ **Estándares académicos y públicos**, no propietarios.
+**Estándares académicos y públicos**, no propietarios.
 
 ### 4.2 Blockchain
 
@@ -236,7 +232,7 @@ El mismo proof puede verificarse en:
 - Hardware específico (TPMs, HSMs)
 - Sistemas operativos propietarios
 
-✅ **OpenZKTool funciona 100% offline:**
+**OpenZKTool funciona 100% offline:**
 ```bash
 # Generar proof sin internet
 npm run prove
@@ -247,7 +243,7 @@ npm run verify
 
 ### 5.2 Despliegue Flexible
 
-✅ **Puedes desplegar OpenZKTool en:**
+**Puedes desplegar OpenZKTool en:**
 
 **Backend:**
 - Cualquier servidor Linux/Windows/macOS
@@ -269,7 +265,7 @@ npm run verify
 
 Si decides cambiar de plataforma:
 
-✅ **Fácil migración:**
+**Fácil migración:**
 ```bash
 # De Ethereum a Polygon
 forge create --rpc-url $POLYGON_RPC src/Verifier.sol
@@ -294,23 +290,23 @@ stellar contract deploy --network mainnet
 
 ### 6.1 Evidencia de Compliance
 
-✅ **Open source components:**
+**Open source components:**
 - Todo el código es AGPL-3.0
 - Todas las dependencias son open source
 - [Lista de dependencias](./package.json)
 
-✅ **Mandatory components have open alternatives:**
+**Mandatory components have open alternatives:**
 - Circom → ZoKrates, Noir, Cairo
 - snarkjs → rapidsnark, arkworks, bellman
 - EVM → Cualquier blockchain EVM
 - Soroban → Otros WASM-based chains
 
-✅ **No proprietary components:**
+**No proprietary components:**
 - Sin APIs propietarias
 - Sin servicios cloud obligatorios
 - Sin hardware específico
 
-✅ **Open data formats:**
+**Open data formats:**
 - R1CS, WASM, JSON
 - Formatos estándar de la industria ZK
 
@@ -364,20 +360,20 @@ stellar contract deploy --network mainnet
 
 **Team X1 - Xcapit Labs se compromete a:**
 
-✅ Mantener OpenZKTool 100% open source (AGPL-3.0)
-✅ No introducir dependencias propietarias obligatorias
-✅ Documentar alternativas open source para todas las dependencias
-✅ Soportar múltiples blockchains sin discriminación
-✅ Mantener formatos de datos abiertos y estándares
+- Mantener OpenZKTool 100% open source (AGPL-3.0)
+- No introducir dependencias propietarias obligatorias
+- Documentar alternativas open source para todas las dependencias
+- Soportar múltiples blockchains sin discriminación
+- Mantener formatos de datos abiertos y estándares
 
 ### 8.2 Licencia Copyleft (AGPL-3.0)
 
 La licencia AGPL-3.0 **garantiza** que:
 
-✅ Cualquier fork o modificación debe permanecer open source
-✅ Nadie puede crear versión propietaria de OpenZKTool
-✅ Servicios basados en OpenZKTool deben compartir modificaciones
-✅ Usuarios tienen derechos perpetuos de uso
+- Cualquier fork o modificación debe permanecer open source
+- Nadie puede crear versión propietaria de OpenZKTool
+- Servicios basados en OpenZKTool deben compartir modificaciones
+- Usuarios tienen derechos perpetuos de uso
 
 **Texto completo:** [LICENSE](./LICENSE)
 
@@ -387,23 +383,23 @@ La licencia AGPL-3.0 **garantiza** que:
 
 ### 9.1 Múltiples Entornos Probados
 
-✅ **Sistemas Operativos:**
+**Sistemas Operativos:**
 - Linux (Ubuntu, Debian, Fedora)
 - macOS (Intel, Apple Silicon)
 - Windows (10, 11)
 
-✅ **Navegadores:**
+**Navegadores:**
 - Chrome/Chromium
 - Firefox
 - Safari
 - Edge
 
-✅ **Runtimes JavaScript:**
+**Runtimes JavaScript:**
 - Node.js 18, 20, 21
 - Deno
 - Bun (experimental)
 
-✅ **Blockchains:**
+**Blockchains:**
 - Ethereum (testnets, local)
 - Polygon
 - Arbitrum
@@ -449,15 +445,15 @@ Si necesitas ayuda para desplegar OpenZKTool en una plataforma específica:
 
 ---
 
-## ✅ Conclusión
+## - Conclusión
 
 OpenZKTool cumple completamente con los requisitos de **independencia de plataforma** de DPGA:
 
-✅ No lock-in a vendors específicos
-✅ Todas las dependencias tienen alternativas open source
-✅ Formatos de datos abiertos y estándares
-✅ Multi-chain por diseño
-✅ Licencia copyleft garantiza apertura perpetua
+- No lock-in a vendors específicos
+- Todas las dependencias tienen alternativas open source
+- Formatos de datos abiertos y estándares
+- Multi-chain por diseño
+- Licencia copyleft garantiza apertura perpetua
 
 ---
 
