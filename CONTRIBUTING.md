@@ -1,48 +1,45 @@
 # Contributing to OpenZKTool
 
-Thank you for your interest in contributing to OpenZKTool! This document provides guidelines and instructions for contributing to the project.
+Thanks for your interest in contributing. This document has guidelines for contributing to the project.
 
-## 🤝 Code of Conduct
+## Code of Conduct
 
-This project follows our [Code of Conduct](./docs/governance/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
+This project follows our [Code of Conduct](./docs/governance/CODE_OF_CONDUCT.md). By participating, you're expected to uphold this code.
 
----
-
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-Before contributing, ensure you have:
+You need:
 
-- **Node.js** >= v18.17.0 (check with `node --version`)
-- **Rust** >= 1.70.0 with `wasm32-unknown-unknown` target
-- **Circom** >= 2.1.9
-- **Stellar CLI** (for Soroban development)
-- **Foundry** (for EVM contracts)
-- **Git** for version control
+- Node.js >= v18.17.0 (check with `node --version`)
+- Rust >= 1.70.0 with `wasm32-unknown-unknown` target
+- Circom >= 2.1.9
+- Stellar CLI (for Soroban development)
+- Foundry (for EVM contracts)
+- Git
 
 ### Development Setup
 
-1. **Fork the repository**
+1. Fork the repository
    ```bash
-   # Click "Fork" on GitHub, then clone your fork
    git clone https://github.com/YOUR_USERNAME/stellar-privacy-poc.git
    cd stellar-privacy-poc
    ```
 
-2. **Install dependencies**
+2. Install dependencies
    ```bash
    npm install
    cd web && npm install && cd ..
    ```
 
-3. **Set up Rust toolchain**
+3. Set up Rust toolchain
    ```bash
    rustup target add wasm32-unknown-unknown
    cd soroban && cargo build && cd ..
    ```
 
-4. **Run tests**
+4. Run tests
    ```bash
    # Soroban tests
    cd soroban && cargo test --lib
@@ -54,9 +51,7 @@ Before contributing, ensure you have:
    cd circuits/scripts && bash prove_and_verify.sh
    ```
 
----
-
-## 📋 Contribution Workflow
+## Contribution Workflow
 
 ### 1. Choose an Issue
 
@@ -128,9 +123,7 @@ Then open a Pull Request on GitHub with:
 - Screenshots (if UI changes)
 - Test results
 
----
-
-## 📝 Coding Standards
+## Coding Standards
 
 ### TypeScript/JavaScript
 
@@ -150,7 +143,7 @@ async function generateProof(inputs: ProofInputs): Promise<Proof> {
 }
 ```
 
-**Style Guide:**
+Style guide:
 - Use `const` over `let` when possible
 - Prefer `async/await` over promises
 - Use meaningful variable names
@@ -176,7 +169,7 @@ pub fn generate_proof(inputs: &ProofInputs) -> Result<Proof, Error> {
 }
 ```
 
-**Style Guide:**
+Style guide:
 - Run `cargo fmt` before committing
 - Run `cargo clippy -- -D warnings`
 - Add tests for all public functions
@@ -204,7 +197,7 @@ function verifyProof(
 }
 ```
 
-**Style Guide:**
+Style guide:
 - Use `forge fmt` before committing
 - Follow [Solidity Style Guide](https://docs.soliditylang.org/en/latest/style-guide.html)
 - Add comprehensive tests with Foundry
@@ -232,9 +225,7 @@ template KYCTransfer() {
 }
 ```
 
----
-
-## 🧪 Testing Requirements
+## Testing Requirements
 
 ### Unit Tests
 
@@ -291,9 +282,7 @@ For features touching multiple components, add integration tests.
   forge coverage
   ```
 
----
-
-## 📚 Documentation
+## Documentation
 
 ### Code Documentation
 
@@ -322,33 +311,29 @@ Update `CHANGELOG.md` with your changes:
 - Bug in Y component (#124)
 ```
 
----
+## Code Review Process
 
-## 🔍 Code Review Process
-
-1. **Self-Review**
+1. Self-Review
    - Review your own code before submitting
    - Run all tests locally
    - Check formatting and linting
    - Update documentation
 
-2. **Automated Checks**
+2. Automated Checks
    - CI/CD will run tests automatically
    - All checks must pass before merge
    - Fix any failing tests or linting issues
 
-3. **Peer Review**
+3. Peer Review
    - At least 1 approval required
    - Address reviewer comments
    - Push updates to the same PR branch
 
-4. **Merge**
+4. Merge
    - Squash and merge (default)
    - Delete branch after merge
 
----
-
-## 🎨 Project Structure
+## Project Structure
 
 ```
 stellar-privacy-poc/
@@ -364,9 +349,7 @@ stellar-privacy-poc/
 └── .github/          # CI/CD workflows
 ```
 
----
-
-## 🐛 Reporting Bugs
+## Reporting Bugs
 
 Use the [Bug Report](https://github.com/xcapit/stellar-privacy-poc/issues/new?template=bug_report.md) template.
 
@@ -377,9 +360,7 @@ Include:
 - Environment details (OS, Node version, etc.)
 - Screenshots if applicable
 
----
-
-## 💡 Suggesting Features
+## Suggesting Features
 
 Use the [Feature Request](https://github.com/xcapit/stellar-privacy-poc/issues/new?template=feature_request.md) template.
 
@@ -389,17 +370,13 @@ Include:
 - Proposed implementation (if any)
 - Alternatives considered
 
----
+## Security Issues
 
-## 🔒 Security Issues
-
-**DO NOT** open public issues for security vulnerabilities.
+DO NOT open public issues for security vulnerabilities.
 
 See [SECURITY.md](./SECURITY.md) for reporting process.
 
----
-
-## 📅 Release Process
+## Release Process
 
 1. Update version in `package.json`, `Cargo.toml`, etc.
 2. Update `CHANGELOG.md`
@@ -408,26 +385,20 @@ See [SECURITY.md](./SECURITY.md) for reporting process.
 5. Create GitHub release with tag
 6. Deploy to npm (SDK), Vercel (web), etc.
 
----
-
-## 🏆 Recognition
+## Recognition
 
 Contributors will be:
 - Listed in `CHANGELOG.md`
 - Credited in release notes
 - Added to `README.md` if significant contribution
 
----
+## Getting Help
 
-## 📞 Getting Help
+- GitHub Discussions: [Ask questions](https://github.com/xcapit/stellar-privacy-poc/discussions)
+- Discord: (Coming soon)
+- Email: fboiero@frvm.utn.edu.ar
 
-- **GitHub Discussions:** [Ask questions](https://github.com/xcapit/stellar-privacy-poc/discussions)
-- **Discord:** (Coming soon)
-- **Email:** fboiero@frvm.utn.edu.ar
-
----
-
-## 📖 Resources
+## Resources
 
 ### Learning Resources
 - [Circom Documentation](https://docs.circom.io/)
@@ -440,9 +411,7 @@ Contributors will be:
 - [Testing Strategy](./docs/testing/TESTING_STRATEGY.md)
 - [FAQ](./docs/FAQ.md)
 
----
-
-## ✅ Checklist Before Submitting PR
+## Checklist Before Submitting PR
 
 - [ ] Code follows project style guidelines
 - [ ] All tests pass locally
@@ -455,6 +424,6 @@ Contributors will be:
 
 ---
 
-**Thank you for contributing to OpenZKTool! 🎉**
+Thanks for contributing to OpenZKTool!
 
-Every contribution, no matter how small, helps make privacy accessible to everyone.
+Every contribution helps make privacy accessible to everyone.
