@@ -1,50 +1,46 @@
-# 📜 Scripts Overview — OpenZKTool
+# Scripts Overview - OpenZKTool
 
-**Quick reference guide for all demo and test scripts**
+Quick reference guide for all demo and test scripts
 
----
+## Choose Your Script
 
-## 🎯 Choose Your Script
+### For Non-Technical Audiences
 
-### For Non-Technical Audiences 💡
-
-**Use:** `demo_privacy_proof.sh`
+Use: `demo_privacy_proof.sh`
 
 ```bash
 npm run demo:privacy
 ```
 
-- 👥 **Best for:** CEOs, investors, business stakeholders, regulators
-- 🕐 **Duration:** 5-7 minutes
-- 📖 **Style:** Story-driven, no jargon, clear value proposition
-- 🎬 **What it shows:** Alice proves eligibility without revealing data (age, balance, country)
-- ⛓️ **Multi-chain:** Verifies same proof on Ethereum AND Stellar
+- Best for: CEOs, investors, business stakeholders, regulators
+- Duration: 5-7 minutes
+- Style: Story-driven, no jargon
+- Shows: Alice proves eligibility without revealing data (age, balance, country)
+- Multi-chain: Verifies same proof on Ethereum AND Stellar
 
-**The Story:**
-1. The Problem: Traditional KYC exposes all data
-2. The Solution: ZK proofs prove without revealing
+The story:
+1. The problem: Traditional KYC exposes all data
+2. The solution: ZK proofs prove without revealing
 3. Generate proof for Alice (800 bytes)
 4. Verify on Ethereum blockchain
-5. Verify on Stellar blockchain (same proof!)
-6. Result: Privacy + Compliance ✨
+5. Verify on Stellar blockchain (same proof)
+6. Result: Privacy + Compliance
 
----
+### For Technical Audiences
 
-### For Technical Audiences ⭐
-
-**Use:** `demo_multichain.sh`
+Use: `demo_multichain.sh`
 
 ```bash
 npm run demo
 ```
 
-- 👥 **Best for:** Developers, grant reviewers, technical investors, engineers
-- 🕐 **Duration:** 5-7 minutes
-- 📖 **Style:** Technical, shows architecture and implementation
-- 🎬 **What it shows:** Groth16 proof generation and multi-chain verification
-- ⛓️ **Multi-chain:** EVM (Solidity) and Soroban (Rust/WASM)
+- Best for: Developers, grant reviewers, technical investors, engineers
+- Duration: 5-7 minutes
+- Style: Technical, shows architecture and implementation
+- Shows: Groth16 proof generation and multi-chain verification
+- Multi-chain: EVM (Solidity) and Soroban (Rust/WASM)
 
-**Flow:**
+Flow:
 1. Generate ZK-SNARK proof (Circom + Groth16)
 2. Deploy & verify on Ethereum (Foundry/Anvil)
 3. Deploy & verify on Stellar (Soroban)
