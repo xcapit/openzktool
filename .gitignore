@@ -125,3 +125,4 @@ benchmarks/results/
 # Security audit reports (private until disclosed)
 security-reports/
 audit-private/
+examples/private-transfer/output/
