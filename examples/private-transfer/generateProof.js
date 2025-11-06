@@ -27,7 +27,7 @@ function parseArgs() {
     minAge: 18,
     maxAge: 99,
     minBalance: 50,
-    allowedCountries: [11, 1, 5]
+    allowedCountries: [11, 1, 5, 0, 0, 0, 0, 0, 0, 0]
   };
 
   for (let i = 0; i < args.length; i += 2) {
