@@ -118,6 +118,11 @@ docker-compose.override.yml
 stellar-accounts.json
 *.identity
 
+# Demo recordings
+openzktool_demo_*.mp4
+demo_output.mp4
+*.cast
+
 # Benchmarks results (can be large)
 benchmarks/results/
 !benchmarks/results/baseline/.gitkeep

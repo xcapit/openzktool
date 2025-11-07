@@ -10,6 +10,52 @@ cd /Users/fboiero/Documents/GitHub/openzktool
 bash demo_sdf_video.sh
 ```
 
+## Recording for YouTube
+
+To record the demo as a high-quality MP4 video for YouTube:
+
+### Prerequisites
+
+```bash
+# Install ffmpeg (if not already installed)
+brew install ffmpeg
+```
+
+### Record the Demo
+
+```bash
+# Start the recording script
+./record_demo.sh
+```
+
+**What happens:**
+1. Script counts down 5 seconds
+2. Recording starts (you'll see 🔴 RECORDING STARTED)
+3. Switch to your terminal window (Cmd+Tab)
+4. Run the demo: `bash demo_sdf_video.sh`
+5. When done, switch back and press `q` to stop recording
+
+**Output:**
+- File: `openzktool_demo_YYYYMMDD_HHMMSS.mp4`
+- Resolution: 1920x1080
+- Framerate: 30fps
+- Quality: High (visually lossless)
+- Format: H.264 (YouTube-ready)
+
+### Alternative: Manual Recording
+
+```bash
+# Start ffmpeg recording
+ffmpeg -f avfoundation -framerate 30 -i "1:none" \
+  -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p \
+  demo_output.mp4
+
+# In another terminal, run the demo
+bash demo_sdf_video.sh
+
+# Press 'q' in the ffmpeg window when done
+```
+
 ## For Recording
 
 If you want to record the demo automatically without manual Enter presses:
