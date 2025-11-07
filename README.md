@@ -73,26 +73,25 @@ npm run demo:privacy
 Proves: Age ≥ 18, Balance ≥ $50, Country allowed
 WITHOUT revealing exact values (age 25, balance $150, country Argentina)
 
-### Multi-chain demo
+### Stellar demo
 
 ```bash
-npm run demo
+npm run demo:soroban
 ```
 
-Shows ZK proof generation and verification on both Ethereum and Stellar.
+Shows ZK proof generation and verification on Stellar Soroban.
 
 ### Individual commands
 
 ```bash
 npm run setup         # compile circuit & generate keys (one-time)
 npm run prove         # generate proof & verify locally
-npm run demo:evm      # verify on Ethereum only
-npm run demo:soroban  # verify on Soroban only
+npm run demo:soroban  # verify on Stellar Soroban
 ```
 
 ## Video Demo
 
-[Watch demo on Google Drive](https://drive.google.com/file/d/1SSQCAanCcpsVqp4rNuM3Vh6triRtknzt/view?usp=sharing) - Full execution showing proof generation, Ethereum verification with Foundry, and Stellar/Soroban verification. 7 minutes.
+[Watch demo on Google Drive](https://drive.google.com/file/d/1SSQCAanCcpsVqp4rNuM3Vh6triRtknzt/view?usp=sharing) - Full execution showing proof generation and Stellar/Soroban verification on testnet. 7 minutes.
 
 ## Documentation
 
@@ -157,7 +156,7 @@ How it works:
                                             ┌────────────────────┐
                                             │  Smart Contract    │
                                             │  Verifies proof    │
-                                            │  (EVM/Soroban)     │
+                                            │  (Stellar Soroban) │
                                             └────────────────────┘
 ```
 
@@ -448,7 +447,7 @@ Cryptographic primitives:
 
 - GitHub Issues: [Report a bug](https://github.com/fboiero/stellar-privacy-poc/issues)
 - Discussions: [Ask questions](https://github.com/fboiero/stellar-privacy-poc/discussions)
-- Twitter: [@XcapitOfficial](https://twitter.com/XcapitOfficial)
+- Twitter: [@xcapit_](https://twitter.com/xcapit_)
 
 ---
 
@@ -464,4 +463,4 @@ Cryptographic primitives:
 
 If you find this useful, star the repo.
 
-Ready to prove without revealing? Try the demo: `bash scripts/demo/demo_multichain.sh`
+Ready to prove without revealing? Try the demo: `./DEMO_COMPLETE.sh`

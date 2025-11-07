@@ -334,7 +334,7 @@ See [CONTRIBUTING.md](../CONTRIBUTING.md) for detailed guidelines.
 
 - 💬 **GitHub Issues:** [Report bugs](https://github.com/xcapit/stellar-privacy-poc/issues)
 - 🗨️ **Discussions:** [Ask questions](https://github.com/xcapit/stellar-privacy-poc/discussions)
-- 🐦 **Twitter:** [@XcapitOfficial](https://twitter.com/XcapitOfficial)
+- 🐦 **Twitter:** [@xcapit_](https://twitter.com/xcapit_)
 
 ---
 
