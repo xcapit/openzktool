@@ -1,15 +1,12 @@
 # OpenZKTool - Explicación Simple
 
-## ¿Qué problema resolvemos?
+## El Problema
 
-Imagina que quieres entrar a un parque de diversiones que tiene reglas:
-- Debes tener más de 10 años
-- Debes tener al menos $5 en tu bolsillo
-- Debes vivir en un país de la lista permitida
+Las blockchains públicas son completamente transparentes. Cualquiera puede ver todos tus balances, transacciones, montos. Esto es un problema si quieres usar crypto para cosas reales.
 
-**El problema:** No quieres decirle al guardia cuántos años tienes exactamente, cuánto dinero tienes exactamente, o de qué país eres exactamente. Solo quieres demostrar que cumples las reglas.
+**El dilema:** Necesitas probar que cumples ciertos requisitos (edad >18, balance suficiente, país permitido) pero no quieres revelar los valores exactos.
 
-**La solución:** Una "prueba de conocimiento cero" funciona como un certificado que dice "Esta persona cumple todas las reglas" pero no revela cuántos años tiene, cuánto dinero tiene, o de dónde es.
+**La solución:** Zero-Knowledge Proofs. Pruebas matemáticas que demuestran "cumplo la condición" sin revelar los datos subyacentes.
 
 ## ¿Cómo funciona?
 
@@ -20,12 +17,9 @@ Imagina que quieres entrar a un parque de diversiones que tiene reglas:
 
 2. **Alice usa nuestro programa** para procesar sus datos
 
-3. **El programa hace cálculos criptográficos** y genera una prueba compacta
+3. **El programa hace cálculos criptográficos** y genera una prueba compacta (800 bytes)
 
-4. **La prueba dice:** "✓ Cumple todas las reglas"
-   - Sin revelar la edad exacta
-   - Sin revelar el dinero exacto
-   - Sin revelar el país exacto
+4. **La prueba dice:** "Cumple todas las reglas" sin revelar edad exacta, dinero exacto, ni país exacto
 
 5. **Cualquiera puede verificar la prueba** usando el contrato en Stellar
 
@@ -123,21 +117,13 @@ TU COMPUTADORA                    STELLAR BLOCKCHAIN
                                      tus datos
 ```
 
-## Comparación simple:
+## Comparación
 
-| Aspecto | Método Tradicional | OpenZKTool en Stellar |
-|---------|-------------------|---------------------|
-| Privacidad | ❌ Todo es público | ✅ Datos privados ocultos |
-| Cumplimiento | ✅ Todo verificable | ✅ Todo verificable |
-| Costo | $5 (Ethereum) | $0.20 (Stellar) |
-| Velocidad | ~15 seg | ~3 seg |
-| Reversible | ❌ Una vez revelado, siempre revelado | ✅ Nunca se revela |
+**Tradicional:** Todo público, verificable, $5/tx en Ethereum, ~15 seg
 
-## Mensaje clave para promoción:
+**OpenZKTool en Stellar:** Datos privados, verificable, $0.20/tx en Stellar, ~3 seg
 
-**"OpenZKTool trae privacidad real a Stellar sin sacrificar el cumplimiento regulatorio.
-Verifica lo que necesitas verificar, oculta lo que necesitas ocultar,
-todo 25 veces más barato que en Ethereum."**
+Diferencia clave: nunca se revelan los datos originales, solo se prueba el cumplimiento
 
 ## ¿Qué hace único a este proyecto en Stellar?
 
