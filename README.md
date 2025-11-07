@@ -118,13 +118,18 @@ Shows full execution of `DEMO_AUTO=1 bash demo_video.sh`:
 
 ## Documentation
 
-All docs in `/docs`:
+**New to ZK proofs or blockchain?** Start with the [Simple Explanation](./docs/EXPLICACION_SIMPLE.md) to understand what we're building and why it matters for Stellar.
 
-- [Documentation Home](./docs/README.md) - start here
+**For Stellar ecosystem stakeholders:**
+- [CAP-0059 Analysis](./docs/CAP_0059_ANALYSIS.md) - How this project relates to Stellar's BLS12-381 proposal
+- [Stellar Privacy Analysis](./docs/STELLAR_PRIVACY_ANALISIS.md) - Positioning within SDF's 2024 privacy roadmap
+- [FHE Integration Analysis](./docs/FHE_INTEGRATION_ANALYSIS.md) - Future AI privacy capabilities
+
+**For developers:**
+- [Documentation Hub](./docs/README.md) - Complete navigation to all docs
 - [Quick Start Guide](./docs/getting-started/quickstart.md) - 5-minute setup
-- [Testing Guide](./docs/testing/README.md) - testing reference
-- [Demo Scripts](./docs/testing/demo-scripts.md) - demo scripts explained
-- [Multi-Chain Testing](./docs/testing/multi-chain.md) - cross-chain verification
+- [Testing Guide](./docs/testing/README.md) - Testing reference
+- [Troubleshooting Guide](./TROUBLESHOOTING.md) - Common issues and solutions
 
 ---
 

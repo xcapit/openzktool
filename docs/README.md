@@ -32,6 +32,35 @@ Welcome to the OpenZKTool documentation! This toolkit enables **privacy-preservi
 
 ---
 
+### 📖 Simple Explanation (For Non-Technical Audiences)
+
+**Start here if you're new to zero-knowledge proofs or blockchain:**
+
+| Document | Description | Audience |
+|----------|-------------|----------|
+| [**Simple Explanation**](./EXPLICACION_SIMPLE.md) ⭐ | What we're building and why it matters for Stellar | Everyone |
+
+Read this first to understand the project's value proposition in simple terms.
+
+---
+
+### 🌟 Stellar & Blockchain Specific
+
+**Understanding OpenZKTool in the Stellar ecosystem:**
+
+| Document | Description | Key Insights |
+|----------|-------------|--------------|
+| [**CAP-0059 Analysis**](./CAP_0059_ANALYSIS.md) 🆕 | How Stellar's BLS12-381 proposal relates to this project | Future compatibility, Strategic positioning |
+| [**Stellar Privacy Analysis**](./STELLAR_PRIVACY_ANALISIS.md) 🆕 | How OpenZKTool fits into Stellar's privacy roadmap | SDF 2024 roadmap, Risc Zero comparison |
+| [**FHE Integration Analysis**](./FHE_INTEGRATION_ANALYSIS.md) 🆕 | Fully Homomorphic Encryption for AI privacy use cases | 10-15 month roadmap, Budget: ~$200K |
+
+**Key Takeaways:**
+- OpenZKTool demonstrates ZK capabilities Stellar is building toward (CAP-0059)
+- Complements (not replaces) SDF's Risc Zero zkVM initiative
+- Ready to adopt BLS12-381 when Stellar ecosystem matures
+
+---
+
 ### 📐 Architecture & Technical Design
 
 **Understand how OpenZKTool works under the hood:**
@@ -40,7 +69,8 @@ Welcome to the OpenZKTool documentation! This toolkit enables **privacy-preservi
 |----------|-------------|------------|
 | [**Architecture Overview**](./architecture/overview.md) ⭐ | Complete system architecture with diagrams | Multi-chain design, Circuit structure, Security |
 | [**Proof Flow**](./architecture/proof-flow.md) | Detailed proof lifecycle with sequence diagrams | Generation, Verification, Data flow |
-| [**Cryptographic Comparison**](./architecture/CRYPTOGRAPHIC_COMPARISON.md) 🆕 | EVM vs Soroban crypto implementation | BN254, Pairing, Performance |
+| [**Cryptographic Comparison**](./architecture/CRYPTOGRAPHIC_COMPARISON.md) | EVM vs Soroban crypto implementation | BN254, Pairing, Performance |
+| [**Cryptographic Analysis**](./technical/CRYPTOGRAPHIC_ANALYSIS.md) | Deep dive into cryptographic primitives | Groth16, BN254 curve, Security proofs |
 | [**Contracts Architecture**](./architecture/CONTRACTS_ARCHITECTURE.md) | Smart contract design patterns | Groth16 verifier, Gas optimization |
 | [**Platform Independence**](./architecture/PLATFORM_INDEPENDENCE.md) | Multi-chain compatibility strategy | Portability, Alternatives |
 | [**Scripts Overview**](./architecture/SCRIPTS_OVERVIEW.md) | Build & deployment scripts explained | Automation, CI/CD |
@@ -53,6 +83,17 @@ Welcome to the OpenZKTool documentation! This toolkit enables **privacy-preservi
 
 ---
 
+### 🔒 Security & Auditing
+
+**Security documentation and audit reports:**
+
+| Document | Description | Status |
+|----------|-------------|--------|
+| [**Audit Report**](./security/AUDIT_REPORT.md) | Security audit findings and remediations | Complete |
+| [**Security Policy**](../SECURITY.md) | Vulnerability disclosure policy | Active |
+
+---
+
 ### 🧪 Testing & Demo Scripts
 
 **Everything you need to test and demonstrate OpenZKTool:**
@@ -62,7 +103,7 @@ Welcome to the OpenZKTool documentation! This toolkit enables **privacy-preservi
 | [**Testing Guide**](./testing/README.md) ⭐ | Complete testing reference | Developers |
 | [**Demo Scripts**](./testing/demo-scripts.md) | All available demo commands | Everyone |
 | [**Multi-Chain Testing**](./testing/multi-chain.md) | Cross-chain verification | Developers |
-| [**Testing Strategy**](./testing/TESTING_STRATEGY.md) 🆕 | Comprehensive test methodology | QA Engineers |
+| [**Testing Strategy**](./testing/TESTING_STRATEGY.md) | Comprehensive test methodology | QA Engineers |
 
 **Quick commands:**
 ```bash
