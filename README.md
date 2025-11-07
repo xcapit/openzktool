@@ -24,11 +24,11 @@ The goal is simple: make Zero-Knowledge Proofs accessible to developers who want
 [![Rust](https://img.shields.io/badge/Rust-1.75+-red)](https://www.rust-lang.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org/)
 
-🌐 **Website:** [https://openzktool.vercel.app](https://openzktool.vercel.app)
+**Website:** https://openzktool.vercel.app
 
 ## Demo
 
-See everything working in 5 minutes:
+Try it yourself:
 
 ```bash
 # Interactive mode
@@ -44,13 +44,11 @@ Shows:
 - Multi-chain verification (EVM + Soroban)
 - Privacy + compliance example
 
-Docs: [Complete Demo Guide](./DEMO_GUIDE_COMPLETE.md) | [Quick Start](./DEMO_README.md)
-
----
+See also: [Complete Demo Guide](./DEMO_GUIDE_COMPLETE.md) | [Quick Start](./DEMO_README.md)
 
 ## Quick Start
 
-### Option 1: Test everything
+### Run all tests
 
 ```bash
 npm install
@@ -58,15 +56,13 @@ npm test                    # auto mode
 npm run test:interactive    # with prompts
 ```
 
-Takes 3-5 minutes. Tests:
+Takes 3-5 minutes, runs:
 - Circuit compilation & trusted setup
 - Proof generation & local verification
 - EVM verification (Ethereum/Anvil)
 - Soroban verification (Stellar)
 
-### Option 2: Privacy demo (for non-technical folks)
-
-Alice proves she's eligible without revealing her data:
+### Privacy demo
 
 ```bash
 npm install
@@ -74,24 +70,18 @@ npm run setup
 npm run demo:privacy
 ```
 
-Takes 5-7 minutes. Alice proves:
-- Age ≥ 18, Balance ≥ $50, Country allowed
-- WITHOUT revealing her exact age (25), balance ($150), or country (Argentina)
-- Proof verified on both Ethereum and Stellar
+Proves: Age ≥ 18, Balance ≥ $50, Country allowed
+WITHOUT revealing exact values (age 25, balance $150, country Argentina)
 
-### Option 3: Multi-chain demo (for devs)
+### Multi-chain demo
 
 ```bash
 npm run demo
 ```
 
-Takes 5-7 minutes. Shows:
-- ZK proof generation
-- Verification on Ethereum (local testnet)
-- Verification on Stellar/Soroban
-- Multi-chain interoperability
+Shows ZK proof generation and verification on both Ethereum and Stellar.
 
-### Option 4: Individual commands
+### Individual commands
 
 ```bash
 npm run setup         # compile circuit & generate keys (one-time)
@@ -100,103 +90,41 @@ npm run demo:evm      # verify on Ethereum only
 npm run demo:soroban  # verify on Soroban only
 ```
 
----
-
 ## Video Demo
 
-[![Watch Demo](https://img.shields.io/badge/▶️_Watch_Demo-Google_Drive-red?style=for-the-badge)](https://drive.google.com/file/d/1SSQCAanCcpsVqp4rNuM3Vh6triRtknzt/view?usp=sharing)
-
-Shows full execution of `DEMO_AUTO=1 bash demo_video.sh`:
-- ZK proof generation with live logs
-- Ethereum verification with Foundry
-- Stellar/Soroban verification with Docker
-- Real blockchain evidence from both chains
-
-7 minutes, end-to-end.
-
----
+[Watch demo on Google Drive](https://drive.google.com/file/d/1SSQCAanCcpsVqp4rNuM3Vh6triRtknzt/view?usp=sharing) - Full execution showing proof generation, Ethereum verification with Foundry, and Stellar/Soroban verification. 7 minutes.
 
 ## Documentation
 
-**New to ZK proofs or blockchain?** Start with the [Simple Explanation](./docs/EXPLICACION_SIMPLE.md) to understand what we're building and why it matters for Stellar.
+If you're new to ZK proofs, start with the [Simple Explanation](./docs/EXPLICACION_SIMPLE.md).
 
-**For Stellar ecosystem stakeholders:**
-- [CAP-0059 Analysis](./docs/CAP_0059_ANALYSIS.md) - How this project relates to Stellar's BLS12-381 proposal
-- [Stellar Privacy Analysis](./docs/STELLAR_PRIVACY_ANALISIS.md) - Positioning within SDF's 2024 privacy roadmap
-- [FHE Integration Analysis](./docs/FHE_INTEGRATION_ANALYSIS.md) - Future AI privacy capabilities
+For Stellar ecosystem:
+- [CAP-0059 Analysis](./docs/CAP_0059_ANALYSIS.md) - How this relates to Stellar's BLS12-381 proposal
+- [Stellar Privacy Analysis](./docs/STELLAR_PRIVACY_ANALISIS.md) - SDF 2024 roadmap positioning
+- [FHE Integration Analysis](./docs/FHE_INTEGRATION_ANALYSIS.md) - AI privacy capabilities
 
-**For developers:**
-- [Documentation Hub](./docs/README.md) - Complete navigation to all docs
-- [Quick Start Guide](./docs/getting-started/quickstart.md) - 5-minute setup
-- [Testing Guide](./docs/testing/README.md) - Testing reference
-- [Troubleshooting Guide](./TROUBLESHOOTING.md) - Common issues and solutions
-
----
+For developers:
+- [Documentation Hub](./docs/README.md)
+- [Testing Guide](./docs/testing/README.md)
+- [Troubleshooting](./TROUBLESHOOTING.md)
 
 ## Architecture
 
-See how it works:
+[Architecture Overview](./docs/architecture/overview.md) - System design with diagrams showing multi-chain architecture (same proof verified on Ethereum and Stellar)
 
-### [Architecture Overview](./docs/architecture/overview.md)
-Visual guide with diagrams:
-- System overview (component interactions)
-- Multi-chain architecture (same proof, multiple blockchains)
-- Circuit structure (586 constraints)
-- Security properties & performance
+[Proof Flow](./docs/architecture/proof-flow.md) - Complete flow from setup to verification
 
-### [Proof Flow](./docs/architecture/proof-flow.md)
-Step-by-step technical flow:
-- Setup phase (one-time circuit compilation)
-- Proof generation (<1 second)
-- Verification (off-chain & on-chain)
-- Complete data flow example
-
-Key metrics:
+Performance:
 - Proof size: 800 bytes
-- Generation time: <1 second
+- Generation: <1 second
 - Verification: <50ms off-chain, ~200k gas on-chain
-- Circuit constraints: 586
-
----
-
-## Interactive Tutorial
-
-New to Zero-Knowledge Proofs?
-
-[Interactive Tutorial: Your First Privacy Proof](./docs/getting-started/interactive-tutorial.md)
-
-Learn by doing in 10 minutes:
-- Generate your first ZK proof (age ≥ 18 without revealing exact age)
-- Verify proofs locally and on-chain
-- Test on both Ethereum and Stellar
-- Experiment with different inputs
-
-Good for: devs new to ZK, hands-on learners, workshop participants.
-
----
+- Circuit: 586 constraints
 
 ## Integration Examples
 
-[View All Integration Examples](./examples/README.md)
+See [examples/](./examples/README.md) for React, Node.js, and custom circuit examples.
 
-Quick examples:
-
-**1. [React Integration](./examples/react-integration/)**
-- Browser-based proof generation
-- MetaMask + Freighter wallet support
-- UI with real-time status
-
-**2. [Node.js Backend](./examples/nodejs-backend/)**
-- REST API for proof verification
-- Database integration (SQLite)
-- Rate limiting & validation
-
-**3. [Custom Circuits](./examples/custom-circuit/)**
-- Build your own ZK circuits
-- Age verification, credit scores, Merkle proofs
-- Step-by-step from scratch
-
-Code snippet (browser):
+Browser example:
 ```javascript
 import { groth16 } from "snarkjs";
 
@@ -209,40 +137,13 @@ const { proof, publicSignals } = await groth16.fullProve(
 // publicSignals[0] === "1" means KYC passed
 ```
 
----
-
-## FAQ
-
-[Frequently Asked Questions](./docs/FAQ.md)
-
-Common questions:
-- What is a Zero-Knowledge Proof?
-- Which blockchains are supported?
-- Is it secure? Has it been audited?
-- How much does verification cost?
-- How do I integrate this into my app?
-- Can I create custom circuits?
-
-100+ questions covering general, technical, integration, multi-chain, security, and performance.
-
----
-
 ## What This Does
 
-### The Problem
-Public blockchains have no transaction privacy:
-- Every balance, counterparty, and amount is publicly visible
-- Sensitive business data ends up on-chain
-- Compliance requires selective auditability, not full privacy
+Public blockchains have zero transaction privacy - every balance, counterparty, and amount is visible on-chain. This is a problem for businesses and anyone who values privacy.
 
-### The Solution
-OpenZKTool uses ZK-SNARKs to:
-- Hide amounts, balances, and counterparties on-chain
-- Allow full disclosure to authorized auditors and regulators
-- Deploy in hours, not months
-- Built-in KYC/AML audit capabilities
+OpenZKTool uses ZK-SNARKs (Groth16) to prove things without revealing the underlying data. For example: prove you're over 18 without revealing your exact age, or prove you have enough balance without showing how much.
 
-### How It Works
+How it works:
 
 ```
 ┌─────────────────┐      ┌──────────────┐      ┌────────────────┐
@@ -260,138 +161,36 @@ OpenZKTool uses ZK-SNARKs to:
                                             └────────────────────┘
 ```
 
----
-
 ## Project Structure
 
 ```
-stellar-privacy-poc/
-├── circuits/                      # Circom circuits
-│   ├── kyc_transfer.circom       # Main KYC circuit (combines all checks)
-│   ├── range_proof.circom        # Age range validation
-│   ├── solvency_check.circom     # Balance verification
-│   ├── compliance_verify.circom  # Country allowlist check
-│   ├── scripts/                  # Circuit build scripts
-│   └── artifacts/                # Generated files (gitignored)
-│
-├── contracts/                     # Smart contract implementations
-│   └── src/                      # Rust contracts
-│
-├── evm/                          # EVM verifier contracts
-│   └── contracts/Verifier.sol    # Solidity Groth16 verifier
-│
-├── evm-verification/             # Ethereum/EVM verification
-│   ├── src/Verifier.sol         # Groth16 verifier contract
-│   └── test/VerifierTest.t.sol  # Foundry tests
-│
-├── soroban/                      # Stellar/Soroban verifier
-│   ├── src/
-│   │   ├── lib.rs               # Main verifier contract (v4)
-│   │   ├── field.rs             # BN254 field arithmetic
-│   │   ├── curve.rs             # G1/G2 curve operations
-│   │   ├── fq12.rs              # Fq12 tower extension
-│   │   └── pairing.rs           # Complete pairing implementation
-│   └── TEST_EXECUTION_GUIDE.md  # Testing guide
-│
-├── web/                          # Landing page
-│   ├── app/                     # Next.js application
-│   └── components/              # React components
-│
-├── docs/                         # Documentation
-│   ├── guides/                  # User guides and tutorials
-│   ├── architecture/            # Technical documentation
-│   ├── testing/                 # Testing documentation
-│   ├── deployment/              # Deployment guides
-│   ├── governance/              # Project governance
-│   └── analytics/               # Project management
-│
-├── scripts/                      # Executable scripts
-│   ├── demo/                    # Demo scripts
-│   ├── testing/                 # Test scripts
-│   └── pipeline/                # Build/deploy scripts
-│
-├── README.md
-├── LICENSE                      # AGPL-3.0-or-later
-└── package.json
+├── circuits/          # Circom ZK circuits (kyc_transfer.circom, etc.)
+├── soroban/           # Stellar/Soroban verifier (Rust)
+├── evm/               # EVM verifier (Solidity)
+├── docs/              # Documentation
+└── examples/          # Integration examples
 ```
 
-Note: All documentation in `docs/`, executable scripts in `scripts/`.
-
----
+See full structure in docs.
 
 ## Technical Details
 
-### Circuit: KYC Transfer
+**Circuit inputs:** age, balance, countryId (private) + minAge, maxAge, minBalance, allowedCountries (public)
 
-Inputs (private):
-- `age` - user's actual age
-- `balance` - user's actual balance
-- `countryId` - user's country code
+**Output:** kycValid (1 = pass, 0 = fail)
 
-Public parameters:
-- `minAge`, `maxAge` - age requirements (18-99)
-- `minBalance` - minimum required balance ($50)
+**Proof system:** Groth16 on BN254 curve, 586 constraints, ~800 byte proofs
 
-Output (public):
-- `kycValid` - 1 if all checks pass, 0 otherwise
-
-Constraints: 586
-Proof size: ~800 bytes
-Verification time: ~10-50ms (off-chain), ~250k gas (on-chain)
-
-### Proof System
-
-- Algorithm: Groth16 SNARK
-- Curve: BN254 (alt_bn128)
-- Trusted setup: Powers of Tau + circuit-specific setup
-- Security: Computational soundness (relies on hardness of discrete log)
-
----
-
-## Setup Instructions
-
-### Prerequisites
-
-```bash
-node --version   # >= v16
-circom --version # >= 2.1.9
-jq --version     # for JSON formatting
-```
-
-### Installation
+## Installation
 
 ```bash
 git clone https://github.com/fboiero/stellar-privacy-poc.git
 cd stellar-privacy-poc
 npm install
-
-# Initial setup (generates Powers of Tau + proving/verification keys)
-cd circuits/scripts
-bash prepare_and_setup.sh
+cd circuits/scripts && bash prepare_and_setup.sh  # one-time setup
 ```
 
-### Compile Circuits
-
-```bash
-cd circuits
-circom kyc_transfer.circom --r1cs --wasm --sym -o artifacts/ -l node_modules
-```
-
-### Generate a Proof
-
-```bash
-cd circuits/scripts
-bash prove_and_verify.sh
-```
-
-This will:
-1. Create sample input (`artifacts/input.json`)
-2. Generate witness
-3. Create ZK proof
-4. Verify the proof
-5. Export Solidity verifier
-
----
+Requirements: node >=16, circom >= 2.1.9
 
 ## Multi-Chain Deployment
 
@@ -463,213 +262,13 @@ Docs:
 - [Testing Strategy](docs/testing/TESTING_STRATEGY.md) - Test methodology
 - [Implementation Status](soroban/IMPLEMENTATION_STATUS.md) - Dev progress
 
-### Future Blockchain Support
+## Use Cases
 
-Planned:
-- Solana
-- Cosmos/IBC chains
-- Polkadot parachains
-- Other Layer 2s
+Age verification, solvency checks, country compliance - all provable without revealing exact values. See examples/ for code.
 
----
+## Digital Public Good (DPG)
 
-## Educational Resources
-
-What you'll learn:
-- What Zero-Knowledge Proofs are (intuitively)
-- How SNARKs work (technically)
-- Groth16 proof system workflow
-- Circom circuit development
-- Multi-chain deployment strategies
-
-Real-world applications:
-1. Privacy-preserving identity - KYC without revealing personal details
-2. Blockchain scalability - zkRollups (Polygon, zkSync, StarkNet)
-3. Private transactions - Zcash, Aztec Protocol
-4. Verifiable computation - AI/ML model verification
-5. Cross-chain bridges - Trustless state proofs
-6. Regulatory compliance - Prove tax compliance without revealing income
-
----
-
-## Example Use Cases
-
-### Age Verification
-
-```json
-{
-  "age": 25,
-  "minAge": 18,
-  "maxAge": 99
-}
-```
-
-Proof: "User is between 18-99"
-Hidden: Exact age (25)
-
-### Solvency Check
-
-```json
-{
-  "balance": 150,
-  "minBalance": 50
-}
-```
-
-Proof: "User has ≥ $50"
-Hidden: Exact balance ($150)
-
-### Country Compliance
-
-```json
-{
-  "countryId": 32
-}
-```
-
-Proof: "User is from allowed country"
-Hidden: Exact country (Argentina)
-
----
-
-## Products & Services (Planned)
-
-Full SDK will include:
-
-1. ZK Circuits (Circom)
-   - Prebuilt, audited circuits for private transfers, balance proofs, counterparty masking
-   - Optimized constraint systems
-
-2. Soroban Verification Contracts (Rust)
-   - Smart contracts on Soroban to verify ZK proofs on-chain
-   - Gas-optimized verification logic
-   - Mainnet ready
-
-3. JavaScript/TypeScript SDK
-   - Easy-to-use SDK for front-end/back-end developers
-   - Generate proofs and integrate with verification contracts
-   - Browser and Node.js support
-
-4. Banking Integration Layer
-   - Adapters for institutions (KYC/AML/audit disclosures)
-   - Authorized party disclosures
-   - Regulatory compliance tools
-
-5. Compliance Dashboard
-   - Dashboard for institutions and auditors
-   - Audit trails and proof verification status
-   - Monitoring and alerts
-
-6. Security Audit & Documentation
-   - Independent audit of circuits and contracts
-   - Complete documentation
-   - Best practices and integration guides
-
-### Current POC Status
-
-What's implemented:
-- ZK circuit (Circom) generating valid proofs
-- Soroban contract verifying proofs
-- SDK connecting components
-- Web demo showing flow
-- Multi-chain verification (EVM + Soroban)
-- Complete documentation
-
-Performance:
-- Proof generation: <1 second
-- Circuit constraints: ~100 (very efficient)
-- Contract deployed on testnet
-- End-to-end flow works
-
-Bottom line: Technical approach viable, performance acceptable, integration possible, ready to scale.
-
----
-
-## Technical Performance
-
-| Metric | Current POC | Production Target |
-|--------|-------------|-------------------|
-| Circuit Constraints | 586 | <10,000 |
-| Proof Size | ~800 bytes | <2KB |
-| Proof Generation | <1 second | <2 seconds |
-| Verification (off-chain) | ~10-50ms | <100ms |
-| Verification (Soroban) | Testnet | Mainnet ready |
-| Security Audit | Pending | Completed |
-
----
-
-## Digital Public Good (DPG) Compliance
-
-OpenZKTool complies with Digital Public Goods Alliance (DPGA) standards to be recognized as a Digital Public Good contributing to the UN Sustainable Development Goals (SDGs).
-
-### DPG Standard - 9 Indicators
-
-| Indicator | Requirement | Evidence | Status |
-|-----------|-------------|----------|--------|
-| 1. SDG Relevance | Alignment with SDGs | [SDG_MAPPING.md](./docs/governance/SDG_MAPPING.md) | Complete |
-| 2. Open License | Approved open source license | [LICENSE](./LICENSE) (AGPL-3.0) | Complete |
-| 3. Clear Ownership | Defined ownership | Team X1 - Xcapit Labs | Complete |
-| 4. Platform Independence | No vendor lock-in | [PLATFORM_INDEPENDENCE.md](./docs/architecture/PLATFORM_INDEPENDENCE.md) | Complete |
-| 5. Documentation | Technical documentation | [docs/](./docs/) | Complete |
-| 6. Non-PII Data | Non-PII data extraction | Proofs without PII, open formats | Complete |
-| 7. Privacy & Legal | Legal compliance | [PRIVACY.md](./docs/governance/PRIVACY.md) | Complete |
-| 8. Open Standards | Open standards | Groth16, Circom, Solidity, Rust | Complete |
-| 9. Do No Harm | Protection policies | [DO_NO_HARM.md](./docs/governance/DO_NO_HARM.md) | Complete |
-
-### SDG Contributions
-
-OpenZKTool contributes to:
-
-- SDG 9: Industry, Innovation and Infrastructure
-  - Open source privacy infrastructure for blockchains
-  - Financial technology innovation with ZK-SNARKs
-  - Multi-chain interoperability
-
-- SDG 10: Reduced Inequalities
-  - Financial privacy accessible to everyone (not just institutions)
-  - Prevents discrimination based on personal data
-  - Inclusion of 1.7 billion unbanked people
-
-- SDG 16: Peace, Justice and Strong Institutions
-  - Transparency with privacy (selective disclosure for regulators)
-  - Protection of fundamental freedoms (financial privacy)
-  - Accountable and auditable institutions
-
-- SDG 8: Decent Work and Economic Growth
-  - New economic opportunities in private DeFi
-  - Access to financial services (microcredit, remittances)
-  - Empowers entrepreneurs with free infrastructure
-
-Full details: [SDG_MAPPING.md](./docs/governance/SDG_MAPPING.md)
-
-### Compliance Documentation
-
-| Document | Description | Link |
-|----------|-------------|------|
-| CODE_OF_CONDUCT.md | Community code of conduct | [View](./docs/governance/CODE_OF_CONDUCT.md) |
-| SDG_MAPPING.md | Alignment with Sustainable Development Goals | [View](./docs/governance/SDG_MAPPING.md) |
-| PRIVACY.md | Privacy policy and data protection | [View](./docs/governance/PRIVACY.md) |
-| PLATFORM_INDEPENDENCE.md | Platform independence and alternatives | [View](./docs/architecture/PLATFORM_INDEPENDENCE.md) |
-| DO_NO_HARM.md | "Do No Harm by Design" policy | [View](./docs/governance/DO_NO_HARM.md) |
-| LICENSE | Open source license (AGPL-3.0) | [View](./LICENSE) |
-| SECURITY.md | Security policies and vulnerability reporting | [View](./SECURITY.md) |
-
-### DPGA Registry Application
-
-Status: Preparing for submission
-
-Next steps:
-1. Complete compliance documentation (done)
-2. Professional security audit (Q1 2026) - By UTN FRVM Blockchain Lab research team
-   - Francisco Anuar Ardúh (Principal Researcher)
-   - Joel Edgar Dellamaggiore Kuns (Blockchain Specialist)
-3. Formal DPGA submission
-4. Technical review by DPGA (30 days)
-5. Inclusion in DPG Registry
-
-More info: https://digitalpublicgoods.net/submission-guide
-
----
+OpenZKTool complies with DPGA standards. Meets all 9 DPG indicators, contributes to SDGs 8, 9, 10, 16. See [SDG_MAPPING.md](./docs/governance/SDG_MAPPING.md) and [governance docs](./docs/governance/).
 
 ## Security Considerations
 
