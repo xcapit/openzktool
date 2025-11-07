@@ -38,7 +38,7 @@ Welcome to the OpenZKTool documentation! This toolkit enables **privacy-preservi
 
 | Document | Description | Audience |
 |----------|-------------|----------|
-| [**Simple Explanation**](./EXPLICACION_SIMPLE.md) ⭐ | What we're building and why it matters for Stellar | Everyone |
+| [**Simple Explanation**](./SIMPLE_EXPLANATION.md) ⭐ | What we're building and why it matters for Stellar | Everyone |
 
 Read this first to understand the project's value proposition in simple terms.
 
@@ -51,7 +51,7 @@ Read this first to understand the project's value proposition in simple terms.
 | Document | Description | Key Insights |
 |----------|-------------|--------------|
 | [**CAP-0059 Analysis**](./CAP_0059_ANALYSIS.md) 🆕 | How Stellar's BLS12-381 proposal relates to this project | Future compatibility, Strategic positioning |
-| [**Stellar Privacy Analysis**](./STELLAR_PRIVACY_ANALISIS.md) 🆕 | How OpenZKTool fits into Stellar's privacy roadmap | SDF 2024 roadmap, Risc Zero comparison |
+| [**Stellar Privacy Analysis**](./STELLAR_PRIVACY_ANALYSIS.md) 🆕 | How OpenZKTool fits into Stellar's privacy roadmap | SDF 2024 roadmap, Risc Zero comparison |
 | [**FHE Integration Analysis**](./FHE_INTEGRATION_ANALYSIS.md) 🆕 | Fully Homomorphic Encryption for AI privacy use cases | 10-15 month roadmap, Budget: ~$200K |
 
 **Key Takeaways:**

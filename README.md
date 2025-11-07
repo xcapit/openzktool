@@ -143,11 +143,11 @@ npm run demo:soroban  # verify on Stellar Soroban
 
 ## Documentation
 
-If you're new to ZK proofs, start with the [Simple Explanation](./docs/EXPLICACION_SIMPLE.md).
+If you're new to ZK proofs, start with the [Simple Explanation](./docs/SIMPLE_EXPLANATION.md).
 
 Stellar ecosystem:
 - [CAP-0059 Analysis](./docs/CAP_0059_ANALYSIS.md) - How this relates to Stellar's BLS12-381 proposal
-- [Stellar Privacy Analysis](./docs/STELLAR_PRIVACY_ANALISIS.md) - SDF 2024 roadmap positioning
+- [Stellar Privacy Analysis](./docs/STELLAR_PRIVACY_ANALYSIS.md) - SDF 2024 roadmap positioning
 - [FHE Integration Analysis](./docs/FHE_INTEGRATION_ANALYSIS.md) - AI privacy capabilities
 
 Other docs:

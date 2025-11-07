@@ -1,394 +1,394 @@
-# FHE (Fully Homomorphic Encryption) - Análisis de Integración
+# FHE (Fully Homomorphic Encryption) - Integration Analysis
 
-## ¿Qué es FHE?
+## What is FHE?
 
-**Fully Homomorphic Encryption (FHE)** permite realizar **computaciones sobre datos CIFRADOS** sin necesidad de descifrarlos.
+**Fully Homomorphic Encryption (FHE)** allows performing **computations on ENCRYPTED data** without needing to decrypt it.
 
-### Explicación simple:
+### Simple explanation:
 
-FHE permite operar sobre datos cifrados:
-- Los datos permanecen cifrados durante toda la computación
-- Puedes sumar, multiplicar y hacer operaciones sin descifrar
-- Al final descifras y obtienes el resultado correcto
+FHE enables operations on encrypted data:
+- Data remains encrypted during the entire computation
+- You can add, multiply and perform operations without decrypting
+- At the end you decrypt and get the correct result
 
-**La ventaja:**
-Nadie puede ver los datos durante el procesamiento, ni siquiera el servidor que ejecuta las operaciones.
+**The advantage:**
+No one can see the data during processing, not even the server executing the operations.
 
-## FHE vs ZK Proofs: ¿Cuál es la diferencia?
+## FHE vs ZK Proofs: What's the difference?
 
-| Aspecto | ZK Proofs (Nuestro actual) | FHE (Propuesto) |
-|---------|---------------------------|-----------------|
-| **¿Qué hace?** | Prueba que algo es verdad SIN revelar datos | Computa sobre datos SIN descifrarlos |
-| **Ejemplo** | "Tengo más de 18 años" (sin decir tu edad) | "2+3=5" (sin ver el 2 ni el 3) |
-| **Uso** | Verificación de condiciones | Computación privada |
-| **Velocidad** | Rápido (~200ms) | Lento (segundos o minutos) |
-| **Tamaño** | Pequeño (~800 bytes) | Grande (varios KB) |
-| **Madurez** | Producción (Groth16) | Emergente (mejorando) |
+| Aspect | ZK Proofs (Current) | FHE (Proposed) |
+|---------|---------------------|----------------|
+| **What does it do?** | Proves something is true WITHOUT revealing data | Computes on data WITHOUT decrypting it |
+| **Example** | "I'm over 18" (without revealing your age) | "2+3=5" (without seeing the 2 or 3) |
+| **Use** | Condition verification | Private computation |
+| **Speed** | Fast (~200ms) | Slow (seconds or minutes) |
+| **Size** | Small (~800 bytes) | Large (several KB) |
+| **Maturity** | Production (Groth16) | Emerging (improving) |
 
-## ¿Dónde encaja FHE en OpenZKTool?
+## Where does FHE fit in OpenZKTool?
 
-### Arquitectura Propuesta:
+### Proposed Architecture:
 
 ```
-USUARIO                     COMPUTACIÓN                    BLOCKCHAIN
+USER                       COMPUTATION                    BLOCKCHAIN
 ┌──────────┐               ┌────────────┐                ┌─────────────┐
-│          │  Datos        │            │  Resultado     │             │
-│  Alice   │  Cifrados ───►│  FHE       │  Cifrado   ───►│  ZK Proof   │
+│          │  Encrypted    │            │  Encrypted     │             │
+│  Alice   │  Data     ───►│  FHE       │  Result    ───►│  ZK Proof   │
 │          │  (FHE)        │  Engine    │  + Proof       │  Verifier   │
 │          │               │            │                │  (Soroban)  │
 └──────────┘               └────────────┘                └─────────────┘
     ↑                                                           │
-    └───────────── Resultado descifrado ◄───────────────────────┘
+    └───────────── Decrypted result ◄───────────────────────────┘
 ```
 
-### Casos de Uso Combinados (FHE + ZK):
+### Combined Use Cases (FHE + ZK):
 
-#### 1. **Scoring de Crédito Privado**
+#### 1. **Private Credit Scoring**
 
-**Problema:** Un banco quiere calcular tu score de crédito sin ver tus datos financieros
+**Problem:** A bank wants to calculate your credit score without seeing your financial data
 
-**Solución con FHE + ZK:**
+**Solution with FHE + ZK:**
 ```
-1. Banco tiene modelo de scoring (secreto)
-2. Tu tienes datos financieros (secretos)
-3. FHE computa: score = modelo(tus_datos)  [todo cifrado]
-4. ZK proof demuestra: "score > 700" SIN revelar score exacto
-5. Banco acepta el préstamo basado en la prueba
-```
-
-**Beneficio:** Ni el banco ve tus datos, ni tú ves su modelo
-
-#### 2. **AI Model Inference Privado**
-
-**Problema:** Quieres usar un modelo de AI (ej: diagnóstico médico) sin revelar tus datos
-
-**Solución con FHE + ZK:**
-```
-1. Hospital tiene modelo AI (ej: detectar enfermedad)
-2. Tú envías síntomas CIFRADOS (FHE)
-3. Modelo computa predicción sobre datos cifrados
-4. ZK proof demuestra: "predicción correcta según el modelo"
-5. Solo tú puedes descifrar el resultado
+1. Bank has scoring model (secret)
+2. You have financial data (secret)
+3. FHE computes: score = model(your_data)  [all encrypted]
+4. ZK proof demonstrates: "score > 700" WITHOUT revealing exact score
+5. Bank approves loan based on the proof
 ```
 
-**Beneficio:** Privacidad total + verificación pública
+**Benefit:** Neither the bank sees your data, nor you see their model
 
-#### 3. **Trading Privado con Compliance**
+#### 2. **Private AI Model Inference**
 
-**Problema:** Traders no quieren revelar estrategias, pero exchanges necesitan verificar compliance
+**Problem:** You want to use an AI model (e.g., medical diagnosis) without revealing your data
 
-**Solución con FHE + ZK:**
+**Solution with FHE + ZK:**
 ```
-1. Trader cifra su orden: "comprar X cantidad a Y precio"
-2. Exchange computa matching usando FHE (sin ver detalles)
-3. ZK proof demuestra: "trade cumple límites regulatorios"
-4. Trade se ejecuta sin revelar estrategia del trader
+1. Hospital has AI model (e.g., disease detection)
+2. You send ENCRYPTED symptoms (FHE)
+3. Model computes prediction on encrypted data
+4. ZK proof demonstrates: "prediction correct according to model"
+5. Only you can decrypt the result
 ```
 
-## FHE en el Contexto de Stellar
+**Benefit:** Total privacy + public verification
 
-### ¿Qué dijo Stellar sobre FHE?
+#### 3. **Private Trading with Compliance**
 
-Según la estrategia de privacidad de Stellar:
-- **"Proponen host functions para soportar homomorphic encryption"**
-- Partnership con **Zama** (líder en FHE)
-- Parte del roadmap de **Confidential Tokens**
+**Problem:** Traders don't want to reveal strategies, but exchanges need to verify compliance
 
-### Cómo OpenZKTool puede liderar:
+**Solution with FHE + ZK:**
+```
+1. Trader encrypts their order: "buy X amount at Y price"
+2. Exchange computes matching using FHE (without seeing details)
+3. ZK proof demonstrates: "trade meets regulatory limits"
+4. Trade executes without revealing trader's strategy
+```
 
-**Somos los primeros en implementar la COMBINACIÓN FHE + ZK en Stellar**
+## FHE in Stellar Context
 
-## Propuesta de Integración: Roadmap Técnico
+### What did Stellar say about FHE?
 
-### FASE 1: Investigación (1-2 meses)
+According to Stellar's privacy strategy:
+- **"Propose host functions to support homomorphic encryption"**
+- Partnership with **Zama** (FHE leader)
+- Part of **Confidential Tokens** roadmap
 
-**Objetivo:** Entender bibliotecas FHE y diseñar arquitectura
+### How OpenZKTool can lead:
 
-**Tareas:**
-- [ ] Evaluar bibliotecas FHE:
-  - TFHE-rs (Zama) - Rust nativo
-  - Concrete (Zama) - Framework completo
-  - Microsoft SEAL - Alternativa madura
-  - OpenFHE - Open source completo
+**We're the first to implement the FHE + ZK COMBINATION on Stellar**
 
-- [ ] Diseñar arquitectura híbrida FHE + ZK
-- [ ] Prototipo simple: suma FHE → ZK proof del resultado
-- [ ] Benchmarks de performance
+## Integration Proposal: Technical Roadmap
 
-**Entregable:** Documento técnico de diseño
+### PHASE 1: Research (1-2 months)
 
-### FASE 2: Implementación Core (2-3 meses)
+**Goal:** Understand FHE libraries and design architecture
 
-**Objetivo:** Implementar engine FHE básico off-chain
+**Tasks:**
+- [ ] Evaluate FHE libraries:
+  - TFHE-rs (Zama) - Native Rust
+  - Concrete (Zama) - Complete framework
+  - Microsoft SEAL - Mature alternative
+  - OpenFHE - Complete open source
 
-**Tareas:**
-- [ ] Wrapper Rust para biblioteca FHE elegida
-- [ ] API para cifrado/descifrado de datos
-- [ ] Operaciones básicas: suma, multiplicación
-- [ ] Integración con generación de ZK proofs
-- [ ] Tests de correctness
+- [ ] Design hybrid FHE + ZK architecture
+- [ ] Simple prototype: FHE addition → ZK proof of result
+- [ ] Performance benchmarks
 
-**Entregable:** FHE engine funcional off-chain
+**Deliverable:** Technical design document
 
-### FASE 3: Integración con Soroban (3-4 meses)
+### PHASE 2: Core Implementation (2-3 months)
 
-**Objetivo:** Verificación de computaciones FHE en Soroban
+**Goal:** Implement basic FHE engine off-chain
 
-**Desafío:** Soroban aún no tiene host functions FHE nativas
+**Tasks:**
+- [ ] Rust wrapper for chosen FHE library
+- [ ] API for data encryption/decryption
+- [ ] Basic operations: addition, multiplication
+- [ ] Integration with ZK proof generation
+- [ ] Correctness tests
 
-**Opciones:**
+**Deliverable:** Functional off-chain FHE engine
 
-**Opción A: Verificación ZK de Computaciones FHE**
+### PHASE 3: Soroban Integration (3-4 months)
+
+**Goal:** Verification of FHE computations in Soroban
+
+**Challenge:** Soroban doesn't have native FHE host functions yet
+
+**Options:**
+
+**Option A: ZK Verification of FHE Computations**
 ```rust
-// Off-chain: Computación FHE
-let resultado_cifrado = fhe_compute(datos_cifrados);
+// Off-chain: FHE Computation
+let encrypted_result = fhe_compute(encrypted_data);
 
-// Off-chain: Generar ZK proof de la computación
+// Off-chain: Generate ZK proof of computation
 let proof = generate_proof(
-    "La computación FHE fue correcta",
-    resultado_cifrado
+    "The FHE computation was correct",
+    encrypted_result
 );
 
-// On-chain: Verificar proof en Soroban
-contract.verify_fhe_computation(proof, resultado_cifrado)
+// On-chain: Verify proof in Soroban
+contract.verify_fhe_computation(proof, encrypted_result)
 ```
 
-**Opción B: Esperar host functions de Stellar**
-- Monitorear roadmap de Stellar
-- Cuando lancen FHE nativo, migrar
-- Mientras tanto, usar opción A
+**Option B: Wait for Stellar host functions**
+- Monitor Stellar roadmap
+- When they launch native FHE, migrate
+- Meanwhile, use option A
 
-**Tareas:**
-- [ ] Implementar circuito Circom para verificar computaciones FHE
-- [ ] Adaptar contrato Soroban para verificar estos proofs
-- [ ] Pipeline completo: FHE → ZK Proof → Verificación Soroban
+**Tasks:**
+- [ ] Implement Circom circuit to verify FHE computations
+- [ ] Adapt Soroban contract to verify these proofs
+- [ ] Complete pipeline: FHE → ZK Proof → Soroban Verification
 
-**Entregable:** Sistema FHE verificable en blockchain
+**Deliverable:** Blockchain-verifiable FHE system
 
-### FASE 4: Casos de Uso con AI (4-6 meses)
+### PHASE 4: AI Use Cases (4-6 months)
 
-**Objetivo:** Demostrar AI privado en Stellar
+**Goal:** Demonstrate private AI on Stellar
 
-**Caso de Uso Principal: Credit Scoring Privado**
+**Main Use Case: Private Credit Scoring**
 
-**Arquitectura:**
+**Architecture:**
 ```
-[Usuario]
-   ↓ Datos financieros cifrados (FHE)
+[User]
+   ↓ Encrypted financial data (FHE)
 [FHE Compute Engine]
-   ↓ Score cifrado + ZK proof "score > threshold"
+   ↓ Encrypted score + ZK proof "score > threshold"
 [Soroban Smart Contract]
-   ↓ Verifica ZK proof
+   ↓ Verifies ZK proof
 [DeFi Protocol]
-   ↓ Aprueba préstamo basado en verificación
+   ↓ Approves loan based on verification
 ```
 
-**Implementación:**
+**Implementation:**
 ```rust
-// 1. Usuario cifra datos
+// 1. User encrypts data
 let encrypted_data = fhe_encrypt([
     balance: 1000,
     credit_history: 0.95,
     debt_ratio: 0.3
 ]);
 
-// 2. FHE computa score sin descifrar
+// 2. FHE computes score without decrypting
 let encrypted_score = fhe_compute_credit_score(encrypted_data);
 
-// 3. Generar ZK proof del resultado
+// 3. Generate ZK proof of result
 let proof = prove_score_above_threshold(
     encrypted_score,
     threshold: 700
 );
 
-// 4. Verificar on-chain
+// 4. Verify on-chain
 soroban_contract.verify_and_approve(proof);
 ```
 
-**Tareas:**
-- [ ] Implementar modelo ML simple (scoring) en FHE
-- [ ] Integrar con ZK proof generation
-- [ ] Desplegar en testnet de Stellar
-- [ ] Demo interactivo
+**Tasks:**
+- [ ] Implement simple ML model (scoring) in FHE
+- [ ] Integrate with ZK proof generation
+- [ ] Deploy on Stellar testnet
+- [ ] Interactive demo
 
-**Entregable:** AI privado funcionando en Stellar
+**Deliverable:** Private AI working on Stellar
 
-## Estimación de Esfuerzo
+## Effort Estimation
 
-### Equipo Necesario:
+### Required Team:
 - 1 Cryptographer/FHE specialist
 - 1 Rust developer (Soroban)
-- 1 ML engineer (para casos de AI)
-- 1 DevOps (infraestructura)
+- 1 ML engineer (for AI cases)
+- 1 DevOps (infrastructure)
 
-### Timeline Total: 10-15 meses
+### Total Timeline: 10-15 months
 ```
-Mes 1-2:   Investigación y diseño
-Mes 3-5:   FHE engine off-chain
-Mes 6-9:   Integración Soroban
-Mes 10-15: Casos de uso AI
+Month 1-2:   Research and design
+Month 3-5:   Off-chain FHE engine
+Month 6-9:   Soroban integration
+Month 10-15: AI use cases
 ```
 
-### Presupuesto Estimado:
-- Investigación: $20K
-- Desarrollo core FHE: $60K
-- Integración Soroban: $50K
-- Casos de uso AI: $70K
+### Estimated Budget:
+- Research: $20K
+- Core FHE development: $60K
+- Soroban integration: $50K
+- AI use cases: $70K
 - **Total: ~$200K**
 
-## Comparación con Competencia
+## Competition Comparison
 
-### Proyectos que usan FHE:
+### Projects using FHE:
 
-| Proyecto | Blockchain | Estado | FHE Library |
-|----------|-----------|--------|-------------|
+| Project | Blockchain | Status | FHE Library |
+|---------|-----------|--------|-------------|
 | **Fhenix** | Ethereum | Testnet | TFHE-rs |
 | **Zama** | Multi-chain | SDK | Concrete |
 | **Secret Network** | Cosmos | Mainnet | Custom |
-| **OpenZKTool + FHE** | **Stellar** | **Propuesto** | **TFHE-rs** |
+| **OpenZKTool + FHE** | **Stellar** | **Proposed** | **TFHE-rs** |
 
-### Nuestra Ventaja Competitiva:
+### Our Competitive Advantage:
 
-1. **Combinación única FHE + ZK**
-   - Otros hacen FHE O ZK, no ambos
-   - Nosotros usamos FHE para computar, ZK para verificar
+1. **Unique FHE + ZK combination**
+   - Others do FHE OR ZK, not both
+   - We use FHE to compute, ZK to verify
 
-2. **Enfoque en AI**
-   - Pocos proyectos hacen AI privado on-chain
-   - Mercado emergente muy relevante
+2. **Focus on AI**
+   - Few projects do private AI on-chain
+   - Very relevant emerging market
 
-3. **Stellar como plataforma**
-   - Más barato que Ethereum
-   - Partnership Zama-Stellar (alignación estratégica)
-   - Menos competencia que Ethereum
+3. **Stellar as platform**
+   - Cheaper than Ethereum
+   - Zama-Stellar partnership (strategic alignment)
+   - Less competition than Ethereum
 
-## Riesgos y Mitigaciones
+## Risks and Mitigations
 
-### Riesgo 1: Performance de FHE
-**Problema:** FHE es LENTO (10-100x más que computación normal)
+### Risk 1: FHE Performance
+**Problem:** FHE is SLOW (10-100x slower than normal computation)
 
-**Mitigación:**
-- Usar solo para computaciones críticas
-- Optimizar con hardware (GPU/FPGA)
-- Usar esquemas FHE más rápidos (TFHE vs BGV)
+**Mitigation:**
+- Use only for critical computations
+- Optimize with hardware (GPU/FPGA)
+- Use faster FHE schemes (TFHE vs BGV)
 
-### Riesgo 2: Tamaño de datos cifrados
-**Problema:** Datos FHE son GRANDES (expansión 100-1000x)
+### Risk 2: Encrypted data size
+**Problem:** FHE data is LARGE (100-1000x expansion)
 
-**Mitigación:**
-- Computación off-chain, solo proof on-chain
-- Comprimir resultados cifrados
-- Usar técnicas de batching
+**Mitigation:**
+- Off-chain computation, only proof on-chain
+- Compress encrypted results
+- Use batching techniques
 
-### Riesgo 3: Complejidad de integración
-**Problema:** FHE + ZK + Soroban es técnicamente complejo
+### Risk 3: Integration complexity
+**Problem:** FHE + ZK + Soroban is technically complex
 
-**Mitigación:**
-- Desarrollo incremental por fases
-- Prototipo simple primero
-- Consultoría con expertos (Zama, Nethermind)
+**Mitigation:**
+- Incremental development by phases
+- Simple prototype first
+- Expert consultation (Zama, Nethermind)
 
-### Riesgo 4: Stellar puede lanzar solución propia
-**Problema:** Si Stellar lanza FHE nativo, nuestro trabajo puede quedar obsoleto
+### Risk 4: Stellar may launch their own solution
+**Problem:** If Stellar launches native FHE, our work may become obsolete
 
-**Mitigación:**
-- Código modular y adaptable
-- Enfoque en casos de uso únicos (AI)
+**Mitigation:**
+- Modular and adaptable code
+- Focus on unique use cases (AI)
 - Early adopter advantage
 
-## Recomendación Final
+## Final Recommendation
 
-### ¿Deberíamos integrar FHE?
+### Should we integrate FHE?
 
-**SÍ, pero estratégicamente:**
+**YES, but strategically:**
 
-### Enfoque Recomendado: **"AI Privado como Diferenciador"**
+### Recommended Approach: **"Private AI as Differentiator"**
 
-**En lugar de:**
-"Agreguemos FHE porque Stellar lo mencionó"
+**Instead of:**
+"Let's add FHE because Stellar mentioned it"
 
-**Hagamos:**
-"Seamos los primeros en AI privado verificable en Stellar usando FHE + ZK"
+**Let's do:**
+"Be the first in verifiable private AI on Stellar using FHE + ZK"
 
-### Propuesta de Valor Única:
+### Unique Value Proposition:
 
 ```
 OpenZKTool = ZK Proofs + FHE + AI + Stellar
                 ↓
-"La única plataforma para inferencia AI privada
- verificable en blockchain, 25x más barata que Ethereum"
+"The only platform for verifiable private AI inference
+ on blockchain, 25x cheaper than Ethereum"
 ```
 
-### Casos de Uso Killer:
+### Killer Use Cases:
 
-1. **Credit Scoring sin revelar finanzas**
-   - Mercado: DeFi, préstamos
-   - Diferenciador: Privacidad total
+1. **Credit Scoring without revealing finances**
+   - Market: DeFi, lending
+   - Differentiator: Total privacy
 
-2. **Health diagnostics sin revelar historial médico**
-   - Mercado: Healthcare blockchain
-   - Diferenciador: HIPAA compliant
+2. **Health diagnostics without revealing medical history**
+   - Market: Healthcare blockchain
+   - Differentiator: HIPAA compliant
 
-3. **Trading signals sin revelar estrategia**
-   - Mercado: Finance, exchanges
-   - Diferenciador: IP protection
+3. **Trading signals without revealing strategy**
+   - Market: Finance, exchanges
+   - Differentiator: IP protection
 
-### Roadmap Sugerido:
+### Suggested Roadmap:
 
-**Corto Plazo (3-6 meses):**
-- ✅ Completar ZK implementation actual
-- ✅ Lanzar en mainnet de Stellar
-- ✅ Ganar tracción con casos de uso actuales
+**Short Term (3-6 months):**
+- ✅ Complete current ZK implementation
+- ✅ Launch on Stellar mainnet
+- ✅ Gain traction with current use cases
 
-**Medio Plazo (6-12 meses):**
-- 🔬 Investigación FHE + prototipo
-- 🤝 Partnership con Zama o Stellar
-- 📊 Piloto de credit scoring privado
+**Medium Term (6-12 months):**
+- 🔬 FHE research + prototype
+- 🤝 Partnership with Zama or Stellar
+- 📊 Private credit scoring pilot
 
-**Largo Plazo (12-24 meses):**
-- 🚀 Lanzar AI privado en producción
-- 🌐 Expandir a más casos de uso AI
-- 🏆 Posicionarse como líder en Private AI on Stellar
+**Long Term (12-24 months):**
+- 🚀 Launch private AI in production
+- 🌐 Expand to more AI use cases
+- 🏆 Position as leader in Private AI on Stellar
 
-## Alternativa: AI sin FHE (más simple)
+## Alternative: AI without FHE (simpler)
 
-Si FHE es demasiado complejo/costoso, podemos hacer **AI privado solo con ZK:**
+If FHE is too complex/costly, we can do **private AI with ZK only:**
 
-### Enfoque Simplificado:
+### Simplified Approach:
 
 ```
-1. Usuario computa modelo AI localmente (off-chain)
-2. Genera ZK proof: "corrí el modelo correctamente y resultado > X"
-3. Verifica proof en Soroban
-4. Nadie ve los datos de entrada ni el resultado exacto
+1. User computes AI model locally (off-chain)
+2. Generates ZK proof: "ran model correctly and result > X"
+3. Verifies proof in Soroban
+4. No one sees input data or exact result
 ```
 
-**Ventaja:** Más simple, más rápido
-**Desventaja:** No permite computación delegada (usuario debe tener el modelo)
+**Advantage:** Simpler, faster
+**Disadvantage:** Doesn't allow delegated computation (user must have the model)
 
-## Resumen ejecutivo
+## Executive Summary
 
-**¿Agregar FHE al proyecto?**
+**Should we add FHE to the project?**
 
-**Respuesta corta:** Sí, pero no inmediatamente.
+**Short answer:** Yes, but not immediately.
 
 **Plan:**
-1. **Ahora:** Consolidar ZK proofs en Stellar (lo que tenemos)
-2. **Después (6 meses):** Agregar FHE para AI privado
-3. **Diferenciador:** AI privado verificable en Stellar
+1. **Now:** Consolidate ZK proofs on Stellar (what we have)
+2. **Later (6 months):** Add FHE for private AI
+3. **Differentiator:** Verifiable private AI on Stellar
 
-**Estrategia:**
-Primero consolidamos la base (ZK proofs).
-Después agregamos capacidades avanzadas (FHE).
-Finalmente nos posicionamos como líderes en AI privado en Stellar.
+**Strategy:**
+First we consolidate the foundation (ZK proofs).
+Then we add advanced capabilities (FHE).
+Finally we position ourselves as leaders in private AI on Stellar.
 
-**Beneficio:**
-- Posicionamiento único en mercado emergente (Private AI)
-- Alineación con roadmap de Stellar (FHE support)
-- Casos de uso con demanda real (credit scoring, healthcare)
+**Benefit:**
+- Unique positioning in emerging market (Private AI)
+- Alignment with Stellar roadmap (FHE support)
+- Use cases with real demand (credit scoring, healthcare)
 
 ---
 
-*Análisis técnico preparado para: Team Xcapit Labs*
-*Fecha: Noviembre 2024*
-*Repositorio: https://github.com/xcapit/openzktool*
+*Technical analysis prepared for: Team Xcapit Labs*
+*Date: November 2024*
+*Repository: https://github.com/xcapit/openzktool*
