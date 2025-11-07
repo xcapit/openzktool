@@ -72,6 +72,7 @@ Read this first to understand the project's value proposition in simple terms.
 | [**Cryptographic Comparison**](./architecture/CRYPTOGRAPHIC_COMPARISON.md) | EVM vs Soroban crypto implementation | BN254, Pairing, Performance |
 | [**Cryptographic Analysis**](./technical/CRYPTOGRAPHIC_ANALYSIS.md) | Deep dive into cryptographic primitives | Groth16, BN254 curve, Security proofs |
 | [**Contracts Architecture**](./architecture/CONTRACTS_ARCHITECTURE.md) | Smart contract design patterns | Groth16 verifier, Gas optimization |
+| [**Compliance Layer**](./architecture/compliance_layer.md) | Compliance and privacy balance | Selective disclosure, Audit trails |
 | [**Platform Independence**](./architecture/PLATFORM_INDEPENDENCE.md) | Multi-chain compatibility strategy | Portability, Alternatives |
 | [**Scripts Overview**](./architecture/SCRIPTS_OVERVIEW.md) | Build & deployment scripts explained | Automation, CI/CD |
 
@@ -122,14 +123,13 @@ npm run test:interactive    # Interactive testing
 | Document | Description | Duration |
 |----------|-------------|----------|
 | [**QUICKSTART**](./guides/QUICKSTART.md) | Get started in 1 command | 2 min |
-| [**QUICK_START**](./guides/QUICK_START.md) | Alternative quick start guide | 5 min |
-| [**DEMO**](./guides/DEMO.md) | Detailed step-by-step demo guide | 10 min |
-| [**DEMO_GUIDE**](./guides/DEMO_GUIDE.md) | Complete demonstration walkthrough | 15 min |
-| [**COMPLETE_DEMO**](./guides/COMPLETE_DEMO.md) | Full feature demonstration | 20 min |
+| [**RUN_DEMO**](./guides/RUN_DEMO.md) | Run SDF demo with video recording | 5 min |
+| [**DEMO_GUIDE_COMPLETE**](./guides/DEMO_GUIDE_COMPLETE.md) | Complete demonstration walkthrough | 15 min |
 | [**COMPLETE_TUTORIAL**](./guides/COMPLETE_TUTORIAL.md) | End-to-end tutorial | 30 min |
-| [**VIDEO_DEMO**](./guides/VIDEO_DEMO.md) | Tips for recording demo videos | - |
+| [**VIDEO_DEMO_QUICKSTART**](./guides/VIDEO_DEMO_QUICKSTART.md) | Tips for recording demo videos | - |
+| [**SDK_GUIDE**](./guides/SDK_GUIDE.md) | SDK integration guide | - |
 
-**Recommended for presentations:** DEMO_GUIDE or VIDEO_DEMO
+**Recommended for presentations:** DEMO_GUIDE_COMPLETE or VIDEO_DEMO_QUICKSTART
 
 ---
 

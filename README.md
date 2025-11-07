@@ -106,7 +106,7 @@ Stellar ecosystem:
 Other docs:
 - [Documentation Hub](./docs/README.md)
 - [Testing Guide](./docs/testing/README.md)
-- [Troubleshooting](./TROUBLESHOOTING.md)
+- [Troubleshooting](./docs/TROUBLESHOOTING.md)
 
 ## Architecture
 
