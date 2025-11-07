@@ -18,23 +18,24 @@ echo ""
 CIRCUIT_NAME="kyc_transfer"
 CIRCUIT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 BUILD_DIR="$CIRCUIT_DIR/build"
+ROOT_DIR="$(cd "$CIRCUIT_DIR/.." && pwd)"
 
 cd "$CIRCUIT_DIR"
 
 # Check dependencies
 echo -e "${YELLOW}Checking dependencies...${NC}"
 
-# Check if npm dependencies are installed (check both circuits/ and root node_modules)
-if [ ! -d "../../node_modules/circomlib" ] && [ ! -d "node_modules/circomlib" ]; then
+# Check if npm dependencies are installed (check root node_modules)
+if [ ! -d "$ROOT_DIR/node_modules/circomlib" ]; then
     echo -e "${RED}Error: npm dependencies not found${NC}"
     echo ""
     echo -e "${YELLOW}You must run 'npm install' first from the project root:${NC}"
     echo ""
-    echo "  cd ../.."
+    echo "  cd $ROOT_DIR"
     echo "  npm install"
     echo "  npm run setup"
     echo ""
-    echo -e "${CYAN}Full guide: ../../INSTALL.md${NC}"
+    echo -e "${CYAN}Full guide: $ROOT_DIR/INSTALL.md${NC}"
     exit 1
 fi
 
@@ -74,12 +75,8 @@ mkdir -p "$BUILD_DIR"
 # Step 1: Compile circuit
 echo -e "${YELLOW}[1/6] Compiling circuit...${NC}"
 
-# Use root node_modules if available, otherwise use local
-if [ -d "../../node_modules" ]; then
-    NODE_MODULES_PATH="../../node_modules"
-else
-    NODE_MODULES_PATH="node_modules"
-fi
+# Use root node_modules
+NODE_MODULES_PATH="$ROOT_DIR/node_modules"
 
 circom ${CIRCUIT_NAME}.circom \
     --r1cs \

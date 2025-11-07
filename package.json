@@ -14,8 +14,8 @@
     "demo:video": "bash scripts/demo/demo_video.sh",
     "demo:evm": "cd evm-verification && bash verify_on_chain.sh",
     "demo:soroban": "cd soroban && bash verify_on_chain.sh",
-    "setup": "cd circuits/scripts && bash prepare_and_setup.sh",
-    "prove": "cd circuits/scripts && bash prove_and_verify.sh"
+    "setup": "bash circuits/scripts/prepare_and_setup.sh",
+    "prove": "bash circuits/scripts/prove_and_verify.sh"
   },
   "repository": {
     "type": "git",

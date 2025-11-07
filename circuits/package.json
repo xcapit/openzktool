@@ -1,0 +1,17 @@
+{
+  "name": "openzktool-circuits",
+  "version": "0.2.0",
+  "description": "Circom circuits for OpenZKTool ZK-SNARK toolkit",
+  "private": true,
+  "scripts": {
+    "setup": "bash scripts/prepare_and_setup.sh"
+  },
+  "keywords": [
+    "circom",
+    "zero-knowledge",
+    "zk-snark",
+    "groth16"
+  ],
+  "author": "Team X1 - Xcapit Labs",
+  "license": "AGPL-3.0-or-later"
+}
