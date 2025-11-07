@@ -45,7 +45,25 @@ sh demo_sdf_video.sh
 - Press Enter 7 times manually, or
 - Use the automated version: `bash demo_sdf_video.sh <<< $'\n\n\n\n\n\n\n'`
 
-### Issue 3: Circuit artifacts missing
+### Issue 3: Script hangs during proof generation
+
+**Symptom:** Script stops after showing proof data, doesn't continue to next step
+
+**Cause:** Multiple proof generation processes running simultaneously
+
+**Solution:**
+```bash
+# Kill any stuck processes
+killall node
+
+# Wait a moment
+sleep 2
+
+# Run demo again
+bash demo_sdf_video.sh
+```
+
+### Issue 4: Circuit artifacts missing
 
 **Symptom:** Error about missing `.wasm` or `.zkey` files
 

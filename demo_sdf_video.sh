@@ -126,15 +126,28 @@ if [ ! -d "node_modules" ]; then
     npm install --silent > /dev/null 2>&1
 fi
 
-# Generate proof and measure time
+# Generate proof and measure time with visual feedback
 START_TIME=$(date +%s%N)
-node generateProof.js --age 25 --balance 150 --country 11 > /tmp/proof_output.txt 2>&1
-PROOF_EXIT_CODE=$?
-END_TIME=$(date +%s%N)
 
+# Run proof generation in background
+node generateProof.js --age 25 --balance 150 --country 11 > /tmp/proof_output.txt 2>&1 &
+PROOF_PID=$!
+
+# Show progress indicator while waiting
+echo -n "  "
+while kill -0 $PROOF_PID 2>/dev/null; do
+    echo -n "."
+    sleep 0.3
+done
+wait $PROOF_PID
+PROOF_EXIT_CODE=$?
+echo ""
+
+END_TIME=$(date +%s%N)
 PROOF_TIME=$(( (END_TIME - START_TIME) / 1000000 ))
 
 # Show only the important lines from proof generation
+echo ""
 grep -E "(Generating witness|Done in|Proof generated|KYC Valid)" /tmp/proof_output.txt || cat /tmp/proof_output.txt
 
 echo ""
