@@ -209,10 +209,14 @@ async function generateProof(inputs) {
 if (require.main === module) {
   const params = parseArgs();
   validateInputs(params);
-  generateProof(params).catch(error => {
-    console.error('Fatal error:', error);
-    process.exit(1);
-  });
+  generateProof(params)
+    .then(() => {
+      process.exit(0);
+    })
+    .catch(error => {
+      console.error('Fatal error:', error);
+      process.exit(1);
+    });
 }
 
 module.exports = { generateProof };
