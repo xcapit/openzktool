@@ -1,12 +1,12 @@
 # OpenZKTool
 
-**Open source ZK-SNARK toolkit for multi-chain privacy**
+**Open source ZK-SNARK toolkit for Stellar with multi-chain support**
 
 *Status: Proof of Concept*
 
-A toolkit for building privacy-preserving applications using ZK-SNARKs across multiple blockchains. Supports both Stellar Soroban and EVM chains with compliance-friendly features.
+A toolkit for building privacy-preserving applications using ZK-SNARKs on Stellar Soroban. Complete Groth16 verifier implementation in Rust. Also supports EVM chains.
 
-The goal is simple: make Zero-Knowledge Proofs accessible to developers who want to add privacy to their dApps without losing the ability to comply with regulations when needed.
+Make Zero-Knowledge Proofs accessible to developers who want to add privacy to their dApps without losing the ability to comply with regulations.
 
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%203.0-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![GitHub Stars](https://img.shields.io/github/stars/fboiero/stellar-privacy-poc?style=social)](https://github.com/fboiero/stellar-privacy-poc)
@@ -41,7 +41,7 @@ DEMO_AUTO=1 ./DEMO_COMPLETE.sh
 Shows:
 - ZK proof generation
 - Local verification (<50ms)
-- Multi-chain verification (EVM + Soroban)
+- Soroban verification on Stellar
 - Privacy + compliance example
 
 See also: [Complete Demo Guide](./DEMO_GUIDE_COMPLETE.md) | [Quick Start](./DEMO_README.md)
@@ -59,8 +59,8 @@ npm run test:interactive    # with prompts
 Takes 3-5 minutes, runs:
 - Circuit compilation & trusted setup
 - Proof generation & local verification
-- EVM verification (Ethereum/Anvil)
-- Soroban verification (Stellar)
+- Soroban verification on Stellar testnet
+- Optional: EVM verification (local)
 
 ### Privacy demo
 
@@ -98,12 +98,12 @@ npm run demo:soroban  # verify on Soroban only
 
 If you're new to ZK proofs, start with the [Simple Explanation](./docs/EXPLICACION_SIMPLE.md).
 
-For Stellar ecosystem:
+Stellar ecosystem:
 - [CAP-0059 Analysis](./docs/CAP_0059_ANALYSIS.md) - How this relates to Stellar's BLS12-381 proposal
 - [Stellar Privacy Analysis](./docs/STELLAR_PRIVACY_ANALISIS.md) - SDF 2024 roadmap positioning
 - [FHE Integration Analysis](./docs/FHE_INTEGRATION_ANALYSIS.md) - AI privacy capabilities
 
-For developers:
+Other docs:
 - [Documentation Hub](./docs/README.md)
 - [Testing Guide](./docs/testing/README.md)
 - [Troubleshooting](./TROUBLESHOOTING.md)
@@ -192,75 +192,48 @@ cd circuits/scripts && bash prepare_and_setup.sh  # one-time setup
 
 Requirements: node >=16, circom >= 2.1.9
 
-## Multi-Chain Deployment
-
-### Ethereum / EVM Chains
-
-Verifier: `circuits/evm/Verifier.sol`
-
-Status: Fully implemented and tested on Ethereum
-
-Deployment ready for:
-- Ethereum (Mainnet, Sepolia)
-- Polygon, BSC, Arbitrum, Optimism, Base (same contract, needs deployment)
-
-```bash
-# Deploy to your target network
-npx hardhat run scripts/deploy.js --network polygon
-```
-
-Gas cost: ~250,000-300,000 gas per verification
-
-Usage:
-```solidity
-bool valid = verifier.verifyProof(proof, publicSignals);
-if (valid) {
-    // User passed KYC, allow transaction
-}
-```
+## Blockchain Deployment
 
 ### Stellar Soroban
 
-Verifier: `soroban/src/lib.rs`
+Verifier contract: `soroban/src/lib.rs`
 
-Status: Version 4 - Complete BN254 pairing implementation
+Complete BN254 Groth16 implementation in Rust:
+- Full field arithmetic (Fq, Fq2, Fq6, Fq12) with Montgomery form
+- G1/G2 elliptic curve operations
+- Optimal ate pairing with Miller loop
+- Complete Groth16 verification
+- 20KB WASM binary, 49+ tests
 
-What's implemented:
-- Complete BN254 field arithmetic (Fq, Fq2, Fq6, Fq12) with Montgomery form
-- Full tower extension: Fq → Fq2 → Fq6 → Fq12
-- Real G1/G2 elliptic curve operations (add, double, scalar mul)
-- Optimal ate pairing with Miller loop algorithm
-- Final exponentiation (easy + hard parts)
-- Curve point validation (y² = x³ + 3)
-- Full Groth16 verification with pairing check
-- 20KB optimized WASM binary
-
-Live testnet deployment:
+Live on Stellar testnet:
 - Contract ID: `CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI`
 - [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI)
-- [View Deploy TX](https://stellar.expert/explorer/testnet/tx/39654bd739908d093d6d7e9362ea5cae3298332b3c7e385c49996ba08796cefc)
 
+Deploy:
 ```bash
 cd soroban
 cargo build --release --target wasm32-unknown-unknown
-
 soroban contract deploy \
   --wasm target/wasm32-unknown-unknown/release/soroban_groth16_verifier.wasm \
   --network testnet
 ```
 
-Benefits:
-- Production-grade crypto (not a stub)
-- Lower fees than EVM chains
+Why Stellar:
+- Lower fees than EVM
 - Fast finality (~5 seconds)
 - Native multi-asset support
-- Compact 20KB WASM size
-- 49+ unit tests
+- Production-grade crypto implementation
 
-Docs:
+### EVM Compatible Chains
+
+Basic Solidity verifier at `circuits/evm/Verifier.sol`. Tested on local Ethereum testnet. Gas cost ~250-300k.
+
+Future work: deployment to other blockchains if there's demand.
+
+More details:
 - [Cryptographic Comparison](docs/architecture/CRYPTOGRAPHIC_COMPARISON.md) - EVM vs Soroban
-- [Testing Strategy](docs/testing/TESTING_STRATEGY.md) - Test methodology
-- [Implementation Status](soroban/IMPLEMENTATION_STATUS.md) - Dev progress
+- [Testing Strategy](docs/testing/TESTING_STRATEGY.md)
+- [Implementation Status](soroban/IMPLEMENTATION_STATUS.md)
 
 ## Use Cases
 
