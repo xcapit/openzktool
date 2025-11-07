@@ -4,15 +4,15 @@
 
 **Fully Homomorphic Encryption (FHE)** permite realizar **computaciones sobre datos CIFRADOS** sin necesidad de descifrarlos.
 
-### Explicación Simple (6 años):
+### Explicación simple:
 
-Imagina que tienes una **caja mágica cerrada con candado**:
-- Metes números adentro
-- Puedes sumar, multiplicar, hacer matemáticas **SIN abrir la caja**
-- Al final abres y tienes el resultado correcto
+FHE permite operar sobre datos cifrados:
+- Los datos permanecen cifrados durante toda la computación
+- Puedes sumar, multiplicar y hacer operaciones sin descifrar
+- Al final descifras y obtienes el resultado correcto
 
-**¿Por qué es mágico?**
-Nadie puede ver los números mientras se hacen las cuentas, ¡ni siquiera la computadora que las hace!
+**La ventaja:**
+Nadie puede ver los datos durante el procesamiento, ni siquiera el servidor que ejecuta las operaciones.
 
 ## FHE vs ZK Proofs: ¿Cuál es la diferencia?
 
@@ -366,7 +366,7 @@ Si FHE es demasiado complejo/costoso, podemos hacer **AI privado solo con ZK:**
 **Ventaja:** Más simple, más rápido
 **Desventaja:** No permite computación delegada (usuario debe tener el modelo)
 
-## Resumen Ejecutivo para Mercedes
+## Resumen ejecutivo
 
 **¿Agregar FHE al proyecto?**
 
@@ -375,16 +375,16 @@ Si FHE es demasiado complejo/costoso, podemos hacer **AI privado solo con ZK:**
 **Plan:**
 1. **Ahora:** Consolidar ZK proofs en Stellar (lo que tenemos)
 2. **Después (6 meses):** Agregar FHE para AI privado
-3. **Diferenciador:** "AI privado verificable en Stellar"
+3. **Diferenciador:** AI privado verificable en Stellar
 
-**Analogía:**
-"Primero aprendemos a caminar (ZK proofs).
-Luego aprendemos a correr (FHE).
-Finalmente ganamos la maratón (AI privado líder en Stellar)."
+**Estrategia:**
+Primero consolidamos la base (ZK proofs).
+Después agregamos capacidades avanzadas (FHE).
+Finalmente nos posicionamos como líderes en AI privado en Stellar.
 
 **Beneficio:**
 - Posicionamiento único en mercado emergente (Private AI)
-- Alignación con roadmap de Stellar (FHE support)
+- Alineación con roadmap de Stellar (FHE support)
 - Casos de uso con demanda real (credit scoring, healthcare)
 
 ---
