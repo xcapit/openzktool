@@ -128,10 +128,14 @@ fi
 
 # Generate proof and measure time
 START_TIME=$(date +%s%N)
-node generateProof.js --age 25 --balance 150 --country 11 2>&1 | grep -v "Starting proof\|Private inputs\|Public constraints\|Next step"
+node generateProof.js --age 25 --balance 150 --country 11 > /tmp/proof_output.txt 2>&1
+PROOF_EXIT_CODE=$?
 END_TIME=$(date +%s%N)
 
 PROOF_TIME=$(( (END_TIME - START_TIME) / 1000000 ))
+
+# Show only the important lines from proof generation
+grep -E "(Generating witness|Done in|Proof generated|KYC Valid)" /tmp/proof_output.txt || cat /tmp/proof_output.txt
 
 echo ""
 echo -e "${GREEN}${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
