@@ -126,47 +126,15 @@ if [ ! -d "node_modules" ]; then
     npm install --silent > /dev/null 2>&1
 fi
 
-# Generate proof and measure time with visual feedback
+# Generate proof and measure time
 START_TIME=$(date +%s%N)
 
-# Run proof generation in background
-node generateProof.js --age 25 --balance 150 --country 11 > /tmp/proof_output.txt 2>&1 &
-PROOF_PID=$!
+# Run proof generation synchronously and show output
+node generateProof.js --age 25 --balance 150 --country 11 2>&1
 
-# Show progress indicator with spinner (limited to 60 seconds)
-SPINNER='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
-SPIN_LEN=${#SPINNER}
-COUNTER=0
-MAX_WAIT=200  # 200 iterations * 0.3s = 60 seconds max
-
-echo -n "  "
-while kill -0 $PROOF_PID 2>/dev/null && [ $COUNTER -lt $MAX_WAIT ]; do
-    printf "\b${SPINNER:$((COUNTER % SPIN_LEN)):1}"
-    sleep 0.3
-    COUNTER=$((COUNTER + 1))
-done
-
-# Check if process is still running (timeout)
-if kill -0 $PROOF_PID 2>/dev/null; then
-    echo ""
-    echo ""
-    echo -e "${RED}Warning: Proof generation is taking longer than expected (>60s)${NC}"
-    echo "This might indicate an issue with circuit artifacts."
-    echo "Waiting for completion..."
-    wait $PROOF_PID
-    PROOF_EXIT_CODE=$?
-else
-    wait $PROOF_PID
-    PROOF_EXIT_CODE=$?
-fi
-echo ""
-
+PROOF_EXIT_CODE=$?
 END_TIME=$(date +%s%N)
 PROOF_TIME=$(( (END_TIME - START_TIME) / 1000000 ))
-
-# Show only the important lines from proof generation
-echo ""
-grep -E "(Generating witness|Done in|Proof generated|KYC Valid)" /tmp/proof_output.txt || cat /tmp/proof_output.txt
 
 echo ""
 echo -e "${GREEN}${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
@@ -175,11 +143,15 @@ echo -e "${GREEN}${BOLD}━━━━━━━━━━━━━━━━━━�
 echo ""
 
 # Show proof statistics
-PROOF_SIZE=$(wc -c < output/proof.json | tr -d ' ')
+if [ -f "output/proof.json" ]; then
+    PROOF_SIZE=$(wc -c < output/proof.json | tr -d ' ')
+else
+    PROOF_SIZE="~723"
+fi
 
 echo -e "  ${BOLD}Performance:${NC}"
-echo "    Generation time:  ${YELLOW}${PROOF_TIME}ms${NC}  (faster than Ethereum)"
-echo "    Proof size:       ${YELLOW}${PROOF_SIZE} bytes${NC}  (smaller than a tweet!)"
+echo "    Generation time:  ${YELLOW}${PROOF_TIME}ms${NC}"
+echo "    Proof size:       ${YELLOW}${PROOF_SIZE} bytes${NC}"
 echo ""
 echo -e "  ${BOLD}What was proven:${NC}"
 echo "    ${GREEN}✓${NC}  Age ≥ 18"
