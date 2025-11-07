@@ -133,14 +133,32 @@ START_TIME=$(date +%s%N)
 node generateProof.js --age 25 --balance 150 --country 11 > /tmp/proof_output.txt 2>&1 &
 PROOF_PID=$!
 
-# Show progress indicator while waiting
+# Show progress indicator with spinner (limited to 60 seconds)
+SPINNER='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+SPIN_LEN=${#SPINNER}
+COUNTER=0
+MAX_WAIT=200  # 200 iterations * 0.3s = 60 seconds max
+
 echo -n "  "
-while kill -0 $PROOF_PID 2>/dev/null; do
-    echo -n "."
+while kill -0 $PROOF_PID 2>/dev/null && [ $COUNTER -lt $MAX_WAIT ]; do
+    printf "\b${SPINNER:$((COUNTER % SPIN_LEN)):1}"
     sleep 0.3
+    COUNTER=$((COUNTER + 1))
 done
-wait $PROOF_PID
-PROOF_EXIT_CODE=$?
+
+# Check if process is still running (timeout)
+if kill -0 $PROOF_PID 2>/dev/null; then
+    echo ""
+    echo ""
+    echo -e "${RED}Warning: Proof generation is taking longer than expected (>60s)${NC}"
+    echo "This might indicate an issue with circuit artifacts."
+    echo "Waiting for completion..."
+    wait $PROOF_PID
+    PROOF_EXIT_CODE=$?
+else
+    wait $PROOF_PID
+    PROOF_EXIT_CODE=$?
+fi
 echo ""
 
 END_TIME=$(date +%s%N)
