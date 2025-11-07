@@ -48,7 +48,12 @@ See also: [Complete Demo Guide](./DEMO_GUIDE_COMPLETE.md) | [Quick Start](./DEMO
 
 ## Quick Start
 
-**First time?** See [Installation Guide](./INSTALL.md) for dependencies (Node.js, Circom, jq)
+**⚠️ IMPORTANT:** Before running anything, install these dependencies:
+1. **Node.js** (v16+) - Get from https://nodejs.org
+2. **Circom** (v2.1.9+) - Requires Rust, see [INSTALL.md](./INSTALL.md)
+3. **jq** - `brew install jq` (macOS) or `apt install jq` (Linux)
+
+**Full instructions:** [INSTALL.md](./INSTALL.md)
 
 ### Run all tests
 
