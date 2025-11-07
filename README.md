@@ -48,6 +48,8 @@ See also: [Complete Demo Guide](./DEMO_GUIDE_COMPLETE.md) | [Quick Start](./DEMO
 
 ## Quick Start
 
+**First time?** See [Installation Guide](./INSTALL.md) for dependencies (Node.js, Circom, jq)
+
 ### Run all tests
 
 ```bash
@@ -91,7 +93,7 @@ npm run demo:soroban  # verify on Stellar Soroban
 
 ## Video Demo
 
-[Watch demo on Google Drive](https://drive.google.com/file/d/1SSQCAanCcpsVqp4rNuM3Vh6triRtknzt/view?usp=sharing) - Full execution showing proof generation and Stellar/Soroban verification on testnet. 7 minutes.
+[Watch demo on Google Drive](https://drive.google.com/file/d/1jIyHbtHRuPIrJkSi0zxZvISHtj33Hz3t/view?usp=drive_link) - Full execution showing proof generation and Stellar/Soroban verification on testnet. 7 minutes.
 
 ## Documentation
 
@@ -182,14 +184,21 @@ See full structure in docs.
 
 ## Installation
 
+**Step 1:** Install dependencies (Node.js, Circom, jq)
+- See detailed instructions in [INSTALL.md](./INSTALL.md)
+
+**Step 2:** Install the project
 ```bash
-git clone https://github.com/fboiero/stellar-privacy-poc.git
-cd stellar-privacy-poc
+git clone https://github.com/xcapit/openzktool.git
+cd openzktool
 npm install
-cd circuits/scripts && bash prepare_and_setup.sh  # one-time setup
+npm run setup  # one-time circuit compilation (2-3 minutes)
 ```
 
-Requirements: node >=16, circom >= 2.1.9
+**Verify:**
+```bash
+npm test  # should complete successfully
+```
 
 ## Blockchain Deployment
 

@@ -49,10 +49,8 @@
     "url": "https://github.com/xcapit/stellar-privacy-poc/issues"
   },
   "homepage": "https://openzktool.vercel.app",
-  "devDependencies": {
-    "snarkjs": "github:iden3/snarkjs"
-  },
   "dependencies": {
+    "snarkjs": "^0.7.4",
     "circomlib": "^2.0.5",
     "circomlibjs": "^0.1.7"
   }

@@ -104,20 +104,36 @@ check_dependencies() {
     if [ ${#missing[@]} -ne 0 ]; then
         print_error "Missing dependencies: ${missing[*]}"
         echo ""
-        echo "Please install missing dependencies:"
+        echo -e "${YELLOW}📋 Please install missing dependencies first:${NC}"
+        echo ""
         for dep in "${missing[@]}"; do
             case $dep in
                 node|npm)
-                    echo "  - Node.js: https://nodejs.org/"
+                    echo "  ❌ Node.js (v16+)"
+                    echo "     macOS: brew install node"
+                    echo "     Linux: curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - && sudo apt-get install -y nodejs"
+                    echo "     More info: https://nodejs.org/"
+                    echo ""
                     ;;
                 circom)
-                    echo "  - Circom: https://docs.circom.io/getting-started/installation/"
+                    echo "  ❌ Circom (v2.1.9+)"
+                    echo "     Install Rust first: curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh"
+                    echo "     Then install Circom:"
+                    echo "       git clone https://github.com/iden3/circom.git"
+                    echo "       cd circom && cargo build --release && cargo install --path circom"
+                    echo "     More info: https://docs.circom.io/getting-started/installation/"
+                    echo ""
                     ;;
                 jq)
-                    echo "  - jq: brew install jq (macOS) or apt-get install jq (Linux)"
+                    echo "  ❌ jq (JSON processor)"
+                    echo "     macOS: brew install jq"
+                    echo "     Linux: sudo apt-get install jq"
+                    echo ""
                     ;;
             esac
         done
+        echo -e "${CYAN}📖 Full installation guide: ./INSTALL.md${NC}"
+        echo ""
         exit 1
     fi
 }
