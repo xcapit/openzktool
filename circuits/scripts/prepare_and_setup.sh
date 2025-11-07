@@ -24,6 +24,20 @@ cd "$CIRCUIT_DIR"
 # Check dependencies
 echo -e "${YELLOW}Checking dependencies...${NC}"
 
+# Check if npm dependencies are installed
+if [ ! -d "node_modules" ] || [ ! -d "node_modules/circomlib" ]; then
+    echo -e "${RED}Error: npm dependencies not found${NC}"
+    echo ""
+    echo -e "${YELLOW}You must run 'npm install' first from the project root:${NC}"
+    echo ""
+    echo "  cd ../.."
+    echo "  npm install"
+    echo "  npm run setup"
+    echo ""
+    echo -e "${CYAN}Full guide: ../../INSTALL.md${NC}"
+    exit 1
+fi
+
 if ! command -v circom &> /dev/null; then
     echo -e "${RED}Error: circom not found${NC}"
     echo ""
@@ -42,7 +56,7 @@ if ! command -v circom &> /dev/null; then
     echo "3. Verify installation:"
     echo "   circom --version"
     echo ""
-    echo -e "${CYAN}Full guide: ./INSTALL.md${NC}"
+    echo -e "${CYAN}Full guide: ../../INSTALL.md${NC}"
     exit 1
 fi
 

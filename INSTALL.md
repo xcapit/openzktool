@@ -64,21 +64,41 @@ jq --version
 Once you have the prerequisites installed:
 
 ```bash
-# Clone the repository
+# 1. Clone the repository
 git clone https://github.com/xcapit/openzktool.git
 cd openzktool
 
-# Install npm dependencies (includes snarkjs)
+# 2. Install npm dependencies (REQUIRED - includes circomlib and snarkjs)
 npm install
 
-# Run circuit setup (one-time, takes 2-3 minutes)
+# 3. Run circuit setup (one-time, takes 2-3 minutes)
 npm run setup
 
-# Verify installation by running tests
+# 4. Verify installation by running tests
 npm test
 ```
 
+**IMPORTANT:** You MUST run `npm install` before `npm run setup`. The setup script needs circomlib dependencies installed.
+
 ## Troubleshooting
+
+### Problem: "file circomlib/circuits/comparators.circom to be included has not been found"
+
+This means you forgot to run `npm install` before `npm run setup`.
+
+**Solution:**
+```bash
+# Make sure you're in the project root
+cd /path/to/openzktool
+
+# Install npm dependencies
+npm install
+
+# Now run setup
+npm run setup
+```
+
+The setup script needs the circomlib package from npm to compile circuits.
 
 ### Problem: "circom: command not found"
 
