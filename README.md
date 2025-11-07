@@ -26,6 +26,52 @@ Make Zero-Knowledge Proofs accessible to developers who want to add privacy to t
 
 **Website:** https://openzktool.vercel.app
 
+---
+
+## Prerequisites
+
+**⚠️ Install these FIRST before cloning the repo:**
+
+1. **Node.js v16+**
+   ```bash
+   # macOS
+   brew install node
+
+   # Ubuntu/Debian
+   curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+   sudo apt-get install -y nodejs
+   ```
+
+2. **Circom v2.1.9+** (requires Rust)
+   ```bash
+   # Install Rust first
+   curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+   source $HOME/.cargo/env
+
+   # Install Circom
+   git clone https://github.com/iden3/circom.git
+   cd circom
+   cargo build --release
+   cargo install --path circom
+   cd ..
+
+   # Verify
+   circom --version
+   ```
+
+3. **jq** (JSON processor)
+   ```bash
+   # macOS
+   brew install jq
+
+   # Linux
+   sudo apt-get install jq
+   ```
+
+**Full guide:** [INSTALL.md](./INSTALL.md)
+
+---
+
 ## Demo
 
 Try it yourself:
@@ -48,12 +94,7 @@ See also: [Complete Demo Guide](./DEMO_GUIDE_COMPLETE.md) | [Quick Start](./DEMO
 
 ## Quick Start
 
-**⚠️ IMPORTANT:** Before running anything, install these dependencies:
-1. **Node.js** (v16+) - Get from https://nodejs.org
-2. **Circom** (v2.1.9+) - Requires Rust, see [INSTALL.md](./INSTALL.md)
-3. **jq** - `brew install jq` (macOS) or `apt install jq` (Linux)
-
-**Full instructions:** [INSTALL.md](./INSTALL.md)
+After installing [prerequisites](#prerequisites):
 
 ### Run all tests
 
@@ -189,20 +230,15 @@ See full structure in docs.
 
 ## Installation
 
-**Step 1:** Install dependencies (Node.js, Circom, jq)
-- See detailed instructions in [INSTALL.md](./INSTALL.md)
+**Prerequisites:** Make sure you have Node.js, Circom and jq installed (see [Prerequisites](#prerequisites) above)
 
-**Step 2:** Install the project
+**Then:**
 ```bash
 git clone https://github.com/xcapit/openzktool.git
 cd openzktool
 npm install
 npm run setup  # one-time circuit compilation (2-3 minutes)
-```
-
-**Verify:**
-```bash
-npm test  # should complete successfully
+npm test       # verify everything works
 ```
 
 ## Blockchain Deployment
