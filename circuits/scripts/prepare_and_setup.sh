@@ -24,8 +24,8 @@ cd "$CIRCUIT_DIR"
 # Check dependencies
 echo -e "${YELLOW}Checking dependencies...${NC}"
 
-# Check if npm dependencies are installed
-if [ ! -d "node_modules" ] || [ ! -d "node_modules/circomlib" ]; then
+# Check if npm dependencies are installed (check both circuits/ and root node_modules)
+if [ ! -d "../../node_modules/circomlib" ] && [ ! -d "node_modules/circomlib" ]; then
     echo -e "${RED}Error: npm dependencies not found${NC}"
     echo ""
     echo -e "${YELLOW}You must run 'npm install' first from the project root:${NC}"
@@ -73,12 +73,20 @@ mkdir -p "$BUILD_DIR"
 
 # Step 1: Compile circuit
 echo -e "${YELLOW}[1/6] Compiling circuit...${NC}"
+
+# Use root node_modules if available, otherwise use local
+if [ -d "../../node_modules" ]; then
+    NODE_MODULES_PATH="../../node_modules"
+else
+    NODE_MODULES_PATH="node_modules"
+fi
+
 circom ${CIRCUIT_NAME}.circom \
     --r1cs \
     --wasm \
     --sym \
     --c \
-    -l node_modules \
+    -l "$NODE_MODULES_PATH" \
     --output "$BUILD_DIR"
 
 if [ $? -eq 0 ]; then
