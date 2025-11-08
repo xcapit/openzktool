@@ -107,4 +107,4 @@ Ready to get started?
 
 ---
 
-**Built with ❤️ for the Stellar ecosystem by Xcapit Labs**
+**Built for the Stellar ecosystem by Xcapit Labs**
