@@ -326,7 +326,7 @@ Before deploying to mainnet:
 - [ ] **Trusted setup ceremony** - Don't use test keys
 - [ ] **Testnet validation** - 100+ successful verifications
 - [ ] **Gas profiling** - Ensure costs are acceptable
-- [ ] **WASM size check** - Should be <50 KB
+- [ ] **WASM size check** - Should be under 50 KB
 - [ ] **Error handling** - Test with invalid proofs
 - [ ] **Documentation** - Document your contract API
 - [ ] **Backup keys** - Store zkey and vkey securely

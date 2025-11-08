@@ -7,10 +7,6 @@ const config: Config = {
   tagline: 'Privacy infrastructure for Stellar Soroban using Zero-Knowledge Proofs',
   favicon: 'img/favicon.ico',
 
-  future: {
-    v4: true,
-  },
-
   // Set the production url of your site here
   url: 'https://xcapit.github.io',
   // For GitHub pages deployment
@@ -21,7 +17,6 @@ const config: Config = {
   projectName: 'openzktool',
 
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
 
   i18n: {
     defaultLocale: 'en',
@@ -65,12 +60,6 @@ const config: Config = {
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Docs',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'apiSidebar',
-          position: 'left',
-          label: 'API',
         },
         {
           href: 'https://github.com/xcapit/openzktool',
@@ -141,13 +130,6 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
       additionalLanguages: ['rust', 'solidity', 'typescript', 'bash'],
-    },
-    algolia: {
-      // Placeholder - will need to be configured later
-      appId: 'YOUR_APP_ID',
-      apiKey: 'YOUR_SEARCH_API_KEY',
-      indexName: 'openzktool',
-      contextualSearch: true,
     },
   } satisfies Preset.ThemeConfig,
 };

@@ -78,7 +78,7 @@ Build custom circuits and optimize performance
 | **Groth16 Proofs** | Industry-standard ZK-SNARK system on BN254 curve |
 | **Soroban Verifier** | Full Rust implementation with pairing operations |
 | **Circuit Templates** | KYC, age verification, balance proofs, compliance |
-| **Fast Verification** | <50ms off-chain, ~200k gas on-chain |
+| **Fast Verification** | Under 50ms off-chain, ~200k gas on-chain |
 | **Compact Proofs** | 800 bytes per proof |
 | **Production Ready** | 49+ tests, deployed to testnet |
 
