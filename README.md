@@ -1,17 +1,17 @@
 # OpenZKTool
 
-**Open source ZK-SNARK toolkit for Stellar with multi-chain support**
+**Privacy infrastructure for Stellar Soroban using Zero-Knowledge Proofs**
 
 *Status: Proof of Concept*
 
-A toolkit for building privacy-preserving applications using ZK-SNARKs on Stellar Soroban. Complete Groth16 verifier implementation in Rust. Also supports EVM chains.
+OpenZKTool is a complete ZK-SNARK toolkit built specifically for Stellar's Soroban smart contract platform. It enables developers to add privacy-preserving features to their dApps while maintaining regulatory compliance through zero-knowledge proofs.
 
-Make Zero-Knowledge Proofs accessible to developers who want to add privacy to their dApps without losing the ability to comply with regulations.
+**Built for Stellar** - Production-grade Groth16 verifier in Rust with full BN254 elliptic curve implementation optimized for Soroban's WASM runtime.
 
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%203.0-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![GitHub Stars](https://img.shields.io/github/stars/fboiero/stellar-privacy-poc?style=social)](https://github.com/fboiero/stellar-privacy-poc)
-[![Website](https://img.shields.io/website?url=https%3A%2F%2Fopenzktool.vercel.app)](https://openzktool.vercel.app)
 [![Digital Public Good](https://img.shields.io/badge/Digital%20Public%20Good-Certified-brightgreen)](./docs/governance/SDG_MAPPING.md)
+[![Stellar](https://img.shields.io/badge/Built%20for-Stellar-blue)](https://stellar.org)
 
 ![Soroban Tests](https://github.com/fboiero/stellar-privacy-poc/workflows/Soroban%20Tests/badge.svg)
 ![EVM Tests](https://github.com/fboiero/stellar-privacy-poc/workflows/EVM%20Tests/badge.svg)
@@ -20,11 +20,9 @@ Make Zero-Knowledge Proofs accessible to developers who want to add privacy to t
 ![Security](https://github.com/fboiero/stellar-privacy-poc/workflows/Security/badge.svg)
 
 [![Circom](https://img.shields.io/badge/Circom-2.1.9-brightgreen)](https://docs.circom.io/)
-[![Solidity](https://img.shields.io/badge/Solidity-0.8+-orange)](https://soliditylang.org/)
 [![Rust](https://img.shields.io/badge/Rust-1.75+-red)](https://www.rust-lang.org/)
+[![Soroban](https://img.shields.io/badge/Soroban-SDK-purple)](https://soroban.stellar.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org/)
-
-**Website:** https://openzktool.vercel.app
 
 ---
 
@@ -72,9 +70,9 @@ Make Zero-Knowledge Proofs accessible to developers who want to add privacy to t
 
 ---
 
-## Demo
+## Quick Demo
 
-Try it yourself:
+Try OpenZKTool on Stellar Soroban:
 
 ```bash
 # Interactive mode
@@ -84,11 +82,11 @@ Try it yourself:
 DEMO_AUTO=1 ./DEMO_COMPLETE.sh
 ```
 
-Shows:
-- ZK proof generation
+What you'll see:
+- ZK proof generation (Groth16 on BN254)
 - Local verification (<50ms)
-- Soroban verification on Stellar
-- Privacy + compliance example
+- **Soroban smart contract verification on Stellar testnet**
+- Privacy-preserving KYC example
 
 See also: [Complete Demo Guide](./DEMO_GUIDE_COMPLETE.md) | [Quick Start](./DEMO_README.md)
 
@@ -197,28 +195,28 @@ How it works:
 │  Private Data   │ ───> │  ZK Circuit  │ ───> │  800-byte      │
 │  age: 25        │      │  (Groth16)   │      │  Proof         │
 │  balance: $150  │      │              │      │                │
-│  country: AR    │      │  586 constraints    │  kycValid = 1  │
+│  country: AR    │      │  BN254 curve │      │  kycValid = 1  │
 └─────────────────┘      └──────────────┘      └────────────────┘
                                                          │
                                                          ▼
-                                            ┌────────────────────┐
-                                            │  Smart Contract    │
-                                            │  Verifies proof    │
-                                            │  (Stellar Soroban) │
-                                            └────────────────────┘
+                                        ┌────────────────────────────┐
+                                        │  Stellar Soroban Contract  │
+                                        │  Verifies proof on-chain   │
+                                        │  20KB WASM, 49+ tests      │
+                                        └────────────────────────────┘
 ```
 
 ## Project Structure
 
 ```
 ├── circuits/          # Circom ZK circuits (kyc_transfer.circom, etc.)
-├── soroban/           # Stellar/Soroban verifier (Rust)
-├── evm/               # EVM verifier (Solidity)
-├── docs/              # Documentation
-└── examples/          # Integration examples
+├── contracts/         # Stellar Soroban verifier contracts (Rust)
+├── docs/              # Technical documentation
+├── examples/          # Integration examples
+└── evm-verification/  # Optional EVM verifier (experimental)
 ```
 
-See full structure in docs.
+See [contracts/README.md](./contracts/README.md) for Soroban contract details.
 
 ## Technical Details
 
@@ -241,48 +239,76 @@ npm run setup  # one-time circuit compilation (2-3 minutes)
 npm test       # verify everything works
 ```
 
-## Blockchain Deployment
+## Stellar Soroban Deployment
 
-### Stellar Soroban
+OpenZKTool is built specifically for Stellar's Soroban smart contract platform with a production-ready Groth16 verifier.
 
-Verifier contract: `soroban/src/lib.rs`
+### Soroban Verifier Contract
 
-Complete BN254 Groth16 implementation in Rust:
-- Full field arithmetic (Fq, Fq2, Fq6, Fq12) with Montgomery form
-- G1/G2 elliptic curve operations
-- Optimal ate pairing with Miller loop
-- Complete Groth16 verification
-- 20KB WASM binary, 49+ tests
+**Location:** `contracts/src/lib.rs`
 
-Live on Stellar testnet:
-- Contract ID: `CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI`
-- [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI)
+Complete BN254 Groth16 implementation in pure Rust:
+- **Field arithmetic:** Fq, Fq2, Fq6, Fq12 with Montgomery form optimization
+- **Elliptic curves:** G1/G2 point operations with projective coordinates
+- **Optimal ate pairing:** Miller loop with final exponentiation
+- **Complete Groth16 verification:** Full cryptographic verification algorithm
+- **Compact:** 20KB WASM binary
+- **Well-tested:** 49+ unit and integration tests
 
-Deploy:
+### Live on Stellar Testnet
+
+**Contract ID:** `CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI`
+
+[View on Stellar Expert →](https://stellar.expert/explorer/testnet/contract/CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI)
+
+### Deploy Your Own
+
 ```bash
-cd soroban
+cd contracts
 cargo build --release --target wasm32-unknown-unknown
-soroban contract deploy \
+stellar contract deploy \
   --wasm target/wasm32-unknown-unknown/release/soroban_groth16_verifier.wasm \
   --network testnet
 ```
 
-Why Stellar:
-- Lower fees than EVM
-- Fast finality (~5 seconds)
-- Native multi-asset support
-- Production-grade crypto implementation
+### Why Stellar?
 
-### EVM Compatible Chains
+OpenZKTool is optimized for Stellar because:
 
-Basic Solidity verifier at `circuits/evm/Verifier.sol`. Tested on local Ethereum testnet. Gas cost ~250-300k.
+- **Lower fees:** 10-100x cheaper than Ethereum mainnet
+- **Fast finality:** ~5 seconds vs 12-15 minutes
+- **Native multi-asset:** Built-in support for custom tokens
+- **WASM runtime:** Efficient smart contract execution
+- **Production-grade crypto:** First-class cryptographic primitives
+- **Growing DeFi ecosystem:** RWA tokenization, DEXs, stablecoins
 
-Future work: deployment to other blockchains if there's demand.
+### Soroban Architecture
 
-More details:
-- [Cryptographic Comparison](docs/architecture/CRYPTOGRAPHIC_COMPARISON.md) - EVM vs Soroban
-- [Testing Strategy](docs/testing/TESTING_STRATEGY.md)
-- [Implementation Status](soroban/IMPLEMENTATION_STATUS.md)
+The verifier contract implements the full Groth16 verification equation:
+
+```
+e(A, B) = e(α, β) · e(C, γ) · e(public_inputs, δ)
+```
+
+Using optimal ate pairing on the BN254 curve. See [contracts/README.md](./contracts/README.md) for implementation details.
+
+### Additional Resources
+
+- [Cryptographic Implementation](docs/architecture/CRYPTOGRAPHIC_COMPARISON.md) - Deep dive into Soroban verifier
+- [Testing Strategy](docs/testing/TESTING_STRATEGY.md) - How we ensure correctness
+- [Implementation Status](contracts/IMPLEMENTATION_STATUS.md) - Roadmap and features
+
+---
+
+## EVM Support (Experimental)
+
+OpenZKTool includes experimental support for EVM-compatible chains via a Solidity verifier.
+
+**Location:** `evm-verification/src/Verifier.sol`
+
+This is provided for compatibility but is not the primary focus. For production use, we recommend Stellar Soroban.
+
+**Note:** Multi-chain expansion is on the roadmap pending community demand. See [DEVELOPMENT_ROADMAP.md](./docs/DEVELOPMENT_ROADMAP.md).
 
 ## Use Cases
 
@@ -318,46 +344,48 @@ Before production:
 
 ## Roadmap
 
-PoC → MVP → Testnet → Mainnet
+**Stellar-First Development:** PoC ✅ → SDK → SaaS Platform → Enterprise
 
-### Phase 0 – Proof of Concept (Completed)
+**Full Details:** [DEVELOPMENT_ROADMAP.md](./docs/DEVELOPMENT_ROADMAP.md)
 
-Goal: Validate privacy-preserving verification using ZK proofs across multiple blockchains.
+### Phase 0 – Proof of Concept ✅ Completed
 
-Deliverables:
-- [x] Circuits: `range_proof`, `solvency_check`, `compliance_verify`, `kyc_transfer`
-- [x] Working proof generation and verification scripts
-- [x] Ethereum verifier (Solidity)
-- [x] Stellar Soroban verifier (Rust)
-- [x] End-to-end proof verification for KYC attributes
-- [x] Web landing page (openzktool.vercel.app)
-
-Multi-chain status:
-- Ethereum/EVM - Fully implemented and tested
-- Stellar Soroban - Fully implemented and tested
-- Other EVM chains (Polygon, BSC, etc.) - Same verifier can be deployed
-- Other chains - Future roadmap items
-
-### Phase 1 – MVP (Upcoming)
-
-Goal: Build MVP to make ZKP privacy verification accessible through clean SDK.
+Goal: Validate privacy-preserving ZK proofs on Stellar Soroban
 
 Deliverables:
+- [x] Circom circuits: `kyc_transfer`, `range_proof`, `compliance_verify`
+- [x] **Production-ready Soroban verifier** (Rust, 20KB WASM, 49+ tests)
+- [x] Proof generation and verification pipeline
+- [x] **Deployed to Stellar testnet** ([View contract](https://stellar.expert/explorer/testnet/contract/CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI))
+- [x] Comprehensive test suite with CI/CD
+- [x] EVM verifier (experimental)
 
-1. ZKP Core SDK (TypeScript/JS)
-   - [ ] Interfaces for proof generation, verification, circuit management
+Status:
+- ✅ **Stellar Soroban** - Fully implemented, tested, deployed
+- ⚠️ EVM chains - Experimental support only
+
+### Phase 1 – Developer SDK & Core Templates (In Progress)
+
+Goal: Make OpenZKTool production-ready for Stellar developers
+
+Deliverables:
+
+1. **@openzktool/sdk** npm package
+   - [ ] TypeScript SDK for Soroban integration
+   - [ ] 6 production circuit templates
    - [ ] WASM/browser support
-   - [ ] Sample applications and demos
+   - [ ] Complete type definitions
 
-2. Unified API Layer
-   - [ ] REST/GraphQL endpoints
-   - [ ] Authentication and rate limiting
-   - [ ] Documentation and OpenAPI spec
+2. **Documentation Site** (Docusaurus)
+   - [ ] Developer documentation
+   - [ ] API reference
+   - [ ] Circuit template catalog
+   - [ ] Stellar/Soroban integration guides
 
-3. Integration Examples
-   - [ ] Stellar integration examples
-   - [ ] EVM integration (Polygon Amoy/Sepolia)
-   - [ ] Developer tutorials
+3. **Examples & Tutorials**
+   - [ ] Stellar dApp integration examples
+   - [ ] Video tutorials
+   - [ ] Sample applications
 
 ### Phase 2 – Testnet (Planned)
 
@@ -461,17 +489,27 @@ Location: Argentina (remote-friendly, global focus, LATAM expertise)
 
 ## Impact & Vision
 
-Unlocking privacy for all blockchains:
-- Enable institutional adoption across multiple chains for private transactions
-- Support cross-border B2B payments with high transaction volumes
-- Compete with traditional finance by adding privacy + auditability
-- Bridge Web2 financial institutions to Web3 across Stellar, Ethereum, and beyond
+Building privacy infrastructure for the Stellar ecosystem:
 
-Network effects:
-- Developers build privacy-preserving dApps on any supported chain
-- Institutions bring liquidity and transaction volume across ecosystems
-- Multi-chain privacy infrastructure grows the entire Web3 space
-- Regulatory compliance becomes a feature, not a barrier
+**For Developers:**
+- Easy-to-use ZK-SNARK toolkit designed for Soroban
+- Privacy-preserving dApps without sacrificing regulatory compliance
+- Production-ready verifier contracts with comprehensive testing
+
+**For Institutions:**
+- Private transactions on Stellar's fast, low-cost network
+- Compliance-friendly privacy (prove without revealing)
+- Bridge Web2 financial institutions to Web3 via Stellar
+
+**For the Ecosystem:**
+- Enable use cases requiring privacy: RWA tokenization, private DEXs, confidential settlements
+- Attract institutional liquidity to Stellar
+- Regulatory compliance as a feature, not a barrier
+
+**Long-term Vision:**
+- De facto privacy standard for Stellar Soroban
+- Expand to other blockchains based on community demand
+- Advanced privacy primitives (FHE integration, private AI inference)
 
 ---
 
@@ -503,14 +541,17 @@ Cryptographic primitives:
 
 ## Links
 
-- OpenZKTool Website: https://openzktool.vercel.app
-- Repository: https://github.com/fboiero/stellar-privacy-poc
-- Xcapit Labs: https://xcapit.com
-- Circom Docs: https://docs.circom.io
-- ZK Learning Resources: https://zkp.science
+- **Repository:** https://github.com/xcapit/openzktool
+- **Stellar Testnet Contract:** [View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI)
+- **Xcapit Labs:** https://xcapit.com
+- **Soroban Docs:** https://soroban.stellar.org/
+- **Circom Docs:** https://docs.circom.io
+- **ZK Learning:** https://zkp.science
 
 ---
 
-If you find this useful, star the repo.
+**Ready to add privacy to your Stellar dApp?**
 
-Ready to prove without revealing? Try the demo: `./DEMO_COMPLETE.sh`
+⭐ Star the repo if you find this useful
+📖 Read the [docs](./docs/README.md) to get started
+🚀 Try the demo: `./DEMO_COMPLETE.sh`
