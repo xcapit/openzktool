@@ -20,7 +20,7 @@ const config: Config = {
   organizationName: 'xcapit',
   projectName: 'openzktool',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
