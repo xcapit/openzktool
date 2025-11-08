@@ -21,9 +21,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: docs-site
 
     steps:
       - name: Checkout
@@ -38,9 +35,11 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
+        working-directory: docs-site
         run: npm ci || npm install
 
       - name: Build website
+        working-directory: docs-site
         run: npm run build
 
       - name: Upload artifact
