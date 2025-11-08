@@ -31,7 +31,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           editUrl:
             'https://github.com/xcapit/openzktool/tree/main/docs-site/',
-          showLastUpdateTime: true,
+          showLastUpdateTime: false,
         },
         blog: false, // Disable blog for now
         theme: {
