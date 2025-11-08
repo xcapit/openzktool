@@ -21,7 +21,13 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            Get Started →
+          </Link>
+          <Link
+            className="button button--outline button--secondary button--lg"
+            to="https://stellar.expert/explorer/testnet/contract/CBPBVJJW5NMV4UVEDKSR6UO4DRBNWRQEMYKRYZI3CW6YK3O7HAZA43OI"
+            style={{marginLeft: '1rem'}}>
+            Live on Stellar Testnet
           </Link>
         </div>
       </div>
@@ -33,8 +39,8 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title="Privacy Infrastructure for Stellar Soroban"
+      description="Zero-Knowledge Proof toolkit for Stellar's Soroban smart contract platform. Add privacy-preserving features to your dApps while maintaining regulatory compliance.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

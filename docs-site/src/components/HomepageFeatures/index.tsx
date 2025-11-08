@@ -11,32 +11,35 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'Built for Stellar',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Production-ready Groth16 verifier optimized for Stellar Soroban.
+        Complete BN254 implementation in Rust with 20KB WASM binary.
+        Lower fees, fast finality, and first-class cryptographic primitives.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Privacy + Compliance',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Prove facts without revealing data. Age verification without exact age,
+        balance proofs without amounts, country compliance without location.
+        Perfect for KYC, DeFi access control, and regulatory compliance.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Developer-Friendly',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Pre-built circuit templates, comprehensive documentation, and
+        easy integration. Generate proofs in under 1 second,
+        verify on-chain in ~200ms. Get started with <code>npm run demo:privacy</code>
       </>
     ),
   },
