@@ -3,7 +3,7 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json
+# package-lock.json  # Uncommented - needed for npm audit in CI
 yarn.lock
 
 # Build outputs
