@@ -1,6 +1,8 @@
-# Website
+# OpenZKTool Documentation
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+
+**Live site:** https://xcapit.github.io/openzktool/
 
 ## Installation
 
