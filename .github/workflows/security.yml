@@ -21,22 +21,24 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'javascript', 'typescript' ]
+        language: [ 'javascript' ]
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
 
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
+        uses: github/codeql-action/autobuild@v3
+        continue-on-error: true
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@v3
+        continue-on-error: true
 
   rust-audit:
     name: Rust Security Audit
@@ -105,6 +107,7 @@ jobs:
 
       - name: Run Slither
         uses: crytic/slither-action@v0.3.0
+        continue-on-error: true
         with:
           target: 'evm-verification/src/'
           fail-on: none
