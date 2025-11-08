@@ -26,6 +26,18 @@ OpenZKTool is a complete ZK-SNARK toolkit built specifically for Stellar's Sorob
 
 ---
 
+## 📚 Documentation
+
+**Complete documentation is available at: https://xcapit.github.io/openzktool/**
+
+Quick links:
+- [Getting Started](https://xcapit.github.io/openzktool/docs/getting-started/installation)
+- [API Reference](https://xcapit.github.io/openzktool/docs/api-reference/overview)
+- [Circuit Templates](https://xcapit.github.io/openzktool/docs/circuit-templates/overview)
+- [Stellar Integration Guide](https://xcapit.github.io/openzktool/docs/stellar-integration/overview)
+
+---
+
 ## Prerequisites
 
 **⚠️ Install these FIRST before cloning the repo:**
