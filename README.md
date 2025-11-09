@@ -36,6 +36,32 @@ Quick links:
 - [Circuit Templates](https://xcapit.github.io/openzktool/docs/circuit-templates/overview)
 - [Stellar Integration Guide](https://xcapit.github.io/openzktool/docs/stellar-integration/overview)
 
+### Updating Documentation
+
+**⚠️ IMPORTANT:** Do NOT use GitHub Actions workflow for deploying docs. Use manual deployment instead.
+
+To update the documentation site:
+
+```bash
+cd docs-site
+npm install
+npm run build
+cd build
+git init
+git add -A
+git commit -m "Deploy docs"
+git branch -M gh-pages
+git remote add origin https://github.com/xcapit/openzktool.git 2>/dev/null || git remote set-url origin https://github.com/xcapit/openzktool.git
+git push -f origin gh-pages
+```
+
+The site will be live at https://xcapit.github.io/openzktool/ in 1-2 minutes.
+
+**Why manual deployment?**
+- GitHub Actions workflow has persistent issues with git submodules
+- Manual deployment is faster and more reliable
+- No dependency on CI/CD infrastructure
+
 ---
 
 ## Prerequisites
