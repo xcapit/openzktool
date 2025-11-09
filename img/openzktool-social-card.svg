@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#673ab7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9569d4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Grid pattern overlay -->
+  <g opacity="0.1">
+    <line x1="0" y1="105" x2="1200" y2="105" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="210" x2="1200" y2="210" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="315" x2="1200" y2="315" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="420" x2="1200" y2="420" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="525" x2="1200" y2="525" stroke="white" stroke-width="1"/>
+    <line x1="200" y1="0" x2="200" y2="630" stroke="white" stroke-width="1"/>
+    <line x1="400" y1="0" x2="400" y2="630" stroke="white" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="630" stroke="white" stroke-width="1"/>
+    <line x1="800" y1="0" x2="800" y2="630" stroke="white" stroke-width="1"/>
+    <line x1="1000" y1="0" x2="1000" y2="630" stroke="white" stroke-width="1"/>
+  </g>
+
+  <!-- ZK Icon Large -->
+  <g transform="translate(100, 200)">
+    <path d="M 0 50 L 100 0 L 200 50 L 200 150 L 100 200 L 0 150 Z" fill="white" opacity="0.2"/>
+    <path d="M 0 50 L 100 0 L 200 50 L 200 150 L 100 200 L 0 150 Z" fill="none" stroke="white" stroke-width="4"/>
+    <circle cx="100" cy="100" r="30" fill="white"/>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="250" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="white">OpenZKTool</text>
+
+  <!-- Subtitle -->
+  <text x="400" y="320" font-family="Arial, sans-serif" font-size="36" fill="white" opacity="0.9">Privacy for Stellar Soroban</text>
+  <text x="400" y="370" font-family="Arial, sans-serif" font-size="32" fill="white" opacity="0.8">Zero-Knowledge Proofs • Groth16 • BN254</text>
+
+  <!-- Features -->
+  <g transform="translate(400, 420)">
+    <circle cx="0" cy="0" r="8" fill="white"/>
+    <text x="20" y="8" font-family="Arial, sans-serif" font-size="24" fill="white">Production-Ready Verifier</text>
+  </g>
+  <g transform="translate(400, 470)">
+    <circle cx="0" cy="0" r="8" fill="white"/>
+    <text x="20" y="8" font-family="Arial, sans-serif" font-size="24" fill="white">Pre-built Circuit Templates</text>
+  </g>
+  <g transform="translate(400, 520)">
+    <circle cx="0" cy="0" r="8" fill="white"/>
+    <text x="20" y="8" font-family="Arial, sans-serif" font-size="24" fill="white">Live on Stellar Testnet</text>
+  </g>
+</svg>

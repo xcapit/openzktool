@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#673ab7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9569d4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- ZK Icon -->
+  <g transform="translate(5, 10)">
+    <path d="M 10 5 L 25 0 L 40 5 L 40 20 L 25 25 L 10 20 Z" fill="url(#logoGrad)" opacity="0.3"/>
+    <path d="M 10 5 L 25 0 L 40 5 L 40 20 L 25 25 L 10 20 Z" fill="none" stroke="url(#logoGrad)" stroke-width="2"/>
+    <circle cx="25" cy="12.5" r="4" fill="url(#logoGrad)"/>
+  </g>
+
+  <!-- OpenZKTool Text -->
+  <text x="55" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="url(#logoGrad)">OpenZKTool</text>
+</svg>
