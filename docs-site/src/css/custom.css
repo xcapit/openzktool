@@ -1,30 +1,201 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * OpenZKTool Documentation Styles
+ * Modern design for ZK-SNARK + Stellar blockchain toolkit
  */
 
-/* You can override the default Infima variables here. */
+/* Light mode - Professional blues with purple accents */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Primary brand colors - Deep blue/purple for ZK theme */
+  --ifm-color-primary: #5b4cdb;
+  --ifm-color-primary-dark: #4e3fd4;
+  --ifm-color-primary-darker: #4839cb;
+  --ifm-color-primary-darkest: #3b2fb5;
+  --ifm-color-primary-light: #6f61e3;
+  --ifm-color-primary-lighter: #7d70e6;
+  --ifm-color-primary-lightest: #9d93ed;
+
+  /* Accent colors */
+  --ifm-color-success: #00d4aa;
+  --ifm-color-info: #4299e1;
+  --ifm-color-warning: #f6ad55;
+
+  /* Typography */
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --ifm-code-font-size: 90%;
+  --ifm-h1-font-size: 2.5rem;
+  --ifm-line-height-base: 1.7;
+
+  /* Spacing and layout */
+  --ifm-spacing-horizontal: 1.5rem;
+  --ifm-navbar-height: 4rem;
+
+  /* Code blocks */
+  --docusaurus-highlighted-code-line-bg: rgba(91, 76, 219, 0.1);
+  --ifm-code-background: #f6f8fa;
+  --ifm-code-border-radius: 0.5rem;
+
+  /* Links */
+  --ifm-link-hover-decoration: none;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark mode - Vibrant purples and blues */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #8b7dff;
+  --ifm-color-primary-dark: #7366ff;
+  --ifm-color-primary-darker: #6757ff;
+  --ifm-color-primary-darkest: #3d29ff;
+  --ifm-color-primary-light: #a394ff;
+  --ifm-color-primary-lighter: #afa3ff;
+  --ifm-color-primary-lightest: #d3ccff;
+
+  --ifm-color-success: #00f5c4;
+  --ifm-color-info: #5bb5f0;
+
+  --docusaurus-highlighted-code-line-bg: rgba(139, 125, 255, 0.15);
+  --ifm-code-background: #1e1e2e;
+  --ifm-background-color: #0f0f1a;
+  --ifm-navbar-background-color: #1a1a2e;
+}
+
+/* Enhanced typography */
+.markdown h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.markdown h2 {
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--ifm-color-primary-lightest);
+}
+
+.markdown h3 {
+  font-weight: 600;
+  margin-top: 2rem;
+  color: var(--ifm-color-primary);
+}
+
+/* Code blocks improvements */
+.prism-code {
+  border-radius: var(--ifm-code-border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .prism-code {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Inline code */
+code {
+  background: var(--ifm-code-background);
+  border: 1px solid rgba(91, 76, 219, 0.15);
+  border-radius: 0.25rem;
+  padding: 0.15rem 0.4rem;
+  font-size: var(--ifm-code-font-size);
+}
+
+/* Tables */
+.markdown table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.markdown th {
+  background: var(--ifm-color-primary);
+  color: white;
+  font-weight: 600;
+  padding: 1rem;
+}
+
+.markdown td {
+  padding: 0.75rem 1rem;
+}
+
+/* Admonitions (callouts) */
+.admonition {
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Hero section on homepage */
+.hero {
+  background: linear-gradient(135deg, #5b4cdb 0%, #8b7dff 100%);
+  padding: 4rem 2rem;
+}
+
+.hero__title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: white;
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Navbar improvements */
+.navbar {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+[data-theme='dark'] .navbar {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Sidebar */
+.menu__link {
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.menu__link:hover {
+  background: rgba(91, 76, 219, 0.08);
+}
+
+.menu__link--active {
+  background: rgba(91, 76, 219, 0.15);
+  font-weight: 600;
+}
+
+/* Buttons */
+.button {
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, #5b4cdb 0%, #7366ff 100%);
+  border: none;
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(91, 76, 219, 0.3);
+}
+
+/* Footer */
+.footer {
+  background: var(--ifm-navbar-background-color);
+  padding: 3rem 0;
+}
+
+/* Responsive improvements */
+@media (max-width: 996px) {
+  :root {
+    --ifm-h1-font-size: 2rem;
+  }
+
+  .hero__title {
+    font-size: 2.5rem;
+  }
 }
