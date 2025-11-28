@@ -1,0 +1,12 @@
+{
+  "nameHash": "12345678901234567890",
+  "nationality": 840,
+  "documentType": 1,
+  "documentHash": "98765432109876543210",
+  "issuerSignature": "11111111111111111111",
+  "subjectDID": "22222222222222222222",
+  "allowedNationalities": [840, 124, 826, 276, 250, 380, 392, 36, 554, 756, 528, 56, 40, 620, 724, 578, 752, 208, 372, 442],
+  "allowedDocTypes": 7,
+  "credentialSchemaHash": "33333333333333333333",
+  "issuerDID": "44444444444444444444"
+}

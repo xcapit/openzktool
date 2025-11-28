@@ -1,0 +1,16 @@
+{
+  "employerHash": "12345678901234567890",
+  "jobTitleHash": "98765432109876543210",
+  "startYear": 2020,
+  "startMonth": 6,
+  "annualSalary": 12000000,
+  "employmentStatus": 1,
+  "industryCode": 54,
+  "credentialSignature": "11111111111111111111",
+  "currentYear": 2024,
+  "currentMonth": 11,
+  "minSalary": 10000000,
+  "minTenureMonths": 24,
+  "requiredStatus": 1,
+  "allowedIndustries": [54, 51, 52, 62, 61, 0, 0, 0, 0, 0]
+}

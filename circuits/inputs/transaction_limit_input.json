@@ -1,0 +1,7 @@
+{
+  "amount": 500000,
+  "dailyTotal": 2000000,
+  "minAmount": 100,
+  "maxAmount": 1000000,
+  "dailyLimit": 5000000
+}

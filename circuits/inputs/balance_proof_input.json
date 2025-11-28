@@ -1,0 +1,5 @@
+{
+  "balance": 500000,
+  "minBalance": 100000,
+  "maxBalance": 1000000
+}

@@ -1,0 +1,12 @@
+{
+  "birthYear": 1995,
+  "birthMonth": 3,
+  "birthDay": 20,
+  "credentialHash": "12345678901234567890123456789012",
+  "issuerCommitment": "98765432109876543210987654321098",
+  "currentYear": 2024,
+  "currentMonth": 11,
+  "currentDay": 26,
+  "minAge": 21,
+  "trustedIssuerRoot": "11111111111111111111111111111111"
+}
