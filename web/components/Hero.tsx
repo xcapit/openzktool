@@ -60,7 +60,7 @@ export default function Hero() {
             🎬 Watch Demo (5 min)
           </a>
           <a
-            href="https://github.com/fboiero/stellar-privacy-poc"
+            href="https://github.com/xcapit/openzktool"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 glass-strong border border-stellar-purple hover:bg-stellar-purple hover:bg-opacity-20 rounded-lg font-semibold transition-all text-white ripple hover-lift"
@@ -68,7 +68,7 @@ export default function Hero() {
             🚀 View on GitHub
           </a>
           <a
-            href="https://github.com/fboiero/stellar-privacy-poc/blob/main/README.md"
+            href="https://xcapit.github.io/openzktool/"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 glass-strong border border-zk-green hover:bg-zk-green hover:bg-opacity-20 rounded-lg font-semibold transition-all text-white ripple hover-lift"
@@ -80,16 +80,16 @@ export default function Hero() {
         {/* Key metrics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
           <div className="text-center glass p-6 rounded-xl hover-lift fade-in-up stagger-1">
-            <div className="text-3xl md:text-4xl font-bold text-zk-green mb-2 pulse">~800 bytes</div>
-            <div className="text-gray-400">Proof Size</div>
+            <div className="text-3xl md:text-4xl font-bold text-zk-green mb-2 pulse">11</div>
+            <div className="text-gray-400">Circuit Templates</div>
           </div>
           <div className="text-center glass p-6 rounded-xl hover-lift fade-in-up stagger-2">
-            <div className="text-3xl md:text-4xl font-bold text-stellar-blue mb-2 pulse">586</div>
-            <div className="text-gray-400">Constraints</div>
+            <div className="text-3xl md:text-4xl font-bold text-stellar-blue mb-2 pulse">74</div>
+            <div className="text-gray-400">SDK Tests</div>
           </div>
           <div className="text-center glass p-6 rounded-xl hover-lift fade-in-up stagger-3">
-            <div className="text-3xl md:text-4xl font-bold text-zk-green mb-2 pulse">&lt;50ms</div>
-            <div className="text-gray-400">Verification</div>
+            <div className="text-3xl md:text-4xl font-bold text-zk-green mb-2 pulse">W3C VC</div>
+            <div className="text-gray-400">Credentials Support</div>
           </div>
           <div className="text-center glass p-6 rounded-xl hover-lift fade-in-up stagger-4">
             <div className="text-3xl md:text-4xl font-bold text-stellar-blue mb-2 pulse">2 Chains</div>

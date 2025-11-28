@@ -1,6 +1,8 @@
 import Hero from '@/components/Hero'
 import Demo from '@/components/Demo'
 import Features from '@/components/Features'
+import VerifiableCredentials from '@/components/VerifiableCredentials'
+import CircuitTemplates from '@/components/CircuitTemplates'
 import Interoperability from '@/components/Interoperability'
 import UseCases from '@/components/UseCases'
 import Architecture from '@/components/Architecture'
@@ -16,6 +18,8 @@ export default function Home() {
       <Hero />
       <Demo />
       <Features />
+      <VerifiableCredentials />
+      <CircuitTemplates />
       <Interoperability />
       <Architecture />
       <UseCases />
