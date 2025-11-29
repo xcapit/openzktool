@@ -11,7 +11,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://github.com/fboiero/stellar-privacy-poc"
+                href="https://github.com/xcapit/openzktool"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-stellar-purple transition-colors"
@@ -40,17 +40,17 @@ export default function Footer() {
             <h4 className="text-lg font-bold mb-4">Resources</h4>
             <ul className="space-y-2">
               <li>
-                <a href="https://github.com/fboiero/stellar-privacy-poc" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-stellar-purple transition-colors">
+                <a href="https://github.com/xcapit/openzktool" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-stellar-purple transition-colors">
                   Documentation
                 </a>
               </li>
               <li>
-                <a href="https://github.com/fboiero/stellar-privacy-poc#-quick-start" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-stellar-purple transition-colors">
+                <a href="https://github.com/xcapit/openzktool#-quick-start" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-stellar-purple transition-colors">
                   Quick Start
                 </a>
               </li>
               <li>
-                <a href="https://github.com/fboiero/stellar-privacy-poc/tree/main/circuits" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-stellar-purple transition-colors">
+                <a href="https://github.com/xcapit/openzktool/tree/main/circuits" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-stellar-purple transition-colors">
                   Circuit Examples
                 </a>
               </li>
@@ -72,12 +72,12 @@ export default function Footer() {
             <h4 className="text-lg font-bold mb-4">Community</h4>
             <ul className="space-y-2">
               <li>
-                <a href="https://github.com/fboiero/stellar-privacy-poc/issues" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-stellar-purple transition-colors">
+                <a href="https://github.com/xcapit/openzktool/issues" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-stellar-purple transition-colors">
                   GitHub Issues
                 </a>
               </li>
               <li>
-                <a href="https://github.com/fboiero/stellar-privacy-poc/discussions" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-stellar-purple transition-colors">
+                <a href="https://github.com/xcapit/openzktool/discussions" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-stellar-purple transition-colors">
                   Discussions
                 </a>
               </li>
@@ -103,7 +103,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-4 text-sm text-gray-400">
             <a
-              href="https://github.com/fboiero/stellar-privacy-poc/blob/main/LICENSE"
+              href="https://github.com/xcapit/openzktool/blob/main/LICENSE"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-stellar-purple transition-colors"

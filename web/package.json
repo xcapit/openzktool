@@ -1,6 +1,6 @@
 {
   "name": "openzktool-web",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Open-source toolkit for zero-knowledge proofs on Stellar Soroban and Ethereum. Privacy-preserving dApps made easy.",
   "keywords": [
     "zero-knowledge",
@@ -22,7 +22,7 @@
   "license": "AGPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fboiero/stellar-privacy-poc.git",
+    "url": "https://github.com/xcapit/openzktool.git",
     "directory": "web"
   },
   "homepage": "https://openzktool.vercel.app",

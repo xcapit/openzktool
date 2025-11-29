@@ -114,7 +114,7 @@ export default function FAQ() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://github.com/fboiero/stellar-privacy-poc/discussions"
+              href="https://github.com/xcapit/openzktool/discussions"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 bg-stellar-purple hover:bg-opacity-80 rounded-lg font-semibold transition-all glow-box ripple"
@@ -128,7 +128,7 @@ export default function FAQ() {
               📧 Email Us
             </a>
             <a
-              href="https://github.com/fboiero/stellar-privacy-poc/blob/main/README.md"
+              href="https://github.com/xcapit/openzktool/blob/main/README.md"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 glass border border-zk-green hover:bg-zk-green hover:bg-opacity-20 rounded-lg font-semibold transition-all ripple"

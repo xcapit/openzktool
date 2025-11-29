@@ -56,7 +56,7 @@
       "name": "Documentation",
       "short_name": "Docs",
       "description": "Read the complete documentation",
-      "url": "https://github.com/fboiero/stellar-privacy-poc/blob/main/README.md",
+      "url": "https://github.com/xcapit/openzktool/blob/main/README.md",
       "icons": [
         {
           "src": "/icon-192.png",

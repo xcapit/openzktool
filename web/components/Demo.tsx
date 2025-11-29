@@ -131,7 +131,7 @@ export default function Demo() {
             </div>
             <div className="flex gap-4">
               <a
-                href="https://github.com/fboiero/stellar-privacy-poc/blob/main/DEMO_README.md"
+                href="https://github.com/xcapit/openzktool/blob/main/DEMO_README.md"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 glass border border-stellar-blue hover:bg-stellar-blue hover:bg-opacity-20 rounded-lg font-semibold transition-all ripple"
@@ -139,7 +139,7 @@ export default function Demo() {
                 📖 Quick Start
               </a>
               <a
-                href="https://github.com/fboiero/stellar-privacy-poc/blob/main/DEMO_GUIDE_COMPLETE.md"
+                href="https://github.com/xcapit/openzktool/blob/main/DEMO_GUIDE_COMPLETE.md"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 bg-stellar-purple hover:bg-opacity-80 rounded-lg font-semibold transition-all glow-box ripple"
