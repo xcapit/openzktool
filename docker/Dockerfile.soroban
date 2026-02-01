@@ -6,7 +6,7 @@
 # - Soroban SDK
 # - wasm32-unknown-unknown target
 
-FROM rust:1.75-slim
+FROM rust:1.93-slim
 
 LABEL maintainer="OpenZKTool <fboiero@frvm.utn.edu.ar>"
 LABEL description="Stellar Soroban contract development and deployment"
